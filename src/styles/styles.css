@@ -1,0 +1,151 @@
+/* Modern Reset */
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+#root {
+  display: grid;
+  grid-template-columns: 400px 1fr;
+
+  font-family: sans-serif;
+}
+
+h1,
+h2 {
+  margin-bottom: 0.5rem;
+}
+
+.center {
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.light-shadow {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12), 0 3px 9px rgba(0, 0, 0, 0.08);
+}
+
+.contacts-section {
+  height: 100vh;
+  padding: 2rem 1rem;
+
+  overflow-y: hidden;
+}
+
+.contacts-section header {
+  padding: 0.5rem 0;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+
+  border-bottom: 1px solid #1b1b1b;
+}
+
+.contacts-list > li + li {
+  border-top: 1px solid #cbcbcb;
+}
+
+.contacts-list > li {
+  padding: 1rem 0;
+
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 1rem;
+}
+
+/* VIEW SECTION */
+
+.view-section {
+  padding: 2rem 0;
+}
+
+.form-stack > * + * {
+  margin-top: 0.5rem;
+}
+
+.form-stack > label {
+  display: block;
+}
+
+.form-stack > input {
+  width: 100%;
+}
+
+.contact-form,
+.address-card {
+  padding: 2rem;
+}
+
+.contact-form h1 {
+  margin-bottom: 1rem;
+}
+
+.contact-form label {
+  font-weight: bold;
+}
+
+.contact-form .checkbox-section {
+  padding: 0.25rem 0;
+}
+
+.contact-form .actions-section {
+  display: grid;
+  grid-auto-flow: column;
+  justify-content: right;
+  gap: 0.5rem;
+}
+
+.address-card h2 {
+  font-size: 1.15rem;
+}
