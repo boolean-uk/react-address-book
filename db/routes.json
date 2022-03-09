@@ -1,4 +1,0 @@
-{
-  "/contacts": "/contacts?_expand=address",
-  "/contacts/*": "/contacts/$1?_expand=address"
-}
