@@ -2,7 +2,11 @@
 
 ![React Address Book](./images/address-book.gif)
 
-In this exercise you are going to practice `fetch` and `CRUD` with a large form and multiple endpoints.
+In this exercise you are going to practice:
+- Fetching data from a server using `useEffect` and `fetch`
+- Implementing a controlled form
+- Posting data to a server using `fetch`
+- Implementing multiple routes
 
 Some of the components have been created for you.
 
