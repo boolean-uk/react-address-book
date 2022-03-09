@@ -11,7 +11,7 @@ Some of the components have been created for you.
 1. Fork and clone this repository
 2. `npm install`
 3. `npm run start`
-5. Run json-server through a new terminal: `json-server --watch db/db.json --routes db/routes.json`
+5. Run json-server through a new terminal: `json-server --watch db/db.json`
 
 ## Requirements
 - A user can **view a list of contacts** when the app loads. 
