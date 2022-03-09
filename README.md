@@ -14,10 +14,10 @@ Some of the components have been created for you.
 5. Run json-server through a new terminal: `json-server --watch db/db.json`
 
 ## Requirements
-- A user can **view a list of contacts** when the app loads. 
+- A user can **view a list of contacts** at "/" when the app loads. 
 	- Each contact should shown first name and last name
 	- The list of contacts should be retrieved from the database
-- A user can **create a contact** via a form when the "New Contact" button is clicked
+- A user can **create a contact** at "/contacts/new" via a form when the "New Contact" button is clicked
 	- The created contact should have:
 		- first name
 		- last name
@@ -28,7 +28,7 @@ Some of the components have been created for you.
 	- The created contact should be saved in the database
 	- The created contact should be added to the contacts list
 	- A link underneath the form should allow the user to return to the contacts list
-- A use **view a specific contact** by selecting a view button from the contacts list
+- A use **view a specific contact** at "/contacts/:id" by selecting a view button from the contacts list
 	- The view contact page should display all the details of the contact 
 	- The specific contact should be loaded from the database based on it's id
 
