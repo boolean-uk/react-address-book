@@ -33,11 +33,8 @@ Some of the components have been created for you.
 	- The specific contact should be loaded from the database based on it's id
 
 ## Tips
-
 - Check `db/db.json` and think about which URLs you are going to need when creating your `fetch` functions.
-- Use `state` to keep track of changes and render the UI.
-- **When writing the "POST" requests you need to do one before the other, look at `addressId` in `contacts` to figure it out!**
-
+- You could use a tool such as Insomnia to check your routes before you start coding
 
 ## Extension 1
 - When a user submits a form they should be automatically redirected to see the changes
