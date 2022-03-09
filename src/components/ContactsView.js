@@ -15,7 +15,6 @@ function ContactsView() {
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <h3>{contact.type}</h3>
       <p>{contact.street} {contact.city}</p>
     </div>
   )
