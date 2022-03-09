@@ -37,6 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
+  padding:10px;
 }
 
 /* Make images easier to work with */
@@ -55,8 +56,7 @@ select {
 
 #root {
   display: grid;
-  grid-template-columns: 400px 1fr;
-
+  grid-template-columns: 300px 1fr;
   font-family: sans-serif;
 }
 
@@ -96,11 +96,14 @@ h2 {
   border-top: 1px solid #cbcbcb;
 }
 
+.contacts-list {
+  max-width: 400px;
+}
+
 .contacts-list > li {
   padding: 1rem 0;
-
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto;
   gap: 1rem;
 }
 
@@ -122,9 +125,8 @@ h2 {
   width: 100%;
 }
 
-.contact-form,
-.address-card {
-  padding: 2rem;
+.contact-form {
+  max-width: 400px;
 }
 
 .contact-form h1 {

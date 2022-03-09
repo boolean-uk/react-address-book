@@ -1,22 +1,30 @@
-import { useState } from "react";
-import ContactsList from "./components/ContactsList";
-import CreateContactForm from "./components/CreateContactForm";
-import "./styles/styles.css";
+import { useEffect, useState } from "react"
+import { Link, Route, Routes } from "react-router-dom"
+import ContactsList from "./components/ContactsList"
+import ContactsAdd from "./components/ContactsAdd"
+import ContactsView from "./components/ContactsView"
+import "./styles/styles.css"
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
-  const [hideForm, setHideForm] = useState(true);
-
-  // [TODO] Write a useEffect to fetch contacts here...
+  const [contacts, setContacts] = useState([])
+  
+  //TODO: Load all contacts on useEffect when component first renders
 
   return (
     <>
-      <ContactsList
-        contacts={contacts}
-        hideForm={hideForm}
-        setHideForm={setHideForm}
-      />
-      <main>{!hideForm && <CreateContactForm />}</main>
+      <nav>
+        <h2>Menu</h2>
+        <ul>
+          {/* TODO: Make these links */}
+          <li>Contacts List</li>
+          <li>Add New Contact</li>
+        </ul>
+      </nav>
+      <main>
+        <Routes>
+          {/* TODO: Add routes here  */}
+        </Routes>
+      </main>
     </>
-  );
+  )
 }
