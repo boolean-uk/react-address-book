@@ -57,15 +57,15 @@ Some of the components have been created for you.
 	- The updated contact should be saved in the database using a `PUT` or `PATCH` call to json-server
 	- The updated contact should be viewable in the contacts list
 
-## Extension 3
+## Extension 4
 - The user can **delete a contact** from the contacts list
 
-## Extension 4
+## Extension 5
 - A user can **see a loading spinner** when the initial list of contacts is being fetched from json-server
   - To test this, you can use Chrome Developer Tools to [throttle your network connection](https://developer.chrome.com/docs/devtools/network/reference/#throttling)
   - Note: Your solution should assume that the list of contacts returned from the server could be empty
 
-## Extension 5
+## Extension 6
 - A user can **view a list of meetings and create new meetings** for each contact at "/contact/:id/meetings"
   - From the contact view page, a new link should be added, "Meetings" which takes the user to a new page, rendered with a new `Meetings` component
   - When the component loads, a list of meetings arranged for that contact should be fetched from json-server
@@ -74,7 +74,7 @@ Some of the components have been created for you.
 - For this extension you will need to update the `db.json` file to store meeting objects. See the [json-server documentation](https://github.com/typicode/json-server#getting-started) for more details.
 - When you add meetings, you will need to "link them" to the specific contact by including the contact id in each meeting
   
-## Extension 6
+## Extension 7
 - A user can specify a contact type when adding a contact, `Work` or `Personal`. 
 - Update the contacts list and contact view to show the contact type. Display each type in a different style, or use conditional rendering to add a different icon or emoji next to the contact based on their type.
 - Add filter options to the contacts list so the user can toggle each contact type. Changing the filter should change the displayed contacts.

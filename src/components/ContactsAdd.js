@@ -14,7 +14,8 @@ function ContactsAdd({contacts, setContacts}) {
   })
 
   const [addContactForm, setAddContactForm] = useState(addContactFormEmpty)
-  console.log(addContactForm)
+
+  let navigate = useNavigate()
 
   const onFirstNameChange = (event) => {
     setAddContactForm({...addContactForm, firstName: event.target.value})
@@ -68,14 +69,10 @@ function ContactsAdd({contacts, setContacts}) {
     .then(jsonResponse => {
       setContacts([...contacts, jsonResponse])
       setAddContactForm(addContactFormEmpty)
+      navigate('/')
     })
 
   }
-
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
-
-
 
   return (
     <form className='form-stack contact-form' onSubmit={onFormSubmit}>
