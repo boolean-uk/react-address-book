@@ -9,8 +9,10 @@ export default function App() {
 	const [contacts, setContacts] = useState([]);
 	useEffect(() => {
 		fetch('http://localhost:4000/contacts')
-			.then(res => res.json())
-			.then(jsonResult => {setContacts(jsonResult)});
+			.then((res) => res.json())
+			.then((jsonResult) => {
+				setContacts(jsonResult);
+			});
 	}, []);
 	return (
 		<>
@@ -21,20 +23,20 @@ export default function App() {
 						<Link to='/'>Contacts List</Link>
 					</li>
 					<li>
-            <Link to='/contacts/add-new'>Add New Contact</Link>
-          </li>
+						<Link to='/contacts/add-new'>Add New Contact</Link>
+					</li>
 				</ul>
 			</nav>
 			<main>
 				<Routes>
-					<Route
-            path='/'
-            element={<ContactsList contacts={contacts} />} />
+					<Route path='/' element={<ContactsList contacts={contacts} />} />
 					<Route
 						path='/contacts/add-new'
-						element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />
-					<Route
-						path='/contacts/:id' element={<ContactsView />}/>
+						element={
+							<ContactsAdd contacts={contacts} setContacts={setContacts} />
+						}
+					/>
+					<Route path='/contacts/:id' element={<ContactsView />} />
 				</Routes>
 			</main>
 		</>
