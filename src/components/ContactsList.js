@@ -19,10 +19,9 @@ function ContactsList(props) {
               <p>
                 {firstName} {lastName}
               </p>
-              <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
-              </p>
+            
+              <Link to={`/contacts/${contact.id}`} state={{contact}} >View </Link>
+            
             </li>
           )
         })}

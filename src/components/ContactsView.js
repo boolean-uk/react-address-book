@@ -8,6 +8,15 @@ function ContactsView() {
   //With useEffect, load the contact when params changes
   //and update contact state
 
+  const params = useParams()
+  useEffect(function(){
+    fetch(`http://localhost:4000/contacts/${params.id}`)
+    .then(res => res.json())
+    .then(json => {
+      setContact(json)
+    })
+  },[params])
+
   if (!contact) {
     return <p>Loading</p>
   }
