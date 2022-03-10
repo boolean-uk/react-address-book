@@ -1,12 +1,16 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
 
-  //TODO: Get the contact to load from the params and fetch.
-  //With useEffect, load the contact when params changes
-  //and update contact state
+  const params = useParams()
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts/${params.id}`)
+    .then(response => response.json())
+    .then(json => setContact(json))
+  }, [params])
 
   if (!contact) {
     return <p>Loading</p>
@@ -16,6 +20,10 @@ function ContactsView() {
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street} {contact.city}</p>
+      {contact.email && <p>{contact.email}</p>}
+      {contact.linkedin && <p>{contact.linkedin}</p>}
+      {contact.twitter && <p>{contact.twitter}</p>}
+      <Link to={`/contacts/:id/meetings`}>Meetings</Link>
     </div>
   )
 }

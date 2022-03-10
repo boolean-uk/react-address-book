@@ -151,3 +151,21 @@ h2 {
 .address-card h2 {
   font-size: 1.15rem;
 }
+
+/* Extra */
+
+.contacts-list span {
+  padding: 1rem;
+}
+
+.spinner {
+  animation: rotate 2s linear infinite;
+  position: relative;
+  left: 50%; 
+ } 
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
