@@ -13,6 +13,26 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Nico",
+      "lastName": "Picchio",
+      "street": "Kingston Barn",
+      "city": "Newport",
+      "email": "nicolapicchio@gmail.com",
+      "linkedIn": "https://www.linkedin.com/in/nicolapicchio/",
+      "twitter": "nicopicchio",
+      "id": 3
+    },
+    {
+      "firstName": "Boris",
+      "lastName": "Johnson",
+      "street": "10 Downing Street",
+      "city": "City of Westminster London",
+      "email": "boris@stayathome.co.uk",
+      "linkedIn": "https://www.linkedin.com/in/bojo69",
+      "twitter": "bojo69",
+      "id": 4
     }
   ]
 }

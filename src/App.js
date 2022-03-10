@@ -6,13 +6,12 @@ import ContactsView from './components/ContactsView';
 import './styles/styles.css';
 
 export default function App() {
+	console.log('Rendering App')
 	const [contacts, setContacts] = useState([]);
 	useEffect(() => {
 		fetch('http://localhost:4000/contacts')
-			.then((res) => res.json())
-			.then((jsonResult) => {
-				setContacts(jsonResult);
-			});
+			.then(res => res.json())
+			.then(jsonResult => {setContacts(jsonResult)});
 	}, []);
 	return (
 		<>
@@ -20,20 +19,20 @@ export default function App() {
 				<h2>Menu</h2>
 				<ul>
 					<li>
-						<Link to="/">Contacts List</Link>
+						<Link to='/'>Contacts List</Link>
 					</li>
 					<li>
-            <Link to="/contacts/add-new">Add New Contact</Link>
+            <Link to='/contacts/add-new'>Add New Contact</Link>
           </li>
 				</ul>
 			</nav>
 			<main>
 				<Routes>
 					<Route
-            path="/"
+            path='/'
             element={<ContactsList contacts={contacts} />} />
 					<Route
-						path="/contacts/add-new"
+						path='/contacts/add-new'
 						element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />
 				</Routes>
 			</main>
