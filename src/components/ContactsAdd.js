@@ -3,19 +3,18 @@ import { useNavigate } from "react-router-dom";
 
 function ContactsAdd(props) {
 
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const { setContacts, contacts } = props
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  const navigate = useNavigate()
 
   const [addressData, setAddressData] = useState({ 
     firstName: "",
     lastName: "",
     street: "",
-    city: ""
+    city: "",
+    email: "",
+    linkedin: "",
+    twitter: "",
   })
 
   function handleSubmit(event) {
@@ -30,7 +29,10 @@ function ContactsAdd(props) {
       firstName: addressData.firstName,
       lastName: addressData.lastName,
       street: addressData.street,
-      city: addressData.city
+      city: addressData.city,
+      email: addressData.email,
+      linkedin: addressData.linkedin,
+      twitter: addressData.twitter
      })
    }
 
@@ -45,10 +47,14 @@ function ContactsAdd(props) {
         firstName: "",
         lastName: "",
         street: "",
-        city: ""
+        city: "",
+        email: "",
+        linkedin: "",
+        twitter: "",
       })
 
     })
+    navigate(`/`)
   }
 
   function handleChange(event){
@@ -68,6 +74,15 @@ function ContactsAdd(props) {
    if (inputName === "city") {
     setAddressData({...addressData, city: inputValue})
   }
+  if (inputName === "email") {
+    setAddressData({...addressData, email: inputValue})
+  }
+  if (inputName === "linkedin") {
+    setAddressData({...addressData, linkedin: inputValue})
+  }
+  if (inputName === "twitter") {
+    setAddressData({...addressData, twitter: inputValue})
+  }
   }
 
   return (
@@ -85,6 +100,15 @@ function ContactsAdd(props) {
 
       <label htmlFor="city">City:</label>
       <input id="city" value={addressData.city} name="city" type="text" required onChange={handleChange}/>
+
+      <label htmlFor="email">Email:</label>
+      <input id="email" value={addressData.email} name="email" type="text" required onChange={handleChange}/>
+
+      <label htmlFor="linkedin">LinkedIn:</label>
+      <input id="linkedin" value={addressData.linkedin} name="linkedin" type="text" required onChange={handleChange}/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" value={addressData.twitter} name="twitter" type="text" required onChange={handleChange}/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
