@@ -7,22 +7,23 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [counter,setCounter] = useState(0)
   
-  //TODO: Load all contacts on useEffect when component first renders
+  useEffect(() => contacts && fetch("http://localhost:4000/contacts")
+          .then(res => res.json())
+          .then(json => setContacts(() => json))
+          , [counter])
 
   return (
     <>
       <nav>
-        <h2>Menu</h2>
-        <ul>
-          {/* TODO: Make these links */}
-          <li>Contacts List</li>
-          <li>Add New Contact</li>
-        </ul>
+        <ContactsList contacts={contacts}/>
       </nav>
       <main>
         <Routes>
-          {/* TODO: Add routes here  */}
+          <Route path="/">Nowt</Route>
+          <Route path="/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts} setCounter={setCounter}/>}/>
+          <Route path="/:id" element={<ContactsView/>}/>
         </Routes>
       </main>
     </>

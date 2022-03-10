@@ -10,6 +10,7 @@ function ContactsList(props) {
     <>
       <header>
         <h2>Contacts</h2>
+        <button><Link to="/add">Add New Contact</Link></button>
       </header>
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
@@ -20,8 +21,9 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-                { /** TODO: Make a Link here to view contact */}
+              <Link to= {`/${contact.id}`}>
                 View
+              </Link>
               </p>
             </li>
           )
