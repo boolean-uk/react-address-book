@@ -6,7 +6,6 @@ import ContactsView from './components/ContactsView';
 import './styles/styles.css';
 
 export default function App() {
-	console.log('Rendering App')
 	const [contacts, setContacts] = useState([]);
 	useEffect(() => {
 		fetch('http://localhost:4000/contacts')
@@ -34,6 +33,8 @@ export default function App() {
 					<Route
 						path='/contacts/add-new'
 						element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />
+					<Route
+						path='/contacts/:id' element={<ContactsView />}/>
 				</Routes>
 			</main>
 		</>

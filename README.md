@@ -33,7 +33,7 @@ Some of the components have been created for you.
   - The add new contact form should be reset
 - A user can **view a specific contact** at "/contacts/:id" by pressing a "view" link from the contacts list
 	- The view contact page should display all the details of the contact
-	- The specific contact should be fetched from json-server based on it's id
+	- The specific contact should be fetched from json-server based on its id
 
 ## Tips
 - Check `db/db.json` and think about which URLs you are going to need when creating your `fetch` functions.
