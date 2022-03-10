@@ -8,6 +8,8 @@ function ContactsAdd(props) {
   const [lastName, setLastName] = useState("")
   const [street, setStreet] = useState("")
   const [city, setCity] = useState("")
+  const [contact, setContact] = useState("Email")
+  const [contactDetails, setContactDetails] = useState("")
 
   function handleFirstName(event) {
     const inputValue = event.target.value
@@ -29,6 +31,16 @@ function ContactsAdd(props) {
     setCity(inputValue)
   }
 
+  function handleContact(event) {
+    const inputValue = event.target.value
+    setContact(inputValue)
+  }
+
+  function handleContactDetails(event) {
+    const inputValue = event.target.value
+    setContactDetails(inputValue)
+  }
+
   function handleSubmit(event) {
     event.preventDefault()
     const options = {
@@ -41,6 +53,8 @@ function ContactsAdd(props) {
         lastName: lastName,
         street: street,
         city: city,
+        contact: contact,
+        contactDetails : contactDetails,
       }),
     }
 
@@ -54,6 +68,8 @@ function ContactsAdd(props) {
     setLastName("")
     setStreet("")
     setCity("")
+    setContact("Email")
+    setContactDetails("")
   }
 
   return (
@@ -97,6 +113,31 @@ function ContactsAdd(props) {
         type="text"
         value={city}
         onChange={handleCity}
+        required
+      />
+
+      <label>
+        Choose Method of Contact
+        <select
+          id="contact"
+          name="contact"
+          type="radio"
+          onChange={handleContact}
+          required
+        >
+          <option checked={contact === "email"}>Email</option>
+          <option checked={contact === "LinkedIn"}>LinkedIn</option>
+          <option checked={contact === "Twitter"}>Twitter</option>
+        </select>
+      </label>
+
+      <label htmlFor="contactDetails">{contact}</label>
+      <input
+        id="contactDetails"
+        name="contactDetails"
+        type={contact}
+        value={contactDetails}
+        onChange={handleContactDetails}
         required
       />
 

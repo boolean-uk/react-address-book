@@ -19,6 +19,11 @@ function ContactsView() {
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street} {contact.city}</p>
+      <br></br>
+      <h4>Contact details:</h4>
+      <br></br>
+      <p><strong>{contact.contact}:</strong></p>
+      <p>{contact.contactDetails}</p>
     </div>
   )
 }
