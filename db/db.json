@@ -13,16 +13,22 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    }
+  ],
+  "meetings": [
+    {
+      "personId": 1,
+      "date": "2022-03-05",
+      "time": "20:37",
+      "location": "London",
+      "id": 1
     },
     {
-      "firstName": "Jeremy",
-      "lastName": "Corbyn",
-      "street": "High Row",
-      "city": "Islington",
-      "email": "jezza@corbs.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 3
+      "personId": 1,
+      "date": "2022-03-12",
+      "time": "20:48",
+      "location": "Glasgow",
+      "id": 2
     }
   ]
 }
