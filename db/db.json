@@ -1,79 +1,22 @@
 {
   "contacts": [
     {
-      "firstName": "John Wick Johns Johns Rupert",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London",
-      "contact": "LinkedIn",
-      "contactDetails": "works@emial.com",
-      "id": 1
-    },
-    {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
-    },
-    {
-      "firstName": "Bob",
-      "lastName": "Marley",
-      "street": "13 lane",
-      "city": "wells",
-      "id": 3
-    },
-    {
-      "firstName": "steve",
-      "lastName": "yoyo",
-      "street": "14 avenue",
-      "city": "wells",
-      "contact": "LinkedIn",
-      "id": 4
-    },
-    {
       "firstName": "DANIEL",
       "lastName": "MCCARTHY",
-      "street": "9",
-      "city": "savignac",
-      "contact": "Twitter",
-      "id": 5
-    },
-    {
-      "firstName": "ava James",
-      "lastName": "yoyo",
-      "street": "15",
-      "city": "rose",
+      "street": "13 PRIEST ROW",
+      "city": "WELLS",
       "contact": "Email",
-      "contactDetails": "bak@idjw.com",
-      "id": 6
+      "contactDetails": "dan.mc.carthy@outlook.com",
+      "id": 2
     },
     {
-      "firstName": "jacob",
-      "lastName": "brown",
-      "street": "15",
-      "city": "wells",
-      "contact": "Twitter",
-      "contactDetails": "yop@emisna",
-      "id": 7
-    },
-    {
-      "firstName": "dasc",
-      "lastName": "ascas",
-      "street": "ascac",
-      "city": "casc",
-      "contact": "LinkedIn",
-      "contactDetails": "ascaca",
-      "id": 8
-    },
-    {
-      "firstName": "fewwef",
-      "lastName": "wfewef",
-      "street": "ewfw",
-      "city": "ewffw",
-      "contact": "LinkedIn",
-      "contactDetails": "fwefwe",
-      "id": 9
+      "firstName": "DANIELAXAzax",
+      "lastName": "MCCARTHY",
+      "street": "13 PRIEST ROW",
+      "city": "WELLS",
+      "contact": "Email",
+      "contactDetails": "dan.mc.carthy@outlook.com",
+      "id": 5
     }
   ]
 }
