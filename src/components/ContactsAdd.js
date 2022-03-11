@@ -17,12 +17,20 @@ function ContactsAdd(props) {
     twitter: "",
   })
 
+  // This populates the form if the location state is not undefined
+  // and runs again when the location state is updated
   useEffect(() => {
     if(location.state) {
       const {contact} = location.state
       setAddressData(contact)
+      console.log('what is contact', contact)
     }
   }, [location] )
+
+  // The handleSubmit function now does a PATCH if the addressData is 
+  // populated. This maps through the contacts array, checks if the 
+  // ID matches, if it does it sets the value to the JSON returned by the
+  // server, otherwise it sets it to whatever was there unaltered
 
   function handleSubmit(e) {
     e.preventDefault()
@@ -36,13 +44,18 @@ function ContactsAdd(props) {
       })
         .then((res) => res.json())
         .then((json) => {
-          const editedAddress = contacts.map((contact) =>
+          const editedAddress = contacts.map(contact =>
             contact.id === json.id ? json : contact
           )
           setContacts(editedAddress)
           navigate("/")
         })
     } else {
+
+      // Here the fetch is called if the ID field is empty (and therefore the
+      // rest of them will be too) and it POSTS the contents of the form 
+      // to the server and sets the value of contacts to a copy of the old array
+      // with the new data added
       fetch("http://localhost:4000/contacts", {
         method: "POST",
         headers: {
@@ -58,7 +71,8 @@ function ContactsAdd(props) {
         })
     }
   }
-
+      // I trimmed a load out of here by replacing the if statements
+      // with the e.target.name key in [] so that this is dynamic too
   const handleChange = (e) => {
     setAddressData({ ...addressData, [e.target.name]: e.target.value })
   }

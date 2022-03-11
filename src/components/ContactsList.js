@@ -2,10 +2,27 @@ import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
 function ContactsList(props) {
-  
-  const { contacts } = props
+  const { contacts, setContacts } = props
 
-  
+  const handleDelete = (contact) => {
+    console.log("delete me")
+    if (contact.id) {
+      fetch(`http://localhost:4000/contacts/${contact.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(contacts),
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          const updatedContacts = contacts.filter(
+            (record) => record.id !== contact.id
+          )
+          setContacts(updatedContacts)
+        })
+    }
+  }
 
   return (
     <>
@@ -20,8 +37,22 @@ function ContactsList(props) {
               <p>
                 {firstName} {lastName}
               </p>
-              <Link to={`/contacts/${contact.id}`} state={{contact}} >View </Link>
-              <Link to={`/contacts/add`} state={{contact}} >Edit</Link>
+              <Link to={`/contacts/${contact.id}`} state={{ contact }}>
+                {" "}
+                View{" "}
+              </Link>
+              <Link to={`/contacts/edit`} state={{ contact }}>
+                {" "}
+                Edit{" "}
+              </Link>
+              <Link
+                to={`/`}
+                state={{ contact }}
+                onClick={() => handleDelete(contact)}
+              >
+                {" "}
+                Delete{" "}
+              </Link>
             </li>
           )
         })}
