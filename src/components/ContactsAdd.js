@@ -56,6 +56,7 @@ function ContactsAdd(props) {
         city: city,
         contact: contact,
         contactDetails : contactDetails,
+        meetings: []
       }),
     }
 

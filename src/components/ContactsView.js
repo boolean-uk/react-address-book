@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
+import { Bars } from 'react-loader-spinner'
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
@@ -12,7 +14,7 @@ function ContactsView() {
   }, [params])
 
   if (!contact) {
-    return <p>Loading</p>
+    return (<Bars/>)
   }
 
   return (
@@ -24,6 +26,7 @@ function ContactsView() {
       <br></br>
       <p><strong>{contact.contact}:</strong></p>
       <p>{contact.contactDetails}</p>
+      <Link to={`/contact/${contact.id}/meetings`}>Meetings</Link>
     </div>
   )
 }
