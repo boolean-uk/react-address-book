@@ -15,7 +15,7 @@ Some of the components have been created for you.
 1. Fork and clone this repository
 2. `npm install`
 3. `npm start`
-4. Start json-server. In a new terminal: `npx json-server -p 4000 --watch db/db.json`
+4. Start json-server. In a new terminal: `npx json-server -p 4000 db/db.json`
 5. Visit localhost:4000/contacts to make sure your json-server is running
 
 ## Requirements
@@ -72,6 +72,7 @@ Some of the components have been created for you.
   - A form at the top of the list should allow the user to add new meetings. Each meeting should contain a date, a time and a location.
   - New meetings should be saved using json-server
 - For this extension you will need to update the `db.json` file to store meeting objects. See the [json-server documentation](https://github.com/typicode/json-server#getting-started) for more details. 
+- When fetching meetings from the server, you should load only meetings for that specific contact. You can do this through [json-server filters](https://github.com/typicode/json-server#filter)
 - When you add meetings, you will need to "link them" to the specific contact by including the contact id in each meeting
 - Note although it's possible to embed the meetings array inside the contact object in json-server, the intention of this extension is to practice `useEffect` with a dependency on a prop, so you should represent the meetings as a seperate resource inside json-serer.
   
