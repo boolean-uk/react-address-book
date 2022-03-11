@@ -20,6 +20,9 @@ export default function App() {
           <li>Add New Contact</li>
         </ul>
       </nav>
+      <div>
+        Content
+      </div>
       <main>
         <Routes>
           {/* TODO: Add routes here  */}
