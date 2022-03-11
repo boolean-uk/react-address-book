@@ -3,9 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 function ContactsAdd (props) {
   const navigate = useNavigate()
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const { setContacts, contacts } = props
   const [formData, setForm] = useState({
     firstName: '',
@@ -19,17 +16,11 @@ function ContactsAdd (props) {
 
   function handleChange (e) {
     const { name, value } = e.target
-    setForm(x => {
-      return {
-        ...x,
-        [name]: value
-      }
-    })
+    setForm(x => { return { ...x, [name]: value } })
   }
 
   function handleSubmit (e) {
     e.preventDefault()
-    console.log(formData)
     const options = {
       method: 'POST',
       headers: {
@@ -40,7 +31,6 @@ function ContactsAdd (props) {
     fetch('http://localhost:4000/contacts', options)
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         setContacts([...contacts, res])
         setForm({
           firstName: '',
@@ -55,8 +45,6 @@ function ContactsAdd (props) {
       })
 
   }
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
 
   return (
     <form className="form-stack contact-form" onSubmit={ handleSubmit }>

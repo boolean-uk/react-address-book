@@ -3,10 +3,6 @@ import { useParams, Link } from "react-router-dom"
 
 function ContactsView () {
   const [contact, setContact] = useState(false)
-
-  //TODO: Get the contact to load from the params and fetch.
-  //With useEffect, load the contact when params changes
-  //and update contact state
   const params = useParams()
 
   useEffect(() => {
@@ -18,7 +14,7 @@ function ContactsView () {
   }, [params])
 
   if (!contact) {
-    return <p>Loading</p>
+    return <div className="spinner-border"></div>
   }
 
   return (
@@ -28,7 +24,10 @@ function ContactsView () {
       <p>LinkedIn: { contact.linkedIn }</p>
       <p>Twitter: { contact.twitter }</p>
       <p>Email: { contact.email }</p>
-      <Link to={ `/contact/${contact.id}/edit` } >Edit</Link>
+      <Link to={ `/contact/${contact.id}/edit` } >(Edit)</Link>
+      <Link to={ `/contact/${contact.id}/delete` }>(Delete)</Link>
+      <br />
+      <Link to={ `/contact/${contact.id}/meeting` } >(Meetings)</Link>
     </div>
   )
 }

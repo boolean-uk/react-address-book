@@ -5,7 +5,7 @@
       "firstName": "John",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "Amman"
     },
     {
       "id": 2,
@@ -15,38 +15,93 @@
       "city": "London"
     },
     {
-      "firstName": "hoga",
-      "lastName": "boga",
+      "firstName": "Omar",
+      "lastName": "Alsyouf",
       "street": "192, manor lane",
-      "city": "Amman",
+      "city": "London",
+      "email": "omaralsoyouf@gmail.com",
+      "linkedIn": "phew ",
+      "twitter": "oioioioioioi",
+      "id": 3
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "userId": 1,
+      "date": "30/march/2022",
+      "time": "05:00 pm",
+      "location": "london"
+    },
+    {
+      "userId": 1,
+      "date": "30/march/2022",
+      "time": "05:00 pm",
+      "location": "london",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "date": "30/march/3022",
+      "time": "05:00 pm",
+      "location": "n",
       "id": 3
     },
     {
-      "firstName": "barry",
-      "lastName": "hughs",
-      "street": "barry rd",
-      "city": "new castle",
+      "userId": "3",
+      "subject": "visit your friend",
+      "date": "today",
+      "time": "5 pm",
+      "location": "London ",
+      "id": 4
+    },
+    {
+      "userId": "1",
+      "subject": "visit your friend",
+      "date": "today",
+      "time": "5 pm",
+      "location": "London ",
+      "id": 5
+    },
+    {
+      "userId": "1",
+      "subject": "visit your friend",
+      "date": "today",
+      "time": "5 pm",
+      "location": "London ",
       "id": 6
     },
     {
-      "firstName": "Omar",
-      "lastName": "Alsyouf",
-      "street": "192, manor lane",
-      "city": "London",
-      "email": "omaralsoyouf@gmail.com",
-      "linkedIn": "fuck all",
-      "twitter": "best guy ever",
-      "id": 7
+      "userId": "1",
+      "subject": "visit your friend",
+      "date": "today",
+      "time": "5 pm",
+      "location": "London ",
+      "id": 8
     },
     {
-      "firstName": "Omar",
-      "lastName": "Alsyouf",
-      "street": "192, manor lane",
-      "city": "London",
-      "email": "omaralsoyouf@gmail.com",
-      "linkedIn": "alsyouf omar",
-      "twitter": "hihihihihi",
-      "id": 8
+      "userId": "3",
+      "subject": "nothing really",
+      "date": "tomorrow",
+      "time": "7 in the morning",
+      "location": "milano",
+      "id": 9
+    },
+    {
+      "userId": "4",
+      "subject": "visiting a mate",
+      "date": "anytime",
+      "time": "anytime",
+      "location": "anywhere",
+      "id": 10
+    },
+    {
+      "userId": "3",
+      "subject": "doing fuck all",
+      "date": "next week",
+      "time": "in the morning",
+      "location": "london",
+      "id": 11
     }
   ]
 }

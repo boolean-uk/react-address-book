@@ -15,37 +15,30 @@ function ContactsEdit (props) {
   })
 
   const [contact, setContact] = useState(false)
-  const { setContacts, contacts } = props
+  const { setContacts } = props
   useEffect(() => {
     fetch(`http://localhost:4000/contacts/${params.id}`)
       .then(res => res.json())
       .then(res => {
-        console.log('hey am contact', res)
         setContact(res)
         setForm(res)
       })
     //note
     //the params var that should be in the dependences array caoused a memory leack 
-    //(unmounted components) and instead of returning cleaning function I removed it
+    //(unmounted components) and instead of returning a cleaning function I removed it
   }, [])
 
   function handleChange (e) {
     const { name, value } = e.target
-    setForm(x => {
-      return {
-        ...x,
-        [name]: value
-      }
-    })
+    setForm(x => { return { ...x, [name]: value } })
   }
 
   if (!contact) {
-    return <p>Loading</p>
+    return <div className="spinner-border"></div>
   }
 
   function handleSubmit (e) {
     e.preventDefault()
-    console.log(formData)
     const options = {
       method: 'PATCH',
       headers: {
@@ -56,7 +49,6 @@ function ContactsEdit (props) {
     fetch(`http://localhost:4000/contacts/${params.id}`, options)
       .then(res => res.json())
       .then(res => {
-        console.log(res)
         setContacts(x => x.map(c => c.id === params.id ? res : c))
         setForm({
           firstName: '',
@@ -71,12 +63,10 @@ function ContactsEdit (props) {
       })
 
   }
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
 
   return (
     <form className="form-stack contact-form" onSubmit={ handleSubmit }>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input id="firstName" name="firstName" type="text" onChange={ handleChange }
@@ -108,7 +98,7 @@ function ContactsEdit (props) {
 
       <div className="actions-section">
         <button className="button blue" type="submit" >
-          Create
+          Save
         </button>
       </div>
     </form>
