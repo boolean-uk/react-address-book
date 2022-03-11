@@ -1,16 +1,12 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom"
 
-function ContactsAdd(props) {
 
-  let navigate = useNavigate()
-  const { setContacts, contacts } = props
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
+function ContactsEdit(props) {
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+ let navigate = useNavigate()
+  const params = useParams()
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -22,6 +18,16 @@ function ContactsAdd(props) {
     twitter: ''
   })
 
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts/${params.id}`)
+      .then(response => response.json())
+      .then(response => {
+        setFormData(response)
+      })
+  }, [])
+
+  const { setContacts } = props
+
   function handleChange(event) {
     const { name, value } = event.target
     setFormData(preVal => {
@@ -31,40 +37,39 @@ function ContactsAdd(props) {
 
   function handleSubmit(event) {
     event.preventDefault()
-    console.log(formData)
-
+    console.log("this is formData:", formData)
 
     const options = {
-      method: 'POST',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData)
     }
 
-    fetch('http://localhost:4000/contacts', options)
-      .then(response => response.json())
-      .then(response => {
-
-        console.log("Created contact", response)
-        setContacts([...contacts, response])
-        setFormData({
-          firstName: '',
-          lastName: '',
-          street: '',
-          city: '',
-          email: '',
-          linkedIn: '',
-          twitter: ''
-        })
-        navigate('/')
+    fetch(`http://localhost:4000/contacts/${params.id}`, options)
+    .then(response => response.json())
+    .then(response => {
+      console.log(response)
+      setContacts(preVal => preVal.map(contact => contact.id === params.id ? response : contact))
+      setFormData({
+        firstName: '',
+        lastName: '',
+        street: '',
+        city: '',
+        email: '',
+        linkedIn: '',
+        twitter: ''
       })
+      navigate('/')
+      
+    })
   }
 
   return (
     <form onSubmit={handleSubmit}
       className="form-stack contact-form">
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input id="firstName" name="firstName" type="text"
@@ -96,11 +101,11 @@ function ContactsAdd(props) {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Save
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default ContactsEdit

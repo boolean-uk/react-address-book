@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
@@ -22,14 +23,20 @@ useEffect(() => {
 
 
   if (!contact) {
-    return <p>Loading</p>
+    return <div className="spinner-border"></div>
   }
 
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
+      <p>{contact.street}, {contact.city}</p>
+      <p>{contact.email}</p>
+      <p>{contact.linkedIn}</p>
+      <p>{contact.twitter}</p>
+      <br/>
+      <p><Link to={`/contact/${contact.id}/meetings`}>Meetings</Link></p>
     </div>
+    
   )
 }
 
