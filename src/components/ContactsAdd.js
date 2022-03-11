@@ -17,8 +17,8 @@ function ContactsAdd(props) {
     twitter: "",
   })
 
-  function handleSubmit(event) {
-    event.preventDefault()
+  function handleSubmit(e) {
+    e.preventDefault()
 
     const options = {
      method: 'POST',
@@ -57,32 +57,8 @@ function ContactsAdd(props) {
     navigate(`/`)
   }
 
-  function handleChange(event){
-
-   const inputName = event.target.name
-   const inputValue = event.target.value
-   
-   if (inputName === "firstName") {
-     setAddressData({...addressData, firstName: inputValue})
-   }
-   if (inputName === "lastName") {
-     setAddressData({...addressData, lastName: inputValue})
-   }
-   if (inputName === "street") {
-     setAddressData({...addressData, street: inputValue})
-   }
-   if (inputName === "city") {
-    setAddressData({...addressData, city: inputValue})
-  }
-  if (inputName === "email") {
-    setAddressData({...addressData, email: inputValue})
-  }
-  if (inputName === "linkedin") {
-    setAddressData({...addressData, linkedin: inputValue})
-  }
-  if (inputName === "twitter") {
-    setAddressData({...addressData, twitter: inputValue})
-  }
+  const handleChange = (e) => {
+  setAddressData({...addressData, [e.target.name]: e.target.value})
   }
 
   return (
