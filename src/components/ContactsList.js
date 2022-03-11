@@ -10,7 +10,7 @@ function ContactsList(props) {
       method: 'DELETE', 
     }
   
-    fetch(`http://localhost:3000/contacts/${contact.id}`, options)
+    fetch(`http://localhost:4000/contacts/${contact.id}`, options)
     .then(() => {
       const contactsWithoutRemoved = contacts.filter(person => person.id !== contact.id)
       setContacts(contactsWithoutRemoved)
