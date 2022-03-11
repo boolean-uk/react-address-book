@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom";
-import { useLocation } from "react-router";
 
 function ContactsAdd(props) {
 
@@ -13,19 +12,9 @@ function ContactsAdd(props) {
     city: "",
     email: "",
     linkedin: "",
-    twitter: ""
+    twitter: "",
+    type: "work"
   })
-
-
-  const location = useLocation()
-
-  useEffect(() => {
-    if(location.state) {
-      const {contact} = location.state
-      setNewContact(contact)
-    }
-  }, [location] )
-
 
   const navigate = useNavigate();
 
@@ -35,23 +24,7 @@ function ContactsAdd(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    if(newContact.id) {
-        fetch(`http://localhost:4000/contacts/${newContact.id}`, { 
-      method: "PATCH",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newContact)
-      })
-      .then(response => response.json())
-      .then(json => {
-        const updatedContacts = contacts.map(person => person.id === json.id ? json : person)
-        setContacts(updatedContacts)
-        navigate("/")
-      })
-    }
-    else {
-    fetch("http://localhost:4000/contacts", { 
+        fetch("http://localhost:4000/contacts", { 
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +37,6 @@ function ContactsAdd(props) {
         navigate("/")
       })
     }
-  }
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
@@ -91,9 +63,17 @@ function ContactsAdd(props) {
       <label htmlFor="twitter">Twitter:</label>
       <input id="twitter" name="twitter" type="text" onChange={handleInput} value={newContact.twitter}/>
 
+      <div>
+      <label htmlFor="work">Work:</label>
+      <input id="type" name="type" type="radio" onChange={handleInput} checked={newContact.type==="work"} value="work"/>
+      <label htmlFor="personal">Personal:</label>
+      <input id="type" name="type" type="radio" onChange={handleInput} checked={newContact.type==="personal"} value="personal"/>
+      </div>
+
+
       <div className="actions-section">
         <button className="button blue" type="submit">
-          {newContact.id ? 'Edit' : 'Create'}
+          Create
         </button>
       </div>
     </form>

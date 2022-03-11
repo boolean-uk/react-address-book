@@ -5,29 +5,59 @@
       "firstName": "John",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "London",
+      "email": "JC@blue.com",
+      "type": "work"
     },
     {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
+      "firstName": "Bobby",
+      "lastName": "Darin",
+      "street": "Canary Way",
+      "city": "Granada",
+      "email": "eat@nothing.com",
+      "linkedin": "",
+      "twitter": "@bobster1",
+      "type": "personal",
+      "id": 3
+    },
+    {
+      "firstName": "Elma",
+      "lastName": "Fudd",
+      "street": "Bunny Street",
+      "city": "DisneyWorld",
+      "email": "elma@fudd.co.eu",
+      "linkedin": "",
+      "twitter": "",
+      "type": "personal",
+      "id": 4
+    },
+    {
+      "firstName": "Marian",
+      "lastName": "Phillips",
+      "street": "NotMyRoad Street",
+      "city": "London",
+      "email": "maz_phillips@hotmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "type": "work",
+      "id": 5
     }
   ],
   "meetings": [
     {
-      "personId": 1,
+      "personId": "1",
+      "meetingName": "Dinner with Andre",
       "date": "2022-03-05",
       "time": "20:37",
       "location": "London",
       "id": 1
     },
     {
-      "personId": 1,
-      "date": "2022-03-12",
-      "time": "20:48",
-      "location": "Glasgow",
+      "personId": "1",
+      "meetingName": "Meeting a Princess",
+      "date": "2022-03-30",
+      "time": "17:35",
+      "location": "Buckingham Palace",
       "id": 2
     }
   ]

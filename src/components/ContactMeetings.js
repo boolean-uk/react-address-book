@@ -1,19 +1,23 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 function ContactMeetings() {
 
+  const params = useParams()
 
-    const [meetings, setMeetings] = useState([])
+  const blankMeetingForm = {
+    personId: params.id,
+    meetingName: "",
+    date: "",
+    time: "",
+    location: ""
+}
 
-   const [newMeeting, setNewMeeting] = useState({
-       personId: 1,
-       date: "",
-       time: "",
-       location: ""
-   })
+   const [meetings, setMeetings] = useState([])
+   const [newMeeting, setNewMeeting] = useState(blankMeetingForm)
 
    useEffect(() => {
-    fetch("http://localhost:4000/meetings")
+    fetch(`http://localhost:4000/meetings?personId=${params.id}`)
         .then(response => response.json())
         .then(json => setMeetings(json))
    }, [])
@@ -34,20 +38,16 @@ function ContactMeetings() {
           .then(response => response.json())
           .then(json => setMeetings([...meetings, json]))
 
-          setNewMeeting({
-            personId: 1,
-            date: "",
-            time: "",
-            location: ""
-        })
+          setNewMeeting(blankMeetingForm)
         }
 
     return (
       <div>
-     <h1>Specifc Person</h1>
-
-         <form className="form-stack contact-form" onSubmit={handleMeetingSubmit}>
+       <form className="form-stack contact-form" onSubmit={handleMeetingSubmit}>
        <h2>Add Meeting</h2>
+
+       <label htmlFor="meetingName">Meeting Name</label>
+      <input id="meetingName" name="meetingName" type="text" onChange={handleMeetingInput} value={newMeeting.meetingName} required />
 
       <label htmlFor="date">Date</label>
       <input id="date" name="date" type="date" onChange={handleMeetingInput} value={newMeeting.date} required />
@@ -64,7 +64,8 @@ function ContactMeetings() {
         </button>
       </div>
     </form>
-    <div>{meetings.map(meeting => <div><p>{meeting.date}</p>
+    <div>{meetings.map(meeting => <div><p>{meeting.meetingName}</p>
+    <p>{meeting.date}</p>
     <p>{meeting.time}</p>
     <p>{meeting.location}</p><br/></div>)}</div>
       </div>

@@ -23,7 +23,7 @@ function ContactsView() {
       {contact.email && <p>{contact.email}</p>}
       {contact.linkedin && <p>{contact.linkedin}</p>}
       {contact.twitter && <p>{contact.twitter}</p>}
-      <Link to={`/contacts/:id/meetings`}>Meetings</Link>
+      <Link to={`/contacts/${contact.id}/meetings`}>Meetings</Link>
     </div>
   )
 }

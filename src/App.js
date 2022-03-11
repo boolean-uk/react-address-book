@@ -4,12 +4,12 @@ import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import ContactMeetings from "./components/ContactMeetings"
+import ContactsEdit from "./components/ContactsEdit"
 import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
-  const [loading, setLoading] = useState(false)
-  
+  const [loading, setLoading] = useState(false) 
   
   useEffect(() => {
     setLoading(true)
@@ -36,6 +36,7 @@ export default function App() {
           <Route path='/contacts/add' element={<ContactsAdd contacts={contacts} setContacts={setContacts} />}/>
           <Route path='/contacts/:id' element={<ContactsView />}/>
           <Route path='/contacts/:id/meetings' element={<ContactMeetings />}/>
+          <Route path='/contacts/:id/edit' element={<ContactsEdit contacts={contacts} setContacts={setContacts} />}/>
         </Routes>
       </main>
     </>
