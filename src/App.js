@@ -7,12 +7,15 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
+    setLoading(true)
     fetch('http://localhost:4000/contacts')
     .then(res => res.json())
     .then(contacts => {
       setContacts(contacts)
+      setLoading(false)
     })
   }, [])
 
@@ -28,8 +31,8 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts} />}/>
-          <Route path='/contacts/add' element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
+          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts} loading={loading} />}/>
+          <Route path='/contacts/add' element={<ContactsAdd contacts={contacts} setContacts={setContacts} />}/>
           <Route path='/contacts/:id' element={<ContactsView />}/>
         </Routes>
       </main>

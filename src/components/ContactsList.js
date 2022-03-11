@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
 function ContactsList(props) {
-  const { contacts, setContacts } = props
+  const { contacts, setContacts, loading } = props
   
 
   const handleDelete = (contact) => {
@@ -23,7 +23,7 @@ function ContactsList(props) {
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
-        {contacts.map((contact, index) => {
+        {!loading && contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           return (
             <li className="contact" key={index}>
@@ -44,6 +44,10 @@ function ContactsList(props) {
             </li>
           )
         })}
+        {loading && <div className="spinner-container">
+        <div className="loading-spinner">
+        </div>
+      </div>}
       </ul>
     </>
   )

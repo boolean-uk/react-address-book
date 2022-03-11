@@ -167,9 +167,12 @@ function ContactsAdd(props) {
       />
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
-          {location.state.id ? 'Edit' : 'Create'}
-        </button>
+        {location.state===null && <button className="button blue" type="submit">
+          Create
+        </button>}
+        {location.state!==null && <button className="button blue" type="submit">
+          Edit
+        </button>}
       </div>
     </form>
   );
