@@ -7,13 +7,15 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
+    setLoading(true)
     fetch("http://localhost:4000/contacts")
     .then(res => res.json())
     .then(json => {
-      console.log(json)
       setContacts(json)
+      setLoading(false)
     })
   }, [])
   
@@ -23,12 +25,12 @@ export default function App() {
         <h2>Menu</h2>
         <ul>
           <li><Link to="/">Show Contacts</Link></li>
-          <li><Link to="/contacts/add">Add New Contact</Link></li>
+          <li><Link to="/contacts/edit">Add New Contact</Link></li>
         </ul>
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts} />} />
+          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts} loading={loading} />} />
           <Route path="/contacts/edit" element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />.
           <Route path="/contacts/:id" element={<ContactsView  />} />
         </Routes>

@@ -1,8 +1,11 @@
-import { useState } from "react"
+import { useState, Fragment } from "react"
 import { Link, useSearchParams } from "react-router-dom"
+import * as Loader from 'react-loader-spinner'
+
+
 
 function ContactsList(props) {
-  const { contacts, setContacts } = props
+  const { contacts, setContacts, loading } = props
 
   const handleDelete = (contact) => {
     console.log("delete me")
@@ -30,7 +33,16 @@ function ContactsList(props) {
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
-        {contacts.map((contact, index) => {
+        {loading ? 
+        <Fragment>
+          <Loader.FallingLines
+          height="150"
+          width="150"
+          />
+          <div>Loading contacts</div>
+        </Fragment>
+        :
+        contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           return (
             <li className="contact" key={index}>
@@ -38,20 +50,17 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <Link to={`/contacts/${contact.id}`} state={{ contact }}>
-                {" "}
-                View{" "}
+                View
               </Link>
               <Link to={`/contacts/edit`} state={{ contact }}>
-                {" "}
-                Edit{" "}
+                Edit
               </Link>
               <Link
                 to={`/`}
                 state={{ contact }}
                 onClick={() => handleDelete(contact)}
               >
-                {" "}
-                Delete{" "}
+                Delete
               </Link>
             </li>
           )

@@ -23,7 +23,6 @@ function ContactsAdd(props) {
     if(location.state) {
       const {contact} = location.state
       setAddressData(contact)
-      console.log('what is contact', contact)
     }
   }, [location] )
 
@@ -72,7 +71,7 @@ function ContactsAdd(props) {
     }
   }
       // I trimmed a load out of here by replacing the if statements
-      // with the e.target.name key in [] so that this is dynamic too
+      // with the e.target.name key in [] so that this is dynamic
   const handleChange = (e) => {
     setAddressData({ ...addressData, [e.target.name]: e.target.value })
   }
