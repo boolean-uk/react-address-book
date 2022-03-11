@@ -23,7 +23,12 @@ function ContactsView() {
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
+      <p>{`${contact.street}, ${contact.city}`}</p>
+      <p>{contact.postcode}</p>
+      {contact.hasOwnProperty('isBlocked') && <p>{`Is Contact Blocked?: ${contact.isBlocked ? "Yes" : "No"}`}</p>}
+      <p><a href={contact.email}>Email</a></p>
+      <p><a href={contact.twitter}>Twitter</a></p>
+      <p><a href={contact.linkedin}>Linkedin</a></p>
     </div>
   )
 }

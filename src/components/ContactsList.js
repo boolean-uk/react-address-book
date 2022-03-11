@@ -4,7 +4,19 @@ import { Link, useSearchParams } from "react-router-dom"
 function ContactsList(props) {
   
   //"contacts" must be passed as prop to this component
-  const { contacts } = props
+  const { contacts, setContacts} = props
+
+  const options = {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
+
+  const handleDelete = id => {
+    fetch(`http://localhost:4000/contacts/${id}`,options)
+        .then(setContacts(contacts => contacts.filter(contact => contact.id != id)))
+  }
 
   return (
     <>
@@ -21,9 +33,13 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-              <Link to= {`/${contact.id}`}>
+              <button><Link to= {`/${contact.id}`}>
                 View
-              </Link>
+              </Link></button>
+              <button><Link to= {`${contact.id}/edit`}>
+                Edit
+              </Link></button>
+              <button onClick={e => handleDelete(contact.id)}>Delete</button>
               </p>
             </li>
           )
