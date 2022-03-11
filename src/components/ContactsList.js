@@ -5,6 +5,8 @@ function ContactsList(props) {
   
   const { contacts } = props
 
+  
+
   return (
     <>
       <header>
@@ -19,7 +21,7 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <Link to={`/contacts/${contact.id}`} state={{contact}} >View </Link>
-              <Link to={`/contact/edit/${contact.id}`} state={{contact}} >Edit</Link>
+              <Link to={`/contacts/add`} state={{contact}} >Edit</Link>
             </li>
           )
         })}
