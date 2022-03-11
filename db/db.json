@@ -8,28 +8,11 @@
       "city": "London"
     },
     {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Treebug Rd",
-      "city": "London"
-    },
-    {
       "firstName": "Ben",
       "lastName": "Corbin",
       "street": "Ravensberg",
       "city": "Newcastle",
       "id": 3
-    },
-    {
-      "firstName": "Nicola",
-      "lastName": "Piccio",
-      "street": "Italian Avenue",
-      "city": "Rome",
-      "email": "nico@italy.it",
-      "linkedin": "@nico69",
-      "twitter": "@nico69",
-      "id": 4
     },
     {
       "firstName": "dftghdfh",
@@ -40,16 +23,6 @@
       "linkedin": "dfgdfgd",
       "twitter": "dfgdfgd",
       "id": 5
-    },
-    {
-      "firstName": "dfgdfg",
-      "lastName": "dfgdfg",
-      "street": "dfgdfg",
-      "city": "dfgdfgd",
-      "email": "dfgdfgd",
-      "linkedin": "dfgdfg",
-      "twitter": "dfgdfg",
-      "id": 6
     }
   ]
 }
