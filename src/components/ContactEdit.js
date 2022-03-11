@@ -16,7 +16,7 @@ function ContactsEdit(props) {
         isBlocked: false
       }
 
-    const {setSensor} = props
+    const {contacts, setContacts} = props
     const [formData,setFormData] = useState(empty)
     const navigate = useNavigate()
     const params = useParams()
@@ -38,8 +38,8 @@ function ContactsEdit(props) {
     event.preventDefault()
     fetch(`http://localhost:4000/contacts/${params.id}`, options)
     .then(res=>res.json())
-    .then(() => {
-        setSensor(prev => !prev)
+    .then(json => {
+        setContacts(contacts => contacts.map(contact => contact.id == json.id ? json : contact))
         navigate(`/${params.id}`)
         })
     }

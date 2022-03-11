@@ -9,12 +9,11 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
-  const [sensor,setSensor] = useState(false)
   
   useEffect(() => contacts && fetch("http://localhost:4000/contacts")
           .then(res => res.json())
           .then(json => setContacts(() => json))
-          , [sensor])
+          , [])
 
   return (
     <>
@@ -24,10 +23,10 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/">Nowt</Route>
-          <Route path="/add" element={<ContactsAdd setSensor={setSensor}/>}/>
+          <Route path="/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
           <Route path="/:id" element={<ContactsView/>}/>
           <Route path="/:id/meetings" element={<Meetings/>}/>
-          <Route path="/:id/edit" element={<ContactsEdit setSensor={setSensor}/>}/>
+          <Route path="/:id/edit" element={<ContactsEdit contacts={contacts} setContacts={setContacts}/>}/>
         </Routes>
       </main>
     </>
