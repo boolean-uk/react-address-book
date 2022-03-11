@@ -10,7 +10,7 @@
       "twitter": "https://twitter.com/pdsmart6",
       "linkedin": "https://www.linkedin.com/in/paul-smart-0a7109179/",
       "isBlocked": false,
-      "id": 6
+      "id": 1
     },
     {
       "firstName": "Craig",
@@ -22,7 +22,20 @@
       "twitter": "n/a",
       "linkedin": "n/a",
       "isBlocked": false,
-      "id": 7
-    }
+      "id": 2
+    }],
+"meetings": [      
+  {
+    "id": 1,
+    "date": ["Tuesday","Wednesday"],
+    "time": ["13:00","14:00"],
+    "location": ["Mars","Jupiter"]
+  },
+  {
+    "id": 2,
+    "date": ["Monday"],
+    "time": ["09:00"],
+    "location": ["Io"]
+  }
   ]
 }

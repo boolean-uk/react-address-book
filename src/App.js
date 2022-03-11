@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react"
-import { Link, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import ContactsEdit from "./components/ContactEdit"
+import Meetings from "./components/Meetings"
 import "./styles/styles.css"
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
           <Route path="/">Nowt</Route>
           <Route path="/add" element={<ContactsAdd setSensor={setSensor}/>}/>
           <Route path="/:id" element={<ContactsView/>}/>
+          <Route path="/:id/meetings" element={<Meetings/>}/>
           <Route path="/:id/edit" element={<ContactsEdit setSensor={setSensor}/>}/>
         </Routes>
       </main>
