@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom"
 
 function ContactsAdd(props) {
   const { setContacts, contacts } = props
+  const navigate = useNavigate()
 
   const [firstName, setFirstName] = useState("")
   const [lastName, setLastName] = useState("")
@@ -64,6 +65,7 @@ function ContactsAdd(props) {
         setContacts([...contacts, json])
       })
 
+      navigate("/")
     setFirstName("")
     setLastName("")
     setStreet("")
