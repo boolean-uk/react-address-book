@@ -2,9 +2,20 @@ import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
 function ContactsList(props) {
+  const { contacts, setContacts } = props
   
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props
+
+  const handleDelete = (contact) => {
+    const options = {
+      method: 'DELETE', 
+    }
+  
+    fetch(`http://localhost:3000/contacts/${contact.id}`, options)
+    .then(() => {
+      const contactsWithoutRemoved = contacts.filter(person => person.id !== contact.id)
+      setContacts(contactsWithoutRemoved)
+    })
+  }
 
   return (
     <>
@@ -19,10 +30,17 @@ function ContactsList(props) {
               <p>
                 {firstName} {lastName}
               </p>
+              <div>
               <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
+              <Link to={`/contacts/${contact.id}`}>View</Link>
               </p>
+              <a href='#' onClick={() => handleDelete(contact)}>Delete</a>
+              <p>
+              <Link to={`/contacts/add`} state={contact}>
+                Edit
+              </Link>
+              </p>
+              </div>
             </li>
           )
         })}
