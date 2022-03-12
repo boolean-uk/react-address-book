@@ -34,7 +34,7 @@ function ContactsEdit (props) {
   }
 
   if (!contact) {
-    return <div className="spinner-border"></div>
+    return <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
   }
 
   function handleSubmit (e) {

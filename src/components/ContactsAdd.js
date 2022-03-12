@@ -11,7 +11,8 @@ function ContactsAdd (props) {
     city: '',
     email: '',
     linkedIn: '',
-    twitter: ''
+    twitter: '',
+    type: ''
   })
 
   function handleChange (e) {
@@ -77,6 +78,30 @@ function ContactsAdd (props) {
       <label htmlFor="twitter">Twitter:</label>
       <input id="twitter" name="twitter" type="text" onChange={ handleChange }
         value={ formData.twitter } required />
+
+      <fieldset>
+        <legend>Contact Type</legend>
+        <input
+          type="radio"
+          id="personal"
+          name="type"
+          value="personal"
+          checked={ formData.type === "personal" }
+          onChange={ handleChange }
+        />
+        <label htmlFor="personal">Personal<span>👌</span></label>
+        <br />
+
+        <input
+          type="radio"
+          id="work"
+          name="type"
+          value="work"
+          checked={ formData.type === "work" }
+          onChange={ handleChange }
+        />
+        <label htmlFor="work">Work<span>🤢</span></label>
+      </fieldset>
 
       <div className="actions-section">
         <button className="button blue" type="submit" >

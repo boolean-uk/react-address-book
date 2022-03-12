@@ -14,7 +14,7 @@ function ContactsView () {
   }, [params])
 
   if (!contact) {
-    return <div className="spinner-border"></div>
+    return <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
   }
 
   return (
@@ -24,6 +24,8 @@ function ContactsView () {
       <p>LinkedIn: { contact.linkedIn }</p>
       <p>Twitter: { contact.twitter }</p>
       <p>Email: { contact.email }</p>
+      <p>{ contact.type }{ contact.type === 'personal' && <span>👌</span> }
+        { contact.type === 'work' && <span>🤢</span> }</p>
       <Link to={ `/contact/${contact.id}/edit` } >(Edit)</Link>
       <Link to={ `/contact/${contact.id}/delete` }>(Delete)</Link>
       <br />

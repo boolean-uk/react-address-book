@@ -10,17 +10,19 @@ import "./styles/styles.css"
 
 export default function App () {
   const [contacts, setContacts] = useState(false)
+  const [contactType, setType] = useState('')
 
+  const url = contactType === '' ? `http://localhost:4000/contacts` : `http://localhost:4000/contacts?type=${contactType}`
   useEffect(() => {
-    fetch('http://localhost:4000/contacts')
+    fetch(url)
       .then(res => res.json())
       .then(res => {
         setContacts(res)
       })
-  }, [])
+  }, [contactType])
   //TODO: Load all contacts on useEffect when component first renders
   if (!contacts) {
-    return <div className="spinner-border"></div>
+    return <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
   }
   return (
     <>
@@ -34,7 +36,7 @@ export default function App () {
       <main>
 
         <Routes>
-          <Route path='/' element={ <ContactsList contacts={ contacts } /> } />
+          <Route path='/' element={ <ContactsList contacts={ contacts } setType={ setType } contactType={ contactType } /> } />
           <Route path='/contact/add' element={ <ContactsAdd setContacts={ setContacts } contacts={ contacts } /> } />
           <Route path='/contact/:id' element={ <ContactsView /> } />
           <Route path='/contact/:id/edit' element={ <ContactsEdit setContacts={ setContacts } contacts={ contacts } /> } />
