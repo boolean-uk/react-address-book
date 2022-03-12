@@ -1,12 +1,15 @@
 import React from "react"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 export default function AddMeeting() {
+  const navigate = useNavigate()
   const params = useParams()
   const [date, setDate] = useState("")
   const [time, setTime] = useState("")
   const [location, setLocations] = useState("")
+  const [contactInfo, setContactInfo] = useState([])
 
   function handleDate(event) {
     const inputValue = event.target.value
@@ -22,28 +25,35 @@ export default function AddMeeting() {
     const inputValue = event.target.value
     setLocations(inputValue)
   }
-  console.log(date, time, location)
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts/${params.id}`)
+      .then((res) => res.json())
+      .then((data) => setContactInfo(data.meetings))
+  }, [params])
+  console.log(contactInfo)
 
   function handleSubmit(event) {
     event.preventDefault()
+
     const options = {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        date: date,
-        time: time,
-        location: location,
+        meetings: [...contactInfo,{date:date,time:time,location:location}]
       }),
     }
     fetch(`http://localhost:4000/contacts/${params.id}`, options)
-    .then(function(response) {
+      .then(function (response) {
         return response.json()
-    }).then(function(json) {
-        console.log("THIS IS:" , json)
-    })
-}
+      })
+      .then(function (json) {
+        console.log("THIS IS:", json)
+        navigate(`/contact/${params.id}/meetings`)
+      })
+  }
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>

@@ -17,7 +17,7 @@ export default function Meetings() {
   if (!meeting) {
     return (<Bars/>)
   }
-console.log(meeting)
+console.log("THE",meeting)
 
 
   return (
@@ -25,6 +25,15 @@ console.log(meeting)
     <Link to={`/contact/${params.id}/meetings/addMeeting`}>Add Meeting</Link>
     <br></br>
     <h4>CURRENT MEETINGS:</h4>
+    <br></br>
+    {meeting.map((meeting) => (
+      <>
+      <p>Date: {meeting.date}</p> 
+      <p>Time: {meeting.time} </p>
+      <p>Location: {meeting.location}</p>
+      <br></br>
+</>
+    ))}
     </>
   )
 }
