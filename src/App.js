@@ -3,6 +3,8 @@ import { Link, Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
+import EditContact from './components/EditContact'
+import DeleteContact from "./components/DeleteContact"
 import "./styles/styles.css"
 
 export default function App() {
@@ -39,9 +41,10 @@ export default function App() {
          The ContactsView is standing alone because each of its viewed page will be determined by the new information the user adds or created */}
         <Routes>
           <Route path='/' element={<ContactsList contacts={contacts}/>} />
-          <Route path='/contacts/add' element={<ContactsAdd setContacts={setContacts}/>} />
+       <Route path='/contacts/add' element={<ContactsAdd setContacts={setContacts}/>} />
           <Route path='/contacts/:id' element={<ContactsView />}  />
-        </Routes>
+          <Route path='/contacts/:id/edit' element={<EditContact />}  />
+                </Routes>
       </main>
     </>
   )

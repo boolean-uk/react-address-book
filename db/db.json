@@ -1,13 +1,6 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
-    },
-    {
       "id": 2,
       "firstName": "Grace",
       "lastName": "Hopper",
@@ -15,10 +8,13 @@
       "city": "London"
     },
     {
-      "firstName": "Michael",
-      "lastName": "Spain",
-      "street": "50 halkett crescent",
-      "city": "dunfermline",
+      "firstName": "Elvis",
+      "lastName": "French",
+      "street": "45 Halkett crescent dunfermline",
+      "city": "aberdeen",
+      "email": "elvisonob@yahoo.com",
+      "linkedin": "michael230",
+      "twitter": "dld",
       "id": 3
     },
     {
@@ -134,13 +130,13 @@
       "id": 16
     },
     {
-      "firstName": "elvis",
-      "lastName": "onobhayedo",
+      "firstName": "Jude",
+      "lastName": "Presley",
       "street": "45 Halkett crescent dunfermline",
       "city": "aberdeen",
       "email": "elvisonob@yahoo.com",
-      "linkedin": "",
-      "twitter": "",
+      "linkedin": "michael230",
+      "twitter": "johson10",
       "id": 17
     },
     {
