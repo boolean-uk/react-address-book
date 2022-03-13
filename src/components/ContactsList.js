@@ -1,14 +1,7 @@
-import { useState } from "react"
-import { Link, useParams, useSearchParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function ContactsList(props) {
-
-  //"contacts" must be passed as prop to this component
   const { contacts } = props
-  const params = useParams()
-
-
-
   return (
     <>
       <header>
@@ -23,8 +16,8 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-                <Link to={`/contacts/${id}`}> View</Link>
-
+                <Link to={`/contacts/${id}`}> View</Link></p>
+              <p id="edit"><Link to={`/contacts/${id}/edit`}>Edit</Link>
               </p>
             </li>
           )
