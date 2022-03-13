@@ -25,8 +25,8 @@ function ContactsEdit (props) {
         setForm(res)
       })
     //note
-    //the params var that should be in the dependences array caoused a memory leack 
-    //(unmounted components) and instead of returning a cleaning function I removed it the whole var instead
+    //the params var that should be in the dependences array caused a memory leack 
+    //(unmounted components) and instead of returning a clean up function I just removed the whole var instead
   }, [])
 
   function handleChange (e) {
