@@ -1,21 +1,12 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useParams, Link } from "react-router-dom"
+import useFetch from "../hooks/useFetch"
+
 
 function ContactsView () {
   const [contact, setContact] = useState(false)
   const params = useParams()
-
-  useEffect(() => {
-    fetch(`http://localhost:4000/contacts/${params.id}`)
-      .then(res => res.json())
-      .then(res => {
-        setContact(res)
-      })
-  }, [params])
-
-  if (!contact) {
-    return <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
-  }
+  const { isPending, error } = useFetch(`http://localhost:4000/contacts/${params.id}`, params, setContact)
 
   return (
     <div>
@@ -30,6 +21,8 @@ function ContactsView () {
       <Link to={ `/contact/${contact.id}/delete` }>(Delete)</Link>
       <br />
       <Link to={ `/contact/${contact.id}/meeting` } >(Meetings)</Link>
+      { isPending && <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" /> }
+      { error && <h2>{ error }!</h2> }
     </div>
   )
 }

@@ -2,18 +2,19 @@ import { useState, useEffect } from "react"
 import { useNavigate, useParams } from "react-router-dom";
 
 function ContactsEdit (props) {
-  const navigate = useNavigate()
-  const params = useParams()
-  const [formData, setForm] = useState({
+  const editForm = {
     firstName: '',
     lastName: '',
     street: '',
     city: '',
     email: '',
     linkedIn: '',
-    twitter: ''
-  })
-
+    twitter: '',
+    type: ''
+  }
+  const navigate = useNavigate()
+  const params = useParams()
+  const [formData, setForm] = useState(editForm)
   const [contact, setContact] = useState(false)
   const { setContacts } = props
   useEffect(() => {
@@ -25,7 +26,7 @@ function ContactsEdit (props) {
       })
     //note
     //the params var that should be in the dependences array caoused a memory leack 
-    //(unmounted components) and instead of returning a cleaning function I removed it
+    //(unmounted components) and instead of returning a cleaning function I removed it the whole var instead
   }, [])
 
   function handleChange (e) {
@@ -41,27 +42,16 @@ function ContactsEdit (props) {
     e.preventDefault()
     const options = {
       method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     }
     fetch(`http://localhost:4000/contacts/${params.id}`, options)
       .then(res => res.json())
       .then(res => {
         setContacts(x => x.map(c => c.id === params.id ? res : c))
-        setForm({
-          firstName: '',
-          lastName: '',
-          street: '',
-          city: '',
-          email: '',
-          linkedIn: '',
-          twitter: ''
-        })
+        setForm(editForm)
         navigate('/')
       })
-
   }
 
   return (
@@ -95,6 +85,30 @@ function ContactsEdit (props) {
       <label htmlFor="twitter">Twitter:</label>
       <input id="twitter" name="twitter" type="text" onChange={ handleChange }
         value={ formData.twitter } required />
+
+      <fieldset>
+        <legend>Contact Type</legend>
+        <input
+          type="radio"
+          id="personal"
+          name="type"
+          value="personal"
+          checked={ formData.type === "personal" }
+          onChange={ handleChange }
+        />
+        <label htmlFor="personal">Personal<span>👌</span></label>
+        <br />
+
+        <input
+          type="radio"
+          id="work"
+          name="type"
+          value="work"
+          checked={ formData.type === "work" }
+          onChange={ handleChange }
+        />
+        <label htmlFor="work">Work<span>🤢</span></label>
+      </fieldset>
 
       <div className="actions-section">
         <button className="button blue" type="submit" >

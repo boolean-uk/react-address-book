@@ -36,9 +36,9 @@
       "street": "192, manor lane, manor lane",
       "city": "London",
       "email": "omaralsoyouf@gmail.com",
-      "linkedIn": "phew oioioioi",
+      "linkedIn": "phew",
       "twitter": "hahahahah",
-      "type": "personal",
+      "type": "work",
       "id": 4
     }
   ],
@@ -119,6 +119,14 @@
       "time": "in the morning",
       "location": "london",
       "id": 11
+    },
+    {
+      "userId": "4",
+      "subject": "visit your friend",
+      "date": "rrrrrrrrrrrrrrrrrrrr",
+      "time": "5 pm",
+      "location": "London ",
+      "id": 12
     }
   ]
 }

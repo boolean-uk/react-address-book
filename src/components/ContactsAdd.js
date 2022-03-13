@@ -2,9 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 function ContactsAdd (props) {
-  const navigate = useNavigate()
-  const { setContacts, contacts } = props
-  const [formData, setForm] = useState({
+  const addContactForm = {
     firstName: '',
     lastName: '',
     street: '',
@@ -13,7 +11,10 @@ function ContactsAdd (props) {
     linkedIn: '',
     twitter: '',
     type: ''
-  })
+  }
+  const navigate = useNavigate()
+  const { setContacts, contacts } = props
+  const [formData, setForm] = useState(addContactForm)
 
   function handleChange (e) {
     const { name, value } = e.target
@@ -24,27 +25,16 @@ function ContactsAdd (props) {
     e.preventDefault()
     const options = {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(formData)
     }
     fetch('http://localhost:4000/contacts', options)
       .then(res => res.json())
       .then(res => {
         setContacts([...contacts, res])
-        setForm({
-          firstName: '',
-          lastName: '',
-          street: '',
-          city: '',
-          email: '',
-          linkedIn: '',
-          twitter: ''
-        })
+        setForm(addContactForm)
         navigate('/')
       })
-
   }
 
   return (

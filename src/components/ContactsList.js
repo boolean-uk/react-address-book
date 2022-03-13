@@ -3,29 +3,21 @@ import { Link } from "react-router-dom"
 function ContactsList (props) {
   const { contacts, setType, contactType } = props
 
-
   return (
     <>
       <header>
         <h2>Contacts</h2>
       </header>
-      <br />
-      <fieldset>
-        <legend htmlFor="type">Contact filter</legend>
-        <br />
-        <select
-          id="type"
-          value={ contactType }
-          onChange={ e => setType(e.target.value) }
-          name="type"
-        >
-          <option value="">--No filter selected--</option>
-          <option value="personal">Personal</option>
-          <option value="work">Work</option>
-        </select>
-        <br />
-      </fieldset>
-
+      <select
+        id="type"
+        value={ contactType }
+        onChange={ e => setType(e.target.value) }
+        name="type"
+      >
+        <option value="">--No filter selected--</option>
+        <option value="personal">Personal</option>
+        <option value="work">Work</option>
+      </select>
       <ul className="contacts-list">
         { contacts.map((contact, index) => {
           const { firstName, lastName, type } = contact

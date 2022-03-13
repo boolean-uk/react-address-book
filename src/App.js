@@ -1,36 +1,14 @@
-import { useEffect, useState } from "react"
+import { ContactsList, ContactsAdd, ContactsView, ContactsEdit, ContactsDel, ContactsMeetings } from './components/index'
+import { useState } from "react"
 import { Link, Route, Routes } from "react-router-dom"
-import ContactsList from "./components/ContactsList"
-import ContactsAdd from "./components/ContactsAdd"
-import ContactsView from "./components/ContactsView"
-import ContactsEdit from './components/ContactsEdit'
-import ContactsDel from "./components/ContactsDel"
-import ContactsMeetings from './components/Meetings'
+import useFetch from "./hooks/useFetch"
 import "./styles/styles.css"
 
 export default function App () {
-  const [contacts, setContacts] = useState([])
   const [contactType, setType] = useState('')
-  const [isPending, setIsPending] = useState(true)
-  const [error, setError] = useState(null)
-
+  const [contacts, setContacts] = useState([])
   const url = contactType === '' ? `http://localhost:4000/contacts` : `http://localhost:4000/contacts?type=${contactType}`
-  useEffect(() => {
-    fetch(url)
-      .then(res => {
-        if (!res.ok) throw Error('could not fetch the data from the source')
-        return res.json()
-      })
-      .then(res => {
-        setContacts(res)
-        setIsPending(false)
-        setError(null)
-      })
-      .catch(err => {
-        setIsPending(false)
-        setError(err.message)
-      })
-  }, [contactType])
+  const { isPending, error } = useFetch(url, contactType, setContacts)
 
   return (
     <>

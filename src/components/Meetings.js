@@ -1,33 +1,25 @@
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import { useParams } from "react-router-dom";
+import useFetch from "../hooks/useFetch"
+
 
 function ContactsMeetings (props) {
-  const params = useParams()
-  const [meetings, setMeeting] = useState([])
-  const [formData, setForm] = useState({
+  const meetingForm = {
     userId: params.id,
     subject: '',
     date: '',
     time: '',
     location: ''
-  })
-
-  useEffect(() => {
-    fetch(`http://localhost:4000/meetings?userId=${params.id}`)
-      .then(res => res.json())
-      .then(res => {
-        setMeeting(res)
-      })
-  }, [])
+  }
+  const params = useParams()
+  const [meetings, setMeeting] = useState([])
+  const [formData, setForm] = useState(meetingForm)
+  const url = `http://localhost:4000/meetings?userId=${params.id}`
+  const { isPending, error } = useFetch(url, null, setMeeting)
 
   function handleChange (e) {
     const { name, value } = e.target
-    setForm(x => {
-      return {
-        ...x,
-        [name]: value
-      }
-    })
+    setForm(x => { return { ...x, [name]: value } })
   }
 
   function handleSubmit (e) {
@@ -43,13 +35,7 @@ function ContactsMeetings (props) {
       .then(res => res.json())
       .then(res => {
         setMeeting(x => [...x, res])
-        setForm({
-          userId: params.id,
-          subject: '',
-          date: '',
-          time: '',
-          location: ''
-        })
+        setForm(meetingForm)
       })
 
   }
@@ -97,6 +83,8 @@ function ContactsMeetings (props) {
           }) }
         </ul>
       </nav>
+      { isPending && <img src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" /> }
+      { error && <h2>{ error }!</h2> }
     </>
   )
 }
