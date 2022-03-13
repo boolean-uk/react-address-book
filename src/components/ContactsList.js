@@ -10,19 +10,22 @@ function ContactsList (props) {
         <h2>Contacts</h2>
       </header>
       <br />
-      <label htmlFor="type">Contact filter</label>
-      <br />
-      <select
-        id="type"
-        value={ contactType }
-        onChange={ e => setType(e.target.value) }
-        name="type"
-      >
-        <option value="">--No filter selected--</option>
-        <option value="personal">Personal</option>
-        <option value="work">Work</option>
-      </select>
-      <br />
+      <fieldset>
+        <legend htmlFor="type">Contact filter</legend>
+        <br />
+        <select
+          id="type"
+          value={ contactType }
+          onChange={ e => setType(e.target.value) }
+          name="type"
+        >
+          <option value="">--No filter selected--</option>
+          <option value="personal">Personal</option>
+          <option value="work">Work</option>
+        </select>
+        <br />
+      </fieldset>
+
       <ul className="contacts-list">
         { contacts.map((contact, index) => {
           const { firstName, lastName, type } = contact
@@ -33,7 +36,6 @@ function ContactsList (props) {
               </p>
               <p>{ type }{ type === 'personal' && <span>👌</span> }
                 { type === 'work' && <span>🤢</span> }</p>
-
               <p>
                 <Link to={ `/contact/${contact.id}` } >View</Link>
               </p>
