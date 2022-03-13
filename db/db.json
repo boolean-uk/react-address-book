@@ -1,118 +1,15 @@
 {
   "contacts": [
     {
-      "firstName": "DANIELuboj",
-      "lastName": "MCCARTHY",
-      "street": "13 PRIEST ROW",
-      "city": "WELLS",
-      "contact": "Email",
-      "contactDetails": "dan.mc.carthy@outlook.com",
-      "meetings": {
-        "date": "2022-03-13",
-        "time": "01:45",
-        "location": "slmslms"
-      },
-      "id": 9
-    },
-    {
-      "firstName": "DANIELuojhohilkj",
-      "lastName": "MCCARTHY",
-      "street": "13 PRIEST ROW",
-      "city": "WELLS",
-      "contact": "Email",
-      "contactDetails": "dan.mc.carthy@outlook.com",
-      "meetings": {
-        "date": "2022-03-27",
-        "time": "03:47",
-        "location": "2nd meeting"
-      },
-      "id": 10
-    },
-    {
-      "firstName": "DANIEL",
-      "lastName": "MCCARTHY",
-      "street": "13 PRIEST ROW",
-      "city": "WELLS",
-      "contact": "Twitter",
-      "contactDetails": "dan.mc.carthy@outlook.com",
-      "meetings": 1,
-      "id": 11
-    },
-    {
       "firstName": "DANIEL",
       "lastName": "MCCARTHY",
       "street": "13 PRIEST ROW",
       "city": "WELLS",
       "contact": "Email",
       "contactDetails": "dan.mc.carthy@outlook.com",
-      "meetings": [
-        null,
-        {
-          "date": "2022-03-25",
-          "time": "23:57",
-          "location": "trail2 "
-        }
-      ],
-      "id": 12
-    },
-    {
-      "firstName": "DANIEL",
-      "lastName": "MCCARTHY",
-      "street": "13 PRIEST ROW",
-      "city": "WELLS",
-      "contact": "Email",
-      "contactDetails": "dan.mc.carthy@outlook.com",
-      "meetings": {
-        "firstName": "DANIEL",
-        "lastName": "MCCARTHY",
-        "street": "13 PRIEST ROW",
-        "city": "WELLS",
-        "contact": "Email",
-        "contactDetails": "dan.mc.carthy@outlook.com",
-        "meetings": 3,
-        "id": 13
-      },
-      "id": 13
-    },
-    {
-      "firstName": "DANIEL",
-      "lastName": "MCCARTHY",
-      "street": "13 PRIEST ROW",
-      "city": "WELLS",
-      "contact": "Email",
-      "contactDetails": "dan.mc.carthy@outlook.com",
-      "meetings": [
-        "2022-03-24",
-        "04:21",
-        "uigig"
-      ],
-      "id": 14
-    },
-    {
-      "firstName": "DANIEL",
-      "lastName": "MCCARTHY",
-      "street": "13 PRIEST ROW",
-      "city": "WELLS",
-      "contact": "Email",
-      "contactDetails": "dan.mc.carthy@outlook.com",
-      "meetings": [
-        {
-          "date": "2022-03-25",
-          "time": "00:24",
-          "location": "works"
-        },
-        {
-          "date": "2022-03-03",
-          "time": "00:27",
-          "location": "2nd"
-        },
-        {
-          "date": "2022-03-23",
-          "time": "00:42",
-          "location": "1st meeting"
-        }
-      ],
-      "id": 15
+      "contactType": "work",
+      "meetings": [],
+      "id": 21
     }
   ]
 }

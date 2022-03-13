@@ -7,6 +7,7 @@ import ContactsView from "./components/ContactsView"
 import EditContact from "./components/EditContact"
 import Meetings from "./components/Meetings"
 import AddMeeting from "./components/AddMeeting"
+import Work from "./components/Work"
 
 import "./styles/styles.css"
 
@@ -24,7 +25,7 @@ export default function App() {
     return (<MutatingDots/>)
      
   }
-
+  
   return (
     <>
       <nav>
@@ -62,6 +63,7 @@ export default function App() {
           />
           <Route path="/contact/:id/meetings" element={<Meetings />}/>
           <Route path="/contact/:id/meetings/addMeeting" element={<AddMeeting />}/>
+          <Route path="/contacts/type=work" element={<Work />}/>
         </Routes>
       </main>
     </>

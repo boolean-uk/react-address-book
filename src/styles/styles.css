@@ -151,3 +151,26 @@ h2 {
 .address-card h2 {
   font-size: 1.15rem;
 }
+
+/* radio form style */
+.form__group.radio ul{
+  display: flex;
+  justify-content: center;
+}
+
+
+.form__group.radio li {
+  display: inline-block;
+  text-align: center;
+}
+
+.form__group.radio label {
+  margin: 2rem;
+  padding: 1rem;
+  border-radius: 10px;
+  
+}
+
+.form__group.radio label:hover {
+  background-color: rgb(33, 214, 255);
+}

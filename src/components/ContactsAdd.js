@@ -11,6 +11,7 @@ function ContactsAdd(props) {
   const [city, setCity] = useState("")
   const [contact, setContact] = useState("Email")
   const [contactDetails, setContactDetails] = useState("")
+  const [contactType, setContactType] = useState("")
 
   function handleFirstName(event) {
     const inputValue = event.target.value
@@ -42,6 +43,12 @@ function ContactsAdd(props) {
     setContactDetails(inputValue)
   }
 
+  function handleContactType(event) {
+    const inputValue = event.target.value
+    setContactType(inputValue)
+    console.log("yes", inputValue)
+  }
+
   function handleSubmit(event) {
     event.preventDefault()
     const options = {
@@ -56,6 +63,7 @@ function ContactsAdd(props) {
         city: city,
         contact: contact,
         contactDetails : contactDetails,
+        contactType : contactType,
         meetings: []
       }),
     }
@@ -143,7 +151,33 @@ function ContactsAdd(props) {
         onChange={handleContactDetails}
         required
       />
-
+      <div class="form__group radio">
+            <h4>Contact Type:</h4>
+            <ul>
+              <li>
+              <label for="contactTypeWork">Work</label>
+                <input
+                  id="contactTypeWork"
+                  type="radio"
+                  name="contactType"
+                  value="work"
+                  onChange={handleContactType}
+                  checked={contactType === "work"}
+                />
+              </li>
+              <li>
+              <label for="contactTypePersonal">Personal</label>
+                <input
+                  id="contactTypePersonal"
+                  type="radio"
+                  name="contactType"
+                  value="personal"
+                  onChange={handleContactType}
+                  checked={contactType === "personal"}
+                />
+              </li>
+            </ul>
+          </div>
       <div className="actions-section">
         <button className="button blue" type="submit">
           Create
