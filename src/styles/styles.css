@@ -37,7 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
 }
 
 /* Make images easier to work with */
@@ -150,4 +150,14 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.makeInlineBlock {
+  display: inline-block;
+  padding-left: 0.5em;
+}
+
+.text-link {
+  color: inherit;
+  text-decoration: inherit;
 }
