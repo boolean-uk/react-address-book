@@ -31,8 +31,9 @@ export default function App() {
       <main>
         <Routes>
           <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts} loading={loading} />} />
-          <Route path="/contacts/edit" element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />.
+          <Route path="/contacts/edit" element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />
           <Route path="/contacts/:id" element={<ContactsView  />} />
+          <Route path="/contacts/:id/meetings" element={<MeetingsView />}
         </Routes>
       </main>
     </>

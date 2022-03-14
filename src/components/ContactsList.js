@@ -33,6 +33,7 @@ function ContactsList(props) {
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
+        {/* conditionally redering based on boolean of loading */}
         {loading ? 
         <Fragment>
           <Loader.FallingLines
