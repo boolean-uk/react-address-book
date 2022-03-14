@@ -5,7 +5,10 @@
       "firstName": "John",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "London",
+      "email": "John@carmack.com",
+      "linkedIn": "John123carmack",
+      "twitter": "John123carmack"
     },
     {
       "id": 2,
@@ -13,6 +16,40 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Steve",
+      "lastName": "Bruce",
+      "street": "B ham Road",
+      "city": "Birmingham",
+      "id": 4
+    },
+    {
+      "firstName": "Chris",
+      "lastName": "Dodds",
+      "street": "oljpoj",
+      "city": "ojpojopjk",
+      "id": 5
+    },
+    {
+      "firstName": "Hulk",
+      "lastName": "Hogan",
+      "street": "WrestleMania",
+      "city": "Los Angeles",
+      "email": "hulkhogan@gmail.com",
+      "linkedIn": "hulkhogan21",
+      "twitter": "hulkhogan56",
+      "id": 7
+    },
+    {
+      "firstName": "Huckleberry",
+      "lastName": "Finn",
+      "street": "sadasd",
+      "city": "asdasdad",
+      "email": "jilkjlj@asdsad",
+      "linkedIn": "jklkjk",
+      "twitter": "jkl;jlkjn",
+      "id": 8
     }
   ]
 }
