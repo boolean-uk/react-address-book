@@ -14,5 +14,34 @@
       "street": "32 Deebug Road",
       "city": "London"
     }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "date": [
+        "Tuesday",
+        "Wednesday"
+      ],
+      "time": [
+        "13:00",
+        "14:00"
+      ],
+      "location": [
+        "Mars",
+        "Jupiter"
+      ]
+    },
+    {
+      "id": 2,
+      "date": [
+        "Monday"
+      ],
+      "time": [
+        "09:00"
+      ],
+      "location": [
+        "Io"
+      ]
+    }
   ]
 }
