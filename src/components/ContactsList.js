@@ -6,6 +6,8 @@ function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const { contacts } = props
 
+  console.log("log contact list ma boy", props)
+
   return (
     <>
       <header>
@@ -21,7 +23,10 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
+                {/* add link tags and then using to with strings indicating the location of the link */}
+                <Link to={`/contacts/${contacts.id}`} >
                 View
+                </Link>
               </p>
             </li>
           )
