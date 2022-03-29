@@ -18,9 +18,11 @@ function ContactsAdd(props) {
   })
 
   // This populates the form if the location state is not undefined
+  // with the contact object from the location.state object
   // and runs again when the location state is updated
   useEffect(() => {
     if(location.state) {
+      console.log("this is location.state", location.state)
       const {contact} = location.state
       setAddressData(contact)
     }
@@ -43,6 +45,10 @@ function ContactsAdd(props) {
       })
         .then((res) => res.json())
         .then((json) => {
+          // Checks if the contact.id matches the returned object id creates 
+          // a new array with the edited contact otherwise 
+          // adds the non matching existing contact back in then sets the mapped array
+          // using the setContacts function
           const editedAddress = contacts.map(contact =>
             contact.id === json.id ? json : contact
           )
