@@ -8,9 +8,7 @@ const initialNewContact = {
   street: "",
   city: "",
   howToReach: {
-    email: false,
-    linkedIn: false,
-    twitter: false,
+    contactMethod: "",
     address: "",
   },
 };
@@ -36,7 +34,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
       case "howToReach":
         const clickedMethod = {
           ...newContact[name],
-          [value]: checked,
+          contactMethod: value,
         };
         setNewContact({ ...newContact, howToReach: clickedMethod });
         break;
@@ -120,7 +118,6 @@ const ContactsAdd = ({ contacts, setContacts }) => {
           name="howToReach"
           type="radio"
           value="email"
-          checked={newContact.howToReach.email}
           onChange={handleChange}
         />
         <label htmlFor="email">Email</label>
@@ -130,7 +127,6 @@ const ContactsAdd = ({ contacts, setContacts }) => {
           name="howToReach"
           type="radio"
           value="linkedIn"
-          checked={newContact.howToReach.linkedIn}
           onChange={handleChange}
         />
         <label htmlFor="linkedIn">LinkedIn</label>
@@ -140,7 +136,6 @@ const ContactsAdd = ({ contacts, setContacts }) => {
           name="howToReach"
           type="radio"
           value="twitter"
-          checked={newContact.howToReach.twitter}
           onChange={handleChange}
         />
         <label htmlFor="twitter">Twitter</label>
@@ -148,7 +143,9 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         <input
           id="address"
           name="address"
-          type={newContact.howToReach.email ? "email" : "text"}
+          type={
+            newContact.howToReach.contactMethod === "email" ? "email" : "text"
+          }
           value={newContact.howToReach.address}
           onChange={handleChange}
           required

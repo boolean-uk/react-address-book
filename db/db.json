@@ -20,6 +20,28 @@
       "lastName": "Sigrist",
       "street": "Kartausstrasse 55",
       "city": "Zürich"
+    },
+    {
+      "id": 4,
+      "firstName": "Arisa",
+      "lastName": "Sigrist",
+      "street": "werwoeiru",
+      "city": "ioueoiueoiwj",
+      "howToReach": {
+        "contactMethod": "twitter",
+        "address": "qweqwieuoiu"
+      }
+    },
+    {
+      "id": 5,
+      "firstName": "Arisa ",
+      "lastName": "Sigrist",
+      "street": "dofisdfoi",
+      "city": "oiduoisdfoi",
+      "howToReach": {
+        "contactMethod": "email",
+        "address": "wrepoqwipoi"
+      }
     }
   ]
 }
