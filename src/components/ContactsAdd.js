@@ -29,7 +29,8 @@ function ContactsAdd(props) {
     fetch(`http://localhost:4000/contacts`, opts)
       .then(res => res.json())
       .then(data => setContacts([...contacts, data]))
-      setFormData(initialData)
+
+    setFormData(initialData)
   }
 
   return (
