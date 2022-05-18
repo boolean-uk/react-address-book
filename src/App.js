@@ -8,24 +8,29 @@ import "./styles/styles.css";
 const App = () => {
   const [contacts, setContacts] = useState([]);
 
-  //TODO: Load all contacts on useEffect when component first renders
+  useEffect(() => {
+    fetch("http://localhost:4000/contacts")
+      .then((res) => res.json())
+      .then((contactData) => setContacts(contactData));
+  }, []);
 
   return (
     <>
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
           <Link to="/">
             <li>Contacts List</li>
           </Link>
-
-          <li>Add New Contact</li>
+          <Link to="/contacts/add">
+            <li>Add New Contact</li>
+          </Link>
         </ul>
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={ContactsList} />
+          <Route path="/" element={<ContactsList contacts={contacts} />} />
+          <Route path="/contacts/add" element={<ContactsAdd />} />
         </Routes>
       </main>
     </>
