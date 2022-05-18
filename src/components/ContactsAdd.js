@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const initialNewContact = {
@@ -9,14 +9,14 @@ const initialNewContact = {
   city: "",
 };
 
-const ContactsAdd = ({ contactId, addNewContact }) => {
+const ContactsAdd = ({ contacts, setContacts }) => {
   const [newContact, setNewContact] = useState(initialNewContact);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
       case "firstName":
-        setNewContact({ ...newContact, id: contactId, firstName: value });
+        setNewContact({ ...newContact, firstName: value });
         break;
       case "lastName":
         setNewContact({ ...newContact, lastName: value });
@@ -32,9 +32,21 @@ const ContactsAdd = ({ contactId, addNewContact }) => {
     }
   };
 
+  const patchRequest = (newContact) => {
+    const opts = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newContact),
+    };
+    fetch("http://localhost:4000/contacts", opts)
+      .then((res) => res.json())
+      .then((contactData) => console.log(contactData));
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    addNewContact(newContact);
+    setContacts([...contacts, newContact]);
+    patchRequest(newContact);
     setNewContact(initialNewContact);
   };
 

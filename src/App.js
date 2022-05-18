@@ -8,9 +8,6 @@ import "./styles/styles.css";
 const App = () => {
   const [contacts, setContacts] = useState([]);
 
-  const addNewContact = (newContact) => setContacts([...contacts, newContact]);
-  const contactId = contacts.length + 1;
-
   useEffect(() => {
     fetch("http://localhost:4000/contacts")
       .then((res) => res.json())
@@ -36,10 +33,7 @@ const App = () => {
           <Route
             path="/contacts/add"
             element={
-              <ContactsAdd
-                contactId={contactId}
-                addNewContact={addNewContact}
-              />
+              <ContactsAdd contacts={contacts} setContacts={setContacts} />
             }
           />
         </Routes>
