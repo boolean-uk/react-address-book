@@ -6,6 +6,9 @@ const initialData = {
   lastName: "",
   street: "",
   city: "",
+  email: "",
+  linkedin: "",
+  twitter: "",
 };
 
 function ContactsAdd({ contacts, setContacts }) {
@@ -25,6 +28,15 @@ function ContactsAdd({ contacts, setContacts }) {
     }
     if (id === "city") {
       setInputData({ ...inputData, city: value });
+    }
+    if (id === "email") {
+      setInputData({ ...inputData, email: value });
+    }
+    if (id === "linkedin") {
+      setInputData({ ...inputData, linkedin: value });
+    }
+    if (id === "twitter") {
+      setInputData({ ...inputData, twitter: value });
     }
   };
 
@@ -84,6 +96,36 @@ function ContactsAdd({ contacts, setContacts }) {
         type="text"
         required
         value={inputData.city}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+        required
+        value={inputData.email}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="linkedin">LinkedIn:</label>
+      <input
+        id="linkedin"
+        name="linkedin"
+        type="text"
+        required
+        value={inputData.linkedin}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input
+        id="twitter"
+        name="twitter"
+        type="text"
+        required
+        value={inputData.twitter}
         onChange={handleChange}
       />
 
