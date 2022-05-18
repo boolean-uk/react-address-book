@@ -1,16 +1,17 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ContactsAdd({ setContacts }) {
+function ContactsEdit({ setContacts, contacts }) {
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
-  const [newContact, setNewContact] = useState();
-  // state
-  // const { setContacts, contacts } = props
-
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
-  // console.log(setContacts);
+  const { id } = useParams();
+  let currContact = null;
+  contacts.forEach((contact) => {
+    if (contact.id === +id) {
+      currContact = contact;
+    }
+  });
+  const [newContact, setNewContact] = useState(currContact);
 
   const navigate = useNavigate();
 
@@ -42,19 +43,25 @@ function ContactsAdd({ setContacts }) {
   };
 
   const handleSubmit = (e) => {
-    const id = Math.random();
+    // const id = Math.random();
     e.preventDefault();
-    setContacts((prevContacts) => [...prevContacts, { ...newContact, id }]);
+    setContacts((prevContacts) => {
+      return prevContacts.map((contact) => {
+        if (contact.id === +id) {
+          return { ...newContact, id: contact.id };
+        } else return contact;
+      });
+    });
 
     const options = {
-      method: "POST",
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ ...newContact, id }),
+      body: JSON.stringify({ ...newContact }),
     };
 
-    fetch("http://localhost:4000/contacts/", options);
+    fetch(`http://localhost:4000/contacts/${id}`, options);
 
     e.target.reset();
     navigate("/");
@@ -71,6 +78,7 @@ function ContactsAdd({ setContacts }) {
         name="firstName"
         type="text"
         required
+        value={newContact && newContact.firstName}
       />
 
       <label htmlFor="lastName">Last Name:</label>
@@ -80,6 +88,7 @@ function ContactsAdd({ setContacts }) {
         name="lastName"
         type="text"
         required
+        value={newContact && newContact.lastName}
       />
 
       <label htmlFor="street">Street:</label>
@@ -89,6 +98,7 @@ function ContactsAdd({ setContacts }) {
         name="street"
         type="text"
         required
+        value={newContact && newContact.street}
       />
 
       <label htmlFor="city">City:</label>
@@ -98,6 +108,7 @@ function ContactsAdd({ setContacts }) {
         name="city"
         type="text"
         required
+        value={newContact && newContact.city}
       />
       <label htmlFor="email">Email:</label>
       <input
@@ -106,6 +117,7 @@ function ContactsAdd({ setContacts }) {
         id="email"
         onChange={handleChange}
         required
+        value={newContact && newContact.email}
       />
       <label htmlFor="linkedIn">LinkedIn:</label>
       <input
@@ -114,6 +126,7 @@ function ContactsAdd({ setContacts }) {
         id="linkedIn"
         onChange={handleChange}
         required
+        value={newContact && newContact.linkedIn}
       />
       <label htmlFor="twitter">Twitter:</label>
       <input
@@ -122,15 +135,16 @@ function ContactsAdd({ setContacts }) {
         id="twitter"
         onChange={handleChange}
         required
+        value={newContact && newContact.twitter}
       />
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Update
         </button>
       </div>
     </form>
   );
 }
 
-export default ContactsAdd;
+export default ContactsEdit;
