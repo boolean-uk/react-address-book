@@ -14,6 +14,8 @@ const initialData = {
 function ContactsAdd({ contacts, setContacts }) {
   const [inputData, setInputData] = useState(initialData);
 
+  const navigate = useNavigate();
+
   const handleChange = (e) => {
     const { id, value } = e.target;
 
@@ -53,6 +55,7 @@ function ContactsAdd({ contacts, setContacts }) {
         setContacts([...contacts, data]);
         setInputData(initialData);
       });
+    navigate("/contacts");
   };
 
   return (
@@ -114,7 +117,6 @@ function ContactsAdd({ contacts, setContacts }) {
         id="linkedin"
         name="linkedin"
         type="text"
-        required
         value={inputData.linkedin}
         onChange={handleChange}
       />
@@ -124,7 +126,6 @@ function ContactsAdd({ contacts, setContacts }) {
         id="twitter"
         name="twitter"
         type="text"
-        required
         value={inputData.twitter}
         onChange={handleChange}
       />
