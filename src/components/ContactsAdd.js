@@ -1,32 +1,22 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
+const initalUser = {
+  firstName: "",
+  lastName: "",
+  street: "",
+  city: "",
+  email: "",
+  linkedIn: "",
+  twitter: "",
+};
+
 function ContactsAdd({ contacts, setContacts }) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
-  const initalUser = { firstName: "", lastName: "", street: "", city: "" };
   const [newContact, setNewContact] = useState(initalUser);
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
 
   function handleChange(e) {
     const { id, value } = e.target;
-
-    switch (id) {
-      case "firstName":
-        setNewContact({ ...newContact, firstName: value });
-        break;
-      case "lastName":
-        setNewContact({ ...newContact, lastName: value });
-        break;
-      case "street":
-        setNewContact({ ...newContact, street: value });
-        break;
-      case "city":
-        setNewContact({ ...newContact, city: value });
-        break;
-    }
+    setNewContact({ ...newContact, [id]: value });
   }
 
   function handleSubmit(e) {
@@ -88,6 +78,36 @@ function ContactsAdd({ contacts, setContacts }) {
         required
         onChange={handleChange}
         value={newContact.city}
+      />
+
+      <label htmlFor="email">email:</label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+        required
+        onChange={handleChange}
+        value={newContact.email}
+      />
+
+      <label htmlFor="linkedIn">linkedIn:</label>
+      <input
+        id="linkedIn"
+        name="linkedIn"
+        type="text"
+        required
+        onChange={handleChange}
+        value={newContact.linkedIn}
+      />
+
+      <label htmlFor="twitter">twitter:</label>
+      <input
+        id="twitter"
+        name="twitter"
+        type="text"
+        required
+        onChange={handleChange}
+        value={newContact.twitter}
       />
 
       <div className="actions-section">
