@@ -17,7 +17,7 @@ function ContactsList({ contacts }) {
               </p>
               <p>
                 {/** TODO: Make a Link here to view contact */}
-                View
+                <Link to={`/view/${contact.id}`}>View</Link>
               </p>
             </li>
           );
