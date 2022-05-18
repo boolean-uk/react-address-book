@@ -7,13 +7,19 @@ const initialNewContact = {
   lastName: "",
   street: "",
   city: "",
+  howToReach: {
+    email: false,
+    linkedIn: false,
+    twitter: false,
+    address: "",
+  },
 };
 
 const ContactsAdd = ({ contacts, setContacts }) => {
   const [newContact, setNewContact] = useState(initialNewContact);
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, checked } = e.target;
     switch (name) {
       case "firstName":
         setNewContact({ ...newContact, firstName: value });
@@ -26,6 +32,20 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         break;
       case "city":
         setNewContact({ ...newContact, city: value });
+        break;
+      case "howToReach":
+        const clickedMethod = {
+          ...newContact[name],
+          [value]: checked,
+        };
+        setNewContact({ ...newContact, howToReach: clickedMethod });
+        break;
+      case "address":
+        const contactWithAddress = {
+          ...newContact.howToReach,
+          address: value,
+        };
+        setNewContact({ ...newContact, howToReach: contactWithAddress });
         break;
       default:
         console.log("oops, we don't have that input field");
@@ -93,6 +113,47 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         onChange={handleChange}
         required
       />
+
+      <div className="radio-wrapper">
+        <input
+          id="email"
+          name="howToReach"
+          type="radio"
+          value="email"
+          checked={newContact.howToReach.email}
+          onChange={handleChange}
+        />
+        <label htmlFor="email">Email</label>
+
+        <input
+          id="linkedIn"
+          name="howToReach"
+          type="radio"
+          value="linkedIn"
+          checked={newContact.howToReach.linkedIn}
+          onChange={handleChange}
+        />
+        <label htmlFor="linkedIn">LinkedIn</label>
+
+        <input
+          id="twitter"
+          name="howToReach"
+          type="radio"
+          value="twitter"
+          checked={newContact.howToReach.twitter}
+          onChange={handleChange}
+        />
+        <label htmlFor="twitter">Twitter</label>
+
+        <input
+          id="address"
+          name="address"
+          type={newContact.howToReach.email ? "email" : "text"}
+          value={newContact.howToReach.address}
+          onChange={handleChange}
+          required
+        />
+      </div>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
