@@ -9,6 +9,7 @@ function ContactsList({ contacts }) {
       </header>
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
+          console.log(contacts);
           const { firstName, lastName } = contact;
           return (
             <li className="contact" key={index}>
