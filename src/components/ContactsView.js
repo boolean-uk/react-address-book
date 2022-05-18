@@ -23,9 +23,18 @@ function ContactsView() {
   }
 
   return (
-    <div>
+    <div className="contacts-view">
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street} {contact.city}</p>
+      {contact.email && <p>{contact.email}</p>}
+      {contact.linkedIn && 
+        <a href={`https://www.linkedin.com/in/${contact.linkedIn}`} target="_blank">
+          {contact.linkedIn}
+        </a>}
+      {contact.twitter && 
+        <a href={`https://twitter.com/${contact.twitter}`} target="_blank">
+          {contact.twitter}
+        </a>}
     </div>
   )
 }

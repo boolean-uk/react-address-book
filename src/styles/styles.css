@@ -37,7 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
 }
 
 /* Make images easier to work with */
@@ -92,7 +92,7 @@ h2 {
   border-bottom: 1px solid #1b1b1b;
 }
 
-.contacts-list > li + li {
+.contacts-list>li+li {
   border-top: 1px solid #cbcbcb;
 }
 
@@ -100,7 +100,7 @@ h2 {
   max-width: 400px;
 }
 
-.contacts-list > li {
+.contacts-list>li {
   padding: 1rem 0;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -113,15 +113,15 @@ h2 {
   padding: 2rem 0;
 }
 
-.form-stack > * + * {
+.form-stack>*+* {
   margin-top: 0.5rem;
 }
 
-.form-stack > label {
+.form-stack>label {
   display: block;
 }
 
-.form-stack > input {
+.form-stack>input {
   width: 100%;
 }
 
@@ -150,4 +150,8 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.contacts-view a {
+  display: block;
 }

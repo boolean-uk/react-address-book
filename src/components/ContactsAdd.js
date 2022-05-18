@@ -10,7 +10,16 @@ function ContactsAdd(props) {
 
   //TODO: Implement controlled form
   //send POST to json server on form submit
-  const initialData = { firstName: "", lastName: "", street: "", city: "" }
+  const initialData = { 
+    firstName: "", 
+    lastName: "", 
+    street: "", 
+    city: "",
+    email: "",
+    linkedIn: "",
+    twitter: ""
+  }
+
   const [formData, setFormData] = useState(initialData)
 
   const handleChange = (e) => {
@@ -48,6 +57,15 @@ function ContactsAdd(props) {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" required value={formData.city} onChange={handleChange}/>
+
+      <label htmlFor="email">Email:</label>
+      <input id="email" name="email" type="email" value={formData.email} onChange={handleChange}/>
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input id="linkedIn" name="linkedIn" type="linkedIn" value={formData.linkedIn} onChange={handleChange}/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" name="twitter" type="twitter" value={formData.twitter} onChange={handleChange}/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
