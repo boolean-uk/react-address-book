@@ -36,6 +36,10 @@ const App = () => {
               <ContactsAdd contacts={contacts} setContacts={setContacts} />
             }
           />
+          <Route
+            path="/contacts/:id"
+            element={<ContactsView contacts={contacts} />}
+          />
         </Routes>
       </main>
     </>

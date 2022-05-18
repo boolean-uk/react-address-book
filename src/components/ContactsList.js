@@ -15,10 +15,9 @@ function ContactsList({ contacts }) {
               <p>
                 {firstName} {lastName}
               </p>
-              <p>
-                {/** TODO: Make a Link here to view contact */}
-                View
-              </p>
+              <Link to={`/contacts/${contact.id}`} state={{ contact }}>
+                <p>View</p>
+              </Link>
             </li>
           );
         })}

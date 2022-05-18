@@ -32,7 +32,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
     }
   };
 
-  const patchRequest = (newContact) => {
+  const postRequest = (newContact) => {
     const opts = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -45,8 +45,8 @@ const ContactsAdd = ({ contacts, setContacts }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    postRequest(newContact);
     setContacts([...contacts, newContact]);
-    patchRequest(newContact);
     setNewContact(initialNewContact);
   };
 
