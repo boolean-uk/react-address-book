@@ -37,8 +37,8 @@ Some of the components have been created for you.
 
 ## Tips
 - Check `db/db.json` and think about which URLs you are going to need when creating your `fetch` functions.
-- Using the instructions above, json-server will run on `localhost:4000`, so you can `GET` all contacts at `http//localhost:4000/contacts`. 
-- You can add a new contact by `POST`-ing to `http//localhost:4000/contacts`
+- Using the instructions above, json-server will run on `localhost:4000`, so you can `GET` all contacts at `http://localhost:4000/contacts`. 
+- You can add a new contact by `POST`-ing to `http://localhost:4000/contacts`
 - You can also use a tool such as Insomnia to test these requests before you start writing code
 
 ## Extension 1
