@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const initalUser = {
   firstName: "",
@@ -13,6 +13,7 @@ const initalUser = {
 
 function ContactsAdd({ contacts, setContacts }) {
   const [newContact, setNewContact] = useState(initalUser);
+  const navigate = useNavigate();
 
   function handleChange(e) {
     const { id, value } = e.target;
@@ -33,6 +34,7 @@ function ContactsAdd({ contacts, setContacts }) {
         console.log(addedContact);
         setContacts([...contacts, addedContact]);
         setNewContact(initalUser);
+        navigate("/");
       });
   }
 
