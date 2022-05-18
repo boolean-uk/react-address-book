@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 function ContactsAdd(props) {
+  const navigate = useNavigate()
 
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
@@ -40,6 +41,7 @@ function ContactsAdd(props) {
       .then(data => setContacts([...contacts, data]))
 
     setFormData(initialData)
+    navigate("/")
   }
 
   return (
