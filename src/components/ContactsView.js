@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
@@ -35,6 +35,9 @@ function ContactsView() {
         <a href={`https://twitter.com/${contact.twitter}`} target="_blank">
           {contact.twitter}
         </a>}
+        <Link to={`/contacts/${contact.id}/edit`} >
+          <p>Edit</p>
+        </Link>
     </div>
   )
 }
