@@ -1,82 +1,77 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 
 function ContactsAdd(props) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const { setContacts, contacts } = props;
-
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
-
+  const navigate = useNavigate();
+  const location = useLocation();
   const [addressData, setAddressData] = useState({
     firstName: "",
     lastName: "",
     street: "",
     city: "",
+    email: "",
+    linkedin: "",
+    twitter: "",
   });
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  useEffect(() => {
+    if (location.state) {
+      console.log("this is location.state", location.state);
+      const { contact } = location.state;
+      setAddressData(contact);
+    }
+  }, [location]);
 
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        firstName: addressData.firstName,
-        lastName: addressData.lastName,
-        street: addressData.street,
-        city: addressData.city,
-      }),
-    };
-
-    fetch("http://localhost:4000/contacts", options)
-      .then((res) => res.json())
-      .then((json) => {
-        console.log("Address created!", json);
-        setContacts([...contacts, json]);
-
-        setAddressData({
-          firstName: "",
-          lastName: "",
-          street: "",
-          city: "",
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (addressData.id) {
+      fetch(`http://localhost:4000/contacts/${addressData.id}`, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(addressData),
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          const editedAddress = contacts.map((contact) =>
+            contact.id === json.id ? json : contact
+          );
+          setContacts(editedAddress);
+          navigate("/");
         });
-      });
-  }
-
-  function handleChange(event) {
-    const inputName = event.target.name;
-    const inputValue = event.target.value;
-
-    if (inputName === "firstName") {
-      setAddressData({ ...addressData, firstName: inputValue });
-    }
-    if (inputName === "lastName") {
-      setAddressData({ ...addressData, lastName: inputValue });
-    }
-    if (inputName === "street") {
-      setAddressData({ ...addressData, street: inputValue });
-    }
-    if (inputName === "city") {
-      setAddressData({ ...addressData, city: inputValue });
+    } else {
+      fetch("http://localhost:4000/contacts", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(addressData),
+      })
+        .then((res) => res.json())
+        .then((json) => {
+          console.log("Address created!", json);
+          setContacts([...contacts, json]);
+          navigate(`/`);
+        });
     }
   }
+
+  const handleChange = (e) => {
+    setAddressData({ ...addressData, [e.target.name]: e.target.value });
+  };
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
       <h2>Create Contact</h2>
-
-      <label htmlFor="firstName">First Name</label>
+      <label htmlFor="firstName">First Name:</label>
       <input
         id="firstName"
         value={addressData.firstName}
         name="firstName"
         type="text"
-        required
         onChange={handleChange}
       />
 
@@ -86,7 +81,6 @@ function ContactsAdd(props) {
         value={addressData.lastName}
         name="lastName"
         type="text"
-        required
         onChange={handleChange}
       />
 
@@ -96,7 +90,6 @@ function ContactsAdd(props) {
         value={addressData.street}
         name="street"
         type="text"
-        required
         onChange={handleChange}
       />
 
@@ -106,7 +99,33 @@ function ContactsAdd(props) {
         value={addressData.city}
         name="city"
         type="text"
-        required
+        onChange={handleChange}
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        value={addressData.email}
+        name="email"
+        type="text"
+        onChange={handleChange}
+      />
+
+      <label htmlFor="linkedin">LinkedIn:</label>
+      <input
+        id="linkedin"
+        value={addressData.linkedin}
+        name="linkedin"
+        type="text"
+        onChange={handleChange}
+      />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input
+        id="twitter"
+        value={addressData.twitter}
+        name="twitter"
+        type="text"
         onChange={handleChange}
       />
 

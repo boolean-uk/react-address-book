@@ -1,20 +1,6 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
-    },
-    {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
-    },
-    {
       "firstName": "Toby",
       "lastName": "Carlo",
       "street": "*** Kingfisher Drive",
@@ -22,11 +8,24 @@
       "id": 3
     },
     {
-      "firstName": "hjj",
-      "lastName": "ujn",
-      "street": "iujiu",
-      "city": "jinjj",
-      "id": 4
+      "firstName": "dftghdfh",
+      "lastName": "dfgdfgdf",
+      "street": "dfgdfg",
+      "city": "dfgdfg",
+      "email": "dfgdfgd",
+      "linkedin": "dfgdfgd",
+      "twitter": "dfgdfgd",
+      "id": 5
+    },
+    {
+      "firstName": "sdfgdfg",
+      "lastName": "dfgdfgd",
+      "street": "dfgdfg",
+      "city": "dfgdfg",
+      "email": "dfgdfg@dfhgdfgh",
+      "linkedin": "sdfgdfg",
+      "twitter": "dfgdfg",
+      "id": 6
     }
   ]
 }
