@@ -5,12 +5,14 @@ const ContactsEdit = ({ contacts, setContacts }) => {
   const [editingContact, setEditingContact] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const editedContactIndex = editingContact.id + 1;
+  const editedContactIndex = editingContact.id;
 
   useEffect(() => {
     const clickedContact = location.state.contact;
     setEditingContact(clickedContact);
   }, [location]);
+
+  if (!editingContact) return <p>Wait a minute...</p>;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -58,7 +60,14 @@ const ContactsEdit = ({ contacts, setContacts }) => {
       body: JSON.stringify(editingContact),
     })
       .then((res) => res.json())
-      .then((editingContact) => setContacts([...contacts[editedContactIndex]]));
+      .then((editingContact) => {
+        const updatedContacts = [...contacts];
+        const targetIndex = updatedContacts.findIndex(
+          (contact) => contact.id === editingContact.id
+        );
+        updatedContacts[targetIndex] = editingContact;
+        setContacts(updatedContacts);
+      });
   };
 
   const submitChange = (e) => {
@@ -119,6 +128,9 @@ const ContactsEdit = ({ contacts, setContacts }) => {
           type="radio"
           value="email"
           onChange={handleChange}
+          checked={
+            editingContact.howToReach.contactMethod === "email" ? true : false
+          }
         />
         <label htmlFor="email">Email</label>
         <input
@@ -127,6 +139,11 @@ const ContactsEdit = ({ contacts, setContacts }) => {
           type="radio"
           value="linkedIn"
           onChange={handleChange}
+          checked={
+            editingContact.howToReach.contactMethod === "linkedIn"
+              ? true
+              : false
+          }
         />
         <label htmlFor="linkedIn">LinkedIn</label>
         <input
@@ -134,14 +151,21 @@ const ContactsEdit = ({ contacts, setContacts }) => {
           name="howToReach"
           type="radio"
           value="twitter"
+          checked={
+            editingContact.howToReach.contactMethod === "twitter" ? true : false
+          }
           onChange={handleChange}
         />
         <label htmlFor="twitter">Twitter</label>
         <input
           id="address"
           name="address"
-          type="text"
-          //   value={editingContact.howToReach.address}
+          type={
+            editingContact.howToReach.contactMethod === "email"
+              ? "email"
+              : "text"
+          }
+          value={editingContact.howToReach.address}
           onChange={handleChange}
           required
         />
