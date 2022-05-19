@@ -15,21 +15,14 @@
       "city": "London"
     },
     {
-      "firstName": "g",
-      "lastName": "j",
-      "street": "j",
-      "city": "j",
+      "firstName": "New ",
+      "lastName": "Contact",
+      "street": "random",
+      "city": "random",
+      "email": "random@random",
+      "linkedIn": "random",
+      "twitter": "random",
       "id": 3
-    },
-    {
-      "firstName": "fsf",
-      "lastName": "fds",
-      "street": "fds",
-      "city": "fsdf",
-      "email": "sfds@hjgv",
-      "linkedIn": "dfs",
-      "twitter": "sfs",
-      "id": 4
     }
   ]
 }
