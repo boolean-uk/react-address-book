@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
 function ContactsList(props) {
@@ -17,9 +16,16 @@ function ContactsList(props) {
               <p>
                 {firstName} {lastName}
               </p>
-              <p>
-                <Link to={`/contacts/${contact.id}`}>View</Link>
-              </p>
+              <div>
+                <button>
+                  {" "}
+                  <Link to={`/contacts/${contact.id}`}>View</Link>
+                </button>
+                <button>
+                  <Link to={`/edit/${contact.id}`}>Edit</Link>
+                </button>
+                <button>Delete</button>
+              </div>
             </li>
           );
         })}

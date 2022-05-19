@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
+import ContactsEdit from "./components/ContactsEdit";
 import "./styles/styles.css";
 
 export default function App() {
@@ -13,8 +14,6 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => setContacts(data));
   }, []);
-
-  console.log("CONTACTS AFTER FETCH: ", contacts);
 
   return (
     <>
@@ -42,6 +41,12 @@ export default function App() {
             }
           />
           <Route path="/contacts/:id" element={<ContactsView />} />
+          <Route
+            path="/edit/:id"
+            element={
+              <ContactsEdit contacts={contacts} setContacts={setContacts} />
+            }
+          />
         </Routes>
       </main>
     </>

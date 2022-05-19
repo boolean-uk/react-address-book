@@ -8,78 +8,24 @@
       "city": "London"
     },
     {
-      "firstName": "David",
-      "lastName": "Czuczor",
+      "firstName": "ttt",
+      "lastName": "ttt",
       "street": "27 Ruscoe Road",
       "city": "London",
+      "email": "czdavid93@gmail.com",
+      "linkedin": "",
+      "twitter": "",
       "id": 2
     },
     {
-      "firstName": "David",
-      "lastName": "Czuczor",
-      "street": "27 Ruscoe Road",
+      "firstName": "Oliver",
+      "lastName": "Bonas",
+      "street": "Stebondale Street",
       "city": "London",
       "email": "czdavid93@gmail.com",
-      "linkedin": "aaa",
-      "twitter": "bbb",
+      "linkedin": "",
+      "twitter": "",
       "id": 3
-    },
-    {
-      "firstName": "David",
-      "lastName": "Czuczor",
-      "street": "27 Ruscoe Road",
-      "city": "London",
-      "email": "czdavid93@gmail.com",
-      "linkedin": "heeey",
-      "twitter": "buuuu",
-      "id": 4
-    },
-    {
-      "firstName": "David",
-      "lastName": "Czuczor",
-      "street": "27 Ruscoe Road",
-      "city": "London",
-      "id": 5
-    },
-    {
-      "firstName": "David",
-      "lastName": "Czuczor",
-      "street": "27 Ruscoe Road",
-      "city": "London",
-      "email": "czdavid93@gmail.com",
-      "linkedin": "aaa",
-      "twitter": "bbb",
-      "id": 6
-    },
-    {
-      "firstName": "David",
-      "lastName": "Czuczor",
-      "street": "27 Ruscoe Road",
-      "city": "London",
-      "email": "czdavid93@gmail.com",
-      "linkedin": "aaa",
-      "twitter": "bbb",
-      "id": 7
-    },
-    {
-      "firstName": "David",
-      "lastName": "Czuczor",
-      "street": "27 Ruscoe Road",
-      "city": "London",
-      "email": "czdavid93@gmail.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 8
-    },
-    {
-      "firstName": "David",
-      "lastName": "Czuczor",
-      "street": "27 Ruscoe Road",
-      "city": "London",
-      "email": "czdavid93@gmail.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 9
     }
   ]
 }

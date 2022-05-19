@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
 function ContactsView() {
-  const [contact, setContact] = useState(false);
+  const [contact, setContact] = useState(null);
 
   const params = useParams();
 
