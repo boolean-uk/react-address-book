@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function ContactsView(props) {
-  const {contacts } = props;
+  const { contacts, setContacts } = props;
   const [contact, setContact] = useState(false);
 
-  //TODO: Get the contact to load from the params and fetch.
+  const navigate = useNavigate();
   //With useEffect, load the contact when params changes
   //and update contact state
   const { id } = useParams();
@@ -16,6 +16,16 @@ function ContactsView(props) {
   if (!contact) {
     return <p>Loading</p>;
   }
+
+  const remove = () => {
+    fetch(`http://localhost:4000/contacts/${id}`, {
+      method: "DELETE",
+    }).then(() => {
+      setContacts(contacts.filter((c) => c.id != id));
+      setContact(null);
+      navigate("/");
+    });
+  };
 
   return (
     <>
@@ -35,11 +45,15 @@ function ContactsView(props) {
         <p>
           LinkedIn: <a href={contact.linkedin}>{contact.linkedin}</a>
         </p>
-        <p>
-          <Link to={`/contacts/${contact.id}/edit`}>Edit</Link>
-        </p>
-
       </div>
+
+      <Link to={`/contacts/${contact.id}/edit`}>
+        <button className="button red">Edit</button>
+      </Link>
+
+      <button className="button red" onClick={remove}>
+        Delete
+      </button>
     </>
   );
 }
