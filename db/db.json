@@ -1,3 +1,37 @@
 {
-  "contacts": []
+  "contacts": [
+    {
+      "id": 1,
+      "firstName": "oiuoiuiou",
+      "lastName": "oiuoiuiou",
+      "street": "oiuiouiou",
+      "city": "iouoiuiouoi",
+      "howToReach": {
+        "contactMethod": "twitter",
+        "address": "oiuoiu"
+      }
+    },
+    {
+      "id": 2,
+      "firstName": "poipoiopi",
+      "lastName": "poipoi",
+      "street": "poipoiio",
+      "city": "oipoipoiopi",
+      "howToReach": {
+        "contactMethod": "twitter",
+        "address": "poiopipoiip"
+      }
+    },
+    {
+      "id": 3,
+      "firstName": "poipoipoi",
+      "lastName": "poipoipoipoi",
+      "street": "opipoipo",
+      "city": "opipoipoiopipoi",
+      "howToReach": {
+        "contactMethod": "twitter",
+        "address": "poipoiopipoi"
+      }
+    }
+  ]
 }

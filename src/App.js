@@ -4,16 +4,20 @@ import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
 import ContactsEdit from "./components/ContactsEdit";
+import LoadingSpinner from "./components/LoadingSpinner";
 import "./styles/styles.css";
 
 const App = () => {
   const [contacts, setContacts] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("http://localhost:4000/contacts")
       .then((res) => res.json())
       .then((contactData) => {
         setContacts(contactData);
+        setIsLoading(false);
       });
   }, []);
 
@@ -35,7 +39,11 @@ const App = () => {
           <Route
             path="/"
             element={
-              <ContactsList contacts={contacts} setContacts={setContacts} />
+              isLoading ? (
+                <LoadingSpinner />
+              ) : (
+                <ContactsList contacts={contacts} setContacts={setContacts} />
+              )
             }
           />
           <Route
