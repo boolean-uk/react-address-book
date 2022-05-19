@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom";
 import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
+import ContactsEdit from "./components/ContactsEdit";
 import "./styles/styles.css";
 
 const App = () => {
@@ -11,7 +12,9 @@ const App = () => {
   useEffect(() => {
     fetch("http://localhost:4000/contacts")
       .then((res) => res.json())
-      .then((contactData) => setContacts(contactData));
+      .then((contactData) => {
+        setContacts(contactData);
+      });
   }, []);
 
   return (
@@ -29,7 +32,12 @@ const App = () => {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<ContactsList contacts={contacts} />} />
+          <Route
+            path="/"
+            element={
+              <ContactsList contacts={contacts} setContacts={setContacts} />
+            }
+          />
           <Route
             path="/contacts/add"
             element={
@@ -39,6 +47,12 @@ const App = () => {
           <Route
             path="/contacts/:id"
             element={<ContactsView contacts={contacts} />}
+          />
+          <Route
+            path="contacts/:id/edit"
+            element={
+              <ContactsEdit contacts={contacts} setContacts={setContacts} />
+            }
           />
         </Routes>
       </main>
