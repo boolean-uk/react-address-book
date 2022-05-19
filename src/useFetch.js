@@ -11,11 +11,7 @@ export const useFetch = (url) => {
     setIsPending(true);
 
     setTimeout(function() {
-      //your code to be executed after 1 second
-    }, 3000);
-
-    const fetchData = async () => {
-      // setIsPending(true);
+      const fetchData = async () => {
       try {
         const res = await fetch(url, { signal: controller.signal });
         if (!res.ok) {
@@ -38,6 +34,7 @@ export const useFetch = (url) => {
     };
 
     fetchData();
+    }, 1000);
 
     return () => {
       controller.abort();
