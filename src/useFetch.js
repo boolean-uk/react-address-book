@@ -12,28 +12,27 @@ export const useFetch = (url) => {
 
     setTimeout(function() {
       const fetchData = async () => {
-      try {
-        const res = await fetch(url, { signal: controller.signal });
-        if (!res.ok) {
-          // 404 response returned resource not found
-          throw new Error(res.statusText); // throwing an error fires catch block, passing in error
-        }
-        const jsonData = await res.json();
+        try {
+          const res = await fetch(url, { signal: controller.signal });
+          if (!res.ok) {
+            // 404 response returned resource not found
+            throw new Error(res.statusText); // throwing an error fires catch block, passing in error
+          }
+          const jsonData = await res.json();
 
-        setIsPending(false);
-        setData(jsonData);
-        setError(null);
-      } catch (err) {
-        if (err.name === "AbortError") {
-          console.log("the fetch was aborted");
-        } else {
           setIsPending(false);
-          setError("Could not fetch the data");
-        }
-      }
-    };
-
-    fetchData();
+          setData(jsonData);
+          setError(null);
+        } catch (err) {
+            if (err.name === "AbortError") {
+              console.log("the fetch was aborted");
+            } else {
+              setIsPending(false);
+              setError("Could not fetch the data");
+            }
+          }
+      };
+      fetchData();
     }, 1000);
 
     return () => {

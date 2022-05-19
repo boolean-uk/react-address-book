@@ -14,5 +14,14 @@
       "street": "32 Deebug Road",
       "city": "London"
     }
+  ],
+  "meetings": [
+    {
+      "about": "New meetings form",
+      "location": "Zoom",
+      "time": "3pm",
+      "contactId": "2",
+      "id": 1
+    }
   ]
 }

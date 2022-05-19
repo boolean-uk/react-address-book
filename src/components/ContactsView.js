@@ -7,16 +7,16 @@ function ContactsView() {
   //TODO: Get the contact to load from the params and fetch.
   //With useEffect, load the contact when params changes
   //and update contact state
-  const params = useParams()
+  const { id } = useParams()
   
   useEffect(() => {
-    fetch(`http://localhost:4000/contacts?id=${params.id}`)
+    fetch(`http://localhost:4000/contacts?id=${id}`)
       .then(res => res.json())
       .then(data => {
         const retrievedContact = data[0]
         setContact(retrievedContact)
       })
-  }, [params])
+  }, [id])
 
   if (!contact) {
     return <p>Loading</p>
@@ -35,6 +35,9 @@ function ContactsView() {
         <a href={`https://twitter.com/${contact.twitter}`} target="_blank">
           {contact.twitter}
         </a>}
+        <Link to={`/contact/${contact.id}/meetings`} >
+          <p>See meetings</p>
+        </Link>
         <Link to={`/contacts/${contact.id}/edit`} >
           <p>Edit</p>
         </Link>
