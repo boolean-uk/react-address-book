@@ -1,11 +1,12 @@
-import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 import CircularProgress from '@mui/material/CircularProgress'
 
 function ContactsList(props) {
   //"contacts" must be passed as prop to this component
-  const { contacts, setContacts, isPending } = props
-  const [activeFilter, setActiveFilter] = useState({})
+  const { contacts, setContacts, isPending, filter } = props
+  const [searchParams, setSearchParams] = useSearchParams()
+
+  const query = searchParams.get('type') || ''
 
   const handleDelete = (id) => {
     const opts = { method: "DELETE" }
@@ -16,15 +17,16 @@ function ContactsList(props) {
   }
 
   const handleFilterChange = (e) => {
-    const filter = e.target.value
-    setActiveFilter({...activeFilter, type: filter})
+    const type = e.target.value
+
+    type ? setSearchParams({ type }) : setSearchParams({})
   }
 
   return (
     <>
       <header>
         <h2>Contacts</h2>
-        <select id="filters" name="filters" onChange={handleFilterChange} >
+        <select id="filters" name="filters" onChange={handleFilterChange} defaultValue={query}>
           <option value="">All contacts</option>
           <option value="personal">Personal</option>
           <option value="work">work</option>
@@ -33,12 +35,12 @@ function ContactsList(props) {
       {isPending && <CircularProgress />}
       {contacts && contacts.length === 0 && <span>No contacts...</span>}
       {contacts && <ul className="contacts-list">
-        {contacts.map((contact, index) => {
-          const { firstName, lastName, contactType } = contact
+        {contacts.filter(contact => contact.type.includes(query)).map((contact, index) => {
+          const { firstName, lastName, type } = contact
           return (
             <li className="contact" key={index}>
               <p>
-                {contactType === 'personal' ? <>&#127867;</> : <>&#128188;</>} {firstName} {lastName}
+                {type === 'personal' ? <>&#127867;</> : <>&#128188;</>} {firstName} {lastName}
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}

@@ -36,7 +36,7 @@ export default function App() {
           {/* TODO: Add routes here  */}
           <Route
             path="/"
-            element={<ContactsList contacts={contacts} setContacts={setContacts} isPending={isPending}/>}
+            element={<ContactsList contacts={contacts} setContacts={setContacts} isPending={isPending} filter={''}/>}
           />
           <Route
             path="/contacts/add"

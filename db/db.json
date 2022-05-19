@@ -6,7 +6,7 @@
       "lastName": "Carmack",
       "street": "10 Keen Street",
       "city": "London",
-      "contactType": "work"
+      "type": "work"
     },
     {
       "id": 2,
@@ -14,7 +14,7 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London",
-      "contactType": "personal"
+      "type": "personal"
     }
   ],
   "meetings": [
