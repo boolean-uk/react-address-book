@@ -161,6 +161,13 @@ h2 {
     transform: rotate(360deg);
   }
 }
+.loading-spinner-container {
+  max-width: 400px;
+  height: 50vh;
+  display: grid;
+  place-items: center;
+}
+
 .loading-spinner {
   width: 50px;
   height: 50px;

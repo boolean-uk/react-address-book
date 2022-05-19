@@ -1,8 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 
 function ContactsList({ contacts, setContacts }) {
-  const navigate = useNavigate();
-
   const deleteRequest = (contactId) => {
     fetch(`http://localhost:4000/contacts/${contactId}`, {
       method: "DELETE",

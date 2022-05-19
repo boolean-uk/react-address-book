@@ -13,6 +13,10 @@ const ContactsEdit = ({ contacts, setContacts }) => {
 
   if (!editingContact) return <p>Wait a minute...</p>;
 
+  const checkRadio = (value) => {
+    if (editingContact.howToReach.contactMethod === value) return true;
+  };
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
@@ -127,9 +131,7 @@ const ContactsEdit = ({ contacts, setContacts }) => {
           type="radio"
           value="email"
           onChange={handleChange}
-          checked={
-            editingContact.howToReach.contactMethod === "email" ? true : false
-          }
+          checked={checkRadio("email")}
         />
         <label htmlFor="email">Email</label>
         <input
@@ -138,11 +140,7 @@ const ContactsEdit = ({ contacts, setContacts }) => {
           type="radio"
           value="linkedIn"
           onChange={handleChange}
-          checked={
-            editingContact.howToReach.contactMethod === "linkedIn"
-              ? true
-              : false
-          }
+          checked={checkRadio("linkedIn")}
         />
         <label htmlFor="linkedIn">LinkedIn</label>
         <input
@@ -150,9 +148,7 @@ const ContactsEdit = ({ contacts, setContacts }) => {
           name="howToReach"
           type="radio"
           value="twitter"
-          checked={
-            editingContact.howToReach.contactMethod === "twitter" ? true : false
-          }
+          checked={checkRadio("twitter")}
           onChange={handleChange}
         />
         <label htmlFor="twitter">Twitter</label>
