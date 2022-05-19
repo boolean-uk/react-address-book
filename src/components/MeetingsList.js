@@ -17,6 +17,7 @@ function MeetingsList() {
     const { name, value } = e.target
     setMeetingData({...meetingData, [name]: value})
   }
+  
   const handleSubmit = (e) => {
     e.preventDefault()
 

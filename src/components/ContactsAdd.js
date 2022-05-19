@@ -18,7 +18,8 @@ function ContactsAdd(props) {
     city: "",
     email: "",
     linkedIn: "",
-    twitter: ""
+    twitter: "",
+    contactType: "personal"
   }
 
   const [formData, setFormData] = useState(initialData)
@@ -68,6 +69,13 @@ function ContactsAdd(props) {
 
       <label htmlFor="twitter">Twitter:</label>
       <input id="twitter" name="twitter" type="twitter" value={formData.twitter} onChange={handleChange}/>
+
+      <label htmlFor="contactType">Type of contact:
+        <input type="radio" name="contactType" value="personal" checked={formData.contactType === 'personal'} onChange={handleChange} />
+        Personal
+        <input type="radio" name="contactType" value="work" checked={formData.contactType === 'work'} onChange={handleChange} />
+        Work
+      </label>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

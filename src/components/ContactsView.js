@@ -3,6 +3,7 @@ import { useParams, Link } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
+  const { firstName, lastName, street, city, contactType } = contact
 
   //TODO: Get the contact to load from the params and fetch.
   //With useEffect, load the contact when params changes
@@ -24,8 +25,8 @@ function ContactsView() {
 
   return (
     <div className="contacts-view">
-      <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
+      <h2>{contactType === 'personal' ? <>&#127867;</> : <>&#128188;</>} {firstName} {lastName}</h2>
+      <p>{street} {city}</p>
       {contact.email && <p>{contact.email}</p>}
       {contact.linkedIn && 
         <a href={`https://www.linkedin.com/in/${contact.linkedIn}`} target="_blank">
