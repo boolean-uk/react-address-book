@@ -1,7 +1,23 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
-function ContactsList({ contacts }) {
+function ContactsList({ contacts, setContacts }) {
+  function handleDelete(id) {
+    const opts = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
+    fetch(`http://localhost:4000/contacts/${id}`, opts)
+      .then((res) => res.json())
+      .then(() => {
+        const newContacts = contacts.filter((c) => c.id !== id);
+        setContacts(newContacts);
+      });
+  }
+
   return (
     <>
       <header>
@@ -16,9 +32,10 @@ function ContactsList({ contacts }) {
                 {firstName} {lastName}
               </p>
               <p>
-                {/** TODO: Make a Link here to view contact */}
                 <Link to={`/view/${contact.id}`}>View</Link>
               </p>
+
+              <button onClick={() => handleDelete(contact.id)}>Delete</button>
             </li>
           );
         })}

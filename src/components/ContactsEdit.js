@@ -1,52 +1,52 @@
-import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router";
 
-// import ContactInfoForm from "./contactInfoForm";
-
-const initalUser = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  email: "",
-  linkedIn: "",
-  twitter: "",
-};
-
-function ContactsAdd({ contacts, setContacts }) {
-  const [newContact, setNewContact] = useState(initalUser);
+export default function ContactsEdit({ contacts, setContacts }) {
+  const [updatedContact, setUpdatedContact] = useState(null);
+  const { id } = useParams();
   const navigate = useNavigate();
 
-  function handleChange(e) {
-    const { id, value } = e.target;
-    setNewContact({ ...newContact, [id]: value });
-  }
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts/${id}`)
+      .then((res) => res.json())
+      .then((data) => setUpdatedContact(data));
+  }, [id]);
 
   function handleSubmit(e) {
     e.preventDefault();
-
     const opts = {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newContact),
+      body: JSON.stringify(updatedContact),
     };
-    fetch(`http://localhost:4000/contacts`, opts)
+
+    fetch(`http://localhost:4000/contacts/${id}`, opts)
       .then((res) => res.json())
-      .then((addedContact) => {
-        setContacts([...contacts, addedContact]);
-        setNewContact(initalUser);
+      .then((updatedUser) => {
+        // console.log(contacts, updatedUser);
+        const newContacts = contacts.map((c) =>
+          c.id !== updatedUser.id ? c : updatedUser
+        );
+        // const oGContacts = contacts.filter((c) => c.id !== updatedUser.id);
+        setContacts(newContacts);
         navigate("/");
       });
   }
 
+  function handleChange(e) {
+    const { id, value } = e.target;
+    setUpdatedContact({ ...updatedContact, [id]: value });
+  }
+
+  if (!updatedContact) {
+    return <p>Loading</p>;
+  }
+
   return (
-    // <ContactInfoForm
-    //   handleChange={handleChange}
-    //   handleSubmit={handleSubmit}
-    //   newContact={newContact}
-    // />
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
+
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
@@ -54,7 +54,7 @@ function ContactsAdd({ contacts, setContacts }) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.firstName}
+        value={updatedContact.firstName}
       />
 
       <label htmlFor="lastName">Last Name:</label>
@@ -64,7 +64,7 @@ function ContactsAdd({ contacts, setContacts }) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.lastName}
+        value={updatedContact.lastName}
       />
 
       <label htmlFor="street">Street:</label>
@@ -74,7 +74,7 @@ function ContactsAdd({ contacts, setContacts }) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.street}
+        value={updatedContact.street}
       />
 
       <label htmlFor="city">City:</label>
@@ -84,7 +84,7 @@ function ContactsAdd({ contacts, setContacts }) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.city}
+        value={updatedContact.city}
       />
 
       <label htmlFor="email">email:</label>
@@ -92,9 +92,8 @@ function ContactsAdd({ contacts, setContacts }) {
         id="email"
         name="email"
         type="text"
-        required
         onChange={handleChange}
-        value={newContact.email}
+        value={updatedContact.email}
       />
 
       <label htmlFor="linkedIn">linkedIn:</label>
@@ -102,9 +101,8 @@ function ContactsAdd({ contacts, setContacts }) {
         id="linkedIn"
         name="linkedIn"
         type="text"
-        required
         onChange={handleChange}
-        value={newContact.linkedIn}
+        value={updatedContact.linkedIn}
       />
 
       <label htmlFor="twitter">twitter:</label>
@@ -112,18 +110,15 @@ function ContactsAdd({ contacts, setContacts }) {
         id="twitter"
         name="twitter"
         type="text"
-        required
         onChange={handleChange}
-        value={newContact.twitter}
+        value={updatedContact.twitter}
       />
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Update Contact
         </button>
       </div>
     </form>
   );
 }
-
-export default ContactsAdd;
