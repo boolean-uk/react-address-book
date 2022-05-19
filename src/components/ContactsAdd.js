@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const initialNewContact = {
@@ -15,6 +15,7 @@ const initialNewContact = {
 
 const ContactsAdd = ({ contacts, setContacts }) => {
   const [newContact, setNewContact] = useState(initialNewContact);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, checked } = e.target;
@@ -58,14 +59,14 @@ const ContactsAdd = ({ contacts, setContacts }) => {
     };
     fetch("http://localhost:4000/contacts", opts)
       .then((res) => res.json())
-      .then((contactData) => console.log(contactData));
+      .then((contactData) => setContacts([...contacts, contactData]));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     postRequest(newContact);
-    setContacts([...contacts, newContact]);
     setNewContact(initialNewContact);
+    navigate("/");
   };
 
   return (

@@ -32,6 +32,39 @@
         "contactMethod": "email",
         "address": "arisasigrist.ch@gmail.com"
       }
+    },
+    {
+      "id": 4,
+      "firstName": "Alaska",
+      "lastName": "Sigrist",
+      "street": "Kartausstrasse 55",
+      "city": "Zürich",
+      "howToReach": {
+        "contactMethod": "twitter",
+        "address": "iamalaska"
+      }
+    },
+    {
+      "id": 5,
+      "firstName": "Dominik",
+      "lastName": "Sigrist",
+      "street": "Kartausstrasse 55",
+      "city": "Zürich",
+      "howToReach": {
+        "contactMethod": "email",
+        "address": "sigi@kilokilo.ch"
+      }
+    },
+    {
+      "id": 6,
+      "firstName": "Barack",
+      "lastName": "Obama",
+      "street": "Somewhere in Chicago",
+      "city": "Chicago",
+      "howToReach": {
+        "contactMethod": "twitter",
+        "address": "barackobama"
+      }
     }
   ]
 }
