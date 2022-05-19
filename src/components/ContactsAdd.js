@@ -17,6 +17,9 @@ function ContactsAdd(props) {
   const [phone, setPhone] = useState("");
   const [street, setStreet] = useState("");
   const [city, setCity] = useState("");
+  const [facebook, setFacebook] = useState("");
+  const [twitter, setTwitter] = useState("");
+  const [linkedin, setLinkedin] = useState("");
 
   const navigate = useNavigate();
 
@@ -33,6 +36,9 @@ function ContactsAdd(props) {
         lastName,
         street,
         city,
+        facebook,
+        twitter,
+        linkedin,
       }),
     }).then((response) => {
       response.json().then((data) => {
@@ -61,6 +67,15 @@ function ContactsAdd(props) {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" required onChange={(e) => handleChange(e.target, setCity)} />
+
+      <label htmlFor="facebook">Facebook:</label>
+      <input id="facebook" name="facebook" type="text" required onChange={(e) => handleChange(e.target, setFacebook)} />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" name="twitter" type="text" required onChange={(e) => handleChange(e.target, setTwitter)} />
+
+      <label htmlFor="linkedin">LinkedIn:</label>
+      <input id="linkedin" name="linkedin" type="text" required onChange={(e) => handleChange(e.target, setLinkedIn)} />
 
       <div className="actions-section">
         <button className="button blue" type="submit">

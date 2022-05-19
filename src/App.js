@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import ContactsAdd from "./components/ContactsAdd";
+import ContactEdit from "./components/ContactsEdit";
 import ContactsList from "./components/ContactsList";
 import ContactsView from "./components/ContactsView";
 import "./styles/styles.css";
@@ -35,6 +36,7 @@ export default function App() {
             element={<ContactsList contacts={contacts} />}
           ></Route>
           <Route path="contacts/add" element={<ContactsAdd setContacts={setContacts} contacts={contacts}/>}></Route>
+          <Route path="contacts/:id/edit" element={<ContactEdit />}></Route>
           <Route path="contacts/:id" element={<ContactsView />}></Route>
         </Routes>
       </main>

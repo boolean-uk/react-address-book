@@ -9,10 +9,11 @@
     },
     {
       "id": 2,
-      "firstName": "Grace",
+      "firstName": "Gr8ce",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "facebook": "http://facebook.com/gr8ce"
     },
     {
       "firstName": "",
@@ -33,11 +34,12 @@
       "id": 4
     },
     {
+      "id": 5,
       "firstName": "Gui",
       "lastName": "Rodrigues",
       "street": "Avenue Des Criquets, 17",
       "city": "Bruxelles",
-      "id": 5
+      "facebook": "Gogogole"
     },
     {
       "firstName": "Gui",
