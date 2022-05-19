@@ -1,13 +1,18 @@
-import { useEffect, useState } from "react"
-import { Link, Route, Routes } from "react-router-dom"
-import ContactsList from "./components/ContactsList"
-import ContactsAdd from "./components/ContactsAdd"
-import ContactsView from "./components/ContactsView"
-import "./styles/styles.css"
+import { useEffect, useState } from "react";
+import { Link, Route, Routes } from "react-router-dom";
+import { useFetch } from "./hooks/useFetch";
+import ContactsList from "./components/ContactsList";
+import ContactsAdd from "./components/ContactsAdd";
+import ContactsView from "./components/ContactsView";
+import { baseUrl } from "./utils/baseUrl";
+import "./styles/styles.css";
+import NewContact from "./components/NewContact";
 
 export default function App() {
-  const [contacts, setContacts] = useState([])
-  
+  // const [contacts, setContacts] = useState([]);
+  // const baseUrl = " http://localhost:3000/contacts";
+  const { data: contacts, isPending, error } = useFetch(`${baseUrl}`);
+
   //TODO: Load all contacts on useEffect when component first renders
 
   return (
@@ -15,16 +20,37 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
-          <li>Contacts List</li>
-          <li>Add New Contact</li>
+          <li>
+            {" "}
+            <Link to="/">Contacts List</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to="/new">Add New Contact</Link>
+          </li>
         </ul>
       </nav>
       <main>
         <Routes>
-          {/* TODO: Add routes here  */}
+          <Route
+            exact
+            path="/"
+            element={
+              <ContactsList
+                contacts={contacts}
+                isPending={isPending}
+                error={error}
+              />
+            }
+          />
+          <Route path="/contact/:id" element={<ContactsView />} />
+          <Route path="/new" element={<NewContact />} />
         </Routes>
       </main>
     </>
-  )
+  );
+}
+
+{
+  /* TODO: Make these links */
 }

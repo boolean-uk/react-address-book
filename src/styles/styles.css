@@ -37,7 +37,8 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
+  background-color: rgba(175, 175, 250, 0.751);
 }
 
 /* Make images easier to work with */
