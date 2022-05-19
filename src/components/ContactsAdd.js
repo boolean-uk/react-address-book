@@ -14,9 +14,13 @@ function ContactsAdd(props) {
     lastName: "",
     street: "",
     city: "",
+    email: "",
+    linkedIn: "",
+    twitter: "",
   };
 
   const [contactData, setContactData] = useState(contactInfo);
+  const navigate = useNavigate();
 
   function handleChange(event) {
     // add the values
@@ -43,6 +47,7 @@ function ContactsAdd(props) {
     fetch(`http://localhost:4000/contacts`, opts)
       .then((res) => res.json())
       .then((data) => setContacts([...contacts, data]));
+    navigate("/");
   }
 
   return (
@@ -54,6 +59,7 @@ function ContactsAdd(props) {
         id="firstName"
         name="firstName"
         type="text"
+        value={contactData.firstName}
         required
         onChange={handleChange}
       />
@@ -63,6 +69,7 @@ function ContactsAdd(props) {
         id="lastName"
         name="lastName"
         type="text"
+        value={contactData.lastName}
         required
         onChange={handleChange}
       />
@@ -72,6 +79,7 @@ function ContactsAdd(props) {
         id="street"
         name="street"
         type="text"
+        value={contactData.street}
         required
         onChange={handleChange}
       />
@@ -81,7 +89,34 @@ function ContactsAdd(props) {
         id="city"
         name="city"
         type="text"
+        value={contactData.city}
         required
+        onChange={handleChange}
+      />
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        value={contactData.email}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input
+        id="linkedIn"
+        name="linkedIn"
+        type="linkedIn"
+        value={contactData.linkedIn}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input
+        id="twitter"
+        name="twitter"
+        type="twitter"
+        value={contactData.twitter}
         onChange={handleChange}
       />
 
