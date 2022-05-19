@@ -38,6 +38,9 @@ function ContactsAdd({ setContacts }) {
       case "twitter":
         return setNewContact({ ...newContact, twitter: value });
         break;
+      case "type":
+        return setNewContact({ ...newContact, type: value });
+        break;
     }
   };
 
@@ -123,6 +126,12 @@ function ContactsAdd({ setContacts }) {
         onChange={handleChange}
         required
       />
+      <label htmlFor="type">Contact Type:</label>
+
+      <select onChange={handleChange} name="type" id="type">
+        <option value="work">Work</option>
+        <option value="personal">Personal</option>
+      </select>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

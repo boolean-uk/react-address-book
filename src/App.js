@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import { useFetch } from "./hooks/useFetch";
 import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
 import ContactsEdit from "./components/ContactsEdit";
+import Meetings from "./components/Meetings.js";
 import Nav from "./components/Nav";
 import "./styles/styles.css";
 
@@ -11,23 +13,21 @@ export default function App() {
   const [contacts, setContacts] = useState([]);
 
   //TODO: Load all contacts on useEffect when component first renders
+  const { data, isPending, error } = useFetch(
+    `http://localhost:4000/contacts/`
+  );
 
   useEffect(() => {
-    fetch("http://localhost:4000/contacts/")
-      .then((res) => res.json())
-      .then((data) => setContacts(data));
-  }, []);
-
-  useEffect(() => {}, []);
-
-  console.log(contacts);
+    if (data) {
+      setContacts(data);
+    }
+  }, [data]);
 
   return (
     <>
       <Nav />
       <main>
         <Routes>
-          {/* <Route path="/" element={<Nav />} /> */}
           <Route
             path="/add"
             element={<ContactsAdd setContacts={setContacts} />}
@@ -35,7 +35,12 @@ export default function App() {
           <Route
             path="/"
             element={
-              <ContactsList setContacts={setContacts} contacts={contacts} />
+              <ContactsList
+                isPending={isPending}
+                setContacts={setContacts}
+                contacts={contacts}
+                error={error}
+              />
             }
           />
           <Route
@@ -47,6 +52,10 @@ export default function App() {
             element={
               <ContactsEdit setContacts={setContacts} contacts={contacts} />
             }
+          />
+          <Route
+            path="/contacts/:id/meetings"
+            element={<Meetings setContacts={setContacts} contacts={contacts} />}
           />
           {/* TODO: Add routes here  */}
         </Routes>
