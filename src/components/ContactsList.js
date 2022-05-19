@@ -15,9 +15,14 @@ function ContactsList({ contacts }) {
               <p>
                 {firstName} {lastName}
               </p>
-              <Link to={`/contacts/${contact.id}`} state={{ contact }}>
-                <p>View</p>
-              </Link>
+              <div>
+                <Link to={`/contacts/${contact.id}`} state={{ contact }}>
+                  <p>View</p>
+                </Link>
+                <Link to={`/contacts/${contact.id}/edit`} state={{ contact }}>
+                  <p>Edit</p>
+                </Link>
+              </div>
             </li>
           );
         })}

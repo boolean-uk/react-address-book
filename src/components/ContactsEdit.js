@@ -1,84 +1,83 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const initialNewContact = {
-  id: "",
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  howToReach: {
-    contactMethod: "",
-    address: "",
-  },
-};
-
-const ContactsAdd = ({ contacts, setContacts }) => {
-  const [newContact, setNewContact] = useState(initialNewContact);
+const ContactsEdit = ({ contacts, setContacts }) => {
+  const [editingContact, setEditingContact] = useState(false);
+  const location = useLocation();
   const navigate = useNavigate();
+  const editedContactIndex = editingContact.id + 1;
+
+  useEffect(() => {
+    const clickedContact = location.state.contact;
+    setEditingContact(clickedContact);
+  }, [location]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     switch (name) {
       case "firstName":
-        setNewContact({ ...newContact, firstName: value });
+        setEditingContact({ ...editingContact, firstName: value });
         break;
       case "lastName":
-        setNewContact({ ...newContact, lastName: value });
+        setEditingContact({ ...editingContact, lastName: value });
         break;
       case "street":
-        setNewContact({ ...newContact, street: value });
+        setEditingContact({ ...editingContact, street: value });
         break;
       case "city":
-        setNewContact({ ...newContact, city: value });
+        setEditingContact({ ...editingContact, city: value });
         break;
       case "howToReach":
         const clickedMethod = {
-          ...newContact[name],
+          ...editingContact[name],
           contactMethod: value,
         };
-        setNewContact({ ...newContact, howToReach: clickedMethod });
+        setEditingContact({ ...editingContact, howToReach: clickedMethod });
         break;
       case "address":
         const contactWithAddress = {
-          ...newContact.howToReach,
+          ...editingContact.howToReach,
           address: value,
         };
-        setNewContact({ ...newContact, howToReach: contactWithAddress });
+        setEditingContact({
+          ...editingContact,
+          howToReach: contactWithAddress,
+        });
         break;
       default:
         console.log("oops, we don't have that input field");
     }
   };
 
-  const postRequest = (newContact) => {
-    const opts = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newContact),
-    };
-    fetch("http://localhost:4000/contacts", opts)
+  const patchRequest = () => {
+    fetch(`http://localhost:4000/contacts/${editingContact.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editingContact),
+    })
       .then((res) => res.json())
-      .then((contactData) => setContacts([...contacts, contactData]));
+      .then((editingContact) => setContacts([...contacts[editedContactIndex]]));
   };
 
-  const handleSubmit = (e) => {
+  const submitChange = (e) => {
     e.preventDefault();
-    postRequest(newContact);
-    setNewContact(initialNewContact);
+    patchRequest();
+    setEditingContact("");
     navigate("/");
   };
 
   return (
-    <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+    <form className="form-stack contact-form" onSubmit={submitChange}>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
         name="firstName"
         type="text"
-        value={newContact.firstName}
+        value={editingContact.firstName}
         onChange={handleChange}
         required
       />
@@ -88,7 +87,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         id="lastName"
         name="lastName"
         type="text"
-        value={newContact.lastName}
+        value={editingContact.lastName}
         onChange={handleChange}
         required
       />
@@ -98,7 +97,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         id="street"
         name="street"
         type="text"
-        value={newContact.street}
+        value={editingContact.street}
         onChange={handleChange}
         required
       />
@@ -108,7 +107,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         id="city"
         name="city"
         type="text"
-        value={newContact.city}
+        value={editingContact.city}
         onChange={handleChange}
         required
       />
@@ -122,7 +121,6 @@ const ContactsAdd = ({ contacts, setContacts }) => {
           onChange={handleChange}
         />
         <label htmlFor="email">Email</label>
-
         <input
           id="linkedIn"
           name="howToReach"
@@ -131,7 +129,6 @@ const ContactsAdd = ({ contacts, setContacts }) => {
           onChange={handleChange}
         />
         <label htmlFor="linkedIn">LinkedIn</label>
-
         <input
           id="twitter"
           name="howToReach"
@@ -140,14 +137,11 @@ const ContactsAdd = ({ contacts, setContacts }) => {
           onChange={handleChange}
         />
         <label htmlFor="twitter">Twitter</label>
-
         <input
           id="address"
           name="address"
-          type={
-            newContact.howToReach.contactMethod === "email" ? "email" : "text"
-          }
-          value={newContact.howToReach.address}
+          type="text"
+          //   value={editingContact.howToReach.address}
           onChange={handleChange}
           required
         />
@@ -155,11 +149,11 @@ const ContactsAdd = ({ contacts, setContacts }) => {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Change
         </button>
       </div>
     </form>
   );
 };
 
-export default ContactsAdd;
+export default ContactsEdit;
