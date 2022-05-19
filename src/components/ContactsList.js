@@ -1,10 +1,10 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
+import CircularProgress from '@mui/material/CircularProgress'
 
 function ContactsList(props) {
-  
   //"contacts" must be passed as prop to this component
-  const { contacts, setContacts } = props
+  const { contacts, setContacts, isPending } = props
 
   const handleDelete = (id) => {
     const opts = { method: "DELETE" }
@@ -19,7 +19,9 @@ function ContactsList(props) {
       <header>
         <h2>Contacts</h2>
       </header>
-      <ul className="contacts-list">
+      {isPending && <CircularProgress />}
+      {contacts && contacts.length === 0 && <span>No contacts...</span>}
+      {contacts && <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           return (
@@ -37,7 +39,7 @@ function ContactsList(props) {
             </li>
           )
         })}
-      </ul>
+      </ul>}
     </>
   )
 }

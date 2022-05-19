@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, Route, Routes } from "react-router-dom"
+import { useFetch } from "./useFetch"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
@@ -7,14 +8,13 @@ import ContactsEdit from "./components/ContactsEdit"
 import "./styles/styles.css"
 
 export default function App() {
-  const [contacts, setContacts] = useState([])
+  const [contacts, setContacts] = useState(null)
+  const { data, isPending } = useFetch("http://localhost:4000/contacts")
   
   //TODO: Load all contacts on useEffect when component first renders
   useEffect(() => {
-    fetch("http://localhost:4000/contacts")
-      .then(res => res.json())
-      .then(data => setContacts(data))
-  }, [])
+    setContacts(data)
+  }, [data])
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function App() {
           {/* TODO: Add routes here  */}
           <Route
             path="/"
-            element={<ContactsList contacts={contacts} setContacts={setContacts}/>}
+            element={<ContactsList contacts={contacts} setContacts={setContacts} isPending={isPending}/>}
           />
           <Route
             path="/contacts/add"
