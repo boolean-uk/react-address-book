@@ -1,7 +1,13 @@
 import { Link, useSearchParams } from "react-router-dom";
 
-function ContactsList(props) {
-  const { contacts } = props;
+function ContactsList({ contacts, setContacts }) {
+  const deleteContact = (id) => {
+    fetch("http://localhost:4000/contacts/" + id, {
+      method: "DELETE",
+    });
+    const updatedArray = contacts.filter((contact) => contact.id !== id);
+    setContacts(updatedArray);
+  };
 
   return (
     <>
@@ -18,13 +24,14 @@ function ContactsList(props) {
               </p>
               <div>
                 <button>
-                  {" "}
                   <Link to={`/contacts/${contact.id}`}>View</Link>
                 </button>
                 <button>
                   <Link to={`/edit/${contact.id}`}>Edit</Link>
                 </button>
-                <button>Delete</button>
+                <button onClick={() => deleteContact(contact.id)}>
+                  Delete
+                </button>
               </div>
             </li>
           );
