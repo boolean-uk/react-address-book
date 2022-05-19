@@ -42,6 +42,25 @@ function ContactEdit(props) {
       }),
     }).then((response) => {
       response.json().then((data) => {
+        //Update contacts list
+        setContacts((prevContacts) => {
+          const updatedContacts = prevContacts.map((contact) => {
+            if (contact.id == id) {
+              return {
+                id: contact.id,
+                firstName: data.firstName,
+                lastName: data.lastName,
+                street: data.street,
+                city: data.city,
+                facebook: data.facebook,
+                twitter: data.twitter,
+                linkedin: data.linkedin,
+              };
+            }
+            return contact;
+          });
+          return updatedContacts;
+        });
         navigate("/");
       });
     });
@@ -49,18 +68,15 @@ function ContactEdit(props) {
 
   useEffect(() => {
     if (id) {
-      fetch(`http://localhost:4000/contacts/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-          setFirstName(data.firstName);
-          setLastName(data.lastName);
-          setStreet(data.street);
-          setCity(data.city);
-          setFacebook(data.facebook);
-          setTwitter(data.twitter);
-          setLinkedin(data.linkedin);
-        });
-    } else window.alert('No contact found');
+      const data = contacts.find((contact) => contact.id === Number(id));
+      setFirstName(data.firstName);
+      setLastName(data.lastName);
+      setStreet(data.street);
+      setCity(data.city);
+      setFacebook(data.facebook);
+      setTwitter(data.twitter);
+      setLinkedin(data.linkedin);
+    } else window.alert("No contact found");
   }, []);
 
   const handleChange = (source, target) => {
@@ -135,7 +151,7 @@ function ContactEdit(props) {
         value={linkedin}
         name="linkedin"
         type="text"
-        onChange={(e) => handleChange(e.target, setLinkedIn)}
+        onChange={(e) => handleChange(e.target, setLinkedin)}
       />
 
       <div className="actions-section">

@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
-function ContactsView() {
+function ContactsView(props) {
+  const {contacts } = props;
   const [contact, setContact] = useState(false);
 
   //TODO: Get the contact to load from the params and fetch.
@@ -9,9 +10,7 @@ function ContactsView() {
   //and update contact state
   const { id } = useParams();
   useEffect(() => {
-    fetch(`http://localhost:4000/contacts/${id}`)
-      .then((response) => response.json())
-      .then((data) => setContact(data));
+    setContact(contacts.find((c) => c.id == id));
   }, [id]);
 
   if (!contact) {

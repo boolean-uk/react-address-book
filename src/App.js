@@ -7,15 +7,16 @@ import ContactsView from "./components/ContactsView";
 import "./styles/styles.css";
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
-
-  //TODO: Load all contacts on useEffect when component first renders
+  const [contacts, setContacts] = useState();
 
   useEffect(() => {
     fetch("http://localhost:4000/contacts")
       .then((response) => response.json())
       .then((data) => setContacts(data));
   }, []);
+  if (!contacts) {
+    return <p>Loading</p>;
+  }
 
   return (
     <>
@@ -24,9 +25,12 @@ export default function App() {
         <ul>
           {/* TODO: Make these links */}
           <li>
-            <Link to='/'> Contacts List </Link>
+            <Link to="/"> Contacts List </Link>
           </li>
-          <li> <Link to='/contacts/add'> Add new </Link></li>
+          <li>
+            {" "}
+            <Link to="/contacts/add"> Add new </Link>
+          </li>
         </ul>
       </nav>
       <main>
@@ -35,9 +39,22 @@ export default function App() {
             path="/"
             element={<ContactsList contacts={contacts} />}
           ></Route>
-          <Route path="contacts/add" element={<ContactsAdd setContacts={setContacts} contacts={contacts}/>}></Route>
-          <Route path="contacts/:id/edit" element={<ContactEdit />}></Route>
-          <Route path="contacts/:id" element={<ContactsView />}></Route>
+          <Route
+            path="contacts/add"
+            element={
+              <ContactsAdd setContacts={setContacts} contacts={contacts} />
+            }
+          ></Route>
+          <Route
+            path="contacts/:id/edit"
+            element={
+              <ContactEdit setContacts={setContacts} contacts={contacts} />
+            }
+          ></Route>
+          <Route
+            path="contacts/:id"
+            element={<ContactsView contacts={contacts} />}
+          ></Route>
         </Routes>
       </main>
     </>
