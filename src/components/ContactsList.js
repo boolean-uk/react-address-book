@@ -1,7 +1,20 @@
 import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-function ContactsList({ contacts }) {
+function ContactsList({ contacts, setContacts }) {
+  const navigate = useNavigate();
+
+  const deleteRequest = (contactId) => {
+    fetch(`http://localhost:4000/contacts/${contactId}`, {
+      method: "DELETE",
+    }).then(() => {
+      const updatedContacts = contacts.filter(
+        (contact) => contact.id !== contactId
+      );
+      setContacts(updatedContacts);
+    });
+  };
+
   return (
     <>
       <header>
@@ -10,6 +23,7 @@ function ContactsList({ contacts }) {
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact;
+
           return (
             <li className="contact" key={index}>
               <p>
@@ -22,6 +36,9 @@ function ContactsList({ contacts }) {
                 <Link to={`/contacts/${contact.id}/edit`} state={{ contact }}>
                   <p>Edit</p>
                 </Link>
+                <button onClick={() => deleteRequest(contact.id)}>
+                  Delete
+                </button>
               </div>
             </li>
           );

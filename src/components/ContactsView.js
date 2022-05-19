@@ -10,6 +10,7 @@ function ContactsView() {
     setContact(clickedContact);
   }, [location]);
 
+  console.log(contact.id);
   if (!contact) {
     return <p>Loading</p>;
   }

@@ -5,7 +5,6 @@ const ContactsEdit = ({ contacts, setContacts }) => {
   const [editingContact, setEditingContact] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
-  const editedContactIndex = editingContact.id;
 
   useEffect(() => {
     const clickedContact = location.state.contact;
