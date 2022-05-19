@@ -21,6 +21,10 @@ function ContactsView() {
       <p>
         {contact.street} {contact.city}
       </p>
+      <p>
+        Reachable with {contact.howToReach.contactMethod}:{" "}
+        <a href={contact.howToReach.address}>{contact.howToReach.address} </a>
+      </p>
     </div>
   );
 }
