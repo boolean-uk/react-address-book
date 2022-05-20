@@ -1,23 +1,48 @@
-import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
 
 function ContactsView() {
-  const [contact, setContact] = useState(false)
+  const [contact, setContact] = useState(false);
+  const { id } = useParams();
+  const { data, isPending, error } = useFetch(
+    `http://localhost:3000/contacts/${id}`
+  );
 
-  //TODO: Get the contact to load from the params and fetch.
-  //With useEffect, load the contact when params changes
-  //and update contact state
+  useEffect(() => {
+    if (data) {
+      setContact(data);
+    }
+  }, [data]);
 
   if (!contact) {
-    return <p>Loading</p>
+    return <p>Loading...</p>;
   }
 
   return (
-    <div>
-      <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
-    </div>
-  )
+    <>
+      {isPending && <h3>Loading...</h3>}
+      {error && <h3>{error}</h3>}
+      {contact && (
+        <div>
+          <h2>
+            Hello
+            {contact.firstName} {contact.lastName}
+          </h2>
+          <p>
+            {contact.street} {contact.city}
+          </p>
+          <p>Email: {contact.email || "Sign up to email"}</p>
+          <p>Twitter: {contact.twitter || "I do not do twitter"} </p>
+          <p>LinkedIn: {contact.linkedIn || "I do not do linkedIn"} </p>
+        </div>
+      )}
+    </>
+  );
 }
 
-export default ContactsView
+export default ContactsView;
+
+//TODO: Get the contact to load from the params and fetch.
+//With useEffect, load the contact when params changes
+//and update contact state
