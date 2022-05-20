@@ -46,8 +46,8 @@ function ContactsAdd(props) {
       .then((res) => res.json())
       .then((result) => {
         setContacts([...contacts, result]);
-        event.target.reset();
         setNewContact(initialNewContact);
+        navigate("/");
       });
   }
 
@@ -129,9 +129,9 @@ function ContactsAdd(props) {
         <button
           className="button blue"
           type="submit"
-          onClick={() => {
-            navigate("/");
-          }}
+          // onClick={() => {
+          //   navigate("/");
+          // }}
         >
           Create
         </button>
