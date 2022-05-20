@@ -151,7 +151,7 @@ function ContactsEdit(props) {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Edit
         </button>
       </div>
     </form>

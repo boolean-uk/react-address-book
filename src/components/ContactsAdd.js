@@ -51,7 +51,7 @@ function ContactsAdd(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(inputData),
     })
-      .then((res) => res.json(inputData))
+      .then((res) => res.json())
       .then((data) => {
         setContacts([...contacts, data]);
         setInputData(initialData);

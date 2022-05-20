@@ -4,6 +4,7 @@ import { Link, useParams } from "react-router-dom";
 function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const contacts = props.contacts;
+  const setContacts = props.setContacts;
   const params = useParams();
   // const params = useSearchParams();
   // const setContacts = props.setContacts;
@@ -13,12 +14,23 @@ function ContactsList(props) {
   //     .then((res) => res.json())
   //     .then((contacts) => setContacts(contacts));
   // }, []);
-  // const deleteContact = () => {
-  //   fetch(`http://localhost:4000/contacts/${params.id}`, {
-  //     method: "DELETE",
-  //   });
-  // };
-  //onClick={deleteContact(contact.id)}
+
+  const deleteContact = (contactID) => {
+    fetch(`http://localhost:4000/contacts/${contactID}`, {
+      method: "DELETE",
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data) {
+          console.log(data);
+          const updatedArrayContacts = contacts.filter(
+            (item) => item.id != contactID
+          );
+          console.log(updatedArrayContacts);
+          setContacts(updatedArrayContacts);
+        }
+      });
+  };
 
   return (
     <>
@@ -37,7 +49,7 @@ function ContactsList(props) {
               <button>
                 <Link to={`/contacts/edit/${contact.id}`}>Edit</Link>
               </button>
-              <button>Delete</button>
+              <button onClick={() => deleteContact(contact.id)}>Delete</button>
             </li>
           );
         })}

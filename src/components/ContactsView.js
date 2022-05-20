@@ -11,7 +11,7 @@ function ContactsView() {
     fetch(`http://localhost:4000/contacts/${params.id}`)
       .then((res) => res.json())
       .then((data) => setContact(data));
-  }, [params.id]);
+  }, []);
 
   if (!contact) {
     return <p>Loading</p>;
