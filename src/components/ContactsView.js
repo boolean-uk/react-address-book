@@ -19,9 +19,7 @@ function ContactsView() {
       })
   }, [id])
 
-  if (!contact) {
-    return <p>Loading</p>
-  }
+  if (!contact) return <p>Loading</p>
 
   return (
     <div className="contacts-view">

@@ -5,7 +5,7 @@ import { useEffect } from "react";
 function ContactsEdit({ setContacts, contacts }) {
   const [formData, setFormData] = useState(null)
   const navigate = useNavigate()
-  const params = useParams()
+  const { id } = useParams()
 
   const updateContact = (newContact) => {
     const newContacts = [...contacts]
@@ -15,7 +15,7 @@ function ContactsEdit({ setContacts, contacts }) {
   }
 
   useEffect(() => {
-    fetch(`http://localhost:4000/contacts?id=${params.id}`)
+    fetch(`http://localhost:4000/contacts?id=${id}`)
       .then(res => res.json())
       .then(data => {
         const contactData = data[0]
