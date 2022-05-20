@@ -7,10 +7,8 @@ const initialNewContact = {
   lastName: "",
   street: "",
   city: "",
-  howToReach: {
-    contactMethod: "",
-    address: "",
-  },
+  howToReach: "",
+  address: "",
 };
 
 const ContactsAdd = ({ contacts, setContacts }) => {
@@ -19,39 +17,10 @@ const ContactsAdd = ({ contacts, setContacts }) => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    switch (name) {
-      case "firstName":
-        setNewContact({ ...newContact, firstName: value });
-        break;
-      case "lastName":
-        setNewContact({ ...newContact, lastName: value });
-        break;
-      case "street":
-        setNewContact({ ...newContact, street: value });
-        break;
-      case "city":
-        setNewContact({ ...newContact, city: value });
-        break;
-      case "howToReach":
-        const clickedMethod = {
-          ...newContact[name],
-          contactMethod: value,
-        };
-        setNewContact({ ...newContact, howToReach: clickedMethod });
-        break;
-      case "address":
-        const contactWithAddress = {
-          ...newContact.howToReach,
-          address: value,
-        };
-        setNewContact({ ...newContact, howToReach: contactWithAddress });
-        break;
-      default:
-        console.log("oops, we don't have that input field");
-    }
+    setNewContact({ ...newContact, [name]: value });
   };
 
-  const postRequest = (newContact) => {
+  const postRequest = () => {
     const opts = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -64,7 +33,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postRequest(newContact);
+    postRequest();
     setNewContact(initialNewContact);
     navigate("/");
   };
@@ -144,10 +113,8 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         <input
           id="address"
           name="address"
-          type={
-            newContact.howToReach.contactMethod === "email" ? "email" : "text"
-          }
-          value={newContact.howToReach.address}
+          type={newContact.howToReach === "email" ? "email" : "text"}
+          value={newContact.address}
           onChange={handleChange}
           required
         />
