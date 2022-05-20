@@ -1,38 +1,120 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useFetch } from "../hooks/useFetch";
+import { baseUrl } from "../utils/baseUrl";
+import "./ContactsAdd.css";
 
-function ContactsAdd(props) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
-  const { setContacts, contacts } = props;
+const NewContact = ({ contacts, setContacts }) => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    street: "",
+    city: "",
+  });
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  const { postData, data, error } = useFetch(`${baseUrl}`, `POST`);
+
+  // async function updateLocalServer(el, id) {
+  //   const opts = {
+  //     method: "POST",
+  //     headers: { "Content-type": "application/json" },
+  //     body: JSON.stringify({}),
+  //   };
+
+  //   const response = await fetch(`${baseUrl}`, opts);
+  //   const data = await response.json();
+  // }
+
+  const onSubmitFormHandler = (e) => {
+    e.preventDefault();
+    setContacts([...contacts, formData]);
+    postData({ ...formData });
+
+    setFormData({
+      firstName: "",
+      lastName: "",
+      street: "",
+      city: "",
+    });
+    navigate("/");
+  };
 
   return (
-    <form className="form-stack contact-form">
-      <h2>Create Contact</h2>
+    <section className="form-component">
+      <form onSubmit={onSubmitFormHandler}>
+        <h1>Add New Contact</h1>
+        <div className="icon">
+          <i className="fas fa-user-circle"></i>
+        </div>
+        <div className="formcontainer">
+          <div className="container">
+            <label htmlFor="firstName">
+              <strong>First Name</strong>
+            </label>
+            <input
+              type="text"
+              placeholder="First Name"
+              name="firstName"
+              id="firstName"
+              required
+              onChange={(e) =>
+                setFormData({ ...formData, firstName: e.target.value })
+              }
+              value={formData.name}
+            ></input>
 
-      <label htmlFor="firstName">First Name</label>
-      <input id="firstName" name="firstName" type="text" required />
+            <label htmlFor="lastName">
+              <strong>Last Name</strong>
+            </label>
+            <input
+              type="text"
+              placeholder="Last Name"
+              name="lastName"
+              id="lastName"
+              required
+              onChange={(e) =>
+                setFormData({ ...formData, lastName: e.target.value })
+              }
+              value={formData.surname}
+            ></input>
 
-      <label htmlFor="lastName">Last Name:</label>
-      <input id="lastName" name="lastName" type="text" required />
-
-      <label htmlFor="street">Street:</label>
-      <input id="street" name="street" type="text" required />
-
-      <label htmlFor="city">City:</label>
-      <input id="city" name="city" type="text" required />
-
-      <div className="actions-section">
-        <button className="button blue" type="submit">
-          Create
-        </button>
-      </div>
-    </form>
+            <label htmlFor="street">
+              <strong>Street Address</strong>
+            </label>
+            <input
+              type="text"
+              placeholder="Street"
+              name="street"
+              id="street"
+              required
+              onChange={(e) =>
+                setFormData({ ...formData, street: e.target.value })
+              }
+              value={formData.address}
+            ></input>
+            <label htmlFor="city">
+              <strong>City</strong>
+            </label>
+            <input
+              type="text"
+              placeholder="City"
+              name="city"
+              id="city"
+              required
+              onChange={(e) =>
+                setFormData({ ...formData, city: e.target.value })
+              }
+              value={formData.city}
+            ></input>
+          </div>
+          <button type="submit">
+            <strong>Add Contact</strong>
+          </button>
+        </div>
+      </form>
+    </section>
   );
-}
+};
 
-export default ContactsAdd;
+export default NewContact;

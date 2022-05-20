@@ -2,22 +2,19 @@ import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import { useFetch } from "./hooks/useFetch";
 import ContactsList from "./components/ContactsList";
-// import ContactsAdd from "./components/ContactsAdd";
+import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
 import { baseUrl } from "./utils/baseUrl";
 import "./styles/styles.css";
-import NewContact from "./components/NewContact";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const { data, isPending, error } = useFetch(`${baseUrl}`);
 
   useEffect(() => {
-    setContacts(data);
-    console.log("17...", contacts);
-  }, [data, contacts]);
-  //TODO: Load all contacts on useEffect when component first renders
-  console.log("20...", contacts);
+    if (data) setContacts(data);
+  }, [data]);
+
   return (
     <>
       <nav>
@@ -50,15 +47,11 @@ export default function App() {
           <Route
             path="/contact/add"
             element={
-              <NewContact contacts={contacts} setContacts={setContacts} />
+              <ContactsAdd contacts={contacts} setContacts={setContacts} />
             }
           />
         </Routes>
       </main>
     </>
   );
-}
-
-{
-  /* TODO: Make these links */
 }

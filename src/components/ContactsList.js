@@ -30,6 +30,3 @@ function ContactsList({ contacts, isPending, error }) {
 }
 
 export default ContactsList;
-{
-  /** TODO: Make a Link here to view contact */
-}
