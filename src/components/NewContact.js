@@ -1,24 +1,31 @@
 import React, { useState } from "react";
+import { useEffect } from "react/cjs/react.production.min";
+import { useFetch } from "../hooks/useFetch";
+import { baseUrl } from "../utils/baseUrl";
 import "./NewContact.css";
 
-const NewContact = () => {
-  const [form, setForm] = useState({
-    name: "",
-    surname: "",
-    address: "",
+const NewContact = ({ contacts, setContacts }) => {
+  console.log("9...", contacts);
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    street: "",
     city: "",
   });
 
+  const { postData, data, error } = useFetch(`${baseUrl}`, `POST`);
+
   const onSubmitFormHandler = (e) => {
     e.preventDefault();
-
-    setForm({
-      name: "",
-      surname: "",
-      address: "",
+    setFormData({
+      firstName: "",
+      lastName: "",
+      street: "",
       city: "",
     });
-    console.log(form);
+    postData({ ...formData });
+    setContacts([...contacts, formData]);
+    console.log("28...", contacts);
   };
 
   return (
@@ -30,28 +37,34 @@ const NewContact = () => {
         </div>
         <div className="formcontainer">
           <div className="container">
-            <label htmlFor="first-name">
+            <label htmlFor="firstName">
               <strong>First Name</strong>
             </label>
             <input
               type="text"
               placeholder="First Name"
-              name="first-name"
+              name="firstName"
+              id="firstName"
               required
-              onChange={(e) => setForm({ ...form, name: e.target.value })}
-              value={form.name}
+              onChange={(e) =>
+                setFormData({ ...formData, firstName: e.target.value })
+              }
+              value={formData.name}
             ></input>
 
-            <label htmlFor="last-name">
+            <label htmlFor="lastName">
               <strong>Last Name</strong>
             </label>
             <input
               type="text"
               placeholder="Last Name"
-              name="last-name"
+              name="lastName"
+              id="lastName"
               required
-              onChange={(e) => setForm({ ...form, surname: e.target.value })}
-              value={form.surname}
+              onChange={(e) =>
+                setFormData({ ...formData, lastName: e.target.value })
+              }
+              value={formData.surname}
             ></input>
 
             <label htmlFor="street">
@@ -61,9 +74,12 @@ const NewContact = () => {
               type="text"
               placeholder="Street"
               name="street"
+              id="street"
               required
-              onChange={(e) => setForm({ ...form, address: e.target.value })}
-              value={form.address}
+              onChange={(e) =>
+                setFormData({ ...formData, street: e.target.value })
+              }
+              value={formData.address}
             ></input>
             <label htmlFor="city">
               <strong>City</strong>
@@ -72,9 +88,12 @@ const NewContact = () => {
               type="text"
               placeholder="City"
               name="city"
+              id="city"
               required
-              onChange={(e) => setForm({ ...form, city: e.target.value })}
-              value={form.city}
+              onChange={(e) =>
+                setFormData({ ...formData, city: e.target.value })
+              }
+              value={formData.city}
             ></input>
           </div>
           <button type="submit">
