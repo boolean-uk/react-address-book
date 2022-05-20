@@ -1,27 +1,23 @@
-import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function ContactsList(props) {
-  
-  //"contacts" must be passed as prop to this component
   const { contacts } = props
-
   return (
     <>
       <header>
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
-        {contacts.map((contact, index) => {
-          const { firstName, lastName } = contact
+        {contacts.map(contact => {
+          const { firstName, lastName, id } = contact
           return (
-            <li className="contact" key={index}>
+            <li className="contact" key={id}>
               <p>
                 {firstName} {lastName}
               </p>
               <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
+                <Link to={`/contacts/${id}`}> View</Link></p>
+              <p id="edit"><Link to={`/contacts/${id}/edit`}>Edit</Link>
               </p>
             </li>
           )
