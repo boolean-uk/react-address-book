@@ -41,15 +41,19 @@ function ContactsEdit(props) {
     // on submit add the data to json server by POST
     // Post the contactData to the json server
     // Then do a POST Fetch to get it rendered by adding it to the contacts
+    event.preventDefault();
     const opts = {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(contactData),
     };
     fetch(`http://localhost:4000/contacts/${id}`, opts)
       .then((res) => res.json())
-      .then((data) => updateContactDetails(data));
-    navigate("/");
+      .then((data) => {
+        updateContactDetails(data);
+        navigate("/");
+      });
+    // --- //
   }
 
   return (
