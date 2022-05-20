@@ -10,7 +10,6 @@ function ContactsView() {
     setContact(clickedContact);
   }, [location]);
 
-  console.log(contact.id);
   if (!contact) {
     return <p>Loading</p>;
   }
@@ -23,8 +22,8 @@ function ContactsView() {
         {contact.street} {contact.city}
       </p>
       <p>
-        Reachable with {contact.howToReach.contactMethod}:{" "}
-        <a href={contact.howToReach.address}>{contact.howToReach.address} </a>
+        Reachable with {contact.howToReach}:{" "}
+        <a href={contact.address}>{contact.address} </a>
       </p>
     </div>
   );

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 
 const ContactsEdit = ({ contacts, setContacts }) => {
-  const [editingContact, setEditingContact] = useState(false);
+  const [editingContact, setEditingContact] = useState(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -14,44 +14,13 @@ const ContactsEdit = ({ contacts, setContacts }) => {
   if (!editingContact) return <p>Wait a minute...</p>;
 
   const checkRadio = (value) => {
-    if (editingContact.howToReach.contactMethod === value) return true;
+    if (editingContact.howToReach !== value) return false;
+    return true;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    switch (name) {
-      case "firstName":
-        setEditingContact({ ...editingContact, firstName: value });
-        break;
-      case "lastName":
-        setEditingContact({ ...editingContact, lastName: value });
-        break;
-      case "street":
-        setEditingContact({ ...editingContact, street: value });
-        break;
-      case "city":
-        setEditingContact({ ...editingContact, city: value });
-        break;
-      case "howToReach":
-        const clickedMethod = {
-          ...editingContact[name],
-          contactMethod: value,
-        };
-        setEditingContact({ ...editingContact, howToReach: clickedMethod });
-        break;
-      case "address":
-        const contactWithAddress = {
-          ...editingContact.howToReach,
-          address: value,
-        };
-        setEditingContact({
-          ...editingContact,
-          howToReach: contactWithAddress,
-        });
-        break;
-      default:
-        console.log("oops, we don't have that input field");
-    }
+    setEditingContact({ ...editingContact, [name]: value });
   };
 
   const patchRequest = () => {
@@ -76,7 +45,7 @@ const ContactsEdit = ({ contacts, setContacts }) => {
   const submitChange = (e) => {
     e.preventDefault();
     patchRequest();
-    setEditingContact("");
+    setEditingContact(null);
     navigate("/");
   };
 
@@ -155,12 +124,8 @@ const ContactsEdit = ({ contacts, setContacts }) => {
         <input
           id="address"
           name="address"
-          type={
-            editingContact.howToReach.contactMethod === "email"
-              ? "email"
-              : "text"
-          }
-          value={editingContact.howToReach.address}
+          type={editingContact.howToReach === "email" ? "email" : "text"}
+          value={editingContact.address}
           onChange={handleChange}
           required
         />
