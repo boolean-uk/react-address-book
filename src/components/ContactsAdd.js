@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 function ContactsAdd(props) {
+  let navigate = useNavigate();
+
   const initialNewContact = {
     firstName: "",
     lastName: "",
@@ -124,7 +126,13 @@ function ContactsAdd(props) {
       />
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button
+          className="button blue"
+          type="submit"
+          onClick={() => {
+            navigate("/");
+          }}
+        >
           Create
         </button>
       </div>

@@ -13,13 +13,6 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
-    },
-    {
-      "firstName": "Anica",
-      "lastName": "Rahman",
-      "street": "Avenue",
-      "city": "Nottingham",
-      "id": 3
     }
   ]
 }
