@@ -1,28 +1,27 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
-function ContactsAdd(props) {
+function ContactsEdit({ setContacts, contacts }) {
+  const [formData, setFormData] = useState(null)
   const navigate = useNavigate()
+  const { id } = useParams()
 
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
-  const { setContacts, contacts } = props
-
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
-  const initialData = { 
-    firstName: "", 
-    lastName: "", 
-    street: "", 
-    city: "",
-    email: "",
-    linkedIn: "",
-    twitter: "",
-    type: "personal"
+  const updateContact = (newContact) => {
+    const newContacts = [...contacts]
+    const contactToUpdateIndex = newContacts.findIndex(el => el.id === newContact.id)
+    newContacts[contactToUpdateIndex] = {...newContact}
+    setContacts([...newContacts])
   }
 
-  const [formData, setFormData] = useState(initialData)
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts?id=${id}`)
+      .then(res => res.json())
+      .then(data => {
+        const contactData = data[0]
+        setFormData(contactData)
+      })
+  }, [])
 
   const handleChange = (e) => {
     const { name, value } = e.target
@@ -33,21 +32,22 @@ function ContactsAdd(props) {
     e.preventDefault()
 
     const opts = {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData)
     }
-    fetch(`http://localhost:4000/contacts`, opts)
+    fetch(`http://localhost:4000/contacts/${params.id}`, opts)
       .then(res => res.json())
-      .then(data => setContacts([...contacts, data]))
+      .then(data => updateContact(data))
 
-    setFormData(initialData)
     navigate("/")
   }
 
+  if (!formData) return <div>Please wait...</div>
+
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input id="firstName" name="firstName" type="text" required value={formData.firstName} onChange={handleChange}/>
@@ -70,20 +70,13 @@ function ContactsAdd(props) {
       <label htmlFor="twitter">Twitter:</label>
       <input id="twitter" name="twitter" type="twitter" value={formData.twitter} onChange={handleChange}/>
 
-      <label htmlFor="contactType">Type of contact:
-        <input type="radio" name="type" value="personal" checked={formData.type === 'personal'} onChange={handleChange} />
-        Personal
-        <input type="radio" name="type" value="work" checked={formData.type === 'work'} onChange={handleChange} />
-        Work
-      </label>
-
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Save
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default ContactsEdit
