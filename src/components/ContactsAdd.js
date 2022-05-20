@@ -7,6 +7,9 @@ function ContactsAdd(props) {
     lastName: "",
     street: "",
     city: "",
+    email: "",
+    linkedin: "",
+    twitter: "",
   };
 
   const { setContacts, contacts } = props;
@@ -88,6 +91,36 @@ function ContactsAdd(props) {
         required
         onChange={handleChange}
         value={newContact.city}
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+        required
+        onChange={handleChange}
+        value={newContact.email}
+      />
+
+      <label htmlFor="linkedin">Linkedin:</label>
+      <input
+        id="linkedin"
+        name="linkedin"
+        type="text"
+        required
+        onChange={handleChange}
+        value={newContact.linkedin}
+      />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input
+        id="twitter"
+        name="twitter"
+        type="text"
+        required
+        onChange={handleChange}
+        value={newContact.twitter}
       />
 
       <div className="actions-section">
