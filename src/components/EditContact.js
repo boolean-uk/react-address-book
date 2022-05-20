@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from 'react'
 
-function ContactsAdd(props) {
+function EditContact(props) {
+
   let navigate=useNavigate()
 
   // setContacts and contacts must be passed as props
@@ -22,13 +24,31 @@ const [email, setEmail]=useState('')
 const [linkedin, setLinkedin]=useState('')
 const [twitter, setTwitter]=useState('')
 
+const params=useParams()
+
+console.log('Value of Params', params)
+useEffect(()=>{
+fetch(`http://localhost:4000/contacts/${params.id}`)
+.then(res=> res.json())
+.then(json=>{
+  console.log(json)
+  setFirstName(json.firstName)
+  setLastName(json.lastName)
+  setStreet(json.street)
+  setCity(json.city)
+  setEmail(json.email)
+  setLinkedin(json.linkedin)
+  setTwitter(json.twitter)
+})
+}, [params])
+
 //I am writing what should be implemented after a submit button has been clicked in the onSubmit function.
 function onSubmit(event) {
 event.preventDefault()
-console.log(firstName, lastName, street, city, email, linkedin, twitter)
+// console.log(firstName, lastName, street, city, email, linkedin, twitter)
 
 const options = {
-  method:'POST',
+  method:'PUT',
   headers: {
     'Content-Type': 'application/json'
   },
@@ -45,12 +65,12 @@ const options = {
 
 
 
-fetch('http://localhost:4000/contacts', options)
+fetch(`http://localhost:4000/contacts/${params.id}`, options)
 .then((res)=>res.json())
 .then ((json) =>{
   navigate('/')
   console.log('contacts created', json)
-  setContacts([...contacts, json])
+  setContacts(contacts.map((contact)=>contact.id===params.id ? json:contact))
 
   //Right here, I am reseting the below updated state value after it has been clicked.
   setFirstName('')
@@ -100,7 +120,7 @@ function onTwitterChange(event){
 
   return (
     <form className="form-stack contact-form" onSubmit={onSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input onChange={onFirstNameChange} value={firstName}
@@ -132,11 +152,11 @@ function onTwitterChange(event){
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Edit
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default EditContact

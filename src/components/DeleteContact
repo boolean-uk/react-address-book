@@ -1,7 +1,9 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect } from 'react'
 
-function ContactsAdd(props) {
+function DeleteContact(props) {
+
   let navigate=useNavigate()
 
   // setContacts and contacts must be passed as props
@@ -22,35 +24,54 @@ const [email, setEmail]=useState('')
 const [linkedin, setLinkedin]=useState('')
 const [twitter, setTwitter]=useState('')
 
+const params=useParams()
+
+console.log('Value of Params', params)
+useEffect(()=>{
+fetch(`http://localhost:4000/contacts/${params.id}`)
+.then(res=> res.json())
+.then(json=>{
+  console.log(json)
+  setFirstName(json.firstName)
+  setLastName(json.lastName)
+  setStreet(json.street)
+  setCity(json.city)
+  setEmail(json.email)
+  setLinkedin(json.linkedin)
+  setTwitter(json.twitter)
+})
+}, [params])
+
 //I am writing what should be implemented after a submit button has been clicked in the onSubmit function.
 function onSubmit(event) {
 event.preventDefault()
-console.log(firstName, lastName, street, city, email, linkedin, twitter)
+// console.log(firstName, lastName, street, city, email, linkedin, twitter)
 
 const options = {
-  method:'POST',
+  method:'DELETE',
   headers: {
     'Content-Type': 'application/json'
   },
-  body:JSON.stringify({
-    firstName:firstName,
-    lastName:lastName,
-    street:street,
-    city:city,
-    email:email,
-    linkedin:linkedin,
-    twitter:twitter
-  }),
+//   body:JSON.stringify({
+//     firstName:firstName,
+//     lastName:lastName,
+//     street:street,
+//     city:city,
+//     email:email,
+//     linkedin:linkedin,
+//     twitter:twitter
+//   }),
 }
 
 
 
-fetch('http://localhost:4000/contacts', options)
+fetch(`http://localhost:4000/contacts/${params.id}`, options)
 .then((res)=>res.json())
 .then ((json) =>{
-  navigate('/')
-  console.log('contacts created', json)
-  setContacts([...contacts, json])
+  console.log('contacts deleted', json)
+  setContacts(json)
+  .catch(err=> console.log('what is err', err))
+ 
 
   //Right here, I am reseting the below updated state value after it has been clicked.
   setFirstName('')
@@ -65,8 +86,9 @@ fetch('http://localhost:4000/contacts', options)
 })
 
 }
+}
 
-//setting up a function for the event target
+setting up a function for the event target
 function onFirstNameChange(event){
   setFirstName(event.target.value)
 }
@@ -100,7 +122,7 @@ function onTwitterChange(event){
 
   return (
     <form className="form-stack contact-form" onSubmit={onSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Delete Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input onChange={onFirstNameChange} value={firstName}
@@ -132,11 +154,11 @@ function onTwitterChange(event){
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Edit
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default DeleteContact
