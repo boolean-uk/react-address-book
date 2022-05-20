@@ -1,52 +1,14 @@
-import { useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import React from "react";
 
-// import ContactInfoForm from "./contactInfoForm";
-
-const initalUser = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  email: "",
-  linkedIn: "",
-  twitter: "",
-};
-
-function ContactsAdd({ contacts, setContacts }) {
-  const [newContact, setNewContact] = useState(initalUser);
-  const navigate = useNavigate();
-
-  function handleChange(e) {
-    const { id, value } = e.target;
-    setNewContact({ ...newContact, [id]: value });
-  }
-
-  function handleSubmit(e) {
-    e.preventDefault();
-
-    const opts = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newContact),
-    };
-    fetch(`http://localhost:4000/contacts`, opts)
-      .then((res) => res.json())
-      .then((addedContact) => {
-        setContacts([...contacts, addedContact]);
-        setNewContact(initalUser);
-        navigate("/");
-      });
-  }
-
+export default function contactInfoForm({
+  handleChange,
+  handleSubmit,
+  newContact,
+}) {
   return (
-    // <ContactInfoForm
-    //   handleChange={handleChange}
-    //   handleSubmit={handleSubmit}
-    //   newContact={newContact}
-    // />
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
       <h2>Create Contact</h2>
+
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
@@ -125,5 +87,3 @@ function ContactsAdd({ contacts, setContacts }) {
     </form>
   );
 }
-
-export default ContactsAdd;
