@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { Button, Grid } from "@nextui-org/react";
 
 import { baseUrl } from "../utils/baseUrl";
 
@@ -10,7 +11,6 @@ function ContactsList({ contacts, setContacts, isPending, error }) {
     } catch (e) {
       console.log(e);
     }
-
     setContacts((previous) => previous.filter((item) => item.id !== id));
   }
 
@@ -24,19 +24,37 @@ function ContactsList({ contacts, setContacts, isPending, error }) {
         {error && <h3>{error}</h3>}
         {contacts &&
           contacts.map((contact, index) => {
-            console.log(contact.id);
             const { firstName, lastName } = contact;
             return (
               <li className="contact" key={index}>
-                <p>
-                  {firstName} {lastName}
-                </p>
-                <p>
-                  <Link to={`/contact/${contact.id}`}>View</Link>
-                </p>
-                <button onClick={() => deleteFromLocalServer(contact.id)}>
-                  Delete
-                </button>
+                <div>
+                  <p>
+                    {firstName} {lastName}
+                  </p>
+                </div>
+
+                <Grid.Container gap={2}>
+                  <Grid>
+                    <Button color="success" auto>
+                      <Link to={`/contact/${contact.id}`}>View</Link>
+                    </Button>
+                  </Grid>
+                  <Grid>
+                    <Button color="warning" auto>
+                      <Link to={`contact/edit/${contact.id}`}>Edit</Link>
+                    </Button>
+                  </Grid>
+                  <Grid>
+                    <Button
+                      shadow
+                      color="error"
+                      auto
+                      onClick={() => deleteFromLocalServer(contact.id)}
+                    >
+                      Delete
+                    </Button>
+                  </Grid>
+                </Grid.Container>
               </li>
             );
           })}

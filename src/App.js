@@ -4,11 +4,14 @@ import { useFetch } from "./hooks/useFetch";
 import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
+import Edit from "./components/Edit";
 import { baseUrl } from "./utils/baseUrl";
 import "./styles/styles.css";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
+  const [editing, setEditing] = useState(false);
+
   const { data, isPending, error } = useFetch(`${baseUrl}`);
 
   useEffect(() => {
@@ -41,6 +44,8 @@ export default function App() {
                 isPending={isPending}
                 error={error}
                 setContacts={setContacts}
+                editing={editing}
+                setEditing={setEditing}
               />
             }
           />
@@ -50,6 +55,10 @@ export default function App() {
             element={
               <ContactsAdd contacts={contacts} setContacts={setContacts} />
             }
+          />
+          <Route
+            path="/contact/edit/:id"
+            element={<Edit contacts={contacts} setContacts={setContacts} />}
           />
         </Routes>
       </main>

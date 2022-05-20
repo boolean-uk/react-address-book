@@ -1,7 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { baseUrl } from "../utils/baseUrl";
-import "./ContactsAdd.css";
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 const initialData = {
   firstName: "",
@@ -13,39 +11,52 @@ const initialData = {
   twitter: "",
 };
 
-const NewContact = ({ contacts, setContacts }) => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState(initialData);
+const Edit = ({ contacts, setContacts }) => {
+  const [editContact, setEditContact] = useState(initialData);
+  const { id } = useParams();
 
-  const formInputChangeHandler = (event) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  async function updateLocalServer(el, id) {
-    const opts = {
-      method: "POST",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(el),
-    };
-
-    const response = await fetch(`${baseUrl}`, opts);
-    const newUser = await response.json();
-    setContacts([...contacts, newUser]);
+  async function fetchData(id) {
+    const response = await fetch(`http://localhost:3000/contacts/${id}`);
+    const data = await response.json();
+    setEditContact(data);
   }
+
+  useEffect(() => {
+    fetchData(id);
+  }, [id]);
 
   const onSubmitFormHandler = (e) => {
     e.preventDefault();
-    setContacts([...contacts, formData]);
-    updateLocalServer(formData);
-    setFormData(initialData);
-    navigate("/");
+
+    const opts = {
+      method: "PATCH",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(editContact),
+    };
+
+    fetch(`http://localhost:3000/contacts/${id}`, opts)
+      .then((res) => res.json())
+      .then((data) => {});
+
+    setContacts((previous) => {
+      const updatedArray = previous.map((item) => {
+        if (item.id === editContact.id) return editContact;
+        return item;
+      });
+      setContacts(updatedArray);
+    });
+  };
+  console.log("contacts", contacts);
+
+  const formInputChangeHandler = (e) => {
+    const { name, value } = e.target;
+    setEditContact({ ...editContact, [name]: value });
   };
 
   return (
     <section className="form-component">
       <form onSubmit={onSubmitFormHandler}>
-        <h1>Add New Contact</h1>
+        <h1>Edit Existing Contact</h1>
         <div className="icon">
           <i className="fas fa-user-circle"></i>
         </div>
@@ -61,7 +72,7 @@ const NewContact = ({ contacts, setContacts }) => {
               id="firstName"
               required
               onChange={formInputChangeHandler}
-              value={formData.name}
+              value={editContact.firstName}
             ></input>
 
             <label htmlFor="lastName">
@@ -74,7 +85,7 @@ const NewContact = ({ contacts, setContacts }) => {
               id="lastName"
               required
               onChange={formInputChangeHandler}
-              value={formData.surname}
+              value={editContact.lastName}
             ></input>
 
             <label htmlFor="street">
@@ -87,7 +98,7 @@ const NewContact = ({ contacts, setContacts }) => {
               id="street"
               required
               onChange={formInputChangeHandler}
-              value={formData.address}
+              value={editContact.street}
             ></input>
             <label htmlFor="city">
               <strong>City</strong>
@@ -99,7 +110,7 @@ const NewContact = ({ contacts, setContacts }) => {
               id="city"
               required
               onChange={formInputChangeHandler}
-              value={formData.city}
+              value={editContact.city}
             ></input>
             <label htmlFor="email">email:</label>
             <input
@@ -108,7 +119,7 @@ const NewContact = ({ contacts, setContacts }) => {
               type="text"
               required
               onChange={formInputChangeHandler}
-              value={formData.email}
+              value={editContact.email}
             />
 
             <label htmlFor="linkedIn">linkedIn:</label>
@@ -118,7 +129,7 @@ const NewContact = ({ contacts, setContacts }) => {
               type="text"
               required
               onChange={formInputChangeHandler}
-              value={formData.linkedIn}
+              value={editContact.linkedIn}
             />
 
             <label htmlFor="twitter">twitter:</label>
@@ -128,7 +139,7 @@ const NewContact = ({ contacts, setContacts }) => {
               type="text"
               required
               onChange={formInputChangeHandler}
-              value={formData.twitter}
+              value={editContact.twitter}
             />
           </div>
           <button type="submit">
@@ -140,4 +151,4 @@ const NewContact = ({ contacts, setContacts }) => {
   );
 };
 
-export default NewContact;
+export default Edit;
