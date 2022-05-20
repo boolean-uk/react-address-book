@@ -1,18 +1,69 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "firstName": "Tibor",
+      "lastName": "Toth",
+      "street": "FLAT 38, CALEDONIAN HOUSE",
+      "city": "CRAWLEY",
+      "email": "tothtibitravel@gmail.com",
+      "linkedIn": "link",
+      "twitter": "tweet",
+      "type": "personal",
+      "id": 0.19874401573179834
     },
     {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
+      "firstName": "Timea",
+      "lastName": "Szujo",
+      "street": "Velegi ut 16 2/4",
+      "city": "Mor",
+      "email": "gerolajenefer@gmail.com",
+      "linkedIn": "link",
+      "twitter": "dsa",
+      "type": "work",
+      "id": 0.10654507912183231
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2022-05-20",
+      "time": "14:20",
+      "location": "London",
+      "id": 0.9604813532550318
+    },
+    {
+      "date": "2022-05-06",
+      "time": "12:31",
+      "location": "RH117HW ",
+      "userId": 0.9604813532550318,
+      "id": 1.9604813532550318
+    },
+    {
+      "date": "2022-05-05",
+      "time": "15:30",
+      "location": "London",
+      "userId": 0.9604813532550318,
+      "id": 2.960481353255032
+    },
+    {
+      "date": "2022-05-08",
+      "time": "12:49",
+      "location": "London",
+      "userId": 0.32720661744557344,
+      "id": 3.960481353255032
+    },
+    {
+      "date": "2022-05-06",
+      "time": "12:52",
+      "location": "RH117HW ",
+      "userId": 0.9604813532550318,
+      "id": 4.960481353255032
+    },
+    {
+      "date": "2022-05-20",
+      "time": "12:59",
+      "location": "UK",
+      "userId": 0.32720661744557344,
+      "id": 5.960481353255032
     }
   ]
 }
