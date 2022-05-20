@@ -1,42 +1,43 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useFetch } from "../hooks/useFetch";
 import { baseUrl } from "../utils/baseUrl";
 import "./ContactsAdd.css";
 
+const initialData = {
+  firstName: "",
+  lastName: "",
+  street: "",
+  city: "",
+  email: "",
+  linkedIn: "",
+  twitter: "",
+};
+
 const NewContact = ({ contacts, setContacts }) => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-  });
+  const [formData, setFormData] = useState(initialData);
 
-  const { postData, data, error } = useFetch(`${baseUrl}`, `POST`);
+  const formInputChangeHandler = (event) => {
+    const { id, value } = event.target;
+    setFormData({ ...formData, [id]: value, id: Math.random() });
+  };
 
-  // async function updateLocalServer(el, id) {
-  //   const opts = {
-  //     method: "POST",
-  //     headers: { "Content-type": "application/json" },
-  //     body: JSON.stringify({}),
-  //   };
+  async function updateLocalServer(el, id) {
+    const opts = {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(el),
+    };
 
-  //   const response = await fetch(`${baseUrl}`, opts);
-  //   const data = await response.json();
-  // }
+    const response = await fetch(`${baseUrl}`, opts);
+    const data = await response.json();
+  }
 
   const onSubmitFormHandler = (e) => {
     e.preventDefault();
     setContacts([...contacts, formData]);
-    postData({ ...formData });
-
-    setFormData({
-      firstName: "",
-      lastName: "",
-      street: "",
-      city: "",
-    });
+    updateLocalServer(formData);
+    setFormData(initialData);
     navigate("/");
   };
 
@@ -47,7 +48,7 @@ const NewContact = ({ contacts, setContacts }) => {
         <div className="icon">
           <i className="fas fa-user-circle"></i>
         </div>
-        <div className="formcontainer">
+        <div className="form-container">
           <div className="container">
             <label htmlFor="firstName">
               <strong>First Name</strong>
@@ -58,9 +59,7 @@ const NewContact = ({ contacts, setContacts }) => {
               name="firstName"
               id="firstName"
               required
-              onChange={(e) =>
-                setFormData({ ...formData, firstName: e.target.value })
-              }
+              onChange={formInputChangeHandler}
               value={formData.name}
             ></input>
 
@@ -73,9 +72,7 @@ const NewContact = ({ contacts, setContacts }) => {
               name="lastName"
               id="lastName"
               required
-              onChange={(e) =>
-                setFormData({ ...formData, lastName: e.target.value })
-              }
+              onChange={formInputChangeHandler}
               value={formData.surname}
             ></input>
 
@@ -88,9 +85,7 @@ const NewContact = ({ contacts, setContacts }) => {
               name="street"
               id="street"
               required
-              onChange={(e) =>
-                setFormData({ ...formData, street: e.target.value })
-              }
+              onChange={formInputChangeHandler}
               value={formData.address}
             ></input>
             <label htmlFor="city">
@@ -102,11 +97,38 @@ const NewContact = ({ contacts, setContacts }) => {
               name="city"
               id="city"
               required
-              onChange={(e) =>
-                setFormData({ ...formData, city: e.target.value })
-              }
+              onChange={formInputChangeHandler}
               value={formData.city}
             ></input>
+            <label htmlFor="email">email:</label>
+            <input
+              id="email"
+              name="email"
+              type="text"
+              required
+              onChange={formInputChangeHandler}
+              value={formData.email}
+            />
+
+            <label htmlFor="linkedIn">linkedIn:</label>
+            <input
+              id="linkedIn"
+              name="linkedIn"
+              type="text"
+              required
+              onChange={formInputChangeHandler}
+              value={formData.linkedIn}
+            />
+
+            <label htmlFor="twitter">twitter:</label>
+            <input
+              id="twitter"
+              name="twitter"
+              type="text"
+              required
+              onChange={formInputChangeHandler}
+              value={formData.twitter}
+            />
           </div>
           <button type="submit">
             <strong>Add Contact</strong>

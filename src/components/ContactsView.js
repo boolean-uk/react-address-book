@@ -32,6 +32,9 @@ function ContactsView() {
           <p>
             {contact.street} {contact.city}
           </p>
+          <p>Email: {contact.email || "Sign up to email"}</p>
+          <p>Twitter: {contact.twitter || "I do not do twitter"} </p>
+          <p>LinkedIn: {contact.linkedIn || "I do not do linkedIn"} </p>
         </div>
       )}
     </>

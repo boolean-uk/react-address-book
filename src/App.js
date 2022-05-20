@@ -40,6 +40,7 @@ export default function App() {
                 contacts={contacts}
                 isPending={isPending}
                 error={error}
+                setContacts={setContacts}
               />
             }
           />

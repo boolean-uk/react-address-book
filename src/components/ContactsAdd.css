@@ -41,7 +41,7 @@ h1 {
 button:hover {
   opacity: 0.8;
 }
-.formcontainer {
+.form-container {
   text-align: center;
   margin: 24px 50px 12px;
 }

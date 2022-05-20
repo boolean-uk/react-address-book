@@ -1,7 +1,19 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
-function ContactsList({ contacts, isPending, error }) {
+import { baseUrl } from "../utils/baseUrl";
+
+function ContactsList({ contacts, setContacts, isPending, error }) {
+  async function deleteFromLocalServer(id) {
+    try {
+      await fetch(`${baseUrl}/${id}`, { method: "DELETE" });
+    } catch (e) {
+      console.log(e);
+    }
+
+    setContacts((previous) => previous.filter((item) => item.id !== id));
+  }
+
   return (
     <>
       <header>
@@ -12,6 +24,7 @@ function ContactsList({ contacts, isPending, error }) {
         {error && <h3>{error}</h3>}
         {contacts &&
           contacts.map((contact, index) => {
+            console.log(contact.id);
             const { firstName, lastName } = contact;
             return (
               <li className="contact" key={index}>
@@ -21,6 +34,9 @@ function ContactsList({ contacts, isPending, error }) {
                 <p>
                   <Link to={`/contact/${contact.id}`}>View</Link>
                 </p>
+                <button onClick={() => deleteFromLocalServer(contact.id)}>
+                  Delete
+                </button>
               </li>
             );
           })}

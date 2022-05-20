@@ -50,6 +50,9 @@ export const useFetch = (url, method = "GET") => {
     if (method === "POST" && options) {
       fetchData(options);
     }
+    if (method === "DELETE") {
+      fetchData(options);
+    }
 
     return () => {
       controller.abort();
