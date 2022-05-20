@@ -1,5 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+// import ContactsEdit from "./components/ContactsEdit";
 
 function ContactsView() {
   const [contact, setContact] = useState(false);
@@ -31,6 +34,9 @@ function ContactsView() {
       <p>
         {contact.street} {contact.city}
       </p>
+      <Link to={`/contacts/${contact.id}/edit`}>
+        <p>Edit</p>
+      </Link>
     </div>
   );
 }
