@@ -13,19 +13,20 @@ function ContactsAdd(props) {
   const [newContact, setNewContact] = useState(initialNewContact);
 
   function handleChange(event) {
-    const { name, type, value } = event.target;
-    if (name === "firstName" && type === "text") {
-      setNewContact({ ...newContact, firstName: value });
-    }
-    if (name === "lastName" && type === "text") {
-      setNewContact({ ...newContact, lastName: value });
-    }
-    if (name === "street" && type === "text") {
-      setNewContact({ ...newContact, street: value });
-    }
-    if (name === "city" && type === "text") {
-      setNewContact({ ...newContact, city: value });
-    }
+    const { name, value } = event.target;
+    setNewContact({ ...newContact, [name]: value });
+    // if (name === "firstName" && type === "text") {
+    //   setNewContact({ ...newContact, firstName: value });
+    // }
+    // if (name === "lastName" && type === "text") {
+    //   setNewContact({ ...newContact, lastName: value });
+    // }
+    // if (name === "street" && type === "text") {
+    //   setNewContact({ ...newContact, street: value });
+    // }
+    // if (name === "city" && type === "text") {
+    //   setNewContact({ ...newContact, [name]: value });
+    // }
   }
 
   function handleSubmit(event) {
