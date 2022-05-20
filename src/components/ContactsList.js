@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function ContactsList(props) {
   
@@ -20,8 +19,7 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
+              <Link to={`/contacts/${contact.id}`}>View</Link>
               </p>
             </li>
           )

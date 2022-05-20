@@ -1,18 +1,34 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "id": 2,
+      "firstName": "Gr8cedaazrdazadzazefazefazefazfead",
+      "lastName": "Hopperdaz",
+      "street": "32 Deebug Road",
+      "city": "London",
+      "facebook": "http://facebook.com/gr8ce"
     },
     {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
+      "id": 4,
+      "firstName": "Zoe",
+      "lastName": "Blazon",
+      "street": "WTF",
+      "city": "Bruxelles"
+    },
+    {
+      "id": 5,
+      "firstName": "Gui",
+      "lastName": "Rodrigues",
+      "street": "Avenue Des Criquets, 17",
+      "city": "Bruxelles",
+      "facebook": "Gogogole"
+    },
+    {
+      "id": 6,
+      "firstName": "Gui 2",
+      "lastName": "Rodrigues",
+      "street": "Avenue Des Criquets, 17",
+      "city": "Bruxelles"
     }
   ]
 }
