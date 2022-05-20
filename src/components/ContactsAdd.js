@@ -17,29 +17,30 @@ function ContactsAdd({ contacts, setContacts }) {
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
+    setInputData({ ...inputData, [name]: value });
 
-    if (id === "firstName") {
-      setInputData({ ...inputData, firstName: value });
-    }
-    if (id === "lastName") {
-      setInputData({ ...inputData, lastName: value });
-    }
-    if (id === "street") {
-      setInputData({ ...inputData, street: value });
-    }
-    if (id === "city") {
-      setInputData({ ...inputData, city: value });
-    }
-    if (id === "email") {
-      setInputData({ ...inputData, email: value });
-    }
-    if (id === "linkedin") {
-      setInputData({ ...inputData, linkedin: value });
-    }
-    if (id === "twitter") {
-      setInputData({ ...inputData, twitter: value });
-    }
+    // if (id === "firstName") {
+    //   setInputData({ ...inputData, firstName: value });
+    // }
+    // if (id === "lastName") {
+    //   setInputData({ ...inputData, lastName: value });
+    // }
+    // if (id === "street") {
+    //   setInputData({ ...inputData, street: value });
+    // }
+    // if (id === "city") {
+    //   setInputData({ ...inputData, city: value });
+    // }
+    // if (id === "email") {
+    //   setInputData({ ...inputData, email: value });
+    // }
+    // if (id === "linkedin") {
+    //   setInputData({ ...inputData, linkedin: value });
+    // }
+    // if (id === "twitter") {
+    //   setInputData({ ...inputData, twitter: value });
+    // }
   };
 
   const handleSubmit = (e) => {

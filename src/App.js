@@ -5,14 +5,20 @@ import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
 import ContactsEdit from "./components/ContactsEdit";
 import "./styles/styles.css";
+import "./styles/loadingSpinner.css";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    setIsLoading(true);
     fetch("http://localhost:4000/contacts")
       .then((res) => res.json())
-      .then((data) => setContacts(data));
+      .then((data) => {
+        setContacts(data);
+        setIsLoading(false);
+      });
   }, []);
 
   return (
@@ -21,7 +27,9 @@ export default function App() {
         <h2>Menu</h2>
         <ul>
           <li>
-            <Link to="/contacts">Contacts List</Link>
+            <Link to="/contacts" disabled={isLoading}>
+              Contacts List
+            </Link>
           </li>
           <li>
             <Link to="/add-new">Add New Contact</Link>
@@ -33,7 +41,11 @@ export default function App() {
           <Route
             path="/contacts"
             element={
-              <ContactsList contacts={contacts} setContacts={setContacts} />
+              <ContactsList
+                contacts={contacts}
+                setContacts={setContacts}
+                isLoading={isLoading}
+              />
             }
           />
           <Route

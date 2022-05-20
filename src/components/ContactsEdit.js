@@ -15,29 +15,30 @@ function ContactsEdit({ contacts, setContacts }) {
   }, [params.id]);
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
+    setContactToEdit({ ...contactToEdit, [name]: value });
 
-    if (id === "firstName") {
-      setContactToEdit({ ...contactToEdit, firstName: value });
-    }
-    if (id === "lastName") {
-      setContactToEdit({ ...contactToEdit, lastName: value });
-    }
-    if (id === "street") {
-      setContactToEdit({ ...contactToEdit, street: value });
-    }
-    if (id === "city") {
-      setContactToEdit({ ...contactToEdit, city: value });
-    }
-    if (id === "email") {
-      setContactToEdit({ ...contactToEdit, email: value });
-    }
-    if (id === "linkedin") {
-      setContactToEdit({ ...contactToEdit, linkedin: value });
-    }
-    if (id === "twitter") {
-      setContactToEdit({ ...contactToEdit, twitter: value });
-    }
+    // if (id === "firstName") {
+    //   setContactToEdit({ ...contactToEdit, firstName: value });
+    // }
+    // if (id === "lastName") {
+    //   setContactToEdit({ ...contactToEdit, lastName: value });
+    // }
+    // if (id === "street") {
+    //   setContactToEdit({ ...contactToEdit, street: value });
+    // }
+    // if (id === "city") {
+    //   setContactToEdit({ ...contactToEdit, city: value });
+    // }
+    // if (id === "email") {
+    //   setContactToEdit({ ...contactToEdit, email: value });
+    // }
+    // if (id === "linkedin") {
+    //   setContactToEdit({ ...contactToEdit, linkedin: value });
+    // }
+    // if (id === "twitter") {
+    //   setContactToEdit({ ...contactToEdit, twitter: value });
+    // }
   };
 
   const handleSubmit = (e) => {
