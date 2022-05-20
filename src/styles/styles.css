@@ -103,7 +103,7 @@ h2 {
 .contacts-list > li {
   padding: 1rem 0;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto auto;
   gap: 1rem;
 }
 
