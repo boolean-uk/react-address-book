@@ -1,10 +1,16 @@
-import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 
-function ContactsList(props) {
-  
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props
+function ContactsList({ contacts, setContacts }) {
+  const deleteRequest = (contactId) => {
+    fetch(`http://localhost:4000/contacts/${contactId}`, {
+      method: "DELETE",
+    }).then(() => {
+      const updatedContacts = contacts.filter(
+        (contact) => contact.id !== contactId
+      );
+      setContacts(updatedContacts);
+    });
+  };
 
   return (
     <>
@@ -13,22 +19,30 @@ function ContactsList(props) {
       </header>
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
-          const { firstName, lastName } = contact
+          const { firstName, lastName } = contact;
+
           return (
             <li className="contact" key={index}>
               <p>
                 {firstName} {lastName}
               </p>
-              <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
-              </p>
+              <div>
+                <Link to={`/contacts/${contact.id}`} state={{ contact }}>
+                  <p>View</p>
+                </Link>
+                <Link to={`/contacts/${contact.id}/edit`} state={{ contact }}>
+                  <p>Edit</p>
+                </Link>
+                <button onClick={() => deleteRequest(contact.id)}>
+                  Delete
+                </button>
+              </div>
             </li>
-          )
+          );
         })}
       </ul>
     </>
-  )
+  );
 }
 
-export default ContactsList
+export default ContactsList;

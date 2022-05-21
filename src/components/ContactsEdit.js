@@ -1,53 +1,64 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
-const initialNewContact = {
-  id: "",
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  howToReach: "",
-  address: "",
-};
-
-const ContactsAdd = ({ contacts, setContacts }) => {
-  const [newContact, setNewContact] = useState(initialNewContact);
+const ContactsEdit = ({ contacts, setContacts }) => {
+  const [editingContact, setEditingContact] = useState(null);
+  const location = useLocation();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const clickedContact = location.state.contact;
+    setEditingContact(clickedContact);
+  }, [location]);
+
+  if (!editingContact) return <p>Wait a minute...</p>;
+
+  const checkRadio = (value) => {
+    if (editingContact.howToReach !== value) return false;
+    return true;
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setNewContact({ ...newContact, [name]: value });
+    setEditingContact({ ...editingContact, [name]: value });
   };
 
-  const postRequest = () => {
-    const opts = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newContact),
-    };
-    fetch("http://localhost:4000/contacts", opts)
+  const patchRequest = () => {
+    fetch(`http://localhost:4000/contacts/${editingContact.id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editingContact),
+    })
       .then((res) => res.json())
-      .then((contactData) => setContacts([...contacts, contactData]));
+      .then((editingContact) => {
+        const updatedContacts = [...contacts];
+        const targetIndex = updatedContacts.findIndex(
+          (contact) => contact.id === editingContact.id
+        );
+        updatedContacts[targetIndex] = editingContact;
+        setContacts(updatedContacts);
+      });
   };
 
-  const handleSubmit = (e) => {
+  const submitChange = (e) => {
     e.preventDefault();
-    postRequest();
-    setNewContact(initialNewContact);
+    patchRequest();
+    setEditingContact(null);
     navigate("/");
   };
 
   return (
-    <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+    <form className="form-stack contact-form" onSubmit={submitChange}>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
         name="firstName"
         type="text"
-        value={newContact.firstName}
+        value={editingContact.firstName}
         onChange={handleChange}
         required
       />
@@ -57,7 +68,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         id="lastName"
         name="lastName"
         type="text"
-        value={newContact.lastName}
+        value={editingContact.lastName}
         onChange={handleChange}
         required
       />
@@ -67,7 +78,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         id="street"
         name="street"
         type="text"
-        value={newContact.street}
+        value={editingContact.street}
         onChange={handleChange}
         required
       />
@@ -77,7 +88,7 @@ const ContactsAdd = ({ contacts, setContacts }) => {
         id="city"
         name="city"
         type="text"
-        value={newContact.city}
+        value={editingContact.city}
         onChange={handleChange}
         required
       />
@@ -89,32 +100,32 @@ const ContactsAdd = ({ contacts, setContacts }) => {
           type="radio"
           value="email"
           onChange={handleChange}
+          checked={checkRadio("email")}
         />
         <label htmlFor="email">Email</label>
-
         <input
           id="linkedIn"
           name="howToReach"
           type="radio"
           value="linkedIn"
           onChange={handleChange}
+          checked={checkRadio("linkedIn")}
         />
         <label htmlFor="linkedIn">LinkedIn</label>
-
         <input
           id="twitter"
           name="howToReach"
           type="radio"
           value="twitter"
+          checked={checkRadio("twitter")}
           onChange={handleChange}
         />
         <label htmlFor="twitter">Twitter</label>
-
         <input
           id="address"
           name="address"
-          type={newContact.howToReach === "email" ? "email" : "text"}
-          value={newContact.address}
+          type={editingContact.howToReach === "email" ? "email" : "text"}
+          value={editingContact.address}
           onChange={handleChange}
           required
         />
@@ -122,11 +133,11 @@ const ContactsAdd = ({ contacts, setContacts }) => {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Change
         </button>
       </div>
     </form>
   );
 };
 
-export default ContactsAdd;
+export default ContactsEdit;
