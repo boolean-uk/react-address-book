@@ -7,6 +7,7 @@ import ContactsView from "./components/ContactsView";
 import Edit from "./components/Edit";
 import { baseUrl } from "./utils/baseUrl";
 import "./styles/styles.css";
+import Meetings from "./components/Meetings";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
@@ -60,6 +61,7 @@ export default function App() {
             path="/contact/edit/:id"
             element={<Edit contacts={contacts} setContacts={setContacts} />}
           />
+          <Route path="/contact/:id/meetings" element={<Meetings />} />
         </Routes>
       </main>
     </>

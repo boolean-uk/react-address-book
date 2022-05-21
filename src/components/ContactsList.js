@@ -2,6 +2,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Button, Grid } from "@nextui-org/react";
 import Spinner from "./Spinner";
 import { baseUrl } from "../utils/baseUrl";
+import Meetings from "./Meetings";
 
 function ContactsList({ contacts, setContacts, isPending, error }) {
   async function deleteFromLocalServer(id) {
@@ -31,15 +32,14 @@ function ContactsList({ contacts, setContacts, isPending, error }) {
                     {firstName} {lastName}
                   </p>
                 </div>
-
                 <Grid.Container gap={2}>
                   <Grid>
-                    <Button color="success" auto>
+                    <Button shadow color="success" auto>
                       <Link to={`/contact/${contact.id}`}>View</Link>
                     </Button>
                   </Grid>
                   <Grid>
-                    <Button color="warning" auto>
+                    <Button shadow color="warning" auto>
                       <Link to={`contact/edit/${contact.id}`}>Edit</Link>
                     </Button>
                   </Grid>

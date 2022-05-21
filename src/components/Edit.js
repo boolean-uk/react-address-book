@@ -9,6 +9,10 @@ const initialData = {
   email: "",
   linkedIn: "",
   twitter: "",
+  meetings: {
+    location: "",
+    dateTime: "",
+  },
 };
 
 const Edit = ({ setContacts }) => {

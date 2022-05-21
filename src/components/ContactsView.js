@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { Button, Grid } from "@nextui-org/react";
 import Spinner from "./Spinner";
 
 function ContactsView() {
   const [contact, setContact] = useState(false);
+  const [meeting, setMeeting] = useState(null);
+
   const { id } = useParams();
   const { data, isPending, error } = useFetch(
     `http://localhost:3000/contacts/${id}`
@@ -17,7 +20,7 @@ function ContactsView() {
   }, [data]);
 
   if (!contact) {
-    return <Spinner/>;
+    return <Spinner />;
   }
 
   return (
@@ -25,18 +28,32 @@ function ContactsView() {
       {isPending && <h3>Loading...</h3>}
       {error && <h3>{error}</h3>}
       {contact && (
-        <div>
-          <h2>
-            Hello
-            {contact.firstName} {contact.lastName}
-          </h2>
-          <p>
-            {contact.street} {contact.city}
-          </p>
-          <p>Email: {contact.email || "Sign up to email"}</p>
-          <p>Twitter: {contact.twitter || "I do not do twitter"} </p>
-          <p>LinkedIn: {contact.linkedIn || "I do not do linkedIn"} </p>
-        </div>
+        <>
+          <div>
+            <h2>
+              Hello
+              {contact.firstName} {contact.lastName}
+            </h2>
+            <p>
+              {contact.street} {contact.city}
+            </p>
+            <p>Email: {contact.email || "Sign up to email"}</p>
+            <p>Twitter: {contact.twitter || "I do not do twitter"} </p>
+            <p>LinkedIn: {contact.linkedIn || "I do not do linkedIn"} </p>
+          </div>
+          {contact.meetings.map((meeting) => (
+            <li>{meeting.location}</li>
+          ))}
+          <div className="meetings-btn">
+            <Grid.Container gap={2}>
+              <Grid>
+                <Button color="success" auto>
+                  <Link to={`/contact/${contact.id}/meetings`}>Meetings</Link>
+                </Button>
+              </Grid>
+            </Grid.Container>
+          </div>
+        </>
       )}
     </>
   );

@@ -1,14 +1,37 @@
 {
   "contacts": [
     {
-      "firstName": "Alexander Hello",
+      "firstName": "Alexander",
       "lastName": "Django",
-      "street": "Easy Street",
-      "city": "Home",
-      "email": "777@666.com",
-      "linkedIn": "Linked",
-      "twitter": "Twittered",
-      "id": 3
+      "street": "Here",
+      "city": "Now",
+      "email": "A",
+      "linkedIn": "A",
+      "twitter": "A",
+      "meetings": [
+        {
+          "firstName": "wwwwwww",
+          "location": "33",
+          "date": "2022-04-26",
+          "time": "03:33",
+          "id": 0.10309668156112695
+        },
+        {
+          "firstName": "wwwwwww",
+          "location": "33",
+          "date": "2022-04-26",
+          "time": "03:33",
+          "id": 0.2975049425106031
+        },
+        {
+          "firstName": "wwwwwww",
+          "location": "33",
+          "date": "2022-04-26",
+          "time": "03:33",
+          "id": 0.5358525175272223
+        }
+      ],
+      "id": 5
     }
   ]
 }

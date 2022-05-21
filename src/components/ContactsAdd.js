@@ -11,6 +11,10 @@ const initialData = {
   email: "",
   linkedIn: "",
   twitter: "",
+  meetings: {
+    location: "",
+    dateTime: "",
+  },
 };
 
 const NewContact = ({ contacts, setContacts }) => {
