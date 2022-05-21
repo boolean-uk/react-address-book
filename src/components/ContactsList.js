@@ -1,7 +1,6 @@
-import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button, Grid } from "@nextui-org/react";
-
+import Spinner from "./Spinner";
 import { baseUrl } from "../utils/baseUrl";
 
 function ContactsList({ contacts, setContacts, isPending, error }) {
@@ -20,7 +19,7 @@ function ContactsList({ contacts, setContacts, isPending, error }) {
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
-        {isPending && <h3>Loading...</h3>}
+        {isPending && <Spinner />}
         {error && <h3>{error}</h3>}
         {contacts &&
           contacts.map((contact, index) => {

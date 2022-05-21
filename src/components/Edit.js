@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const initialData = {
   firstName: "",
@@ -11,9 +11,10 @@ const initialData = {
   twitter: "",
 };
 
-const Edit = ({ contacts, setContacts }) => {
+const Edit = ({ setContacts }) => {
   const [editContact, setEditContact] = useState(initialData);
   const { id } = useParams();
+  const navigate = useNavigate();
 
   async function fetchData(id) {
     const response = await fetch(`http://localhost:3000/contacts/${id}`);
@@ -45,8 +46,8 @@ const Edit = ({ contacts, setContacts }) => {
       });
       setContacts(updatedArray);
     });
+    navigate("/");
   };
-  console.log("contacts", contacts);
 
   const formInputChangeHandler = (e) => {
     const { name, value } = e.target;
@@ -143,7 +144,7 @@ const Edit = ({ contacts, setContacts }) => {
             />
           </div>
           <button type="submit">
-            <strong>Add Contact</strong>
+            <strong>Update Contact</strong>
           </button>
         </div>
       </form>

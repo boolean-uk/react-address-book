@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import Spinner from "./Spinner";
 
 function ContactsView() {
   const [contact, setContact] = useState(false);
@@ -16,7 +17,7 @@ function ContactsView() {
   }, [data]);
 
   if (!contact) {
-    return <p>Loading...</p>;
+    return <Spinner/>;
   }
 
   return (
