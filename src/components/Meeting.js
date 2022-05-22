@@ -2,14 +2,8 @@ import React, { useEffect } from "react";
 import { Card, Grid, Text, Divider, Button, Row } from "@nextui-org/react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Meeting.css";
-import { useFetch } from "../hooks/useFetch";
 
 const Meeting = ({ meeting, setMeetings, contact }) => {
-  const { id } = useParams();
-  // const { data, isPending, error, postData } = useFetch(
-  //   `http://localhost:3000/meetings?contactId=${id}`
-  // );
-
   async function deleteFromLocalServer(meetingId) {
     try {
       await fetch(`http://localhost:3000/meetings/${meetingId}`, {

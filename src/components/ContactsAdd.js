@@ -11,7 +11,7 @@ const initialData = {
   email: "",
   linkedIn: "",
   twitter: "",
-  meetings: [],
+  contactType: "",
 };
 
 const NewContact = ({ contacts, setContacts }) => {
@@ -50,6 +50,14 @@ const NewContact = ({ contacts, setContacts }) => {
         <div className="icon">
           <i className="fas fa-user-circle"></i>
         </div>
+        <select
+          onChange={formInputChangeHandler}
+          name="contactType"
+          value={formData.contactType}
+        >
+          <option value="work">Work</option>
+          <option value="personal">Personal</option>
+        </select>
         <div className="form-container">
           <div className="container">
             <label htmlFor="firstName">

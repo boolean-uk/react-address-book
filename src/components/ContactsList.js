@@ -1,9 +1,13 @@
+import React, { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { Button, Grid } from "@nextui-org/react";
 import Spinner from "./Spinner";
 import { baseUrl } from "../utils/baseUrl";
 
 function ContactsList({ contacts, setContacts, isPending, error }) {
+  const [personalChecked, setPersonalChecked] = useState(false);
+  const [workChecked, setWorkChecked] = useState(false);
+
   async function deleteFromLocalServer(id) {
     try {
       await fetch(`${baseUrl}/contacts/${id}`, { method: "DELETE" });
@@ -13,11 +17,31 @@ function ContactsList({ contacts, setContacts, isPending, error }) {
     setContacts((previous) => previous.filter((item) => item.id !== id));
   }
 
+  useEffect(() => {
+    let url = `${baseUrl}/contacts/${id}`;
+
+    if (personalChecked) url = url + "?contactType=personal";
+    if (workChecked && personalChecked) url = url + "&contactType=work";
+    // fetch
+    // setContacts
+  }, [personalChecked, workChecked]);
+
   return (
     <>
       <header>
         <h2>Contacts</h2>
       </header>
+      <input
+        type="checkbox"
+        onChange={() => setPersonalChecked((previous) => !previous)}
+        value={personalChecked}
+      />
+      <input
+        type="checkbox"
+        onChange={() => setWorkChecked((previous) => !previous)}
+        value={workChecked}
+      />
+
       <ul className="contacts-list">
         {isPending && <Spinner />}
         {error && <h3>{error}</h3>}

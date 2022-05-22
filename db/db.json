@@ -1,27 +1,25 @@
 {
   "contacts": [
     {
-      "firstName": "Alexander",
-      "lastName": "Django",
-      "street": "Here",
-      "city": "Now",
-      "email": "s@gmail.com",
-      "linkedIn": "f",
-      "twitter": "f",
-      "meetings": [],
-      "id": 1
-    },
-    {
       "firstName": "aaa",
-      "lastName": "a",
-      "street": "a",
-      "city": "a",
-      "email": "a",
-      "linkedIn": "a",
-      "twitter": "a",
-      "meetings": [],
-      "id": 2
+      "lastName": "aa",
+      "street": "aa",
+      "city": "aa",
+      "email": "aa",
+      "linkedIn": "aa",
+      "twitter": "aa",
+      "contactType": "personal",
+      "id": 1
     }
   ],
-  "meetings": []
+  "meetings": [
+    {
+      "firstName": "aa",
+      "location": "222",
+      "date": "2022-04-26",
+      "time": "22:02",
+      "contactId": "1",
+      "id": 1
+    }
+  ]
 }
