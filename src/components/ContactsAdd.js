@@ -11,10 +11,7 @@ const initialData = {
   email: "",
   linkedIn: "",
   twitter: "",
-  meetings: {
-    location: "",
-    dateTime: "",
-  },
+  meetings: [],
 };
 
 const NewContact = ({ contacts, setContacts }) => {
@@ -33,7 +30,7 @@ const NewContact = ({ contacts, setContacts }) => {
       body: JSON.stringify(el),
     };
 
-    const response = await fetch(`${baseUrl}`, opts);
+    const response = await fetch(`${baseUrl}/contacts`, opts);
     const newUser = await response.json();
     setContacts([...contacts, newUser]);
   }

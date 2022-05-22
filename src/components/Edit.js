@@ -1,22 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
-const initialData = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  email: "",
-  linkedIn: "",
-  twitter: "",
-  meetings: {
-    location: "",
-    dateTime: "",
-  },
-};
-
 const Edit = ({ setContacts }) => {
-  const [editContact, setEditContact] = useState(initialData);
+  const [editContact, setEditContact] = useState();
   const { id } = useParams();
   const navigate = useNavigate();
 

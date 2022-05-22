@@ -1,1 +1,1 @@
-export const baseUrl = " http://localhost:3000/contacts";
+export const baseUrl = " http://localhost:3000";

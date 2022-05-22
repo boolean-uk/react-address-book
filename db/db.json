@@ -5,33 +5,23 @@
       "lastName": "Django",
       "street": "Here",
       "city": "Now",
-      "email": "A",
-      "linkedIn": "A",
-      "twitter": "A",
-      "meetings": [
-        {
-          "firstName": "wwwwwww",
-          "location": "33",
-          "date": "2022-04-26",
-          "time": "03:33",
-          "id": 0.10309668156112695
-        },
-        {
-          "firstName": "wwwwwww",
-          "location": "33",
-          "date": "2022-04-26",
-          "time": "03:33",
-          "id": 0.2975049425106031
-        },
-        {
-          "firstName": "wwwwwww",
-          "location": "33",
-          "date": "2022-04-26",
-          "time": "03:33",
-          "id": 0.5358525175272223
-        }
-      ],
-      "id": 5
+      "email": "s@gmail.com",
+      "linkedIn": "f",
+      "twitter": "f",
+      "meetings": [],
+      "id": 1
+    },
+    {
+      "firstName": "aaa",
+      "lastName": "a",
+      "street": "a",
+      "city": "a",
+      "email": "a",
+      "linkedIn": "a",
+      "twitter": "a",
+      "meetings": [],
+      "id": 2
     }
-  ]
+  ],
+  "meetings": []
 }

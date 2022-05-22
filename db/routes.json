@@ -1,0 +1,3 @@
+{
+  "/contacts/:id/meetings/:id": "/meetings/:id"
+}

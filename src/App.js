@@ -13,7 +13,7 @@ export default function App() {
   const [contacts, setContacts] = useState([]);
   const [editing, setEditing] = useState(false);
 
-  const { data, isPending, error } = useFetch(`${baseUrl}`);
+  const { data, isPending, error } = useFetch(`${baseUrl}/contacts`);
 
   useEffect(() => {
     if (data) setContacts(data);

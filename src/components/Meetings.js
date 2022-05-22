@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import { useFetch } from "../hooks/useFetch";
+import { baseUrl } from "../utils/baseUrl";
 
 const Meetings = () => {
   const [person, setPerson] = useState(null);
   const [meeting, setMeeting] = useState({});
-
   const { id } = useParams();
+
+  const navigate = useNavigate();
 
   console.log(id);
   const { data, isPending, error } = useFetch(
@@ -21,28 +23,24 @@ const Meetings = () => {
         location: "",
         date: "",
         time: "",
+        contactId: id,
       });
     }
   }, [data]);
 
+  async function createMeeting(el) {
+    const opts = {
+      method: "POST",
+      headers: { "Content-type": "application/json" },
+      body: JSON.stringify(el),
+    };
+    await fetch(`${baseUrl}/meetings`, opts);
+  }
+
   const formSubmitHandler = async (e) => {
     e.preventDefault();
-    const newPerson = {
-      ...person,
-      meetings: [...person.meetings, { ...meeting, id: Math.random() }],
-    };
-    const opts = {
-      method: "PATCH",
-      headers: { "Content-type": "application/json" },
-      body: JSON.stringify(newPerson),
-    };
-
-    try {
-      await fetch(`http://localhost:3000/contacts/${id}`, opts);
-      setPerson(newPerson);
-    } catch (error) {
-      console.log(error);
-    }
+    await createMeeting(meeting);
+    navigate(`/contact/${id}`);
   };
 
   const handleChange = (e) => {
@@ -103,3 +101,20 @@ const Meetings = () => {
 };
 
 export default Meetings;
+
+// const newPerson = {
+//   ...person,
+//   meetings: [...person.meetings, { ...meeting, id: Math.random() }],
+// };
+// const opts = {
+//   method: "PATCH",
+//   headers: { "Content-type": "application/json" },
+//   body: JSON.stringify(newPerson),
+// };
+
+// try {
+//   await fetch(`http://localhost:3000/contacts/${id}`, opts);
+//   setPerson(newPerson);
+// } catch (error) {
+//   console.log(error);
+// }

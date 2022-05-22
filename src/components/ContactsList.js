@@ -2,12 +2,11 @@ import { Link, useSearchParams } from "react-router-dom";
 import { Button, Grid } from "@nextui-org/react";
 import Spinner from "./Spinner";
 import { baseUrl } from "../utils/baseUrl";
-import Meetings from "./Meetings";
 
 function ContactsList({ contacts, setContacts, isPending, error }) {
   async function deleteFromLocalServer(id) {
     try {
-      await fetch(`${baseUrl}/${id}`, { method: "DELETE" });
+      await fetch(`${baseUrl}/contacts/${id}`, { method: "DELETE" });
     } catch (e) {
       console.log(e);
     }
