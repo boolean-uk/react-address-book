@@ -19,19 +19,6 @@ function ContactsAdd(props) {
   //TODO: Implement controlled form
   //send POST to json server on form submit
 
-  const getContacts = () => {
-    try {
-      fetch("http://localhost:4000/contacts")
-        .then((data) => data.json())
-        .then((data) => {
-          console.log(data);
-          setContacts(data);
-        });
-    } catch (err) {
-      console.error(err);
-    }
-  };
-
   const handleChange = (event) => {
     const inputName = event.target.name;
     const inputValue = event.target.value;
@@ -61,7 +48,7 @@ function ContactsAdd(props) {
     try {
       fetch("http://localhost:4000/contacts", newContactPostRequest)
         .then((response) => response.json())
-        .then(getContacts())
+        .then(setContacts([...contacts, contact]))
         .then(navigate("/"));
     } catch (err) {
       console;

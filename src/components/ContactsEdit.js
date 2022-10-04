@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import GetContacts from "./GetContacts";
 
 function ContactsEdit(props) {
   // setContacts and contacts must be passed as props
@@ -14,19 +13,6 @@ function ContactsEdit(props) {
 
   const [contact, setContact] = useState(null);
   const { contacts, setContacts } = props;
-
-  const getContacts = () => {
-    try {
-      fetch("http://localhost:4000/contacts")
-        .then((data) => data.json())
-        .then((data) => {
-          console.log(data);
-          setContacts(data);
-        });
-    } catch (err) {
-      console.error(err);
-    }
-  };
 
   useEffect(() => {
     if (location.state) {
@@ -69,13 +55,22 @@ function ContactsEdit(props) {
       body: JSON.stringify(contact),
     };
 
+    let updatedData = [];
     try {
       fetch(
         "http://localhost:4000/contacts/" + contact.id,
         updateContactPostRequest
       )
         .then((response) => console.log(response.json()))
-        .then(getContacts())
+        .then(() => {
+          const updatedContacts = contacts.map((thisContact) => {
+            if (thisContact.id === contact.id) {
+              return contact;
+            }
+            return thisContact;
+          });
+          setContacts(updatedContacts);
+        })
         .then(navigate("/"));
     } catch (err) {
       console.error(err);
