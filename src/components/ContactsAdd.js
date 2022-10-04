@@ -45,12 +45,15 @@ function ContactsAdd(props) {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(contact),
     };
-    fetch("http://localhost:4000/contacts", newContactPostRequest)
-      .then((response) => response.json())
-      .then((data) => console.log(data));
-
-    setContacts([...contacts, contact]);
-    navigate("/");
+    try {
+      fetch("http://localhost:4000/contacts", newContactPostRequest)
+        .then((response) => response.json())
+        .then(setContacts([...contacts, contact]))
+        .then(navigate("/"));
+    } catch (err) {
+      console;
+      console.error(err);
+    }
   };
 
   return (
