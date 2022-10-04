@@ -10,19 +10,33 @@ export default function App() {
   
   //TODO: Load all contacts on useEffect when component first renders
 
+  useEffect(() => {
+    fetch("http://localhost:4000/contacts")
+      .then((res) => res.json())
+      .then((data) => setContacts(data))
+  }, []);
+
+  console.log(contacts)
+
   return (
     <>
       <nav>
         <h2>Menu</h2>
         <ul>
           {/* TODO: Make these links */}
-          <li>Contacts List</li>
+          <Link to="/contacts">
+            <li>Contacts List</li>
+          </Link>
           <li>Add New Contact</li>
         </ul>
       </nav>
       <main>
         <Routes>
           {/* TODO: Add routes here  */}
+          <Route
+          path="/contacts"
+          element={<ContactsList contacts={contacts} />}
+        />
         </Routes>
       </main>
     </>
