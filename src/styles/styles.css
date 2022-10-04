@@ -173,8 +173,14 @@ h2 {
 .viewButton {
   border: 1px solid gray;
   background-color: lightgray;
-  color: darkgray;
+  color: black;
   font-size: 0.8em;
+}
+
+.viewButton:hover {
+  border: 1px solid gray;
+  background-color: darkgray;
+  color: white;
 }
 
 .linkButton:hover {
