@@ -37,7 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
 }
 
 /* Make images easier to work with */
@@ -150,4 +150,39 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.contactCard {
+  border: 1px solid gray;
+  background-color: lightgray;
+  border-radius: 0.5em;
+  width: 20em;
+  padding: 2em 1em 2em 1em;
+}
+
+.linkButton,
+.viewButton {
+  border: 1px solid lightskyblue;
+  background-color: lightcyan;
+  text-decoration: none;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  color: darkcyan;
+}
+
+.viewButton {
+  border: 1px solid gray;
+  background-color: lightgray;
+  color: darkgray;
+  font-size: 0.8em;
+}
+
+.linkButton:hover {
+  border: 1px solid lightskyblue;
+  background-color: darkcyan;
+  color: white;
+}
+
+.linkListItem {
+  margin-top: 1em;
 }

@@ -27,11 +27,15 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          <li>
-            <Link to="/">Contacts List</Link>
+          <li className="linkListItem">
+            <Link to="/" className="linkButton">
+              Contacts List
+            </Link>
           </li>
-          <li>
-            <Link to="/addcontact">Add New Contact</Link>
+          <li className="linkListItem">
+            <Link to="/addcontact" className="linkButton">
+              Add New Contact
+            </Link>
           </li>
         </ul>
       </nav>
@@ -39,6 +43,12 @@ export default function App() {
         <Routes>
           <Route path="/" element={<ContactsList contacts={contacts} />} />
           <Route path="/addcontact" element={<ContactsAdd />} />
+          <Route
+            path="/contact/:id"
+            element={
+              <ContactsView contacts={contacts} setContacts={setContacts} />
+            }
+          />
         </Routes>
       </main>
     </>
