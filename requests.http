@@ -1,0 +1,14 @@
+### Get
+GET http://localhost:4000/contacts
+
+### Post
+POST http://localhost:4000/contacts HTTP/1.1
+content-type: application/json
+
+{
+    "id": 7,
+    "firstName": "Takeshi",
+    "lastName": "Kawasaki",
+    "street": "67 Home Street",
+    "city": "Cardiff"
+}

@@ -27,6 +27,41 @@
       "lastName": "Fletcher",
       "street": "34 Field Street",
       "city": "Reading"
+    },
+    {
+      "id": 5,
+      "firstName": "Ada",
+      "lastName": "Lovelace",
+      "street": "67 Guacamole Street",
+      "city": "Oxford"
+    },
+    {
+      "id": 6,
+      "firstName": "Jenny",
+      "lastName": "Tom",
+      "street": "2 Tim Str.",
+      "city": "Northampton"
+    },
+    {
+      "id": 7,
+      "firstName": "Takeshi",
+      "lastName": "Kovacs",
+      "street": "67 Home Street",
+      "city": "Cardiff"
+    },
+    {
+      "id": 8,
+      "firstName": "Thomas",
+      "lastName": "Edison",
+      "street": "12 Lightbulb Avenue",
+      "city": "Birmingham"
+    },
+    {
+      "id": 9,
+      "firstName": "Steve",
+      "lastName": "Rogers",
+      "street": "1 Oxford Street",
+      "city": "London"
     }
   ]
 }

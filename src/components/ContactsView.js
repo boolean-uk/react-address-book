@@ -3,10 +3,8 @@ import { useParams } from "react-router-dom";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
-function ContactsView(props) {
+function ContactsView() {
   const location = useLocation();
-
-  const { contacts } = props;
   const [contact, setContact] = useState(false);
 
   //TODO: Get the contact to load from the params and fetch.
@@ -25,19 +23,24 @@ function ContactsView(props) {
   }
 
   return (
-    <div className="contactCard light-shadow">
-      <h2>
-        {contact.firstName} {contact.lastName}
-      </h2>
-      <p>
-        {contact.street} {contact.city}
-      </p>
-      <p>
-        <Link to={"/"} className="backButton">
-          Back to list
-        </Link>
-      </p>
-    </div>
+    <>
+      <header>
+        <h2>Contact Details</h2>
+      </header>
+      <div className="contactCard light-shadow">
+        <h2>
+          {contact.firstName} {contact.lastName}
+        </h2>
+        <p>
+          {contact.street}, {contact.city}
+        </p>
+        <p>
+          <Link to={"/"} className="backButton">
+            Back to list
+          </Link>
+        </p>
+      </div>
+    </>
   );
 }
 
