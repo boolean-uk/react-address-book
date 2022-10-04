@@ -27,12 +27,8 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
           <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/contacts">Contacts List</Link>
+            <Link to="/">Contacts List</Link>
           </li>
           <li>
             <Link to="/addcontact">Add New Contact</Link>
@@ -41,10 +37,7 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route
-            path="/contacts"
-            element={<ContactsList contacts={contacts} />}
-          />
+          <Route path="/" element={<ContactsList contacts={contacts} />} />
           <Route path="/addcontact" element={<ContactsAdd />} />
         </Routes>
       </main>
