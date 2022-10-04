@@ -9,14 +9,14 @@
     },
     {
       "id": 2,
-      "firstName": "Grace",
+      "firstName": "Grace Susan Test",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
     },
     {
       "id": 3,
-      "firstName": "Peter",
+      "firstName": "Tom Peter",
       "lastName": "Edmonton",
       "street": "12 Church Street",
       "city": "Slough"
@@ -45,7 +45,7 @@
     {
       "id": 7,
       "firstName": "Takeshi",
-      "lastName": "Kovacs",
+      "lastName": "Kawasaki",
       "street": "67 Home Street",
       "city": "Cardiff"
     },

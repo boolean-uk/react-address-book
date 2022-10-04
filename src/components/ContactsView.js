@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function ContactsView() {
   const location = useLocation();
-  const [contact, setContact] = useState(false);
+  const [contact, setContact] = useState(null);
 
   //TODO: Get the contact to load from the params and fetch.
   //With useEffect, load the contact when params changes

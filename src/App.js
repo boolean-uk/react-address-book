@@ -3,19 +3,25 @@ import { Link, Route, Routes } from "react-router-dom";
 import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
+import ContactsEdit from "./components/ContactsEdit";
 import "./styles/styles.css";
 
 export default function App() {
-  const API_URL = "http://localhost:4000/contacts";
   const [contacts, setContacts] = useState([]);
 
   //TODO: Load all contacts on useEffect when component first renders
 
-  const getContacts = async () => {
-    const response = await fetch(API_URL);
-    const data = await response.json();
-    console.log(data);
-    setContacts(data);
+  const getContacts = () => {
+    try {
+      fetch("http://localhost:4000/contacts")
+        .then((data) => data.json())
+        .then((data) => {
+          console.log(data);
+          setContacts(data);
+        });
+    } catch (err) {
+      console.error(err);
+    }
   };
 
   useEffect(() => {
@@ -49,6 +55,12 @@ export default function App() {
             }
           />
           <Route path="/contact/:id" element={<ContactsView />} />
+          <Route
+            path="/edit/:id"
+            element={
+              <ContactsEdit contacts={contacts} setContacts={setContacts} />
+            }
+          />
         </Routes>
       </main>
     </>

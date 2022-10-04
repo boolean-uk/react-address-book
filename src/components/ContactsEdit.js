@@ -1,23 +1,19 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+// import { useParams } from "react-router-dom";
+import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import GetContacts from "./GetContacts";
 
-function ContactsAdd(props) {
+function ContactsEdit(props) {
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
   const navigate = useNavigate();
-  const { contacts, setContacts } = props;
-  const newID = contacts.length + 1;
-  const [contact, setContact] = useState({
-    id: newID,
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-  });
+  const location = useLocation();
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  const [contact, setContact] = useState(null);
+  const { contacts, setContacts } = props;
 
   const getContacts = () => {
     try {
@@ -31,6 +27,20 @@ function ContactsAdd(props) {
       console.error(err);
     }
   };
+
+  useEffect(() => {
+    if (location.state) {
+      const { contact } = location.state;
+      setContact(contact);
+    }
+  }, [location]);
+
+  if (!contact) {
+    return <p>Loading</p>;
+  }
+
+  //TODO: Implement controlled form
+  //send POST to json server on form submit
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -53,25 +63,28 @@ function ContactsAdd(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const newContactPostRequest = {
-      method: "POST",
+    const updateContactPostRequest = {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(contact),
     };
+
     try {
-      fetch("http://localhost:4000/contacts", newContactPostRequest)
-        .then((response) => response.json())
+      fetch(
+        "http://localhost:4000/contacts/" + contact.id,
+        updateContactPostRequest
+      )
+        .then((response) => console.log(response.json()))
         .then(getContacts())
         .then(navigate("/"));
     } catch (err) {
-      console;
       console.error(err);
     }
   };
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input
@@ -115,11 +128,14 @@ function ContactsAdd(props) {
 
       <div className="actions-section">
         <button className="actionButton" type="submit">
-          Create
+          Update
         </button>
+        <Link to="/" className="actionButton">
+          Cancel
+        </Link>
       </div>
     </form>
   );
 }
 
-export default ContactsAdd;
+export default ContactsEdit;

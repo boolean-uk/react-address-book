@@ -12,3 +12,15 @@ content-type: application/json
     "street": "67 Home Street",
     "city": "Cardiff"
 }
+
+### Put
+PUT http://localhost:4000/contacts/7 HTTP/1.1
+content-type: application/json
+
+{
+    "id": 7,
+    "firstName": "Takeshi",
+    "lastName": "Kawasaki Test",
+    "street": "67 Home Street",
+    "city": "Cardiff"
+}
