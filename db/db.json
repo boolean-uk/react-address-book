@@ -13,6 +13,13 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "id": 3,
+      "firstName": "Peter",
+      "lastName": "Edmonton",
+      "street": "12 Chruch Street",
+      "city": "Slough"
     }
   ]
 }
