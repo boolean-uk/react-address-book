@@ -13,6 +13,40 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Alexander",
+      "lastName": "Lind",
+      "street": "Tordenskjoldsgade 40, 2tv",
+      "city": "Aarhus N",
+      "id": 3
+    },
+    {
+      "firstName": "John",
+      "lastName": "Hello",
+      "street": "1",
+      "city": "1",
+      "id": 4
+    },
+    {
+      "firstName": "Alexander",
+      "lastName": "Lind",
+      "street": "Tordenskjoldsgade 40, 2tv",
+      "city": "Aarhus N",
+      "email": "alex.anonym@gmail.com",
+      "linkedIn": "https://www.linkedin.com/in/alexander-s-lind/",
+      "twitter": "e",
+      "id": 5
+    },
+    {
+      "firstName": "Alexander",
+      "lastName": "Lind",
+      "street": "Tordenskjoldsgade 40, 2tv",
+      "city": "Aarhus N",
+      "email": "alex.anonym@gmail.com",
+      "linkedIn": "https://www.linkedin.com/in/alexander-s-lind/",
+      "twitter": "e",
+      "id": 6
     }
   ]
 }
