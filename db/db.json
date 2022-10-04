@@ -18,8 +18,15 @@
       "id": 3,
       "firstName": "Peter",
       "lastName": "Edmonton",
-      "street": "12 Chruch Street",
+      "street": "12 Church Street",
       "city": "Slough"
+    },
+    {
+      "id": 4,
+      "firstName": "Jessica",
+      "lastName": "Fletcher",
+      "street": "34 Field Street",
+      "city": "Reading"
     }
   ]
 }

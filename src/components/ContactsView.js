@@ -5,10 +5,8 @@ import { Link } from "react-router-dom";
 
 function ContactsView(props) {
   const location = useLocation();
-  console.log("In ContactsView props");
-  console.log(props);
 
-  const { contacts, setContacts } = props;
+  const { contacts } = props;
   const [contact, setContact] = useState(false);
 
   //TODO: Get the contact to load from the params and fetch.
@@ -27,16 +25,18 @@ function ContactsView(props) {
   }
 
   return (
-    <div className="contactCard">
+    <div className="contactCard light-shadow">
       <h2>
         {contact.firstName} {contact.lastName}
       </h2>
       <p>
         {contact.street} {contact.city}
       </p>
-      <Link to={"/"} className="backButton">
-        Back to list
-      </Link>
+      <p>
+        <Link to={"/"} className="backButton">
+          Back to list
+        </Link>
+      </p>
     </div>
   );
 }

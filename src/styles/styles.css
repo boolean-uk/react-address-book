@@ -93,18 +93,23 @@ h2 {
 }
 
 .contacts-list > li + li {
-  border-top: 1px solid #cbcbcb;
+  border-top: 1px solid cyan;
 }
 
 .contacts-list {
-  max-width: 400px;
+  max-width: 24em;
+  border: 1px solid cyan;
 }
 
 .contacts-list > li {
-  padding: 1rem 0;
+  padding: 1rem;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 1rem;
+}
+
+.contacts-list li:nth-child(2n + 1) {
+  background-color: lightcyan;
 }
 
 /* VIEW SECTION */
@@ -157,7 +162,7 @@ h2 {
   background-color: lightgray;
   border-radius: 0.5em;
   width: 20em;
-  padding: 2em 1em 2em 1em;
+  padding: 1em;
 }
 
 .linkButton,
@@ -181,7 +186,7 @@ h2 {
 
 .viewButton:hover,
 .backButton {
-  border: 1px solid gray;
+  border: 1px solid white;
   background-color: darkgray;
   color: white;
   font-size: 0.8em;
