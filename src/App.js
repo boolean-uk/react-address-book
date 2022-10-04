@@ -15,7 +15,7 @@ export default function App() {
     const response = await fetch(API_URL);
     const data = await response.json();
     console.log(data);
-    setPeople(setContacts);
+    setContacts(data);
   };
 
   useEffect(() => {
@@ -34,12 +34,18 @@ export default function App() {
           <li>
             <Link to="/contacts">Contacts List</Link>
           </li>
-          <li>Add New Contact</li>
+          <li>
+            <Link to="/addcontact">Add New Contact</Link>
+          </li>
         </ul>
       </nav>
       <main>
         <Routes>
-          <Route path="/contacts" element={<ContactsView />} />
+          <Route
+            path="/contacts"
+            element={<ContactsList contacts={contacts} />}
+          />
+          <Route path="/addcontact" element={<ContactsAdd />} />
         </Routes>
       </main>
     </>
