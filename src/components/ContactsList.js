@@ -27,7 +27,10 @@ function ContactsList(props) {
               </p>
               <p>
                 <Link to={`/contacts/${contact.id}`} state={contact}>
-                View
+                View 
+                </Link>
+                <Link to={`/contacts/${contact.id}/edit`} state={contact}>
+                Edit
                 </Link>
               </p>
             </li>

@@ -2,7 +2,7 @@
   "contacts": [
     {
       "id": 1,
-      "firstName": "John",
+      "firstName": "Johnny",
       "lastName": "Carmack",
       "street": "10 Keen Street",
       "city": "London"
@@ -35,7 +35,7 @@
       "city": "Aarhus N",
       "email": "alex.anonym@gmail.com",
       "linkedIn": "https://www.linkedin.com/in/alexander-s-lind/",
-      "twitter": "e",
+      "twitter": "qwet",
       "id": 5
     },
     {

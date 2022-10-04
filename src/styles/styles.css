@@ -65,6 +65,10 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+a {
+  margin: 0.5rem;
+}
+
 .center {
   max-width: 400px;
   margin-left: auto;

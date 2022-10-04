@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
+import ContactsEdit from "./components/ContactsEdit"
 import "./styles/styles.css"
 
 export default function App() {
@@ -46,6 +47,10 @@ export default function App() {
           <Route
           path="/contacts/:id"
           element={<ContactsView contacts={contacts} />}
+        />
+          <Route
+          path="/contacts/:id/edit"
+          element={<ContactsEdit contacts={contacts} setContacts={setContacts} />}
         />
         </Routes>
       </main>
