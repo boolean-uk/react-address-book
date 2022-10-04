@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useLocation } from "react-router";
+import { Link } from "react-router-dom";
 
 function ContactsView(props) {
   const location = useLocation();
@@ -33,6 +34,9 @@ function ContactsView(props) {
       <p>
         {contact.street} {contact.city}
       </p>
+      <Link to={"/"} className="backButton">
+        Back to list
+      </Link>
     </div>
   );
 }

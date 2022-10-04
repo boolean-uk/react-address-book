@@ -161,7 +161,8 @@ h2 {
 }
 
 .linkButton,
-.viewButton {
+.viewButton,
+.backButton {
   border: 1px solid lightskyblue;
   background-color: lightcyan;
   text-decoration: none;
@@ -170,17 +171,20 @@ h2 {
   color: darkcyan;
 }
 
-.viewButton {
+.viewButton,
+.backButton:hover {
   border: 1px solid gray;
   background-color: lightgray;
   color: black;
   font-size: 0.8em;
 }
 
-.viewButton:hover {
+.viewButton:hover,
+.backButton {
   border: 1px solid gray;
   background-color: darkgray;
   color: white;
+  font-size: 0.8em;
 }
 
 .linkButton:hover {
