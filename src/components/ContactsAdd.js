@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function ContactsAdd(props) {
   // setContacts and contacts must be passed as props
@@ -150,6 +151,9 @@ function ContactsAdd(props) {
         <button className="actionButton" type="submit">
           Create
         </button>
+        <Link to="/" className="actionButton">
+          Cancel
+        </Link>
       </div>
     </form>
   );
