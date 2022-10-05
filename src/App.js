@@ -21,14 +21,14 @@ export default function App() {
       .then((data) => setContacts(data))
   }, [render]);
 
-  const deleteContact = async (id) => {
+  const deleteContact = (id) => {
 
-    await fetch(`http://localhost:4000/contacts/${id}`, { method: "DELETE" }).then(
-      () => console.log("Delete successful")
-    );
-
-    setRender([]);
-    navigate('/')
+    fetch(`http://localhost:4000/contacts/${id}`, { method: "DELETE" })
+      .then(() => {
+        console.log("Delete successful")
+        setRender([]);
+        navigate('/')
+    }); 
   
   };
 
