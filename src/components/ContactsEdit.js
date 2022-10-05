@@ -12,7 +12,7 @@ function ContactsEdit(props) {
   const location = useLocation();
 
   const [contact, setContact] = useState(null);
-  const { contacts, setContacts } = props;
+  const { setContacts } = props;
 
   useEffect(() => {
     if (location.state) {
@@ -71,7 +71,6 @@ function ContactsEdit(props) {
         updateContactPostRequest
       )
         .then((response) => {
-          console.log(response.json());
           fetch("http://localhost:4000/contacts")
             .then((res) => res.json())
             .then((data) => {

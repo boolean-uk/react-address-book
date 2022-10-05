@@ -8,9 +8,8 @@ function ContactsAdd(props) {
   // state
   const navigate = useNavigate();
   const { contacts, setContacts } = props;
-  const newID = contacts.length + 1;
+
   const [contact, setContact] = useState({
-    id: newID,
     firstName: "",
     lastName: "",
     street: "",

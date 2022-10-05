@@ -12,7 +12,6 @@ function ContactsList(props) {
     if (confirm("Are you sure you want to delete this contact?") == true) {
       fetch(`http://localhost:4000/contacts/${id}`, { method: "DELETE" }).then(
         () => {
-          console.log("Delete successful");
           fetch("http://localhost:4000/contacts")
             .then((res) => res.json())
             .then((data) => {
@@ -31,7 +30,7 @@ function ContactsList(props) {
       </header>
       <ul className="contacts-list">
         {contacts.length === 0 && (
-          <div class="lds-ellipsis">
+          <div className="lds-ellipsis">
             <div></div>
             <div></div>
             <div></div>

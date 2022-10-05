@@ -15,7 +15,6 @@ function ContactsView() {
     if (location.state) {
       const { contact } = location.state;
       setContact(contact);
-      console.log(contact);
     }
   }, [location]);
 

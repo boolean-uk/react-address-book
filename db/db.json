@@ -2,9 +2,9 @@
   "contacts": [
     {
       "id": 1,
-      "firstName": "John Paul",
+      "firstName": "John Peter",
       "lastName": "Carmack",
-      "email": "john.paul@gmail.com",
+      "email": "john.peter@gmail.com",
       "linkedin": "jpcarmack",
       "twitter": "carmack",
       "street": "10 Keen Street",
@@ -19,16 +19,6 @@
       "twitter": "suehopper",
       "street": "32 Deebug Road",
       "city": "London"
-    },
-    {
-      "id": 3,
-      "firstName": "Jessica Anne",
-      "lastName": "Fletcher",
-      "email": "jessica.fletcher@gmail.com",
-      "linkedin": "jessicafletcher",
-      "twitter": "jess449",
-      "street": "34 Field Street",
-      "city": "Reading"
     },
     {
       "id": 4,
@@ -52,13 +42,13 @@
     },
     {
       "id": 6,
-      "firstName": "Thomas",
+      "firstName": "Thomas Alva",
       "lastName": "Edison",
-      "email": "thomes.edison@gmail.com",
-      "linkedin": "thomasedison",
+      "email": "thomes.alva.edison@gmail.com",
+      "linkedin": "thomasaedison",
       "twitter": "realedison",
       "street": "12 Lightbulb Avenue",
-      "city": "Birmingham"
+      "city": "Glagow"
     },
     {
       "id": 7,
@@ -72,7 +62,7 @@
     },
     {
       "id": 8,
-      "firstName": "Anthony",
+      "firstName": "Anthony Bartholomew",
       "lastName": "Stark",
       "email": "ironman@gmail.com",
       "linkedin": "tonystark",
@@ -101,14 +91,14 @@
       "city": "Dover"
     },
     {
-      "id": 11,
-      "firstName": "Manfred",
-      "lastName": "Poncho",
-      "email": "poncho@gmail.com",
-      "linkedin": "manfredPoncho",
-      "twitter": "dramatic-poncho",
-      "street": "9 Test Street",
-      "city": "Norfolk"
+      "firstName": "Scott",
+      "lastName": "Lang",
+      "street": "12 Ant Avenue",
+      "city": "Walton Oaks",
+      "email": "antman@gmail.com",
+      "linkedin": "scottlang",
+      "twitter": "antman",
+      "id": 11
     }
   ]
 }
