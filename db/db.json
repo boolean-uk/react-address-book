@@ -6,6 +6,16 @@
       "lastName": "Carmack",
       "street": "10 Keen Street",
       "city": "London"
+    },
+    {
+      "firstName": "Alexander",
+      "lastName": "Lind",
+      "street": "Irma Pedersens Gade 87",
+      "city": "Aarhus C",
+      "email": "alex.anonym@gmail.com",
+      "linkedIn": "",
+      "twitter": "",
+      "id": 2
     }
   ]
 }

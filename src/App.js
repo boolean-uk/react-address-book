@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { Link, Route, Routes } from "react-router-dom"
+import { useNavigate } from "react-router-dom";
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
@@ -8,6 +9,9 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const navigate = useNavigate()
+  const [render, setRender] = useState([])
+
   
   //TODO: Load all contacts on useEffect when component first renders
 
@@ -15,7 +19,18 @@ export default function App() {
     fetch("http://localhost:4000/contacts")
       .then((res) => res.json())
       .then((data) => setContacts(data))
-  }, []);
+  }, [render]);
+
+  const deleteContact = async (id) => {
+
+    await fetch(`http://localhost:4000/contacts/${id}`, { method: "DELETE" }).then(
+      () => console.log("Delete successful")
+    );
+
+    setRender([]);
+    navigate('/')
+  
+  };
 
   console.log(contacts)
 
@@ -38,7 +53,7 @@ export default function App() {
           {/* TODO: Add routes here  */}
           <Route
           path="/"
-          element={<ContactsList contacts={contacts} setContacts={setContacts} />}
+          element={<ContactsList contacts={contacts} deleteContact={deleteContact} />}
         />
           <Route
           path="/contacts/add"
