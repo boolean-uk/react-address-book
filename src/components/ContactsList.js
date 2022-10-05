@@ -9,19 +9,19 @@ function ContactsList(props) {
   const { contacts, setContacts } = props;
 
   const deleteContact = (id) => {
-    console.log("deleteContact", id);
-
-    fetch(`http://localhost:4000/contacts/${id}`, { method: "DELETE" }).then(
-      () => {
-        console.log("Delete successful");
-        fetch("http://localhost:4000/contacts")
-          .then((res) => res.json())
-          .then((data) => {
-            setContacts(data);
-            navigate("/");
-          });
-      }
-    );
+    if (confirm("Are you sure you want to delete this contact?") == true) {
+      fetch(`http://localhost:4000/contacts/${id}`, { method: "DELETE" }).then(
+        () => {
+          console.log("Delete successful");
+          fetch("http://localhost:4000/contacts")
+            .then((res) => res.json())
+            .then((data) => {
+              setContacts(data);
+              navigate("/");
+            });
+        }
+      );
+    }
   };
 
   return (
