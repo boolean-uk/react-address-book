@@ -29,6 +29,15 @@ function ContactsAdd(props) {
     if (inputName === "lastName") {
       setContact({ ...contact, lastName: inputValue });
     }
+    if (inputName === "email") {
+      setContact({ ...contact, email: inputValue });
+    }
+    if (inputName === "linkedin") {
+      setContact({ ...contact, linkedin: inputValue });
+    }
+    if (inputName === "twitter") {
+      setContact({ ...contact, twitter: inputValue });
+    }
     if (inputName === "street") {
       setContact({ ...contact, street: inputValue });
     }
@@ -84,6 +93,36 @@ function ContactsAdd(props) {
         type="text"
         required
         value={contact.lastName}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        value={contact.email}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="linkedin">Linkedin:</label>
+      <input
+        id="linkedin"
+        name="linkedin"
+        type="text"
+        required
+        value={contact.linkedin}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input
+        id="twitter"
+        name="twitter"
+        type="text"
+        required
+        value={contact.twitter}
         onChange={handleChange}
       />
 

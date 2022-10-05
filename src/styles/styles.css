@@ -165,8 +165,7 @@ h2 {
   padding: 1em;
 }
 
-.linkButton,
-.backButton {
+.linkButton {
   border: 1px solid lightskyblue;
   background-color: lightcyan;
   text-decoration: none;
@@ -184,8 +183,11 @@ h2 {
 }
 
 .backButton {
-  border: 1px solid white;
-  background-color: darkgray;
+  border: 1px solid gray;
+  background-color: black;
+  text-decoration: none;
+  border-radius: 0.4em;
+  padding: 0.4em;
   color: white;
   font-size: 0.8em;
 }
@@ -194,7 +196,6 @@ h2 {
   border: 1px solid gray;
   background-color: lightgray;
   color: black;
-  font-size: 0.6em;
 }
 
 .actionButton {

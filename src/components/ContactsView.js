@@ -15,6 +15,7 @@ function ContactsView() {
     if (location.state) {
       const { contact } = location.state;
       setContact(contact);
+      console.log(contact);
     }
   }, [location]);
 
@@ -32,7 +33,12 @@ function ContactsView() {
           {contact.firstName} {contact.lastName}
         </h2>
         <p>
-          {contact.street}, {contact.city}
+          Email: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+        </p>
+        <p>Linkedin: {contact.linkedin}</p>
+        <p>Twitter: {contact.twitter}</p>
+        <p>
+          {contact.street},&nbsp;{contact.city}
         </p>
         <p>
           <Link to={"/"} className="backButton">

@@ -4,6 +4,9 @@
       "id": 1,
       "firstName": "John Paul",
       "lastName": "Carmack",
+      "email": "john.paul@gmail.com",
+      "linkedin": "jpcarmack",
+      "twitter": "carmack",
       "street": "10 Keen Street",
       "city": "London"
     },
@@ -11,71 +14,101 @@
       "id": 2,
       "firstName": "Susan Louise",
       "lastName": "Hopper",
+      "email": "susanlousie.hopper@gmail.com",
+      "linkedin": "susanlousehopper",
+      "twitter": "suehopper",
       "street": "32 Deebug Road",
       "city": "London"
     },
     {
-      "id": 4,
-      "firstName": "Jessica Louise",
+      "id": 3,
+      "firstName": "Jessica Anne",
       "lastName": "Fletcher",
+      "email": "jessica.fletcher@gmail.com",
+      "linkedin": "jessicafletcher",
+      "twitter": "jess449",
       "street": "34 Field Street",
       "city": "Reading"
     },
     {
-      "id": 5,
-      "firstName": "Amelie",
-      "lastName": "Dupres",
+      "id": 4,
+      "firstName": "Evelyn",
+      "lastName": "Dupree",
+      "email": "dupree@gmail.com",
+      "linkedin": "evelyndupree",
+      "twitter": "evsdupes",
       "street": "67 Guacamole Street",
       "city": "Oxford"
     },
     {
-      "id": 6,
+      "id": 5,
       "firstName": "Jennifer",
       "lastName": "Thomson",
+      "email": "jessica.fletcher@gmail.com",
+      "linkedin": "jessicafletcher",
+      "twitter": "jess449",
       "street": "2 Tim Str.",
       "city": "Northampton"
     },
     {
-      "id": 8,
+      "id": 6,
       "firstName": "Thomas",
       "lastName": "Edison",
+      "email": "thomes.edison@gmail.com",
+      "linkedin": "thomasedison",
+      "twitter": "realedison",
       "street": "12 Lightbulb Avenue",
       "city": "Birmingham"
     },
     {
-      "id": 9,
+      "id": 7,
       "firstName": "Steve Robert",
       "lastName": "Rogers",
+      "email": "captain.america@gmail.com",
+      "linkedin": "captainamerica",
+      "twitter": "captainamerica",
       "street": "1 Oxford Street",
       "city": "London"
     },
     {
-      "id": 10,
+      "id": 8,
       "firstName": "Anthony",
       "lastName": "Stark",
+      "email": "ironman@gmail.com",
+      "linkedin": "tonystark",
+      "twitter": "ironman",
       "street": "Bond Street",
       "city": "London"
     },
     {
-      "id": 11,
-      "firstName": "Patrick John",
+      "id": 9,
+      "firstName": "John Patrick",
       "lastName": "Bolton",
+      "email": "pat.bolton@gmail.com",
+      "linkedin": "johnbolton",
+      "twitter": "thebolts",
       "street": "69 Baker Street",
       "city": "London"
     },
     {
-      "id": 12,
+      "id": 10,
       "firstName": "Thomas Nigel",
       "lastName": "Long",
+      "email": "nigel.long@gmail.com",
+      "linkedin": "thomasnigellong",
+      "twitter": "longnigel",
       "street": "74 Mason Street",
       "city": "Dover"
     },
     {
+      "id": 11,
       "firstName": "Manfred",
       "lastName": "Poncho",
+      "email": "poncho@gmail.com",
+      "linkedin": "manfredPoncho",
+      "twitter": "dramatic-poncho",
       "street": "9 Test Street",
-      "city": "Croydon",
-      "id": 13
+      "city": "Norfolk"
     }
   ]
 }
