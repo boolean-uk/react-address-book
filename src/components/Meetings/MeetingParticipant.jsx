@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-function ParticipantItem(props) {
+function MeetingParticipant(props) {
   const { contact } = props;
 
   return (
@@ -17,4 +17,4 @@ function ParticipantItem(props) {
   );
 }
 
-export default ParticipantItem;
+export default MeetingParticipant;

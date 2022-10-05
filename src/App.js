@@ -12,8 +12,6 @@ export default function App() {
   const [contacts, setContacts] = useState([]);
   const [meetings, setMeetings] = useState([]);
 
-  //TODO: Load all contacts on useEffect when component first renders
-
   const getContacts = () => {
     try {
       fetch("http://localhost:4000/contacts")
@@ -75,9 +73,7 @@ export default function App() {
           />
           <Route
             path="/addcontact"
-            element={
-              <ContactsAdd contacts={contacts} setContacts={setContacts} />
-            }
+            element={<ContactsAdd setContacts={setContacts} />}
           />
           <Route path="/contact/:id" element={<ContactsView />} />
           <Route

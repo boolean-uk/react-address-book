@@ -99,6 +99,16 @@
       "linkedin": "scottlangantman",
       "twitter": "antman",
       "id": 11
+    },
+    {
+      "firstName": "Dieter",
+      "lastName": "Bohlen",
+      "email": "dieter.bohlen@gmail.com",
+      "linkedin": "dieterbohlen",
+      "twitter": "didiBohlen",
+      "street": "34 Bolan Street",
+      "city": "Brighton",
+      "id": 12
     }
   ],
   "meetings": [

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import ParticipantItem from "./ParticipantItem";
+import MeetingParticipant from "./MeetingParticipant";
 
 function MeetingsView(props) {
   const location = useLocation();
@@ -54,7 +54,7 @@ function MeetingsView(props) {
 
         <ul>
           {meetingParticipants.map((contact, index) => (
-            <ParticipantItem key={index} contact={contact} />
+            <MeetingParticipant key={index} contact={contact} />
           ))}
         </ul>
         <p>

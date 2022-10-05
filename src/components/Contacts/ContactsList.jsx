@@ -1,11 +1,9 @@
-import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../styles/loadspinner.css";
 
 function ContactsList(props) {
   const navigate = useNavigate();
-  //"contacts" must be passed as prop to this component
   const { contacts, setContacts } = props;
 
   const deleteContact = (id) => {

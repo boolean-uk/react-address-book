@@ -1,11 +1,8 @@
-import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../../styles/loadspinner.css";
 
-import MeetingsView from "./MeetingsView";
-
 function MeetingsList(props) {
-  const { contacts, meetings, setMeetings } = props;
+  const { meetings, setMeetings } = props;
 
   const deleteMeeting = (id) => {
     if (confirm("Are you sure you want to delete this meeting?") == true) {

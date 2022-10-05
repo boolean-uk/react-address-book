@@ -8,10 +8,6 @@ function ContactsView() {
   const navigate = useNavigate();
   const [contact, setContact] = useState(null);
 
-  //TODO: Get the contact to load from the params and fetch.
-  //With useEffect, load the contact when params changes
-  //and update contact state
-
   useEffect(() => {
     if (location.state) {
       const { contact } = location.state;

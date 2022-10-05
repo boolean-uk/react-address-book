@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
-// import { useParams } from "react-router-dom";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 
 function ContactsEdit(props) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -23,9 +19,6 @@ function ContactsEdit(props) {
   if (!contact) {
     return <p>Loading</p>;
   }
-
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
 
   const handleChange = (event) => {
     const inputName = event.target.name;

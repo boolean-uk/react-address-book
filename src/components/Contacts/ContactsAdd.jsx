@@ -1,13 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 
 function ContactsAdd(props) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const navigate = useNavigate();
-  const { contacts, setContacts } = props;
+  const { setContacts } = props;
 
   const [contact, setContact] = useState({
     firstName: "",
@@ -18,9 +14,6 @@ function ContactsAdd(props) {
     street: "",
     city: "",
   });
-
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
 
   const handleChange = (event) => {
     const inputName = event.target.name;
