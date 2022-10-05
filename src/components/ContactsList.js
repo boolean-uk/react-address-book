@@ -3,8 +3,7 @@ import { Link } from "react-router-dom";
 
 function ContactsList(props) {
   //"contacts" must be passed as prop to this component
-  const { contacts, deleteContact } = props;
-
+  const { contacts, deleteContact, isLoaded } = props;
 
 
   return (
@@ -12,6 +11,7 @@ function ContactsList(props) {
       <header>
         <h2>Contacts</h2>
       </header>
+      {!isLoaded ? <div class="lds-ring"><div></div><div></div><div></div><div></div></div> : 
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact;
@@ -36,6 +36,7 @@ function ContactsList(props) {
           );
         })}
       </ul>
+      }
     </>
   );
 }

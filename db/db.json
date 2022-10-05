@@ -1,11 +1,24 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "Johnny",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "firstName": "Alexander",
+      "lastName": "Lind",
+      "street": "Tordenskjoldsgade 40, 2tv",
+      "city": "Aarhus N",
+      "email": "alex.anonym@gmail.com",
+      "linkedIn": "",
+      "twitter": "",
+      "id": 1
+    },
+    {
+      "firstName": "Alexander",
+      "lastName": "Lind",
+      "street": "Irma Pedersens Gade 87",
+      "city": "Aarhus C",
+      "email": "alex.anonym@gmail.com",
+      "linkedIn": "",
+      "twitter": "",
+      "id": 2
     }
   ]
 }

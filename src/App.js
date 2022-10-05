@@ -11,6 +11,7 @@ export default function App() {
   const [contacts, setContacts] = useState([])
   const navigate = useNavigate()
   const [render, setRender] = useState([])
+  const [isLoaded, setIsLoaded] = useState(false)
 
   
   //TODO: Load all contacts on useEffect when component first renders
@@ -18,7 +19,7 @@ export default function App() {
   useEffect(() => {
     fetch("http://localhost:4000/contacts")
       .then((res) => res.json())
-      .then((data) => setContacts(data))
+      .then((data) => {setContacts(data); setIsLoaded(true);})
   }, [render]);
 
   const deleteContact = (id) => {
@@ -53,7 +54,7 @@ export default function App() {
           {/* TODO: Add routes here  */}
           <Route
           path="/"
-          element={<ContactsList contacts={contacts} deleteContact={deleteContact} />}
+          element={<ContactsList contacts={contacts} deleteContact={deleteContact} isLoaded={isLoaded} />}
         />
           <Route
           path="/contacts/add"
