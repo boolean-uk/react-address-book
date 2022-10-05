@@ -44,13 +44,20 @@ function MeetingsView(props) {
         <h2>Meeting Details</h2>
       </header>
       <div className="contactCard meeting light-shadow">
-        <Link to={`/editmeeting/${meeting.id}`} className="backButton">
+        <Link
+          to={`/editmeeting/${meeting.id}`}
+          state={{ meeting }}
+          className="backButton"
+        >
           Edit
         </Link>
 
         <h2>{meeting.subject}</h2>
         <p>
           <em>{meeting.date}</em>,&nbsp;<em>{meeting.time}</em>
+        </p>
+        <p>
+          Planned duration: <em>{meeting.planned_duration} hour</em>
         </p>
         <p>&nbsp;</p>
 
