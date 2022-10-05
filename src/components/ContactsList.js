@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import "../styles/loadspinner.css";
 
 function ContactsList(props) {
   const navigate = useNavigate();
@@ -29,6 +30,14 @@ function ContactsList(props) {
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
+        {contacts.length === 0 && (
+          <div class="lds-ellipsis">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        )}
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact;
           return (
