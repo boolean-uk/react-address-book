@@ -61,15 +61,14 @@ function ContactsEdit(props) {
         "http://localhost:4000/contacts/" + contact.id,
         updateContactPostRequest
       )
-        .then((response) => console.log(response.json()))
-        .then(() => {
-          const updatedContacts = contacts.map((thisContact) => {
-            if (thisContact.id === contact.id) {
-              return contact;
-            }
-            return thisContact;
-          });
-          setContacts(updatedContacts);
+        .then((response) => {
+          console.log(response.json());
+          fetch("http://localhost:4000/contacts")
+            .then((res) => res.json())
+            .then((data) => {
+              setContacts(data);
+              navigate("/");
+            });
         })
         .then(navigate("/"));
     } catch (err) {

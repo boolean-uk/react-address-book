@@ -9,17 +9,10 @@
     },
     {
       "id": 2,
-      "firstName": "Susan",
+      "firstName": "Susan Louise",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
-    },
-    {
-      "id": 3,
-      "firstName": "Peter Martin",
-      "lastName": "Edmonton",
-      "street": "12 Church Street",
-      "city": "Slough"
     },
     {
       "id": 4,
@@ -41,13 +34,6 @@
       "lastName": "Thomson",
       "street": "2 Tim Str.",
       "city": "Northampton"
-    },
-    {
-      "id": 7,
-      "firstName": "Takeshi",
-      "lastName": "Novotny",
-      "street": "67 House Street",
-      "city": "Croydon"
     },
     {
       "id": 8,
@@ -83,6 +69,13 @@
       "lastName": "Long",
       "street": "74 Mason Street",
       "city": "Dover"
+    },
+    {
+      "firstName": "Manfred",
+      "lastName": "Poncho",
+      "street": "9 Test Street",
+      "city": "Croydon",
+      "id": 13
     }
   ]
 }

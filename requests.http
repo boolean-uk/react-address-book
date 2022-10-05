@@ -6,11 +6,10 @@ POST http://localhost:4000/contacts HTTP/1.1
 content-type: application/json
 
 {
-    "id": 7,
-    "firstName": "Takeshi",
-    "lastName": "Kawasaki",
-    "street": "67 Home Street",
-    "city": "Cardiff"
+    "firstName": "Manfred",
+    "lastName": "Poncho",
+    "street": "9 Test Street",
+    "city": "Croydon"
 }
 
 ### Put
@@ -20,7 +19,7 @@ content-type: application/json
 {
     "id": 7,
     "firstName": "Takeshi",
-    "lastName": "Kawasaki Test",
-    "street": "67 Home Street",
-    "city": "Cardiff"
+    "lastName": "Novotny",
+    "street": "67 House Street",
+    "city": "Croydon"
 }

@@ -16,7 +16,6 @@ export default function App() {
       fetch("http://localhost:4000/contacts")
         .then((data) => data.json())
         .then((data) => {
-          console.log(data);
           setContacts(data);
         });
     } catch (err) {
@@ -47,7 +46,12 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<ContactsList contacts={contacts} />} />
+          <Route
+            path="/"
+            element={
+              <ContactsList contacts={contacts} setContacts={setContacts} />
+            }
+          />
           <Route
             path="/addcontact"
             element={

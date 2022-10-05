@@ -47,8 +47,15 @@ function ContactsAdd(props) {
     };
     try {
       fetch("http://localhost:4000/contacts", newContactPostRequest)
-        .then((response) => response.json())
-        .then(setContacts([...contacts, contact]))
+        .then((response) => {
+          response.json();
+          fetch("http://localhost:4000/contacts")
+            .then((res) => res.json())
+            .then((data) => {
+              setContacts(data);
+              navigate("/");
+            });
+        })
         .then(navigate("/"));
     } catch (err) {
       console;

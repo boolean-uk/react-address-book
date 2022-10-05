@@ -1,9 +1,27 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function ContactsList(props) {
+  const navigate = useNavigate();
   //"contacts" must be passed as prop to this component
-  const { contacts } = props;
+  const { contacts, setContacts } = props;
+
+  const deleteContact = (id) => {
+    console.log("deleteContact", id);
+
+    fetch(`http://localhost:4000/contacts/${id}`, { method: "DELETE" }).then(
+      () => {
+        console.log("Delete successful");
+        fetch("http://localhost:4000/contacts")
+          .then((res) => res.json())
+          .then((data) => {
+            setContacts(data);
+            navigate("/");
+          });
+      }
+    );
+  };
 
   return (
     <>
@@ -33,6 +51,12 @@ function ContactsList(props) {
                 >
                   Edit
                 </Link>
+                <span
+                  className="actionButton"
+                  onClick={(e) => deleteContact(contact.id)}
+                >
+                  Delete
+                </span>
               </p>
             </li>
           );
