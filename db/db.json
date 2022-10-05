@@ -115,7 +115,7 @@
     {
       "id": 1,
       "subject": "Sales Proposal",
-      "date": "2022-10-7",
+      "date": "8-10-2022",
       "time": "09:00",
       "planned_duration": 1,
       "participants": [
@@ -128,7 +128,7 @@
     {
       "id": 2,
       "subject": "Team Coordination",
-      "date": "2022-10-7",
+      "date": "7-10-2022",
       "time": "11:30",
       "planned_duration": 2,
       "participants": [
@@ -140,7 +140,7 @@
     {
       "id": 3,
       "subject": "Training Session",
-      "date": "2022-10-9",
+      "date": "9-10-2022",
       "time": "13:15",
       "planned_duration": 3,
       "participants": [
@@ -152,17 +152,34 @@
       ]
     },
     {
-      "subject": "Playing Pac-Man like there's no tomorrow!",
-      "date": "2022-12-09",
-      "time": "11:00",
-      "planned_duration": "1",
+      "id": 4,
+      "subject": "TDD Workshop",
+      "date": "30-10-2022",
+      "time": "11:15",
+      "planned_duration": 6,
       "participants": [
-        12,
+        7,
+        8,
         11,
-        4,
-        5
-      ],
-      "id": 4
+        12
+      ]
+    },
+    {
+      "id": 5,
+      "subject": "Refinement Meeting",
+      "date": "10-11-2022",
+      "time": "13:15",
+      "planned_duration": 3,
+      "participants": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
     }
   ]
 }

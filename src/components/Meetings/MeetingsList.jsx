@@ -33,11 +33,16 @@ function MeetingsList(props) {
           </div>
         )}
         {meetings.map((meeting, index) => {
-          const { subject, date, time } = meeting;
           return (
             <li className="contact" key={index}>
               <p>
-                <strong>{subject}</strong> on <em>{date}</em> at <em>{time}</em>
+                <strong>{meeting.subject}.</strong>
+                <br />
+                Date: <em>{meeting.date}</em>
+                <br />
+                Time: <em>{meeting.time} hr.</em>
+                <br />
+                Planned duration: <em>{meeting.planned_duration} hours.</em>
               </p>
               <p>
                 <Link
