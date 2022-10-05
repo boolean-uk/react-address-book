@@ -12,6 +12,9 @@ function ContactsAdd(props) {
   const [contact, setContact] = useState({
     firstName: "",
     lastName: "",
+    email: "",
+    linkedin: "",
+    twitter: "",
     street: "",
     city: "",
   });

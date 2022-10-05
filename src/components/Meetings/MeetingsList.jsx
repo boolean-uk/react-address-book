@@ -1,14 +1,25 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import "../../styles/loadspinner.css";
 
 import MeetingsView from "./MeetingsView";
 
 function MeetingsList(props) {
-  const navigate = useNavigate();
-
   const { contacts, meetings, setMeetings } = props;
+
+  const deleteMeeting = (id) => {
+    if (confirm("Are you sure you want to delete this meeting?") == true) {
+      fetch(`http://localhost:4000/meetings/${id}`, { method: "DELETE" }).then(
+        () => {
+          fetch("http://localhost:4000/meetings")
+            .then((res) => res.json())
+            .then((data) => {
+              setMeetings(data);
+            });
+        }
+      );
+    }
+  };
 
   return (
     <>
@@ -29,8 +40,7 @@ function MeetingsList(props) {
           return (
             <li className="contact" key={index}>
               <p>
-                <strong>{subject}</strong> on <em>{date}</em> at{" "}
-                <em>{time} hr</em>
+                <strong>{subject}</strong> on <em>{date}</em> at <em>{time}</em>
               </p>
               <p>
                 <Link
@@ -40,6 +50,12 @@ function MeetingsList(props) {
                 >
                   View
                 </Link>
+                <span
+                  className="actionButton"
+                  onClick={(e) => deleteMeeting(meeting.id)}
+                >
+                  Delete
+                </span>
               </p>
             </li>
           );

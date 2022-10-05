@@ -27,7 +27,7 @@ function MeetingsView(props) {
       <div className="contactCard light-shadow">
         <h2>{meeting.subject}</h2>
         <p>
-          {meeting.date},&nbsp;{meeting.time}
+          <em>{meeting.date}</em>,&nbsp;<em>{meeting.time}</em>
         </p>
         <p>
           <Link to={"/meetings"} className="backButton">
