@@ -32,12 +32,17 @@ function ContactsView() {
           {contact.firstName} {contact.lastName}
         </h2>
         <p>
-          Email: <a href={`mailto:${contact.email}`}>{contact.email}</a>
+          <strong>Email:</strong>{" "}
+          <a href={`mailto:${contact.email}`}>{contact.email}</a>
         </p>
-        <p>Linkedin: {contact.linkedin}</p>
-        <p>Twitter: {contact.twitter}</p>
         <p>
-          {contact.street},&nbsp;{contact.city}
+          <strong>Linkedin:</strong> {contact.linkedin}
+        </p>
+        <p>
+          <strong>Twitter:</strong> {contact.twitter}
+        </p>
+        <p>
+          <strong>Address:</strong> {contact.street},&nbsp;{contact.city}
         </p>
         <p>
           <Link to={"/"} className="backButton">
