@@ -47,6 +47,13 @@ function MeetingsList(props) {
                 >
                   View
                 </Link>
+                <Link
+                  to={`/editmeeting/${meeting.id}`}
+                  state={{ meeting }}
+                  className="actionButton"
+                >
+                  Edit
+                </Link>
                 <span
                   className="actionButton"
                   onClick={(e) => deleteMeeting(meeting.id)}

@@ -1,17 +1,33 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router";
 import { useNavigate } from "react-router-dom";
 
-function MeetingsAdd(props) {
+function MeetingsEdit(props) {
   const navigate = useNavigate();
+  const location = useLocation();
   const { contacts, setMeetings } = props;
   const [selectedParticipants, setSelectedParticipants] = useState([]);
+
   const [meeting, setMeeting] = useState({
+    id: "",
     subject: "",
     date: "",
     time: "",
-    planned_duration: 0,
-    participants: [],
+    planned_duration: "",
+    participants: "",
   });
+
+  useEffect(() => {
+    if (location.state) {
+      const { meeting } = location.state;
+      setMeeting(meeting);
+      setSelectedParticipants(meeting.participants);
+    }
+  }, [location]);
+
+  if (!meeting) {
+    return <p>Loading</p>;
+  }
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -52,22 +68,23 @@ function MeetingsAdd(props) {
     setMeeting({ ...meeting, participants: selectedParticipants });
 
     const newMeetingPostRequest = {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(meeting),
     };
     try {
-      fetch("http://localhost:4000/meetings", newMeetingPostRequest).then(
-        (response) => {
-          response.json();
-          fetch("http://localhost:4000/meetings")
-            .then((res) => res.json())
-            .then((data) => {
-              setMeetings(data);
-              navigate("/meetings");
-            });
-        }
-      );
+      fetch(
+        "http://localhost:4000/meetings/" + meeting.id,
+        newMeetingPostRequest
+      ).then((response) => {
+        response.json();
+        fetch("http://localhost:4000/meetings")
+          .then((res) => res.json())
+          .then((data) => {
+            setMeetings(data);
+            navigate("/meetings");
+          });
+      });
     } catch (err) {
       console;
       console.error(err);
@@ -148,4 +165,4 @@ function MeetingsAdd(props) {
   );
 }
 
-export default MeetingsAdd;
+export default MeetingsEdit;

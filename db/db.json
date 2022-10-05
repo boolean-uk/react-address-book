@@ -152,15 +152,15 @@
       ]
     },
     {
-      "subject": "Test Meeting",
-      "date": "2022-12-01",
-      "time": "13:00",
+      "subject": "Playing Pac-Man like there's no tomorrow!",
+      "date": "2022-12-09",
+      "time": "11:00",
       "planned_duration": "1",
       "participants": [
-        2,
+        12,
+        11,
         4,
-        5,
-        11
+        5
       ],
       "id": 4
     }

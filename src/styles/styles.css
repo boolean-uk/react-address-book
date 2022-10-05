@@ -218,7 +218,7 @@ h2 {
 
 .actionButton:hover {
   border: 1px solid white;
-  background-color: darkgray;
+  background-color: rgb(29, 26, 26);
   color: white;
 }
 
@@ -243,4 +243,5 @@ h2 {
   color: black;
   background-color: lightgray;
   margin-left: 1em;
+  font-size: 0.6em;
 }
