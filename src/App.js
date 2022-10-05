@@ -52,7 +52,6 @@ export default function App() {
             <Link to="/" className="linkButton">
               Contacts List
             </Link>
-            <br />
             <Link to="/addcontact" className="linkButton submenuItem">
               Add New Contact
             </Link>
@@ -61,7 +60,6 @@ export default function App() {
             <Link to="/meetings" className="linkButton">
               Meetings List
             </Link>
-            <br />
             <Link to="/addmeeting" className="linkButton submenuItem">
               Add New Meeting
             </Link>
