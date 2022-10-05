@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import ContactsList from "./components/ContactsList";
-import ContactsAdd from "./components/ContactsAdd";
-import ContactsView from "./components/ContactsView";
-import ContactsEdit from "./components/ContactsEdit";
+import ContactsList from "./components/Contacts/ContactsList";
+import ContactsAdd from "./components/Contacts/ContactsAdd";
+import ContactsView from "./components/Contacts/ContactsView";
+import ContactsEdit from "./components/Contacts/ContactsEdit";
 import "./styles/styles.css";
 
 export default function App() {

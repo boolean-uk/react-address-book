@@ -2,12 +2,12 @@
   "contacts": [
     {
       "id": 1,
-      "firstName": "John Peter",
+      "firstName": "John Paul",
       "lastName": "Carmack",
-      "email": "john.peter@gmail.com",
+      "email": "johnpaul.carmack@gmail.com",
       "linkedin": "jpcarmack",
       "twitter": "carmack",
-      "street": "10 Keen Street",
+      "street": "10 Devon Street",
       "city": "London"
     },
     {
@@ -93,12 +93,53 @@
     {
       "firstName": "Scott",
       "lastName": "Lang",
-      "street": "12 Ant Avenue",
+      "street": "12 Ants Avenue",
       "city": "Walton Oaks",
       "email": "antman@gmail.com",
-      "linkedin": "scottlang",
+      "linkedin": "scottlangantman",
       "twitter": "antman",
       "id": 11
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "subject": "Sales Proposal",
+      "date": "2022-10-7",
+      "time": "09:00",
+      "planned_duration": 1,
+      "participants": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "subject": "Team Coordination",
+      "date": "2022-10-7",
+      "time": "11:30",
+      "planned_duration": 2,
+      "participants": [
+        6,
+        8,
+        11
+      ]
+    },
+    {
+      "id": 3,
+      "subject": "Training Session",
+      "date": "2022-10-9",
+      "time": "13:15",
+      "planned_duration": 3,
+      "participants": [
+        2,
+        3,
+        7,
+        8,
+        10
+      ]
     }
   ]
 }

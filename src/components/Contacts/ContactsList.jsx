@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import "../styles/loadspinner.css";
+import "../../styles/loadspinner.css";
 
 function ContactsList(props) {
   const navigate = useNavigate();
