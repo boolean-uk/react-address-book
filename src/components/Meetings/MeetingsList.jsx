@@ -5,7 +5,7 @@ import "../../styles/loadspinner.css";
 
 function MeetingsList(props) {
   const navigate = useNavigate();
-  //"contacts" must be passed as prop to this component
+
   const { contacts, meetings, setMeetings } = props;
 
   return (

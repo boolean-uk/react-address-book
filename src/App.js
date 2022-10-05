@@ -4,19 +4,33 @@ import ContactsList from "./components/Contacts/ContactsList";
 import ContactsAdd from "./components/Contacts/ContactsAdd";
 import ContactsView from "./components/Contacts/ContactsView";
 import ContactsEdit from "./components/Contacts/ContactsEdit";
+import MeetingsList from "./components/Meetings/MeetingsList";
 import "./styles/styles.css";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
+  const [meetings, setMeetings] = useState([]);
 
   //TODO: Load all contacts on useEffect when component first renders
 
   const getContacts = () => {
     try {
       fetch("http://localhost:4000/contacts")
-        .then((data) => data.json())
-        .then((data) => {
-          setContacts(data);
+        .then((contactsData) => contactsData.json())
+        .then((contactsData) => {
+          setContacts(contactsData);
+        });
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const getMeetings = () => {
+    try {
+      fetch("http://localhost:4000/meetings")
+        .then((meetingsData) => meetingsData.json())
+        .then((meetingsData) => {
+          setMeetings(meetingsData);
         });
     } catch (err) {
       console.error(err);
@@ -25,6 +39,7 @@ export default function App() {
 
   useEffect(() => {
     getContacts();
+    getMeetings();
   }, []);
 
   return (
@@ -42,6 +57,11 @@ export default function App() {
               Add New Contact
             </Link>
           </li>
+          <li className="linkListItem">
+            <Link to="/meetings" className="linkButton">
+              Meetings List
+            </Link>
+          </li>
         </ul>
       </nav>
       <main>
@@ -50,6 +70,16 @@ export default function App() {
             path="/"
             element={
               <ContactsList contacts={contacts} setContacts={setContacts} />
+            }
+          />
+          <Route
+            path="/meetings"
+            element={
+              <MeetingsList
+                contacts={contacts}
+                meetings={meetings}
+                setMeetings={setMeetings}
+              />
             }
           />
           <Route
