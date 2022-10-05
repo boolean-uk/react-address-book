@@ -53,7 +53,7 @@ export default function App() {
             </Link>
           </li>
           <li className="linkListItem">
-            <Link to="/addcontact" className="linkButton">
+            <Link to="/addcontact" className="linkButton submenuItem">
               Add New Contact
             </Link>
           </li>
@@ -63,7 +63,7 @@ export default function App() {
             </Link>
           </li>
           <li className="linkListItem">
-            <Link to="/addmeeting" className="linkButton">
+            <Link to="/addmeeting" className="linkButton submenuItem">
               Add New Meeting
             </Link>
           </li>

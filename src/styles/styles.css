@@ -237,3 +237,10 @@ h2 {
   border: 1px solid lightgray;
   padding: 0.5em;
 }
+
+.submenuItem {
+  border-color: gray;
+  color: black;
+  background-color: lightgray;
+  margin-left: 1em;
+}

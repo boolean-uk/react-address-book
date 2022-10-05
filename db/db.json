@@ -153,10 +153,15 @@
     },
     {
       "subject": "Test Meeting",
-      "date": "2022-10-09",
+      "date": "2022-12-01",
       "time": "13:00",
       "planned_duration": "1",
-      "participants": [],
+      "participants": [
+        2,
+        4,
+        5,
+        11
+      ],
       "id": 4
     }
   ]
