@@ -9,16 +9,17 @@
       "linkedIn": "",
       "twitter": "",
       "id": 1
-    },
+    }
+  ],
+  "meetings": [
     {
-      "firstName": "Alexander",
-      "lastName": "Lind",
-      "street": "Irma Pedersens Gade 87",
-      "city": "Aarhus C",
-      "email": "alex.anonym@gmail.com",
-      "linkedIn": "",
-      "twitter": "",
-      "id": 2
+      "id": 1,
+      "meetings": [
+        {
+          "meetingTime": "20:15",
+          "meetingWith": "Steve"
+        }
+      ]
     }
   ]
 }

@@ -27,6 +27,9 @@ function ContactsList(props) {
                 <Link to={`/contacts/${contact.id}/edit`} state={contact}>
                   Edit
                 </Link>
+                <Link to={`/contacts/${contact.id}/meetings`} state={contact}>
+                  Meetings
+                </Link>
 
                 <button onClick={() => deleteContact(contact.id)}>
                   Delete

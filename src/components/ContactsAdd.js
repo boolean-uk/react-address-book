@@ -26,7 +26,6 @@ function ContactsAdd(props) {
     const contact = newContact;
     contact[`${event.target.name}`] = event.target.value;
     setNewContact(contact);
-    console.log(newContact);
   }
 
   const handleSubmit = async (event) => {
@@ -38,6 +37,7 @@ function ContactsAdd(props) {
     })
     const data = await res.json()
     setContacts([...contacts, data])
+    console.log("Add successful")
     navigate('/')
   }
 

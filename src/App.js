@@ -5,6 +5,7 @@ import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import ContactsEdit from "./components/ContactsEdit"
+import ContactsMeetings from "./components/ContactsMeetings"
 import "./styles/styles.css"
 
 export default function App() {
@@ -33,7 +34,6 @@ export default function App() {
   
   };
 
-  console.log(contacts)
 
   return (
     <>
@@ -67,6 +67,10 @@ export default function App() {
           <Route
           path="/contacts/:id/edit"
           element={<ContactsEdit contacts={contacts} setContacts={setContacts} />}
+        />
+          <Route
+          path="/contacts/:id/meetings"
+          element={<ContactsMeetings contacts={contacts} />}
         />
         </Routes>
       </main>
