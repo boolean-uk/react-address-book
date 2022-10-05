@@ -6,6 +6,7 @@ import ContactsView from "./components/Contacts/ContactsView";
 import ContactsEdit from "./components/Contacts/ContactsEdit";
 import MeetingsList from "./components/Meetings/MeetingsList";
 import MeetingsView from "./components/Meetings/MeetingsView";
+import MeetingsAdd from "./components/Meetings/MeetingsAdd";
 import "./styles/styles.css";
 
 export default function App() {
@@ -61,6 +62,11 @@ export default function App() {
               Meetings List
             </Link>
           </li>
+          <li className="linkListItem">
+            <Link to="/addmeeting" className="linkButton">
+              Add New Meeting
+            </Link>
+          </li>
         </ul>
       </nav>
       <main>
@@ -93,6 +99,12 @@ export default function App() {
           <Route
             path="/meeting/:id"
             element={<MeetingsView contacts={contacts} />}
+          />
+          <Route
+            path="/addmeeting"
+            element={
+              <MeetingsAdd contacts={contacts} setMeetings={setMeetings} />
+            }
           />
         </Routes>
       </main>

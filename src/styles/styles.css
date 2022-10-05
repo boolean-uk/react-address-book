@@ -230,3 +230,10 @@ h2 {
   border: 1px solid lightblue;
   background-color: aliceblue;
 }
+
+.contactsForMeeting {
+  height: 20vh;
+  overflow-y: scroll;
+  border: 1px solid lightgray;
+  padding: 0.5em;
+}

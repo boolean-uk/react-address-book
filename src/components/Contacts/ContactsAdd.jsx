@@ -51,8 +51,8 @@ function ContactsAdd(props) {
       body: JSON.stringify(contact),
     };
     try {
-      fetch("http://localhost:4000/contacts", newContactPostRequest)
-        .then((response) => {
+      fetch("http://localhost:4000/contacts", newContactPostRequest).then(
+        (response) => {
           response.json();
           fetch("http://localhost:4000/contacts")
             .then((res) => res.json())
@@ -60,8 +60,8 @@ function ContactsAdd(props) {
               setContacts(data);
               navigate("/");
             });
-        })
-        .then(navigate("/"));
+        }
+      );
     } catch (err) {
       console;
       console.error(err);
