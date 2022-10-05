@@ -43,7 +43,7 @@ function MeetingsView(props) {
       <header>
         <h2>Meeting Details</h2>
       </header>
-      <div className="contactCard light-shadow">
+      <div className="contactCard meeting light-shadow">
         <h2>{meeting.subject}</h2>
         <p>
           <em>{meeting.date}</em>,&nbsp;<em>{meeting.time}</em>
@@ -59,7 +59,7 @@ function MeetingsView(props) {
         </ul>
         <p>
           <Link to={"/meetings"} className="backButton">
-            Back to meetings list
+            Back
           </Link>
         </p>
       </div>

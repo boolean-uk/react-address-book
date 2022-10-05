@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 // import { useParams } from "react-router-dom";
 import { useLocation } from "react-router";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function ContactsEdit(props) {
@@ -162,9 +161,9 @@ function ContactsEdit(props) {
         <button className="actionButton" type="submit">
           Update
         </button>
-        <Link to="/" className="actionButton">
+        <span className="actionButton" onClick={(e) => navigate(-1)}>
           Cancel
-        </Link>
+        </span>
       </div>
     </form>
   );

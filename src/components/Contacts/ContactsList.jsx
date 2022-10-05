@@ -53,7 +53,7 @@ function ContactsList(props) {
                   View
                 </Link>
                 <Link
-                  to={`/edit/${contact.id}`}
+                  to={`/editcontact/${contact.id}`}
                   state={{ contact }}
                   className="actionButton"
                 >

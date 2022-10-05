@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 
 function ContactsView() {
   const location = useLocation();
+  const navigate = useNavigate();
   const [contact, setContact] = useState(null);
 
   //TODO: Get the contact to load from the params and fetch.
@@ -28,6 +29,15 @@ function ContactsView() {
         <h2>Contact Details</h2>
       </header>
       <div className="contactCard light-shadow">
+        <p>
+          <Link
+            to={`/editcontact/${contact.id}`}
+            state={{ contact }}
+            className="actionButton"
+          >
+            Edit
+          </Link>
+        </p>
         <h2>
           {contact.firstName} {contact.lastName}
         </h2>
@@ -45,9 +55,9 @@ function ContactsView() {
           <strong>Address:</strong> {contact.street},&nbsp;{contact.city}
         </p>
         <p>
-          <Link to={"/"} className="backButton">
-            Back to contacts list
-          </Link>
+          <span className="backButton" onClick={(e) => navigate(-1)}>
+            Back
+          </span>
         </p>
       </div>
     </>

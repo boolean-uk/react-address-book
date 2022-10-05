@@ -153,9 +153,9 @@ function ContactsAdd(props) {
         <button className="actionButton" type="submit">
           Create
         </button>
-        <Link to="/" className="actionButton">
+        <span className="actionButton" onClick={(e) => navigate(-1)}>
           Cancel
-        </Link>
+        </span>
       </div>
     </form>
   );

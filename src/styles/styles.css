@@ -101,6 +101,10 @@ h2 {
   border: 1px solid cyan;
 }
 
+.meetings-list {
+  border: 1px solid lightblue;
+}
+
 .contacts-list > li {
   padding: 1rem;
   display: grid;
@@ -110,6 +114,10 @@ h2 {
 
 .contacts-list li:nth-child(2n + 1) {
   background-color: lightcyan;
+}
+
+.meetings-list li:nth-child(2n + 1) {
+  background-color: aliceblue;
 }
 
 /* VIEW SECTION */
@@ -158,8 +166,8 @@ h2 {
 }
 
 .contactCard {
-  border: 1px solid gray;
-  background-color: lightgray;
+  border: 1px solid cyan;
+  background-color: lightcyan;
   border-radius: 0.5em;
   width: 20em;
   padding: 1em;
@@ -216,4 +224,9 @@ h2 {
 
 .linkListItem {
   margin-top: 1em;
+}
+
+.meeting {
+  border: 1px solid lightblue;
+  background-color: aliceblue;
 }

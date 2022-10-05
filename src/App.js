@@ -81,7 +81,7 @@ export default function App() {
           />
           <Route path="/contact/:id" element={<ContactsView />} />
           <Route
-            path="/edit/:id"
+            path="/editcontact/:id"
             element={<ContactsEdit setContacts={setContacts} />}
           />
           <Route
