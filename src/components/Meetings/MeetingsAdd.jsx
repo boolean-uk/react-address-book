@@ -29,7 +29,6 @@ function MeetingsAdd(props) {
     if (inputName === "planned_duration") {
       setMeeting({ ...meeting, planned_duration: inputValue });
     }
-    console.log(meeting);
   };
 
   const handleCheckBoxChange = (id) => {
@@ -50,6 +49,7 @@ function MeetingsAdd(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setMeeting({ ...meeting, participants: selectedParticipants });
 
     const newMeetingPostRequest = {
       method: "POST",
