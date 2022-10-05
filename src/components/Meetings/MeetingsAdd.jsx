@@ -53,13 +53,13 @@ function MeetingsAdd(props) {
     const newMeetingPostRequest = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(contact),
+      body: JSON.stringify(meeting),
     };
     try {
       fetch("http://localhost:4000/meetings", newMeetingPostRequest).then(
         (response) => {
           response.json();
-          fetch("http://localhost:4000/contacts")
+          fetch("http://localhost:4000/meetings")
             .then((res) => res.json())
             .then((data) => {
               setMeetings(data);
