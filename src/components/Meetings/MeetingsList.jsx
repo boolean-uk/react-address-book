@@ -3,6 +3,8 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "../../styles/loadspinner.css";
 
+import MeetingsView from "./MeetingsView";
+
 function MeetingsList(props) {
   const navigate = useNavigate();
 
@@ -26,9 +28,18 @@ function MeetingsList(props) {
           const { subject, date, time } = meeting;
           return (
             <li className="contact" key={index}>
-              <p>{subject}</p>
               <p>
-                On {date} at {time}
+                <strong>{subject}</strong> on <em>{date}</em> at{" "}
+                <em>{time} hr</em>
+              </p>
+              <p>
+                <Link
+                  to={`/meeting/${meeting.id}`}
+                  state={{ meeting }}
+                  className="actionButton"
+                >
+                  View
+                </Link>
               </p>
             </li>
           );

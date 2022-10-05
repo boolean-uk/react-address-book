@@ -41,7 +41,7 @@ function ContactsView() {
         </p>
         <p>
           <Link to={"/"} className="backButton">
-            Back to list
+            Back to contacts list
           </Link>
         </p>
       </div>
