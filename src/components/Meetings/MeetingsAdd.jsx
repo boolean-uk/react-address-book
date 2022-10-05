@@ -108,22 +108,20 @@ function MeetingsAdd(props) {
         onChange={handleChange}
       />
 
-      <p>Participants:</p>
+      <label>Participants:</label>
       <div className="contactsForMeeting">
-        <label>
-          {contacts.map((contact, index) => (
-            <p key={`participants${index}`}>
-              <input
-                type="checkbox"
-                id={contact.id}
-                name={`participants${index}`}
-                onChange={(e) => handleCheckBoxChange(contact.id)}
-                checked={selectedParticipants.includes(contact.id)}
-              />
-              &nbsp;{contact.firstName} {contact.lastName}
-            </p>
-          ))}
-        </label>
+        {contacts.map((contact, index) => (
+          <p key={`participants${index}`}>
+            <input
+              type="checkbox"
+              id={contact.id}
+              name={`participants${index}`}
+              onChange={(e) => handleCheckBoxChange(contact.id)}
+              checked={selectedParticipants.includes(contact.id)}
+            />
+            &nbsp;{contact.firstName} {contact.lastName}
+          </p>
+        ))}
       </div>
 
       <label htmlFor="planned_duration">Planned Duration:</label>
