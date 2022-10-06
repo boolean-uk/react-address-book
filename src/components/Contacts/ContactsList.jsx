@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import "../../styles/loadspinner.css";
 
 function ContactsList(props) {
+  let [searchParams, setSearchParams] = useSearchParams();
+  let filterTerms = searchParams.getAll("type");
   const navigate = useNavigate();
   const { contacts, setContacts } = props;
 
@@ -20,6 +22,20 @@ function ContactsList(props) {
       );
     }
   };
+
+  if (filterTerms) {
+    if (filterTerms.includes("work") && filterTerms.includes("personal")) {
+      console.log("*** Should be both PERSONAL and WORK", filterTerms);
+    }
+
+    if (!filterTerms.includes("work") && filterTerms.includes("personal")) {
+      console.log("*** Should only be PERSONAL", filterTerms);
+    }
+
+    if (!filterTerms.includes("personal") && filterTerms.includes("work")) {
+      console.log("*** Should only be WORK", filterTerms);
+    }
+  }
 
   return (
     <>
