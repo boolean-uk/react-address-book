@@ -8,7 +8,8 @@
       "linkedin": "jpcarmack",
       "twitter": "carmack",
       "street": "10 Devon Street",
-      "city": "London"
+      "city": "London",
+      "type": "work"
     },
     {
       "id": 2,
@@ -18,7 +19,8 @@
       "linkedin": "susanlousehopper",
       "twitter": "suehopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "type": "work"
     },
     {
       "id": 4,
@@ -28,7 +30,8 @@
       "linkedin": "evelyndupree",
       "twitter": "evsdupes",
       "street": "67 Salsa Street",
-      "city": "Oxford"
+      "city": "Oxford",
+      "type": "work"
     },
     {
       "id": 5,
@@ -38,7 +41,8 @@
       "linkedin": "jessicafletcher",
       "twitter": "jess449",
       "street": "2 Tim Str.",
-      "city": "Northampton"
+      "city": "Northampton",
+      "type": "work"
     },
     {
       "id": 6,
@@ -48,7 +52,8 @@
       "linkedin": "thomasaedison",
       "twitter": "realedison",
       "street": "12 Lightbulb Avenue",
-      "city": "Glagow"
+      "city": "Glagow",
+      "type": "work"
     },
     {
       "id": 7,
@@ -58,7 +63,8 @@
       "linkedin": "captainamerica",
       "twitter": "captainamerica",
       "street": "1 Oxford Street",
-      "city": "London"
+      "city": "London",
+      "type": "personal"
     },
     {
       "id": 8,
@@ -68,7 +74,8 @@
       "linkedin": "tonystark",
       "twitter": "ironman",
       "street": "Bond Street",
-      "city": "London"
+      "city": "London",
+      "type": "personal"
     },
     {
       "id": 9,
@@ -88,7 +95,8 @@
       "linkedin": "thomasnigellong",
       "twitter": "longnigel",
       "street": "74 Mason Street",
-      "city": "Dover"
+      "city": "Dover",
+      "type": "personal"
     },
     {
       "firstName": "Scott",
@@ -98,7 +106,8 @@
       "email": "antman@gmail.com",
       "linkedin": "scottlangantman",
       "twitter": "antman",
-      "id": 11
+      "id": 11,
+      "type": "work"
     },
     {
       "firstName": "Dieter",
@@ -108,7 +117,8 @@
       "twitter": "didiBohlen",
       "street": "34 Bolan Street",
       "city": "Brighton",
-      "id": 12
+      "id": 12,
+      "type": "personal"
     }
   ],
   "meetings": [

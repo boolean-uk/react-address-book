@@ -19,6 +19,7 @@ function ContactsEdit(props) {
   if (!contact) {
     return <p>Loading</p>;
   }
+  console.log(contact.type);
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -45,7 +46,22 @@ function ContactsEdit(props) {
     if (inputName === "city") {
       setContact({ ...contact, city: inputValue });
     }
+    if (inputName === "type") {
+      console.log(inputValue);
+      setContact({ ...contact, type: inputValue });
+    }
   };
+
+  const typeOptions = [
+    {
+      label: "Work",
+      value: "work",
+    },
+    {
+      label: "Personal",
+      value: "personal",
+    },
+  ];
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -56,7 +72,6 @@ function ContactsEdit(props) {
       body: JSON.stringify(contact),
     };
 
-    let updatedData = [];
     try {
       fetch(
         "http://localhost:4000/contacts/" + contact.id,
@@ -99,6 +114,21 @@ function ContactsEdit(props) {
         value={contact.lastName}
         onChange={handleChange}
       />
+
+      <label htmlFor="type">Work or personal contact:</label>
+
+      <select
+        name="type"
+        id="type"
+        value={contact.type}
+        onChange={handleChange}
+      >
+        {typeOptions.map((typeOption, index) => (
+          <option key={index} value={typeOption.value}>
+            {typeOption.label}
+          </option>
+        ))}
+      </select>
 
       <label htmlFor="email">Email:</label>
       <input

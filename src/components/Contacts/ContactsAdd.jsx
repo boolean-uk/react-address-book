@@ -8,12 +8,24 @@ function ContactsAdd(props) {
   const [contact, setContact] = useState({
     firstName: "",
     lastName: "",
+    type: "",
     email: "",
     linkedin: "",
     twitter: "",
     street: "",
     city: "",
   });
+
+  const typeOptions = [
+    {
+      label: "Work",
+      value: "work",
+    },
+    {
+      label: "Personal",
+      value: "personal",
+    },
+  ];
 
   const handleChange = (event) => {
     const inputName = event.target.name;
@@ -39,6 +51,10 @@ function ContactsAdd(props) {
     }
     if (inputName === "city") {
       setContact({ ...contact, city: inputValue });
+    }
+    if (inputName === "type") {
+      console.log(inputValue);
+      setContact({ ...contact, type: inputValue });
     }
   };
 
@@ -81,6 +97,22 @@ function ContactsAdd(props) {
         value={contact.firstName}
         onChange={handleChange}
       />
+
+      <label htmlFor="type">Work or personal contact:</label>
+
+      <select
+        name="type"
+        id="type"
+        value={contact.type}
+        onChange={handleChange}
+      >
+        <option>Please choose:</option>
+        {typeOptions.map((typeOption, index) => (
+          <option key={index} value={typeOption.value}>
+            {typeOption.label}
+          </option>
+        ))}
+      </select>
 
       <label htmlFor="lastName">Last Name:</label>
       <input

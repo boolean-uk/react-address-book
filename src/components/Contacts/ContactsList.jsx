@@ -52,11 +52,12 @@ function ContactsList(props) {
           </div>
         )}
         {contacts.map((contact, index) => {
-          const { firstName, lastName } = contact;
+          const { firstName, lastName, type } = contact;
           return (
             <li className="contact" key={index}>
               <p>
-                {firstName} {lastName}
+                {firstName} {lastName}{" "}
+                <span class="contactType">({type} contact)</span>
               </p>
               <p>
                 <Link
