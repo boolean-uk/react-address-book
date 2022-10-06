@@ -180,6 +180,20 @@
         11,
         12
       ]
+    },
+    {
+      "subject": "Boolean Course Morning Session",
+      "date": "6-10-2022",
+      "time": "09:30",
+      "planned_duration": "4",
+      "participants": [
+        1,
+        2,
+        4,
+        8,
+        9
+      ],
+      "id": 6
     }
   ]
 }
