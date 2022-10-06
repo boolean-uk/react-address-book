@@ -57,7 +57,7 @@ function ContactsList(props) {
             <li className="contact" key={index}>
               <p>
                 {firstName} {lastName}{" "}
-                <span class="contactType">({type} contact)</span>
+                <span className="contactType">({type} contact)</span>
               </p>
               <p>
                 <Link
