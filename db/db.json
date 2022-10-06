@@ -31,7 +31,7 @@
       "twitter": "evsdupes",
       "street": "67 Salsa Street",
       "city": "Oxford",
-      "type": "work"
+      "type": "personal"
     },
     {
       "id": 5,
@@ -42,7 +42,7 @@
       "twitter": "jess449",
       "street": "2 Tim Str.",
       "city": "Northampton",
-      "type": "work"
+      "type": "personal"
     },
     {
       "id": 6,
@@ -96,7 +96,7 @@
       "twitter": "longnigel",
       "street": "74 Mason Street",
       "city": "Dover",
-      "type": "personal"
+      "type": "work"
     },
     {
       "firstName": "Scott",
