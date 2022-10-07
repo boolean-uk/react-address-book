@@ -16,7 +16,6 @@ function ContactsList(props) {
             .then((res) => res.json())
             .then((data) => {
               setContacts(data);
-              navigate("/");
             });
         }
       );
