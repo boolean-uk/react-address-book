@@ -37,7 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
 }
 
 /* Make images easier to work with */
@@ -93,18 +93,31 @@ h2 {
 }
 
 .contacts-list > li + li {
-  border-top: 1px solid #cbcbcb;
+  border-top: 1px solid cyan;
 }
 
 .contacts-list {
-  max-width: 400px;
+  max-width: 28em;
+  border: 1px solid cyan;
+}
+
+.meetings-list {
+  border: 1px solid lightblue;
 }
 
 .contacts-list > li {
-  padding: 1rem 0;
+  padding: 1rem;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 1rem;
+}
+
+.contacts-list li:nth-child(2n + 1) {
+  background-color: lightcyan;
+}
+
+.meetings-list li:nth-child(2n + 1) {
+  background-color: aliceblue;
 }
 
 /* VIEW SECTION */
@@ -150,4 +163,83 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.contactCard {
+  border: 1px solid cyan;
+  background-color: lightcyan;
+  border-radius: 0.5em;
+  width: 20em;
+  padding: 1em;
+}
+
+.linkButton {
+  border: 1px solid lightskyblue;
+  background-color: lightcyan;
+  text-decoration: none;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  color: darkcyan;
+  margin-right: 1em;
+  font-size: 0.8em;
+}
+
+.linkButton:hover {
+  border: 1px solid darkcyan;
+  background-color: darkcyan;
+  color: white;
+}
+
+.backButton,
+.actionButton {
+  border: 1px solid gray;
+  background-color: lightgray;
+  text-decoration: none;
+  padding: 0.4em;
+  border-radius: 0.4em;
+  color: black;
+  margin-right: 1em;
+  font-size: 0.6em;
+}
+
+.backButton:hover,
+.actionButton:hover {
+  border: 1px solid darkgray;
+  background-color: darkgray;
+  color: white;
+}
+
+.linkListItem {
+  margin-top: 1em;
+}
+
+.meeting {
+  border: 1px solid lightblue;
+  background-color: aliceblue;
+}
+
+.contactsForMeeting {
+  height: 20vh;
+  overflow-y: scroll;
+  border: 1px solid lightgray;
+  padding: 0.5em;
+}
+
+.submenuItem {
+  border-color: gray;
+  color: black;
+  background-color: lightgray;
+  font-size: 0.6em;
+}
+
+.submenuItem:hover {
+  border-color: darkgray;
+  color: white;
+  background-color: darkgray;
+}
+
+.contactType {
+  text-transform: uppercase;
+  font-size: 0.6em;
+  color: darkgray;
 }

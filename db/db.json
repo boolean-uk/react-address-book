@@ -2,17 +2,208 @@
   "contacts": [
     {
       "id": 1,
-      "firstName": "John",
+      "firstName": "John Paul",
       "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "email": "johnpaul.carmack@gmail.com",
+      "linkedin": "jpcarmack",
+      "twitter": "carmack",
+      "street": "10 Devon Street",
+      "city": "London",
+      "type": "work"
     },
     {
       "id": 2,
-      "firstName": "Grace",
+      "firstName": "Susan Louise",
       "lastName": "Hopper",
+      "email": "susanlousie.hopper@gmail.com",
+      "linkedin": "susanlousehopper",
+      "twitter": "suehopper",
       "street": "32 Deebug Road",
+      "city": "London",
+      "type": "work"
+    },
+    {
+      "id": 4,
+      "firstName": "Evelyn",
+      "lastName": "Dupree",
+      "email": "dupree@gmail.com",
+      "linkedin": "evelyndupree",
+      "twitter": "evsdupes",
+      "street": "67 Salsa Street",
+      "city": "Oxford",
+      "type": "personal"
+    },
+    {
+      "id": 5,
+      "firstName": "Jennifer",
+      "lastName": "Thomson",
+      "email": "jessica.fletcher@gmail.com",
+      "linkedin": "jessicafletcher",
+      "twitter": "jess449",
+      "street": "2 Tim Str.",
+      "city": "Northampton",
+      "type": "personal"
+    },
+    {
+      "id": 6,
+      "firstName": "Thomas Alva",
+      "lastName": "Edison",
+      "email": "thomes.alva.edison@gmail.com",
+      "linkedin": "thomasaedison",
+      "twitter": "realedison",
+      "street": "12 Lightbulb Avenue",
+      "city": "Glagow",
+      "type": "work"
+    },
+    {
+      "id": 7,
+      "firstName": "Steve Robert",
+      "lastName": "Rogers",
+      "email": "captain.america@gmail.com",
+      "linkedin": "captainamerica",
+      "twitter": "captainamerica",
+      "street": "1 Oxford Street",
+      "city": "London",
+      "type": "personal"
+    },
+    {
+      "id": 8,
+      "firstName": "Anthony Bartholomew",
+      "lastName": "Stark",
+      "email": "ironman@gmail.com",
+      "linkedin": "tonystark",
+      "twitter": "ironman",
+      "street": "Bond Street",
+      "city": "London",
+      "type": "personal"
+    },
+    {
+      "id": 9,
+      "firstName": "John Patrick",
+      "lastName": "Bolton",
+      "email": "pat.bolton@gmail.com",
+      "linkedin": "johnbolton",
+      "twitter": "thebolts",
+      "street": "69 Baker Street",
       "city": "London"
+    },
+    {
+      "id": 10,
+      "firstName": "Thomas Nigel",
+      "lastName": "Long",
+      "email": "nigel.long@gmail.com",
+      "linkedin": "thomasnigellong",
+      "twitter": "longnigel",
+      "street": "74 Mason Street",
+      "city": "Dover",
+      "type": "work"
+    },
+    {
+      "firstName": "Scott",
+      "lastName": "Lang",
+      "street": "12 Ants Avenue",
+      "city": "Walton Oaks",
+      "email": "antman@gmail.com",
+      "linkedin": "scottlangantman",
+      "twitter": "antman",
+      "id": 11,
+      "type": "work"
+    },
+    {
+      "firstName": "Dieter",
+      "lastName": "Bohlen",
+      "email": "dieter.bohlen@gmail.com",
+      "linkedin": "dieterbohlen",
+      "twitter": "didiBohlen",
+      "street": "34 Bolan Street",
+      "city": "Brighton",
+      "id": 12,
+      "type": "personal"
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "subject": "Sales Proposal",
+      "date": "8-10-2022",
+      "time": "09:00",
+      "planned_duration": 1,
+      "participants": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    {
+      "id": 2,
+      "subject": "Team Coordination",
+      "date": "7-10-2022",
+      "time": "11:30",
+      "planned_duration": 2,
+      "participants": [
+        6,
+        8,
+        11
+      ]
+    },
+    {
+      "id": 3,
+      "subject": "Training Session",
+      "date": "9-10-2022",
+      "time": "13:15",
+      "planned_duration": 3,
+      "participants": [
+        2,
+        3,
+        7,
+        8,
+        10
+      ]
+    },
+    {
+      "id": 4,
+      "subject": "TDD Workshop",
+      "date": "30-10-2022",
+      "time": "11:15",
+      "planned_duration": 6,
+      "participants": [
+        7,
+        8,
+        11,
+        12
+      ]
+    },
+    {
+      "id": 5,
+      "subject": "Refinement Meeting",
+      "date": "10-11-2022",
+      "time": "13:15",
+      "planned_duration": 3,
+      "participants": [
+        1,
+        2,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ]
+    },
+    {
+      "subject": "Boolean Course Morning Session",
+      "date": "6-10-2022",
+      "time": "09:30",
+      "planned_duration": "4",
+      "participants": [
+        1,
+        2,
+        4,
+        8,
+        9
+      ],
+      "id": 6
     }
   ]
 }
