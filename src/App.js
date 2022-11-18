@@ -28,6 +28,7 @@ export default function App() {
       </nav>
       <main>
         <Routes>
+          <Route path="/contacts/:id" element={<ContactsView />} />
           <Route path="/" element={<ContactsList contacts={contacts} />} />
         </Routes>
       </main>
