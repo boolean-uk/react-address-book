@@ -11,8 +11,15 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
+const initialMeeting = {
+  date: "",
+  time: "",
+  location: "",
+};
+
 function Meeting() {
   const [contact, setContact] = useState(null);
+  const [newMeeting, setNewMeeting] = useState(initialMeeting);
   const [meetings, setMeetings] = useState([]);
 
   const { id } = useParams();
@@ -38,22 +45,71 @@ function Meeting() {
     getMeetings();
   }, []);
 
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setNewMeeting({
+      ...newMeeting,
+      [name]: value,
+    });
+  };
+
+  const postMeeting = async () => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...newMeeting,
+      }),
+    };
+
+    const res = await fetch("http://localhost:4000/meetings", options);
+    const meeting = await res.json();
+    setMeetings([...meetings, meeting]);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    postMeeting();
+    setNewMeeting(initialMeeting);
+  };
+
   return (
     <>
       <h1>Meetings</h1>
       <button onClick={() => navigate(-1)}>Back</button>
-      <form className="form-stack contact-form">
+      <form className="form-stack contact-form" onSubmit={handleSubmit}>
         <h2>Add New Meeting</h2>
+        <label htmlFor="date">Date</label>
+        <input
+          id="date"
+          name="date"
+          type="text"
+          required
+          value={newMeeting.date}
+          onChange={handleChange}
+        />
+        <label htmlFor="time">Time</label>
 
-        <label htmlFor="firstName">Date</label>
-        <input id="firstName" name="firstName" type="text" required />
-
-        <label htmlFor="lastName">Time</label>
-        <input id="lastName" name="lastName" type="text" required />
-
-        <label htmlFor="street">Location</label>
-        <input id="street" name="street" type="text" required />
-
+        <input
+          id="time"
+          name="time"
+          type="text"
+          required
+          value={newMeeting.time}
+          onChange={handleChange}
+        />
+        <label htmlFor="location">Location</label>
+        <input
+          id="location"
+          name="location"
+          type="text"
+          required
+          value={newMeeting.location}
+          onChange={handleChange}
+        />
         <div className="actions-section">
           <button className="button blue" type="submit">
             Add Meeting

@@ -9,6 +9,16 @@
       "linkedIn": "Vader2003",
       "twitter": "@vader",
       "id": 1
+    },
+    {
+      "firstName": "Luke ",
+      "lastName": "Skywalker",
+      "street": "Jedi Street",
+      "city": "Jeditown",
+      "email": "lukeybaby@rebelalliance.com",
+      "linkedIn": "Rebelwiththeforce",
+      "twitter": "@lskywalker",
+      "id": 2
     }
   ],
   "meetings": [
@@ -25,6 +35,12 @@
       "time": "13:00pm",
       "location": "My office",
       "users": [2]
+    },
+    {
+      "date": "12th September",
+      "time": "9:00am",
+      "location": "Yoda's hut",
+      "id": 3
     }
   ]
 }
