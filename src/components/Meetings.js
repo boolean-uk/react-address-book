@@ -26,9 +26,13 @@ function Meeting() {
   const navigate = useNavigate();
 
   const getMeetings = async () => {
-    const res = await fetch(`http://localhost:4000/meetings`);
-    const meetings = await res.json();
-    setMeetings(meetings);
+    if (contact) {
+      const res = await fetch(
+        `http://localhost:4000/meetings?contactId=${contact.id}`
+      );
+      const meetings = await res.json();
+      setMeetings(meetings);
+    }
   };
 
   const getContact = async () => {
@@ -43,7 +47,7 @@ function Meeting() {
 
   useEffect(() => {
     getMeetings();
-  }, []);
+  }, [contact]);
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -51,6 +55,9 @@ function Meeting() {
     setNewMeeting({
       ...newMeeting,
       [name]: value,
+      // Adding the contactId here- shows in the data which contact the meeting was created for
+      // used to filter in the fetch request- we only want the meetings that match the contact id
+      contactId: contact.id,
     });
   };
 
@@ -122,9 +129,11 @@ function Meeting() {
         {contact && `Meetings for ${contact.firstName} ${contact.lastName}`}
       </h2>
       <ul>
-        {meetings.map((meeting) => {
-          return <li key={meeting.id}>{meeting.location}</li>;
-        })}
+        {meetings.length === 0 && "No meetings to display"}
+        {meetings &&
+          meetings.map((meeting) => {
+            return <li key={meeting.id}>{meeting.location}</li>;
+          })}
       </ul>
     </>
   );

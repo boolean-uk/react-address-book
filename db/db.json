@@ -27,19 +27,20 @@
       "date": "18/11/22",
       "time": "10:00am",
       "location": "Imperial meeting room",
-      "users": [1]
+      "contactId": 1
     },
     {
       "id": 2,
       "date": "19/04/23",
       "time": "13:00pm",
       "location": "My office",
-      "users": [2]
+      "contactId": 1
     },
     {
       "date": "12th September",
       "time": "9:00am",
       "location": "Yoda's hut",
+      "contactId": 2,
       "id": 3
     }
   ]
