@@ -7,17 +7,30 @@ import ContactsEdit from "./components/ContactsEdit";
 import "./styles/styles.css";
 
 export default function App() {
+  const [loading, setLoading] = useState(true);
   const [contacts, setContacts] = useState([]);
 
   const getContacts = async () => {
     const res = await fetch("http://localhost:4000/contacts");
     const contacts = await res.json();
     setContacts(contacts);
+    setLoading(false);
   };
 
   useEffect(() => {
     getContacts();
   }, []);
+
+  if (loading) {
+    return (
+      <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    );
+  }
 
   return (
     <>

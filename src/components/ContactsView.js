@@ -16,6 +16,7 @@ function ContactsView() {
     getContact();
   }, [id]);
 
+  // the html here is for the loading spinner
   if (!contact) {
     return <p>Loading...</p>;
   }
