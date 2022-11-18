@@ -9,23 +9,34 @@
 // We need to run useEffect to fetch the new meeting data each time the meeting state is updated
 
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function Meeting() {
   const [contact, setContact] = useState(null);
   const [meetings, setMeetings] = useState([]);
 
+  const { id } = useParams();
+  const navigate = useNavigate();
+
   const getMeetings = async () => {
-    const res = await fetch("http://localhost:4000/meetings");
+    const res = await fetch(`http://localhost:4000/meetings`);
     const meetings = await res.json();
     setMeetings(meetings);
   };
 
+  const getContact = async () => {
+    const res = await fetch(`http://localhost:4000/contacts/${id}`);
+    const fetchedContact = await res.json();
+    setContact(fetchedContact);
+  };
+
+  useEffect(() => {
+    getContact();
+  }, [id]);
+
   useEffect(() => {
     getMeetings();
   }, []);
-
-  const navigate = useNavigate();
 
   return (
     <>
@@ -50,7 +61,10 @@ function Meeting() {
         </div>
       </form>
 
-      <h2>Meetings for this contact</h2>
+      <h2>
+        {!contact && "Meetings"}
+        {contact && `Meetings for ${contact.firstName} ${contact.lastName}`}
+      </h2>
       <ul>
         {meetings.map((meeting) => {
           return <li key={meeting.id}>{meeting.location}</li>;

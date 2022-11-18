@@ -18,6 +18,13 @@
       "time": "10:00am",
       "location": "Imperial meeting room",
       "users": [1]
+    },
+    {
+      "id": 2,
+      "date": "19/04/23",
+      "time": "13:00pm",
+      "location": "My office",
+      "users": [2]
     }
   ]
 }
