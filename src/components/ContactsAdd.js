@@ -10,6 +10,7 @@ const contact = {
 
 function ContactsAdd({ setContacts, contacts }) {
   const [newContact, setNewContact] = useState(contact);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -20,9 +21,28 @@ function ContactsAdd({ setContacts, contacts }) {
     });
   };
 
+  const postContact = async () => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        ...newContact,
+      }),
+    };
+
+    const res = await fetch("http://localhost:4000/contacts", options);
+    const contact = await res.json();
+    setContacts([...contacts, contact]);
+  };
+
   //send POST to json server on form submit
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    postContact();
+    navigate("/");
   };
 
   return (

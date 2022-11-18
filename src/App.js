@@ -18,8 +18,6 @@ export default function App() {
     getContacts();
   }, []);
 
-  console.log(contacts);
-
   return (
     <>
       <nav>
