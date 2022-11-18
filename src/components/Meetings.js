@@ -12,7 +12,18 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Meeting() {
+  const [contact, setContact] = useState(null);
   const [meetings, setMeetings] = useState([]);
+
+  const getMeetings = async () => {
+    const res = await fetch("http://localhost:4000/meetings");
+    const meetings = await res.json();
+    setMeetings(meetings);
+  };
+
+  useEffect(() => {
+    getMeetings();
+  }, []);
 
   const navigate = useNavigate();
 
@@ -20,6 +31,31 @@ function Meeting() {
     <>
       <h1>Meetings</h1>
       <button onClick={() => navigate(-1)}>Back</button>
+      <form className="form-stack contact-form">
+        <h2>Add New Meeting</h2>
+
+        <label htmlFor="firstName">Date</label>
+        <input id="firstName" name="firstName" type="text" required />
+
+        <label htmlFor="lastName">Time</label>
+        <input id="lastName" name="lastName" type="text" required />
+
+        <label htmlFor="street">Location</label>
+        <input id="street" name="street" type="text" required />
+
+        <div className="actions-section">
+          <button className="button blue" type="submit">
+            Add Meeting
+          </button>
+        </div>
+      </form>
+
+      <h2>Meetings for this contact</h2>
+      <ul>
+        {meetings.map((meeting) => {
+          return <li key={meeting.id}>{meeting.location}</li>;
+        })}
+      </ul>
     </>
   );
 }

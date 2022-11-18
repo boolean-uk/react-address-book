@@ -10,5 +10,14 @@
       "twitter": "@vader",
       "id": 1
     }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "date": "18/11/22",
+      "time": "10:00am",
+      "location": "Imperial meeting room",
+      "users": [1]
+    }
   ]
 }
