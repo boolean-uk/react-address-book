@@ -32,6 +32,7 @@ function ContactsList({ contacts, setContacts }) {
                 {firstName} {lastName}
               </p>
               <Link to={`/contacts/${id}`}>View</Link>
+              <Link to={`/contacts/edit/${id}`}>Edit</Link>
               <button onClick={() => deleteContact(contact)}>Delete</button>
             </li>
           );
