@@ -87,6 +87,38 @@ function ContactsAdd(props) {
         required
       />
 
+      <label htmlFor="email">Email</label>
+      <input 
+        id="email" 
+        name="email" type="email" 
+        placeholder='Hilda@Hildamail.com' 
+        onChange={handleChange} 
+        value={contactData.email} 
+        required 
+      />
+
+  <label htmlFor="linkedIn">LinkedIn:</label>
+      <input 
+        id="linkedIn" 
+        name="linkedIn" 
+        type="text" 
+        placeholder="I don't know the LinkedIn format, sorry"
+        onChange={handleChange} 
+        value={contactData.linkedIn} 
+        required
+      />
+
+  <label htmlFor="twitter">Twitter:</label>
+      <input 
+        id="twitter" 
+        name="twitter" 
+        type="text" 
+        placeholder='@HildaH' 
+        onChange={handleChange} 
+        value={contactData.twitter} 
+        required
+      />
+
       <div className="actions-section">
         <button className="button blue" type="submit">
           Create

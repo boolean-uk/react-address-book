@@ -15,10 +15,20 @@
       "city": "London"
     },
     {
+      "firstName": "John",
+      "lastName": "Doe",
+      "street": "20 Brighton Road",
+      "city": "Jersey",
+      "id": 4
+    },
+    {
       "firstName": "Dave",
       "lastName": "Revell",
       "street": "123 John Doe Ave",
       "city": "Sealand",
+      "email": "DaveRevell@Sealand.com",
+      "linkedIn": "Dave",
+      "twitter": "Dex",
       "id": 3
     }
   ]
