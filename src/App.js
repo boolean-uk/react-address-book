@@ -12,7 +12,6 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => setContacts(data));
   }, []);
-  console.log(contacts);
 
   return (
     <>
@@ -23,11 +22,19 @@ export default function App() {
           <li>
             <Link to="/">Contacts List</Link>
           </li>
-          <li>Add New Contact</li>
+          <li>
+            <Link to="/addcontact">Add New Contact</Link>
+          </li>
         </ul>
       </nav>
       <main>
         <Routes>
+          <Route
+            path="/addcontact"
+            element={
+              <ContactsAdd contacts={contacts} setContacts={setContacts} />
+            }
+          />
           <Route path="/contacts/:id" element={<ContactsView />} />
           <Route path="/" element={<ContactsList contacts={contacts} />} />
         </Routes>
