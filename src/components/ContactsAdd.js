@@ -14,7 +14,7 @@ function ContactsAdd(props) {
   // to this component so new contacts can be added to the
   // state
   const { setContacts, contacts } = props
-  const [data, setData] = useState(initialState)
+  const [contactData, setContactData] = useState(initialState)
   const nav = useNavigate()
 
   //TODO: Implement controlled form
@@ -22,22 +22,22 @@ function ContactsAdd(props) {
 
   const handleChange = event => {
     const {name, value} = event.target
-    const newData = {...data}
-    newData[`${name}`] = value
-    setData(newData)
+    const newContactData = {...contactData}
+    newContactData[`${name}`] = value
+    setContactData(newContactData)
   }
 
   const handleSubmit = event => {
     event.preventDefault()
 
-    fetch('http://localhost:4000/contacts', {
-        method: 'POST', 
-        headers: {'Content-Type': 'application/json'}, 
-        body: JSON.stringify(data)
-      })
-      .then(res => res.json)
-      .then(data => setData([...contacts, data]))
-      Navigate('/')
+    const res = fetch('http://localhost:4000/contacts', {
+      method: 'POST', 
+      headers: {'Content-Type': 'application/json'}, 
+      body: JSON.stringify(contactData)
+    })
+    const data = res.json()
+    setContacts([...contacts, data])
+    nav('/')
   }
 
   return (
@@ -50,7 +50,7 @@ function ContactsAdd(props) {
         name="firstName" type="text" 
         placeholder='Hilda' 
         onChange={handleChange} 
-        value={data.firstName} 
+        value={contactData.firstName} 
         required 
       />
 
@@ -61,7 +61,7 @@ function ContactsAdd(props) {
         type="text" 
         placeholder='Hilda' 
         onChange={handleChange} 
-        value={data.lastName} 
+        value={contactData.lastName} 
         required
       />
 
@@ -72,7 +72,7 @@ function ContactsAdd(props) {
         type="text" 
         placeholder='123 Hilda Street' 
         onChange={handleChange} 
-        value={data.street} 
+        value={contactData.street} 
         required
       />
 
@@ -83,7 +83,7 @@ function ContactsAdd(props) {
         type="text" 
         placeholder='Bastion City' 
         onChange={handleChange} 
-        value={data.city} 
+        value={contactData.city} 
         required
       />
 
