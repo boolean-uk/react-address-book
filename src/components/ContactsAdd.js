@@ -6,6 +6,9 @@ const contact = {
   lastName: "",
   street: "",
   city: "",
+  email: "",
+  linkedIn: "",
+  twitter: "",
 };
 
 function ContactsAdd({ setContacts, contacts }) {
@@ -86,6 +89,36 @@ function ContactsAdd({ setContacts, contacts }) {
         type="text"
         required
         value={newContact.city}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="text"
+        required
+        value={newContact.email}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input
+        id="linkedIn"
+        name="linkedIn"
+        type="text"
+        required
+        value={newContact.linkedIn}
+        onChange={handleChange}
+      />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input
+        id="twitter"
+        name="twitter"
+        type="text"
+        required
+        value={newContact.twitter}
         onChange={handleChange}
       />
 

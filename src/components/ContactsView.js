@@ -28,6 +28,21 @@ function ContactsView() {
       <p>
         {contact.street} {contact.city}
       </p>
+      <h4 className="contact-heading">Contact Details</h4>
+      <ul>
+        <li>
+          <strong>Email: </strong>
+          {contact.email ? contact.email : "No email provided"}
+        </li>
+        <li>
+          <strong>LinkedIn: </strong>
+          {contact.linkedIn ? contact.linkedIn : "No LinkedIn handle provided"}
+        </li>
+        <li>
+          <strong>Twitter: </strong>
+          {contact.twitter ? contact.twitter : "No Twitter handle provided"}
+        </li>
+      </ul>
     </div>
   );
 }
