@@ -20,7 +20,9 @@ export default function App() {
         <h2>Menu</h2>
         <ul>
           {/* TODO: Make these links */}
-          <li>Contacts List</li>
+          <li>
+            <Link to="/">Contacts List</Link>
+          </li>
           <li>Add New Contact</li>
         </ul>
       </nav>
