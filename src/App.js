@@ -21,7 +21,7 @@ export default function App() {
   return (
     <>
       <nav>
-        <h2><Link to='/'>Menu</Link></h2>
+        <h2><Link to='/'>The not so <br /> <span>Yellow</span> Pages</Link></h2>
         <ul>
           {/* TODO: Make these links */}
           <li><Link to='/'>Contacts List</Link></li>

@@ -50,6 +50,10 @@ nav {
   
 }
 
+nav h2 span {
+  color: #f3e500;
+}
+
 nav li {
   border-radius: 10px;
 }
