@@ -33,7 +33,12 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<ContactsList contacts={contacts} />} />
+          <Route
+            path="/"
+            element={
+              <ContactsList contacts={contacts} setContacts={setContacts} />
+            }
+          />
           <Route
             path="/contacts/add"
             element={

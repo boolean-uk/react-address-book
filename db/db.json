@@ -15,41 +15,11 @@
       "city": "London"
     },
     {
-      "newContact": {
-        "firstName": "Joel",
-        "lastName": "Watkins",
-        "street": "12 Abbots Way",
-        "city": "Lancing"
-      },
-      "id": 3
-    },
-    {
       "firstName": "Joel",
       "lastName": "Watkins",
       "street": "12 Abbots Way",
       "city": "Lancing",
       "id": 4
-    },
-    {
-      "firstName": "Bob",
-      "lastName": "Smith",
-      "street": "10 Downing Street",
-      "city": "London",
-      "id": 5
-    },
-    {
-      "firstName": "Jane",
-      "lastName": "Doe",
-      "street": "Moose Street",
-      "city": "Norwich",
-      "id": 6
-    },
-    {
-      "firstName": "Bilbo",
-      "lastName": "Baggins",
-      "street": "Hobbit Lane",
-      "city": "Hobbiton",
-      "id": 7
     },
     {
       "firstName": "Darth",

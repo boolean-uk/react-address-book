@@ -1,9 +1,22 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 
-function ContactsList(props) {
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props;
+function ContactsList({ contacts, setContacts }) {
+  const deleteContact = async (contact) => {
+    // Delete contact from contacts
+    // Make delete request to server
+
+    const options = {
+      method: "DELETE",
+    };
+
+    await fetch(`http://localhost:4000/contacts/${contact.id}`, options);
+
+    const filteredContacts = contacts.filter(
+      (storedContact) => storedContact.id !== contact.id
+    );
+    setContacts(filteredContacts);
+  };
 
   return (
     <>
@@ -19,6 +32,7 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <Link to={`/contacts/${id}`}>View</Link>
+              <button onClick={() => deleteContact(contact)}>Delete</button>
             </li>
           );
         })}
