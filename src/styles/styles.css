@@ -65,6 +65,19 @@ nav li:hover {
   background: #373737;
 }
 
+.contact p a {
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.contact p a:hover {
+  background: #373737;
+}
+
+
+
 /* Make images easier to work with */
 img {
   max-width: 100%;
