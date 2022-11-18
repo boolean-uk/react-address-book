@@ -30,7 +30,11 @@ function ContactsAdd(props) {
   const handleSubmit = event => {
     event.preventDefault()
 
-    fetch('http://localhost:4000/contacts', {method: 'POST'})
+    fetch('http://localhost:4000/contacts', {
+        method: 'POST', 
+        headers: {'Content-Type': 'application/json'}, 
+        body: JSON.stringify(data)
+      })
       .then(res => res.json)
       .then(data => setData([...contacts, data]))
       Navigate('/')
