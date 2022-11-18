@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 
 function ContactsView() {
   const [contact, setContact] = useState(false);
@@ -21,29 +21,41 @@ function ContactsView() {
     return <p>Loading...</p>;
   }
 
+  const {
+    firstName,
+    lastName,
+    street,
+    city,
+    email,
+    twitter,
+    linkedIn,
+    id: contactId,
+  } = contact;
+
   return (
     <div>
       <h2>
-        {contact.firstName} {contact.lastName}
+        {firstName} {lastName}
       </h2>
       <p>
-        {contact.street} {contact.city}
+        {street}, {city}
       </p>
       <h4 className="contact-heading">Contact Details</h4>
       <ul>
         <li>
           <strong>Email: </strong>
-          {contact.email ? contact.email : "No email provided"}
+          {email ? email : "No email provided"}
         </li>
         <li>
           <strong>LinkedIn: </strong>
-          {contact.linkedIn ? contact.linkedIn : "No LinkedIn handle provided"}
+          {linkedIn ? linkedIn : "No LinkedIn handle provided"}
         </li>
         <li>
           <strong>Twitter: </strong>
-          {contact.twitter ? contact.twitter : "No Twitter handle provided"}
+          {twitter ? twitter : "No Twitter handle provided"}
         </li>
       </ul>
+      <Link to={`/contacts/${contactId}/meetings`}>Meetings</Link>
     </div>
   );
 }
