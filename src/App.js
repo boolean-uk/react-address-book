@@ -9,6 +9,13 @@ export default function App() {
   const [contacts, setContacts] = useState([])
   
   //TODO: Load all contacts on useEffect when component first renders
+  useEffect(() => {
+    fetch('http://localhost:4000/contacts')
+      .then(res => res.json())
+      .then(data => setContacts(data))
+  }, [])
+
+  console.log(contacts)
 
   return (
     <>
@@ -22,7 +29,7 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          {/* TODO: Add routes here  */}
+          <Route path='/' element={<ContactsList contacts={contacts} setContacts={setContacts} />} />
         </Routes>
       </main>
     </>
