@@ -38,14 +38,31 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   padding:10px;
-  background: #0F0F0F;
+  background: #272727;
   color: white;
 }
 
 nav {
-  background: #272727;
   border-radius: 10px;
   padding-left: 10px;
+  padding-right: 10px;
+  width: fit-content;
+  
+}
+
+nav li {
+  border-radius: 10px;
+}
+
+nav li a, nav h2 a {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+ 
+}
+
+nav li:hover {
+  background: #373737;
 }
 
 /* Make images easier to work with */

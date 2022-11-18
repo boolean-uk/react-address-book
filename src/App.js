@@ -20,16 +20,17 @@ export default function App() {
   return (
     <>
       <nav>
-        <h2>Menu</h2>
+        <h2><Link to='/'>Menu</Link></h2>
         <ul>
           {/* TODO: Make these links */}
-          <li>Contacts List</li>
-          <li>Add New Contact</li>
+          <li><Link to='/'>Contacts List</Link></li>
+          <li><Link to='/contacts/add'>Add New Contact</Link></li>
         </ul>
       </nav>
       <main>
         <Routes>
           <Route path='/' element={<ContactsList contacts={contacts} setContacts={setContacts} />} />
+          <Route path='/contacts/add' element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />
         </Routes>
       </main>
     </>
