@@ -19,9 +19,9 @@ Some of the components have been created for you.
 5. Visit localhost:4000/contacts to make sure your json-server is running
 
 ## Requirements
-- A user can **view a list of contacts** at "/" when the app loads. 
-	- Each contact should show first name and last name
-	- The list of contacts should be fetched from json-server
+- A user can **view a list of contacts** at "/" when the app loads.  (done)
+	- Each contact should show first name and last name (done)
+	- The list of contacts should be fetched from json-server (done)
 - A user can **create a contact** at "/contacts/add" via a form when the "Add New Contact" menu link is clicked
 	- The created contact should have:
 		- first name
