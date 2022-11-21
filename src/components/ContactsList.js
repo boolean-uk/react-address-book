@@ -1,11 +1,11 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
-import Spinner from "./LoadingSpinner/Spinner"
+import Spinner from "./LoadingSpinner/Spinner.js"
 
 function ContactsList(props) {
   
   //"contacts" must be passed as prop to this component
-  const { contacts, setContacts } = props
+  const { contacts, setContacts, loading } = props
 
   const handleDelete = async id => {
 
@@ -29,9 +29,11 @@ function ContactsList(props) {
     <>
       <header>
         <h2>Contacts</h2>
-        <Spinner />
       </header>
-      <ul className="contacts-list">
+
+      { loading ? 
+        <Spinner /> :
+        <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           console.log(firstName, lastName)
@@ -41,7 +43,6 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-                { /** TODO: Make a Link here to view contact */}
                 <Link to={`/contacts/${contact.id}/view`}>View</Link>
                 <Link to={`/contacts/${contact.id}/edit`} state={{contact}}>Edit</Link>
                 <a href='' onClick={() => handleDelete(contact.id)}>Delet this</a>
@@ -50,6 +51,8 @@ function ContactsList(props) {
           )
         })}
       </ul>
+      }
+      
     </>
   )
 }

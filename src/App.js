@@ -8,12 +8,14 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [loading, setLoading] = useState(true)
   
   //TODO: Load all contacts on useEffect when component first renders
   useEffect(() => {
     fetch('http://localhost:4000/contacts')
       .then(res => res.json())
       .then(data => setContacts(data))
+      setLoading(false)
   }, [])
 
   console.log(contacts)
@@ -30,7 +32,7 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route path='/' element={<ContactsList contacts={contacts} setContacts={setContacts} />} />
+          <Route path='/' element={<ContactsList contacts={contacts} setContacts={setContacts} loading={loading} />} />
           <Route path='/contacts/add' element={<ContactsAdd contacts={contacts} setContacts={setContacts} />} />
           <Route path='/contacts/:id/view' element={<ContactsView />} />
           <Route path='/contacts/:id/edit' element={<ContactsEdit contacts={contacts} setContacts={setContacts} />} />
