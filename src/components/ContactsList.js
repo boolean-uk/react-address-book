@@ -1,26 +1,36 @@
-import { useState } from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useState, useRef } from "react";
+import { Link, useSearchParams, useNavigate } from "react-router-dom";
 import { BiWinkSmile } from "react-icons/bi";
 import { FaSuitcase } from "react-icons/fa";
 
 function ContactsList({ contacts, setContacts }) {
-  // const [filterCategory, setFilterCategory] = useState("all");
+  const [currentContact, setCurrentContact] = useState({});
   let [searchParams, setSearchParams] = useSearchParams();
+  const confirmPopup = useRef(null);
+  const successMessage = useRef(null);
+  const navigate = useNavigate();
 
   const deleteContact = async (contact) => {
     // Delete contact from contacts
     // Make delete request to server
-
     const options = {
       method: "DELETE",
     };
 
     await fetch(`http://localhost:4000/contacts/${contact.id}`, options);
-
     const filteredContacts = contacts.filter(
       (storedContact) => storedContact.id !== contact.id
     );
+
     setContacts(filteredContacts);
+    // rehide the confirm popup
+
+    // show success message for 2 seconds
+    successMessage.current.style.display = "block";
+    cancelDelete();
+    setTimeout(() => {
+      successMessage.current.style.display = "none";
+    }, 2000);
   };
 
   // filters
@@ -44,6 +54,15 @@ function ContactsList({ contacts, setContacts }) {
   if (type.length > 1) {
     filteredContacts = contacts;
   }
+
+  const confirmDelete = (user) => {
+    confirmPopup.current.style.display = "block";
+    setCurrentContact(user);
+  };
+
+  const cancelDelete = () => {
+    confirmPopup.current.style.display = "none";
+  };
 
   return (
     <>
@@ -70,11 +89,23 @@ function ContactsList({ contacts, setContacts }) {
               {type === "work" ? <FaSuitcase /> : <BiWinkSmile />}
               <Link to={`/contacts/${id}`}>View</Link>
               <Link to={`/contacts/edit/${id}`}>Edit</Link>
-              <button onClick={() => deleteContact(contact)}>Delete</button>
+              <button onClick={() => confirmDelete(contact)}>Delete</button>
             </li>
           );
         })}
       </ul>
+      <p className="success" ref={successMessage}>
+        Contact successfully deleted!
+      </p>
+      <div className="delete-confirm" ref={confirmPopup}>
+        <p>Are you sure?</p>
+        <div className="btn-container">
+          <button onClick={() => deleteContact(currentContact)}>
+            Confirm delete
+          </button>
+          <button onClick={cancelDelete}>Cancel</button>
+        </div>
+      </div>
     </>
   );
 }

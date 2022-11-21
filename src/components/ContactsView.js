@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 
+import { BiWinkSmile } from "react-icons/bi";
+import { FaSuitcase } from "react-icons/fa";
+
 function ContactsView() {
   const [contact, setContact] = useState(false);
 
@@ -35,9 +38,18 @@ function ContactsView() {
 
   return (
     <div>
-      <h2>
-        {firstName} {lastName}
-      </h2>
+      <div className="contact-heading">
+        <h2>
+          {firstName} {lastName}
+        </h2>
+        <span>
+          {type === "work" ? (
+            <FaSuitcase className="type-icon" />
+          ) : (
+            <BiWinkSmile className="type-icon" />
+          )}
+        </span>
+      </div>
       <p>
         {street}, {city}
       </p>
@@ -56,9 +68,6 @@ function ContactsView() {
           {twitter ? twitter : "No Twitter handle provided"}
         </li>
       </ul>
-      <p>
-        <strong>Contact type:</strong> {type === "work" ? "Work" : "Personal"}
-      </p>
       <Link to={`/contacts/${contactId}/meetings`}>Meetings</Link>
     </div>
   );

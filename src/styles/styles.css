@@ -237,3 +237,23 @@ button {
   color: lightgreen;
   display: none;
 }
+
+.contact-heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.type-icon {
+  height: 24px;
+  width: 24px;
+  color: lightskyblue;
+}
+
+.delete-confirm {
+  height: 200px;
+  width: 300px;
+  background-color: lightcyan;
+  border-radius: 12px;
+  display: none;
+}
