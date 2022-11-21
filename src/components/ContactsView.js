@@ -30,6 +30,7 @@ function ContactsView() {
     twitter,
     linkedIn,
     id: contactId,
+    type,
   } = contact;
 
   return (
@@ -55,6 +56,9 @@ function ContactsView() {
           {twitter ? twitter : "No Twitter handle provided"}
         </li>
       </ul>
+      <p>
+        <strong>Contact type:</strong> {type === "work" ? "Work" : "Personal"}
+      </p>
       <Link to={`/contacts/${contactId}/meetings`}>Meetings</Link>
     </div>
   );

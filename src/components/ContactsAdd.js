@@ -100,7 +100,6 @@ function ContactsAdd({ setContacts, contacts }) {
         id="email"
         name="email"
         type="text"
-        required
         value={newContact.email}
         onChange={handleChange}
       />
@@ -110,7 +109,6 @@ function ContactsAdd({ setContacts, contacts }) {
         id="linkedIn"
         name="linkedIn"
         type="text"
-        required
         value={newContact.linkedIn}
         onChange={handleChange}
       />
@@ -120,7 +118,6 @@ function ContactsAdd({ setContacts, contacts }) {
         id="twitter"
         name="twitter"
         type="text"
-        required
         value={newContact.twitter}
         onChange={handleChange}
       />

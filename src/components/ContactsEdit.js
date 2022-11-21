@@ -138,6 +138,35 @@ function ContactsEdit({ contacts, setContacts }) {
         onChange={handleChange}
       />
 
+      <p>Contact type:</p>
+      <div className="contact-type-form-control">
+        <label htmlFor="work">
+          Work:
+          <input
+            type="radio"
+            id="work"
+            name="type"
+            value="work"
+            checked={contact.type === "work"}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label htmlFor="personal">
+          Personal:
+          <input
+            type="radio"
+            id="personal"
+            name="type"
+            value="personal"
+            checked={contact.type === "personal"}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
+
       <div className="actions-section">
         <button className="button blue" type="submit">
           Edit Contact
