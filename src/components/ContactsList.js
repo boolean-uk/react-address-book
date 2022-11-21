@@ -40,6 +40,7 @@ function ContactsList({ contacts, setContacts }) {
     );
   }
 
+  // If type has both 'work' and 'personal', set it back to the full contact list
   if (type.length > 1) {
     filteredContacts = contacts;
   }
