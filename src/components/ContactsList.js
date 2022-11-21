@@ -1,5 +1,5 @@
 import { useState, useRef } from "react";
-import { Link, useSearchParams, useNavigate } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import { BiWinkSmile } from "react-icons/bi";
 import { FaSuitcase } from "react-icons/fa";
 
@@ -8,7 +8,6 @@ function ContactsList({ contacts, setContacts }) {
   let [searchParams, setSearchParams] = useSearchParams();
   const confirmPopup = useRef(null);
   const successMessage = useRef(null);
-  const navigate = useNavigate();
 
   const deleteContact = async (contact) => {
     // Delete contact from contacts
@@ -56,12 +55,12 @@ function ContactsList({ contacts, setContacts }) {
   }
 
   const confirmDelete = (user) => {
-    confirmPopup.current.style.display = "block";
+    confirmPopup.current.style.visibility = "visible";
     setCurrentContact(user);
   };
 
   const cancelDelete = () => {
-    confirmPopup.current.style.display = "none";
+    confirmPopup.current.style.visibility = "hidden";
   };
 
   return (

@@ -251,9 +251,18 @@ button {
 }
 
 .delete-confirm {
-  height: 200px;
-  width: 300px;
-  background-color: lightcyan;
+  width: 310px;
+  height: 50px;
+  background-color: lightcoral;
   border-radius: 12px;
-  display: none;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-container {
+  display: flex;
+  gap: 10px;
 }
