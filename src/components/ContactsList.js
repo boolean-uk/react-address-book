@@ -4,7 +4,8 @@ import { BiWinkSmile } from "react-icons/bi";
 import { FaSuitcase } from "react-icons/fa";
 
 function ContactsList({ contacts, setContacts }) {
-  const [filterCategory, setFilterCategory] = useState("all");
+  // const [filterCategory, setFilterCategory] = useState("all");
+  let [searchParams, setSearchParams] = useSearchParams();
 
   const deleteContact = async (contact) => {
     // Delete contact from contacts
@@ -25,16 +26,22 @@ function ContactsList({ contacts, setContacts }) {
   // filters
   let filteredContacts = contacts;
 
-  if (filterCategory === "work") {
+  const type = searchParams.getAll("type");
+
+  if (type[0] === "work") {
     filteredContacts = filteredContacts.filter(
       (contact) => contact.type === "work"
     );
   }
 
-  if (filterCategory === "personal") {
+  if (type[0] === "personal") {
     filteredContacts = filteredContacts.filter(
       (contact) => contact.type === "personal"
     );
+  }
+
+  if (type.length > 1) {
+    filteredContacts = contacts;
   }
 
   return (
@@ -43,9 +50,13 @@ function ContactsList({ contacts, setContacts }) {
         <h2>Contacts</h2>
       </header>
       <div className="filter-container">
-        <button onClick={() => setFilterCategory("all")}>All</button>
-        <button onClick={() => setFilterCategory("work")}>Work</button>
-        <button onClick={() => setFilterCategory("personal")}>Personal</button>
+        <button onClick={() => setSearchParams({ type: ["work", "personal"] })}>
+          All
+        </button>
+        <button onClick={() => setSearchParams({ type: "work" })}>Work</button>
+        <button onClick={() => setSearchParams({ type: "personal" })}>
+          Personal
+        </button>
       </div>
       <ul className="contacts-list">
         {filteredContacts.map((contact, index) => {
