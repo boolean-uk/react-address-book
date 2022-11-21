@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
+import Spinner from "./LoadingSpinner/Spinner"
 
 function ContactsList(props) {
   
@@ -28,6 +29,7 @@ function ContactsList(props) {
     <>
       <header>
         <h2>Contacts</h2>
+        <Spinner />
       </header>
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
