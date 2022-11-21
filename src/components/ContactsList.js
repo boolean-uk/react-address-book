@@ -20,6 +20,7 @@ function ContactsList(props) {
     const filteredContacts = contacts.filter(contact => {
       contact.id !== id
     })
+    console.log(filteredContacts)
     setContacts(filteredContacts)
   }
 
@@ -41,7 +42,7 @@ function ContactsList(props) {
                 { /** TODO: Make a Link here to view contact */}
                 <Link to={`/contacts/${contact.id}/view`}>View</Link>
                 <Link to={`/contacts/${contact.id}/edit`} state={{contact}}>Edit</Link>
-                <a href='#' onClick={handleDelete(contact.id)}>Delet this</a>
+                <a href='' onClick={() => handleDelete(contact.id)}>Delet this</a>
               </p>
             </li>
           )
