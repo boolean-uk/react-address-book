@@ -3,8 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 
 function ContactsEdit(props) {
   // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
+  // to this component so contacts within the state can be edited
   const { setContacts, contacts } = props
   const [contactData, setContactData] = useState({})
   const nav = useNavigate()
@@ -17,7 +16,8 @@ function ContactsEdit(props) {
   }, [])
 
   const handleChange = event => {
-    // set the name and value (of the input) to be the target eg. input for firstName
+    // set the name and value (of the input) to be the target 
+    // eg. input for firstName
     const {name, value} = event.target
     // create a new variable, and asign all of the contactData Obj to it
     const newContactData = {...contactData}
@@ -79,6 +79,17 @@ function ContactsEdit(props) {
         placeholder='Hilda' 
         onChange={handleChange} 
         value={contactData.lastName} 
+        required
+      />
+
+      <label htmlFor="pronouns">Pronouns:</label>
+      <input 
+        id="pronouns" 
+        name="pronouns" 
+        type="text" 
+        placeholder='She/They' 
+        onChange={handleChange} 
+        value={contactData.pronouns} 
         required
       />
 

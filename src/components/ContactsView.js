@@ -22,7 +22,10 @@ function ContactsView() {
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street}, {contact.city}</p>
+      <p>Pronouns: {contact.pronouns}</p>
+      <p>Address: {contact.street}, {contact.city}</p>
+      <br></br>
+      <p>Contact Info:</p>
       <p>{contact.email}</p>
       <p>LinkedIn: {contact.linkedIn}</p>
       <p>Twitter: {contact.twitter}</p>

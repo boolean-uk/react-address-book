@@ -4,6 +4,7 @@ import { Navigate, useNavigate } from "react-router-dom";
 const initialState = {
   "firstName": "",
   "lastName": "",
+  "pronouns": "",
   "street": "",
   "city": "",
   "linkedIn": "",
@@ -20,8 +21,12 @@ function ContactsAdd(props) {
   const nav = useNavigate()
 
   const handleChange = event => {
+    // set the name and value (of the input) to be the target 
+    // eg. input for firstName
     const {name, value} = event.target
+    // create a new variable, and asign all of the contactData Obj to it
     const newContactData = {...contactData}
+    // Apply the new data that was input into the above fields into contactData
     newContactData[`${name}`] = value
     setContactData(newContactData)
   }
@@ -69,6 +74,17 @@ function ContactsAdd(props) {
         placeholder='Hilda' 
         onChange={handleChange} 
         value={contactData.lastName} 
+        required
+      />
+
+      <label htmlFor="pronouns">Pronouns:</label>
+      <input 
+        id="pronouns" 
+        name="pronouns" 
+        type="text" 
+        placeholder='She/They' 
+        onChange={handleChange} 
+        value={contactData.pronouns} 
         required
       />
 
