@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import Spinner from "./LoadingSpinner/Spinner"
 
-function ContactsView() {
+function ContactsView(props) {
   const [contact, setContact] = useState(false)
   const {id} = useParams()
+
+  const {loading} = props
 
   //TODO: Get the contact to load from the params and fetch.
   //With useEffect, load the contact when params changes
@@ -16,7 +19,7 @@ function ContactsView() {
 
 
   if (!contact) {
-    return <p>Loading</p>
+    return <Spinner />
   }
 
   return (

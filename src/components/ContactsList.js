@@ -25,6 +25,10 @@ function ContactsList(props) {
     setContacts(filteredContacts)
   }
 
+  if (!contacts) {
+    return <Spinner />
+  }
+  
   return (
     <>
       <header>
