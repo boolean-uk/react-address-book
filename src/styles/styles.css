@@ -106,7 +106,8 @@ h2 {
 .contacts-list > li {
   padding: 1rem 0;
   display: grid;
-  grid-template-columns: 1fr auto auto auto;
+  grid-template-columns: 1fr repeat(4, auto);
+  align-items: center;
   gap: 1rem;
 }
 
@@ -225,4 +226,9 @@ button {
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.filter-container {
+  display: flex;
+  gap: 10px;
 }
