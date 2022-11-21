@@ -1,16 +1,11 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import Spinner from "./LoadingSpinner/Spinner"
 
 function ContactsView(props) {
   const [contact, setContact] = useState(false)
   const {id} = useParams()
 
-  const {loading} = props
-
-  //TODO: Get the contact to load from the params and fetch.
-  //With useEffect, load the contact when params changes
-  //and update contact state
   useEffect(async () => {
     const res = await fetch(`http://localhost:4000/contacts/${id}`)
     const data = await res.json()
@@ -32,6 +27,8 @@ function ContactsView(props) {
       <p>{contact.email}</p>
       <p>LinkedIn: {contact.linkedIn}</p>
       <p>Twitter: {contact.twitter}</p>
+
+      <Link to={`/contacts/${contact.id}/meetings`}>Meetings</Link>
     </div>
   )
 }
