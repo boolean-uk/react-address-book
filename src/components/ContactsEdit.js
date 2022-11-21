@@ -10,9 +10,6 @@ function ContactsEdit(props) {
   const nav = useNavigate()
   const {id} = useParams()
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
-
   useEffect(async () => {
     const res = await fetch(`http://localhost:4000/contacts/${id}`)
     const data = await res.json()
@@ -20,24 +17,43 @@ function ContactsEdit(props) {
   }, [])
 
   const handleChange = event => {
+    // set the name and value (of the input) to be the target eg. input for firstName
     const {name, value} = event.target
+    // create a new variable, and asign all of the contactData Obj to it
     const newContactData = {...contactData}
+    // Apply the new data that was input into the above fields into contactData
     newContactData[`${name}`] = value
     setContactData(newContactData)
   }
 
   const handleSubmit = async event => {
     event.preventDefault()
-
-    const res = await fetch(`http://localhost:4000/contacts/${id}`, {
+    
+    // send PUT request to UPDATE an existing contact    
+    const fetchOptions = {
       method: 'PUT', 
       headers: {'Content-Type': 'application/json'}, 
       body: JSON.stringify(contactData)
-    })
+    }
+    // await for fetch response
+    const res = await fetch(`http://localhost:4000/contacts/${id}`, fetchOptions)
+    // extract response data
     const data = await res.json()
-    const updatedContacts = contacts.map(contact => contact.id === Number(id) ? data.contact: contact)
+    // replace LOCAL contact array state with data.contact; keep all other contacts unchanged
+    const updatedContacts = contacts.map(contact => {
+      if(contact.id === Number(id)) { 
+        console.log(contact.id, id, data.contact, contact)
+        // Was returning data.contact, but kept returning as undefined 
+        // TODO: ((IMPORTANT)) figure out why that was
+        return contact
+      }
+      console.log(contact)
+      return contact
+    })
+    // update LOCAL State
     setContacts(updatedContacts)
-    nav(`/contacts/${id}`)
+    // redirect to this edited contact's page
+    nav(`/contacts/${id}/view`)
   }
 
   return (
@@ -47,7 +63,8 @@ function ContactsEdit(props) {
       <label htmlFor="firstName">First Name</label>
       <input 
         id="firstName" 
-        name="firstName" type="text" 
+        name="firstName" 
+        type="text" 
         placeholder='Hilda' 
         onChange={handleChange} 
         value={contactData.firstName} 
@@ -120,7 +137,7 @@ function ContactsEdit(props) {
       />
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button className="button" type="submit">
           Update
         </button>
       </div>

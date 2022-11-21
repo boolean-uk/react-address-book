@@ -22,7 +22,10 @@
       "lastName": "Doe",
       "street": "20 Brighton Road",
       "city": "Jersey",
-      "id": 4
+      "id": 4,
+      "email": "JohnDoe@hotmail.com",
+      "twitter": "@JohnnyD",
+      "linkedIn": "John Doe"
     },
     {
       "firstName": "Dave",
@@ -33,6 +36,26 @@
       "linkedIn": "Dave",
       "twitter": "Dex",
       "id": 3
+    },
+    {
+      "firstName": "TestingFirstName",
+      "lastName": "TestingSurname",
+      "street": "123 Test Street",
+      "city": "Test City",
+      "email": "Test@Testmail.com",
+      "linkedIn": "Test LinkedIn",
+      "twitter": "@TestOnTwitter",
+      "id": 5
+    },
+    {
+      "firstName": "Test",
+      "lastName": "Test",
+      "street": "awdwasdaw",
+      "city": "sdawsdwa 2",
+      "email": "sdawdsd@asdwa.com",
+      "linkedIn": "dawsdwas",
+      "twitter": "dwasdwa",
+      "id": 6
     }
   ]
 }

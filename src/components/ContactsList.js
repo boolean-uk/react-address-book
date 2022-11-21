@@ -14,6 +14,7 @@ function ContactsList(props) {
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
+          console.log(firstName, lastName)
           return (
             <li className="contact" key={index}>
               <p>

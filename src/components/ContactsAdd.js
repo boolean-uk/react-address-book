@@ -5,7 +5,9 @@ const initialState = {
   "firstName": "",
   "lastName": "",
   "street": "",
-  "city": ""
+  "city": "",
+  "linkedIn": "",
+  "twitter": "",
 }
 
 function ContactsAdd(props) {
@@ -17,9 +19,6 @@ function ContactsAdd(props) {
   const [contactData, setContactData] = useState(initialState)
   const nav = useNavigate()
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
-
   const handleChange = event => {
     const {name, value} = event.target
     const newContactData = {...contactData}
@@ -27,16 +26,23 @@ function ContactsAdd(props) {
     setContactData(newContactData)
   }
 
-  const handleSubmit = event => {
+  const handleSubmit = async event => {
     event.preventDefault()
 
-    const res = fetch('http://localhost:4000/contacts', {
-      method: 'POST', 
+    // send PUT request to UPDATE an existing contact    
+    const fetchOptions = {
+      method: 'PUT', 
       headers: {'Content-Type': 'application/json'}, 
       body: JSON.stringify(contactData)
-    })
-    const data = res.json()
+    }
+
+    // await for fetch response
+    const res = await fetch('http://localhost:4000/contacts', fetchOptions)
+    // extract response data
+    const data = await res.json()
+    // update LOCAL State
     setContacts([...contacts, data])
+    // redirect to the home page
     nav('/')
   }
 
@@ -47,7 +53,8 @@ function ContactsAdd(props) {
       <label htmlFor="firstName">First Name</label>
       <input 
         id="firstName" 
-        name="firstName" type="text" 
+        name="firstName"
+        type="text" 
         placeholder='Hilda' 
         onChange={handleChange} 
         value={contactData.firstName} 
@@ -120,7 +127,7 @@ function ContactsAdd(props) {
       />
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button className="button" type="submit">
           Create
         </button>
       </div>
