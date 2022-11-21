@@ -9,6 +9,7 @@ const contact = {
   email: "",
   linkedIn: "",
   twitter: "",
+  type: "",
 };
 
 function ContactsAdd({ setContacts, contacts }) {
@@ -18,6 +19,7 @@ function ContactsAdd({ setContacts, contacts }) {
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
+
     setNewContact({
       ...newContact,
       [name]: value,
@@ -45,6 +47,7 @@ function ContactsAdd({ setContacts, contacts }) {
     e.preventDefault();
 
     postContact();
+    console.log(newContact);
     navigate("/");
   };
 
@@ -121,6 +124,35 @@ function ContactsAdd({ setContacts, contacts }) {
         value={newContact.twitter}
         onChange={handleChange}
       />
+
+      <p>Contact type:</p>
+      <div className="contact-type-form-control">
+        <label htmlFor="work">
+          Work:
+          <input
+            type="radio"
+            id="work"
+            name="type"
+            value="work"
+            checked={newContact.type === "work"}
+            onChange={handleChange}
+            required
+          />
+        </label>
+
+        <label htmlFor="personal">
+          Personal:
+          <input
+            type="radio"
+            id="personal"
+            name="type"
+            value="personal"
+            checked={newContact.type === "personal"}
+            onChange={handleChange}
+            required
+          />
+        </label>
+      </div>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

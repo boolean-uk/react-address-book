@@ -8,7 +8,8 @@
       "email": "darthyboy@empire.com",
       "linkedIn": "Vader2003",
       "twitter": "@vader",
-      "id": 1
+      "id": 1,
+      "type": "work"
     },
     {
       "firstName": "Luke ",
@@ -18,7 +19,19 @@
       "email": "lukeybaby@rebelalliance.com",
       "linkedIn": "Rebelwiththeforce",
       "twitter": "@lskywalker",
-      "id": 2
+      "id": 2,
+      "type": "personal"
+    },
+    {
+      "firstName": "Jabba",
+      "lastName": "The Hut",
+      "street": "1 Jabba's Palace",
+      "city": "Desert City",
+      "email": "jibbajabba@slugman.com",
+      "linkedIn": "JabbaIndustries",
+      "twitter": "@jabbaofficial",
+      "type": "work",
+      "id": 3
     }
   ],
   "meetings": [

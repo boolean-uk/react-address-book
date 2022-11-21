@@ -216,3 +216,13 @@ h2 {
   width: 24px;
   color: orangered;
 }
+
+button {
+  cursor: pointer;
+}
+
+.contact-type-form-control {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
