@@ -9,7 +9,8 @@
       "email": "JohnCarmack@ntlword.com",
       "linkedIn": "John Carmack",
       "twitter": "@JohnnyBoi",
-      "pronouns": "He/Him"
+      "pronouns": "He/Him",
+      "type": "Work"
     },
     {
       "id": 2,
@@ -20,7 +21,8 @@
       "pronouns": "She/Her",
       "email": "GHopper@hotmail.com",
       "linkedIn": "Grace Hopper",
-      "twitter": "@GrassHopper"
+      "twitter": "@GrassHopper",
+      "type": "Personal"
     },
     {
       "firstName": "John",
@@ -31,7 +33,8 @@
       "email": "JohnDoe@hotmail.com",
       "twitter": "@JohnnyD",
       "linkedIn": "John Doe",
-      "pronouns": "He/Him"
+      "pronouns": "He/Him",
+      "type": "Work"
     },
     {
       "firstName": "Dave",
@@ -42,7 +45,8 @@
       "linkedIn": "Dave",
       "twitter": "Dex",
       "id": 3,
-      "pronouns": "He/Him"
+      "pronouns": "He/Him",
+      "type": "Personal"
     },
     {
       "firstName": "TestFN",
@@ -53,7 +57,8 @@
       "linkedIn": "Test LinkedIn",
       "twitter": "@TestOnTwitter",
       "id": 5,
-      "pronouns": "They/It"
+      "pronouns": "They/It",
+      "type": "Work"
     }
   ],
   "meetings": [
@@ -62,21 +67,24 @@
       "name": "meeting 1",
       "date": "22/11/22",
       "time": "15:00",
-      "location": "Office floor"
+      "location": "Office floor",
+      "contactId": "5"
     },
     {
       "id": "2",
       "name": "meeting 2",
       "date": "28/11/22",
       "time": "17:30",
-      "location": "Room 2"
+      "location": "Room 2",
+      "contactId": "4"
     },
     {
       "id": "3",
       "name": "meeting 3",
       "date": "09/01/23",
       "time": "9:30",
-      "location": "Zoom"
+      "location": "Zoom",
+      "contactId": "3"
     },
     {
       "name": "Project 1",

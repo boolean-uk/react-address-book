@@ -62,7 +62,7 @@ function Meetings(props) {
       
       <form className='form-stack meeting-form' onSubmit={handleSubmit}>
         <h3 className='meetings-subheadings'>New Meeting:</h3>
-        {/* name input */}
+
         <label htmlFor='name'>Name: </label>
         <input 
           type="text" 
@@ -74,7 +74,6 @@ function Meetings(props) {
           value={meetingData.name}
         />
 
-        {/* date input */}
         <label htmlFor='date'>Date: </label>
         <input 
           type="date" 
@@ -86,7 +85,6 @@ function Meetings(props) {
           className='meeting-form-date'
         />
         
-        {/* time input */}
         <label htmlFor='time'>Time: </label>
         <input 
           type="time" 
@@ -98,7 +96,6 @@ function Meetings(props) {
           className='meeting-form-time'
         />
 
-        {/* location input */}
         <label htmlFor='location'>Location: </label>
         <input 
           type="text" 

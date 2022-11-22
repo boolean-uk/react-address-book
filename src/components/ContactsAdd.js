@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const initialState = {
   "firstName": "",
@@ -9,6 +9,7 @@ const initialState = {
   "city": "",
   "linkedIn": "",
   "twitter": "",
+  "type": ""
 }
 
 function ContactsAdd(props) {
@@ -141,6 +142,12 @@ function ContactsAdd(props) {
         value={contactData.twitter} 
         required
       />
+
+      <label htmlFor="contactType">Contact Type:</label>
+      <select name='type' onChange={handleChange} value={contactData.type}>
+        <option>Personal</option>
+        <option>Work</option>
+      </select>
 
       <div className="actions-section">
         <button className="button" type="submit">

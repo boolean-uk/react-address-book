@@ -12,7 +12,6 @@ export default function App() {
   const [contacts, setContacts] = useState([])
   const [loading, setLoading] = useState(true)
   
-  //TODO: Load all contacts on useEffect when component first renders
   useEffect(() => {
     fetch('http://localhost:4000/contacts')
       .then(res => res.json())
@@ -27,7 +26,6 @@ export default function App() {
       <nav>
         <h2><Link to='/'>The not so <br /> <span>Yellow</span> Pages</Link></h2>
         <ul>
-          {/* TODO: Make these links */}
           <li><Link to='/'>Contacts List</Link></li>
           <li><Link to='/contacts/add'>Add New Contact</Link></li>
         </ul>

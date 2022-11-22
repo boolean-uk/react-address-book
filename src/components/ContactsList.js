@@ -39,12 +39,12 @@ function ContactsList(props) {
         <Spinner /> :
         <ul className="contacts-list">
         {contacts.map((contact, index) => {
-          const { firstName, lastName } = contact
+          const { firstName, lastName, type } = contact
           console.log(firstName, lastName)
           return (
             <li className="contact" key={index}>
               <p>
-                {firstName} {lastName}
+                {firstName} {lastName} ({type})
               </p>
               <p>
                 <Link to={`/contacts/${contact.id}/view`}>View</Link>

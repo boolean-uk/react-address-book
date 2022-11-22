@@ -21,7 +21,7 @@ function ContactsView(props) {
 
   return (
     <div>
-      <h2>{contact.firstName} {contact.lastName}</h2>
+      <h2>{contact.firstName} {contact.lastName} ({contact.type})</h2>
       <p>Pronouns: {contact.pronouns}</p>
       <p>Address: {contact.street}, {contact.city}</p>
       <br></br>

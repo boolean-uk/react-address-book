@@ -125,7 +125,7 @@ function ContactsEdit(props) {
         required 
       />
 
-  <label htmlFor="linkedIn">LinkedIn:</label>
+      <label htmlFor="linkedIn">LinkedIn:</label>
       <input 
         id="linkedIn" 
         name="linkedIn" 
@@ -136,7 +136,7 @@ function ContactsEdit(props) {
         required
       />
 
-  <label htmlFor="twitter">Twitter:</label>
+      <label htmlFor="twitter">Twitter:</label>
       <input 
         id="twitter" 
         name="twitter" 
@@ -146,6 +146,13 @@ function ContactsEdit(props) {
         value={contactData.twitter} 
         required
       />
+
+      <label htmlFor="contactType">Contact Type:</label>
+      <select name='type' onChange={handleChange} value={contactData.type}>
+        <option>Select type </option>
+        <option>Personal</option>
+        <option>Work</option>
+      </select>
 
       <div className="actions-section">
         <button className="button" type="submit">
