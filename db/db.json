@@ -61,19 +61,22 @@
       "id": "1",
       "name": "meeting 1",
       "date": "22/11/22",
-      "time": "15:00"
+      "time": "15:00",
+      "location": "Office floor"
     },
     {
       "id": "2",
       "name": "meeting 2",
       "date": "28/11/22",
-      "time": "17:30"
+      "time": "17:30",
+      "location": "Room 2"
     },
     {
       "id": "3",
       "name": "meeting 3",
       "date": "09/01/23",
-      "time": "9:30"
+      "time": "9:30",
+      "location": "Zoom"
     }
   ]
 }
