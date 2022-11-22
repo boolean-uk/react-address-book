@@ -67,14 +67,17 @@ function ContactsList({ contacts, setContacts }) {
   };
 
   const filterHover = (e) => {
+    console.log(e.target.classList);
     if (e.target.classList.contains("filter-btn")) {
       setShowFilters(true);
     }
 
+    // This is surely done in an easier way...
     if (
       !e.target.classList.contains("filter-btn") &&
       !e.target.classList.contains("filter-dropdown") &&
-      !e.target.classList.contains("filter")
+      !e.target.classList.contains("filter") &&
+      !e.target.classList.contains("filter-btn-container")
     ) {
       setShowFilters(false);
     }
@@ -87,24 +90,26 @@ function ContactsList({ contacts, setContacts }) {
           <h2>Contacts</h2>
           <BiFilter className="filter-btn" />
           <div className={`filter-dropdown ${showFilters && "show"}`}>
-            <button
-              onClick={() => setSearchParams({ type: ["work", "personal"] })}
-              className="btn filter"
-            >
-              All
-            </button>
-            <button
-              onClick={() => setSearchParams({ type: "work" })}
-              className="btn filter"
-            >
-              Work
-            </button>
-            <button
-              onClick={() => setSearchParams({ type: "personal" })}
-              className="btn filter"
-            >
-              Personal
-            </button>
+            <div className="filter-btn-container">
+              <button
+                onClick={() => setSearchParams({ type: ["work", "personal"] })}
+                className="btn filter"
+              >
+                All
+              </button>
+              <button
+                onClick={() => setSearchParams({ type: "work" })}
+                className="btn filter"
+              >
+                Work
+              </button>
+              <button
+                onClick={() => setSearchParams({ type: "personal" })}
+                className="btn filter"
+              >
+                Personal
+              </button>
+            </div>
           </div>
         </header>
         <ul className="contacts-list">
