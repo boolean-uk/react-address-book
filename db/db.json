@@ -55,5 +55,25 @@
       "id": 5,
       "pronouns": "They/It"
     }
+  ],
+  "meetings": [
+    {
+      "id": "1",
+      "name": "meeting 1",
+      "date": "22/11/22",
+      "time": "15:00"
+    },
+    {
+      "id": "2",
+      "name": "meeting 2",
+      "date": "28/11/22",
+      "time": "17:30"
+    },
+    {
+      "id": "3",
+      "name": "meeting 3",
+      "date": "09/01/23",
+      "time": "9:30"
+    }
   ]
 }

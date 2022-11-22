@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 import Spinner from "./LoadingSpinner/Spinner"
 
+import '../styles/styles.css'
+
 function ContactsView(props) {
   const [contact, setContact] = useState(false)
   const {id} = useParams()
@@ -28,7 +30,7 @@ function ContactsView(props) {
       <p>LinkedIn: {contact.linkedIn}</p>
       <p>Twitter: {contact.twitter}</p>
 
-      <Link to={`/contacts/${contact.id}/meetings`}>Meetings</Link>
+      <li className='meetings-button-li'><Link className='meetings-button' to={`/contacts/${contact.id}/meetings`}>Meetings</Link></li>
     </div>
   )
 }

@@ -54,18 +54,27 @@ nav h2 span {
   color: #f3e500;
 }
 
-nav li {
+nav li, .meetings-button {
   border-radius: 10px;
 }
 
-nav li a, nav h2 a {
+nav li a, nav h2 a, .meetings-button {
   text-decoration: none;
   color: white;
   padding: 10px;
  
 }
 
-nav li:hover {
+.meetings-button {
+  background: #171717;
+}
+
+.meetings-button-li {
+  margin-top: 20px;
+  list-style: none;
+}
+
+nav li:hover, .meetings-button:hover {
   background: #373737;
 }
 
@@ -171,19 +180,19 @@ h2 {
   max-width: 400px;
 }
 
-.contact-form h1 {
+.contact-form h1, .meeting-form h1 {
   margin-bottom: 1rem;
 }
 
-.contact-form label {
+.contact-form label, .meeting-form label {
   font-weight: bold;
 }
 
-.contact-form .checkbox-section {
+.contact-form .checkbox-section, .meeting-form .checkbox-section {
   padding: 0.25rem 0;
 }
 
-.contact-form .actions-section {
+.contact-form .actions-section, .meeting-form .actions-section {
   display: grid;
   grid-auto-flow: column;
   justify-content: right;
@@ -192,4 +201,22 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.meeting-form {
+  max-width: 150px;
+}
+
+.meeting-form-address {
+  width: 300px !important;  
+}
+
+.new-meeting-subheading {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.current-meeting-subheading {
+  margin-bottom: 10px;
+  margin-top: 20px;
 }
