@@ -68,6 +68,10 @@ h2 {
   margin-bottom: 0.5rem;
 }
 
+main {
+  position: relative;
+}
+
 .center {
   max-width: 400px;
   margin-left: auto;
@@ -228,11 +232,6 @@ button {
   gap: 16px;
 }
 
-.filter-container {
-  display: flex;
-  gap: 10px;
-}
-
 .success {
   color: lightgreen;
   display: none;
@@ -310,4 +309,28 @@ button {
 
 .edit:hover {
   background-color: #85d6bb;
+}
+
+.filter-btn {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.filter-dropdown {
+  height: 200px;
+  width: 200px;
+  background-color: #fff;
+  border: 2px black solid;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  top: 30px;
+  left: 120px;
+  display: none;
+}
+
+.show {
+  display: block;
 }

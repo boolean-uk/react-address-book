@@ -159,7 +159,7 @@ function ContactsAdd({ setContacts, contacts }) {
         </div>
 
         <div className="actions-section">
-          <button className="button blue" type="submit">
+          <button className="btn view" type="submit">
             Create
           </button>
         </div>

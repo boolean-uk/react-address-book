@@ -1,13 +1,16 @@
 import { useState, useRef } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-import { BiWinkSmile } from "react-icons/bi";
+import { BiWinkSmile, BiFilter } from "react-icons/bi";
 import { FaSuitcase } from "react-icons/fa";
 
 function ContactsList({ contacts, setContacts }) {
   const [currentContact, setCurrentContact] = useState({});
+  const [showFilters, setShowFilters] = useState(false);
+
   let [searchParams, setSearchParams] = useSearchParams();
   const confirmPopup = useRef(null);
   const successMessage = useRef(null);
+  const dropdown = useRef(null);
 
   const deleteContact = async (contact) => {
     // Delete contact from contacts
@@ -63,61 +66,85 @@ function ContactsList({ contacts, setContacts }) {
     confirmPopup.current.style.visibility = "hidden";
   };
 
+  const filterHover = (e) => {
+    if (e.target.classList.contains("filter-btn")) {
+      setShowFilters(true);
+    }
+
+    if (
+      !e.target.classList.contains("filter-btn") &&
+      !e.target.classList.contains("filter-dropdown") &&
+      !e.target.classList.contains("filter")
+    ) {
+      setShowFilters(false);
+    }
+  };
+
   return (
     <>
-      <header className="title-and-btns">
-        <h2>Contacts</h2>
-        <div className="filter-container">
-          <button
-            onClick={() => setSearchParams({ type: ["work", "personal"] })}
-          >
-            All
-          </button>
-          <button onClick={() => setSearchParams({ type: "work" })}>
-            Work
-          </button>
-          <button onClick={() => setSearchParams({ type: "personal" })}>
-            Personal
-          </button>
+      <section onMouseOver={filterHover}>
+        <header className="title-and-btns">
+          <h2>Contacts</h2>
+          <BiFilter className="filter-btn" />
+          <div className={`filter-dropdown ${showFilters && "show"}`}>
+            <button
+              onClick={() => setSearchParams({ type: ["work", "personal"] })}
+              className="btn filter"
+            >
+              All
+            </button>
+            <button
+              onClick={() => setSearchParams({ type: "work" })}
+              className="btn filter"
+            >
+              Work
+            </button>
+            <button
+              onClick={() => setSearchParams({ type: "personal" })}
+              className="btn filter"
+            >
+              Personal
+            </button>
+          </div>
+        </header>
+        <ul className="contacts-list">
+          {filteredContacts.map((contact, index) => {
+            const { firstName, lastName, id, type } = contact;
+            return (
+              <li className="contact" key={index}>
+                <p>
+                  {firstName} {lastName}
+                </p>
+                {type === "work" ? <FaSuitcase /> : <BiWinkSmile />}
+                <Link to={`/contacts/${id}`} className="btn view">
+                  View
+                </Link>
+                <Link to={`/contacts/edit/${id}`} className="btn edit">
+                  Edit
+                </Link>
+                <button
+                  onClick={() => confirmDelete(contact)}
+                  className="btn delete"
+                >
+                  Delete
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+        <p className="success" ref={successMessage}>
+          Contact successfully deleted!
+        </p>
+        <div className="delete-confirm" ref={confirmPopup}>
+          <p>Are you sure?</p>
+          <div className="btn-container">
+            <button onClick={() => deleteContact(currentContact)}>
+              Confirm delete
+            </button>
+            <button onClick={cancelDelete}>Cancel</button>
+          </div>
         </div>
-      </header>
-      <ul className="contacts-list">
-        {filteredContacts.map((contact, index) => {
-          const { firstName, lastName, id, type } = contact;
-          return (
-            <li className="contact" key={index}>
-              <p>
-                {firstName} {lastName}
-              </p>
-              {type === "work" ? <FaSuitcase /> : <BiWinkSmile />}
-              <Link to={`/contacts/${id}`} className="btn view">
-                View
-              </Link>
-              <Link to={`/contacts/edit/${id}`} className="btn edit">
-                Edit
-              </Link>
-              <button
-                onClick={() => confirmDelete(contact)}
-                className="btn delete"
-              >
-                Delete
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-      <p className="success" ref={successMessage}>
-        Contact successfully deleted!
-      </p>
-      <div className="delete-confirm" ref={confirmPopup}>
-        <p>Are you sure?</p>
-        <div className="btn-container">
-          <button onClick={() => deleteContact(currentContact)}>
-            Confirm delete
-          </button>
-          <button onClick={cancelDelete}>Cancel</button>
-        </div>
-      </div>
+      </section>
     </>
   );
 }
