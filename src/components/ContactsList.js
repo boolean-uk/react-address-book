@@ -65,18 +65,22 @@ function ContactsList({ contacts, setContacts }) {
 
   return (
     <>
-      <header>
+      <header className="title-and-btns">
         <h2>Contacts</h2>
+        <div className="filter-container">
+          <button
+            onClick={() => setSearchParams({ type: ["work", "personal"] })}
+          >
+            All
+          </button>
+          <button onClick={() => setSearchParams({ type: "work" })}>
+            Work
+          </button>
+          <button onClick={() => setSearchParams({ type: "personal" })}>
+            Personal
+          </button>
+        </div>
       </header>
-      <div className="filter-container">
-        <button onClick={() => setSearchParams({ type: ["work", "personal"] })}>
-          All
-        </button>
-        <button onClick={() => setSearchParams({ type: "work" })}>Work</button>
-        <button onClick={() => setSearchParams({ type: "personal" })}>
-          Personal
-        </button>
-      </div>
       <ul className="contacts-list">
         {filteredContacts.map((contact, index) => {
           const { firstName, lastName, id, type } = contact;
@@ -86,9 +90,18 @@ function ContactsList({ contacts, setContacts }) {
                 {firstName} {lastName}
               </p>
               {type === "work" ? <FaSuitcase /> : <BiWinkSmile />}
-              <Link to={`/contacts/${id}`}>View</Link>
-              <Link to={`/contacts/edit/${id}`}>Edit</Link>
-              <button onClick={() => confirmDelete(contact)}>Delete</button>
+              <Link to={`/contacts/${id}`} className="btn view">
+                View
+              </Link>
+              <Link to={`/contacts/edit/${id}`} className="btn edit">
+                Edit
+              </Link>
+              <button
+                onClick={() => confirmDelete(contact)}
+                className="btn delete"
+              >
+                Delete
+              </button>
             </li>
           );
         })}

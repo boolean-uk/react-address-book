@@ -168,7 +168,7 @@ function ContactsEdit({ contacts, setContacts }) {
       </div>
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button className="btn edit" type="submit">
           Edit Contact
         </button>
       </div>

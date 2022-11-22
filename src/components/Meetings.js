@@ -85,58 +85,65 @@ function Meeting() {
   };
 
   return (
-    <>
-      <h1>Meetings</h1>
-      <button onClick={() => navigate(-1)}>Back</button>
-      <form className="form-stack contact-form" onSubmit={handleSubmit}>
-        <h2>Add New Meeting</h2>
-        <label htmlFor="date">Date</label>
-        <input
-          id="date"
-          name="date"
-          type="text"
-          required
-          value={newMeeting.date}
-          onChange={handleChange}
-        />
-        <label htmlFor="time">Time</label>
-
-        <input
-          id="time"
-          name="time"
-          type="text"
-          required
-          value={newMeeting.time}
-          onChange={handleChange}
-        />
-        <label htmlFor="location">Location</label>
-        <input
-          id="location"
-          name="location"
-          type="text"
-          required
-          value={newMeeting.location}
-          onChange={handleChange}
-        />
-        <div className="actions-section">
-          <button className="button blue" type="submit">
-            Add Meeting
-          </button>
+    <section className="meetings-container">
+      <div>
+        <div className="title-and-btns">
+          <h1>Meetings</h1>
+          <button onClick={() => navigate(-1)}>Back</button>
         </div>
-      </form>
+        <form className="form-stack contact-form" onSubmit={handleSubmit}>
+          <h2>Add New Meeting</h2>
+          <label htmlFor="date">Date:</label>
+          <input
+            id="date"
+            name="date"
+            type="text"
+            required
+            value={newMeeting.date}
+            onChange={handleChange}
+          />
+          <label htmlFor="time">Time:</label>
 
-      <h2>
-        {!contact && "Meetings"}
-        {contact && `Meetings for ${contact.firstName} ${contact.lastName}`}
-      </h2>
-      <ul>
-        {meetings.length === 0 && "No meetings to display"}
-        {meetings &&
-          meetings.map((meeting) => {
-            return <SingleMeeting key={meeting.id} {...meeting} />;
-          })}
-      </ul>
-    </>
+          <input
+            id="time"
+            name="time"
+            type="text"
+            required
+            value={newMeeting.time}
+            onChange={handleChange}
+          />
+          <label htmlFor="location">Location:</label>
+          <input
+            id="location"
+            name="location"
+            type="text"
+            required
+            value={newMeeting.location}
+            onChange={handleChange}
+          />
+
+          <div className="actions-section">
+            <button className="button blue" type="submit">
+              Add Meeting
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div>
+        <h2>
+          {!contact && "Meetings"}
+          {contact && `Meetings for ${contact.firstName} ${contact.lastName}`}
+        </h2>
+        <ul>
+          {meetings.length === 0 && "No meetings to display"}
+          {meetings &&
+            meetings.map((meeting) => {
+              return <SingleMeeting key={meeting.id} {...meeting} />;
+            })}
+        </ul>
+      </div>
+    </section>
   );
 }
 

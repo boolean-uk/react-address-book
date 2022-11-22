@@ -253,7 +253,7 @@ button {
 .delete-confirm {
   width: 310px;
   height: 50px;
-  background-color: lightcoral;
+  background-color: #f83a53;
   border-radius: 12px;
   visibility: hidden;
   display: flex;
@@ -265,4 +265,49 @@ button {
 .btn-container {
   display: flex;
   gap: 10px;
+}
+
+.meetings-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.title-and-btns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 5px 12px;
+  transition: all 1s;
+}
+
+.delete {
+  background-color: #f83a53;
+}
+
+.delete:hover {
+  background-color: #fa7587;
+}
+
+.view {
+  background-color: #627dd0;
+}
+
+.view:hover {
+  background-color: #91a4de;
+}
+
+.edit {
+  background-color: #3db88f;
+}
+
+.edit:hover {
+  background-color: #85d6bb;
 }
