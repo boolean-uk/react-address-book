@@ -219,7 +219,7 @@ main {
 .meeting-icon {
   height: 24px;
   width: 24px;
-  color: orangered;
+  color: #3db88f;
 }
 
 button {
@@ -246,7 +246,6 @@ button {
 .type-icon {
   height: 24px;
   width: 24px;
-  color: lightskyblue;
 }
 
 .delete-confirm {
@@ -346,4 +345,27 @@ button {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.menu-link {
+  color: #000;
+  background-color: #edf2f4;
+  border-radius: 12px;
+  width: 250px;
+  padding: 5px 12px;
+  transition: all 1s;
+}
+
+.menu-link:hover {
+  background-color: #c0d1d8;
 }

@@ -89,7 +89,9 @@ function Meeting() {
       <div>
         <div className="title-and-btns">
           <h1>Meetings</h1>
-          <button onClick={() => navigate(-1)}>Back</button>
+          <button onClick={() => navigate(-1)} className="btn delete">
+            Back
+          </button>
         </div>
         <form className="form-stack contact-form" onSubmit={handleSubmit}>
           <h2>Add New Meeting</h2>
@@ -123,7 +125,7 @@ function Meeting() {
           />
 
           <div className="actions-section">
-            <button className="button blue" type="submit">
+            <button className="btn edit" type="submit">
               Add Meeting
             </button>
           </div>

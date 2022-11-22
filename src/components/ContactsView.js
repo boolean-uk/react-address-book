@@ -68,7 +68,9 @@ function ContactsView() {
           {twitter ? twitter : "No Twitter handle provided"}
         </li>
       </ul>
-      <Link to={`/contacts/${contactId}/meetings`}>Meetings</Link>
+      <Link to={`/contacts/${contactId}/meetings`} className="btn view">
+        Meetings
+      </Link>
     </div>
   );
 }

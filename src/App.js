@@ -37,12 +37,12 @@ export default function App() {
     <>
       <nav>
         <h2>Menu</h2>
-        <ul>
-          <Link to={"/"}>
-            <li>Contacts List</li>
+        <ul className="menu-links">
+          <Link to={"/"} className="link">
+            <li className="menu-link">Contacts List</li>
           </Link>
-          <Link to={"/contacts/add"}>
-            <li>Add New Contact</li>
+          <Link to={"/contacts/add"} className="link">
+            <li className="menu-link">Add New Contact</li>
           </Link>
         </ul>
       </nav>
