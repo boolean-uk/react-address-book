@@ -27,6 +27,9 @@ function ContactsView() {
       <p>
         {contact.street} {contact.city}
       </p>
+      <p> {contact.email} </p>
+      <p> {contact.linkedin}</p>
+      <p> {contact.twitter}</p>
     </div>
   );
 }

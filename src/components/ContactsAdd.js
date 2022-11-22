@@ -12,6 +12,9 @@ function ContactsAdd(props) {
     lastName: "",
     street: "",
     city: "",
+    email: "",
+    linkedin: "",
+    twitter: "",
   };
 
   const [contact, setContact] = useState(initialContact);
@@ -37,10 +40,10 @@ function ContactsAdd(props) {
   const handleChange = (event) => {
     const targetvalue = event.target.value;
     const targetName = event.target.name;
-    if (targetName === "firstName") {
-      setContact({ ...contact, firstName: targetvalue });
-    }
-    if (targetName === "lastName") {
+    //if (targetName === "firstName") {
+    setContact({ ...contact, [targetName]: targetvalue });
+    // }
+    /*if (targetName === "lastName") {
       setContact({ ...contact, lastName: targetvalue });
     }
     if (targetName === "street") {
@@ -48,7 +51,7 @@ function ContactsAdd(props) {
     }
     if (targetName === "city") {
       setContact({ ...contact, city: targetvalue });
-    }
+    }*/
   };
   console.log(contact);
   return (
@@ -90,7 +93,30 @@ function ContactsAdd(props) {
         required
         onChange={handleChange}
       />
-
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        onChange={handleChange}
+      />
+      <label htmlFor="linekedin">LinkedIn:</label>
+      <input
+        id="linkedin"
+        name="linkedin"
+        type="url"
+        required
+        onChange={handleChange}
+      />
+      <label htmlFor="twitter">Twitter Handle:</label>
+      <input
+        id="twitter"
+        name="twitter"
+        type="text"
+        required
+        onChange={handleChange}
+      />
       <div className="actions-section">
         <button className="button blue" type="submit">
           Create
