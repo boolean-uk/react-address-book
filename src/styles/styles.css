@@ -37,7 +37,10 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 /* Make images easier to work with */
@@ -63,6 +66,10 @@ select {
 h1,
 h2 {
   margin-bottom: 0.5rem;
+}
+
+main {
+  position: relative;
 }
 
 .center {
@@ -103,7 +110,8 @@ h2 {
 .contacts-list > li {
   padding: 1rem 0;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr repeat(4, auto);
+  align-items: center;
   gap: 1rem;
 }
 
@@ -150,4 +158,214 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.contact-heading {
+  margin-top: 20px;
+}
+
+/* Loading spinner, yes of course I found it online and didn't build my own */
+
+.lds-ring {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ring div {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  margin: 8px;
+  border: 8px solid #999;
+  border-radius: 50%;
+  animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+  border-color: #999 transparent transparent transparent;
+}
+.lds-ring div:nth-child(1) {
+  animation-delay: -0.45s;
+}
+.lds-ring div:nth-child(2) {
+  animation-delay: -0.3s;
+}
+.lds-ring div:nth-child(3) {
+  animation-delay: -0.15s;
+}
+@keyframes lds-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* .container,
+.lds-ring {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+.single-meeting {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.meeting-icon {
+  height: 24px;
+  width: 24px;
+  color: #3db88f;
+}
+
+button {
+  cursor: pointer;
+}
+
+.contact-type-form-control {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.success {
+  color: lightgreen;
+  display: none;
+}
+
+.contact-heading {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.type-icon {
+  height: 24px;
+  width: 24px;
+}
+
+.delete-confirm {
+  width: 310px;
+  height: 50px;
+  background-color: #f83a53;
+  border-radius: 12px;
+  visibility: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.btn-container {
+  display: flex;
+  gap: 10px;
+}
+
+.meetings-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.title-and-btns {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.btn {
+  text-decoration: none;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  padding: 5px 12px;
+  transition: all 1s;
+}
+
+.delete {
+  background-color: #f83a53;
+}
+
+.delete:hover {
+  background-color: #fa7587;
+}
+
+.view {
+  background-color: #627dd0;
+}
+
+.view:hover {
+  background-color: #91a4de;
+}
+
+.edit {
+  background-color: #3db88f;
+}
+
+.edit:hover {
+  background-color: #85d6bb;
+}
+
+.filter {
+  background-color: #305252;
+}
+
+.filter:hover {
+  background-color: #65a4a4;
+}
+
+.filter-btn {
+  height: 30px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.filter-dropdown {
+  height: 150px;
+  width: 200px;
+  background-color: #fff;
+  border: 1px black solid;
+  /* border-radius: 12px; */
+  padding: 10px;
+  position: absolute;
+  top: 30px;
+  left: 120px;
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.filter-btn-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menu-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.menu-link {
+  color: #000;
+  background-color: #edf2f4;
+  border-radius: 12px;
+  width: 250px;
+  padding: 5px 12px;
+  transition: all 1s;
+}
+
+.menu-link:hover {
+  background-color: #c0d1d8;
 }
