@@ -121,7 +121,7 @@ function Meetings(props) {
 
       <h3 className='meetings-subheadings'>Current Meetings:</h3>
       <ul className='contacts-list'>
-        {/* TODO: Add map/filter to add an li for each meeting */}
+        {meetings.map(meeting => <li className='contact'><p>{meeting.name} on {meeting.date} at {meeting.time} in {meeting.location}</p> </li>)}
       </ul>
     </>
   )
