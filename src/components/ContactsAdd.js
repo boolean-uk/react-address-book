@@ -120,7 +120,7 @@ function ContactsAdd(props) {
         required 
       />
 
-  <label htmlFor="linkedIn">LinkedIn:</label>
+      <label htmlFor="linkedIn">LinkedIn:</label>
       <input 
         id="linkedIn" 
         name="linkedIn" 
@@ -131,7 +131,7 @@ function ContactsAdd(props) {
         required
       />
 
-  <label htmlFor="twitter">Twitter:</label>
+      <label htmlFor="twitter">Twitter:</label>
       <input 
         id="twitter" 
         name="twitter" 
