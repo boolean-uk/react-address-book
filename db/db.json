@@ -15,20 +15,6 @@
       "city": "London"
     },
     {
-      "firstName": "Please",
-      "lastName": "Post",
-      "street": "Properly",
-      "city": "This Time",
-      "id": 3
-    },
-    {
-      "firstName": "Please",
-      "lastName": "Post",
-      "street": "Properly",
-      "city": "This Time",
-      "id": 4
-    },
-    {
       "firstName": "Bob",
       "lastName": "Builder",
       "street": "Busy",
@@ -64,13 +50,6 @@
       "id": 9
     },
     {
-      "firstName": "Donkey",
-      "lastName": "Sidekick",
-      "street": "Hut",
-      "city": "Swamp",
-      "id": 10
-    },
-    {
       "firstName": "Dragon",
       "lastName": "Donkey",
       "street": "Tallest",
@@ -97,48 +76,6 @@
       "street": "did it ",
       "city": "work?",
       "id": 14
-    },
-    {
-      "firstName": "",
-      "lastName": "",
-      "street": "",
-      "city": "",
-      "id": 15
-    },
-    {
-      "firstName": "testing",
-      "lastName": "reset",
-      "street": "did it",
-      "city": "work?",
-      "id": 16
-    },
-    {
-      "firstName": "testing",
-      "lastName": "reset",
-      "street": "did it",
-      "city": "work?",
-      "id": 17
-    },
-    {
-      "firstName": "efew",
-      "lastName": "efaaef",
-      "street": "fwr ",
-      "city": "gwerg",
-      "id": 18
-    },
-    {
-      "firstName": "grgfQER",
-      "lastName": "D Fwe",
-      "street": "dqwrwef ",
-      "city": "eft wqrf",
-      "id": 19
-    },
-    {
-      "firstName": "ferte",
-      "lastName": "qwew",
-      "street": "wreqw",
-      "city": "asdwad",
-      "id": 20
     }
   ]
 }

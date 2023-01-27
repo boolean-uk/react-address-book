@@ -12,13 +12,9 @@ const initialState = {
 
 function ContactsAdd(props) {
 
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const { setContacts, contacts } = props
   const [formState, setFormState] = useState(initialState)
 
-  //TODO: Implement controlled form
   //send POST to json server on form submit
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -50,9 +46,6 @@ function ContactsAdd(props) {
       setFormState(initialState);
     }, 500)
   }
-
-  //add an "event listener" to reset the form after submit
-  // const useEffect()
 
   //change the input from empty string to submitted info
   const handleChange = (event) => {
