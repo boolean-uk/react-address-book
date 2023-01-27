@@ -5,14 +5,15 @@ function ContactsList(props) {
   
   //"contacts" must be passed as prop to this component
   const { contacts } = props
-
+  console.log("this is constacts in list",contacts)
   return (
     <>
       <header>
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
-        {contacts.map((contact, index) => {
+        {contacts != undefined
+        ? contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           return (
             <li className="contact" key={index}>
@@ -21,11 +22,11 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
-                View
+               {/* <Link >View</Link>  */}
               </p>
             </li>
           )
-        })}
+        }): "You Have No Friends"}
       </ul>
     </>
   )

@@ -9,20 +9,31 @@ export default function App() {
   const [contacts, setContacts] = useState([])
   
   //TODO: Load all contacts on useEffect when component first renders
-
+  useEffect(() => {
+    fetch("http://localhost:4000/contacts")
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data)
+      setContacts(data)
+    })
+  }, [])
+  console.log("this is contacts",contacts)
   return (
     <>
       <nav>
         <h2>Menu</h2>
         <ul>
           {/* TODO: Make these links */}
-          <li>Contacts List</li>
-          <li>Add New Contact</li>
+          {console.log("this is contacts in jsx", contacts)}
+          <li><Link to={`/`} >Contacts List</Link></li>
+          <li><Link to={`/contacts/add`}>Add New Contact</Link></li>
         </ul>
       </nav>
       <main>
         <Routes>
           {/* TODO: Add routes here  */}
+          <Route path="/" element={<ContactsList contacts={contacts} />}></Route>
+          <Route path="/contacts/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts} />}></Route>
         </Routes>
       </main>
     </>

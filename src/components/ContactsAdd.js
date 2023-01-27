@@ -2,7 +2,8 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 function ContactsAdd(props) {
-
+const [firstName, setFirstName] = useState("")
+const []
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
@@ -12,11 +13,11 @@ function ContactsAdd(props) {
   //send POST to json server on form submit
 
   return (
-    <form className="form-stack contact-form">
+    <form className="form-stack contact-form" onSubmit={handleSubmit}>
       <h2>Create Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
-      <input id="firstName" name="firstName" type="text" required />
+      <input id="firstName" name="firstName" type="text" required  />
 
       <label htmlFor="lastName">Last Name:</label>
       <input id="lastName" name="lastName" type="text" required/>
