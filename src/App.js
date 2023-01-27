@@ -10,6 +10,15 @@ export default function App() {
   
   //TODO: Load all contacts on useEffect when component first renders
 
+  useEffect(() => {
+    fetch("http://localhost:4000/contacts")
+    .then((res) => res.json())
+    .then((contactData) => {
+      setContacts(contactData)
+      console.log("contactData:", contactData)
+    })
+  }, [])
+
   return (
     <>
       <nav>
@@ -21,8 +30,10 @@ export default function App() {
         </ul>
       </nav>
       <main>
+        <ContactsList contacts={contacts}/>
         <Routes>
-          {/* TODO: Add routes here  */}
+          {/* TODO: Add routes here  */}#
+          <Route path="/" element={ContactsList} />
         </Routes>
       </main>
     </>
