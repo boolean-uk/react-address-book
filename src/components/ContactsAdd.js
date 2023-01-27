@@ -1,15 +1,13 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
+
 function ContactsAdd(props) {
 
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
   const { setContacts, contacts } = props
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  const navigate = useNavigate()
+
   const saveContact = () => {
     const body = {
       firstName: document.getElementById("firstName").value,
@@ -24,6 +22,8 @@ function ContactsAdd(props) {
         'Content-Type': 'application/json'
     }}
     fetch(`http://localhost:4000/contacts`, options)
+      .then(setContacts([...contacts, body]))
+      .then(navigate('/'))
   }
 
   return (
