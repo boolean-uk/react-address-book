@@ -7,7 +7,10 @@ function ContactsAdd(props) {
     firstName: "",
     lastName: "",
     street: "",
-    city: ""
+    city: "",
+    email: "",
+    linkedin: "",
+    twitter: ""
   }
 const [ContactData, setContactData] = useState(initialFormState)
   // setContacts and contacts must be passed as props
@@ -33,6 +36,15 @@ const [ContactData, setContactData] = useState(initialFormState)
     }
     if(inputName === "city"){
       setContactData({...ContactData, city: inputValue})
+    }
+    if(inputName === "email"){
+      setContactData({...ContactData, email: inputValue})
+    }
+    if(inputName === "linkedIn"){
+      setContactData({...ContactData, linkedin: inputValue})
+    }
+    if(inputName === "twitter"){
+      setContactData({...ContactData, twitter: inputValue})
     }
     console.log("the constactdata",ContactData)
   }
@@ -67,6 +79,15 @@ const [ContactData, setContactData] = useState(initialFormState)
 
       <label htmlFor="lastName">Last Name:</label>
       <input id="lastName" name="lastName" type="text" value={ContactData.lastName} required onChange={handleChange}/>
+
+      <label htmlFor="email">Email</label>
+      <input id="email" name="email" type="email" value={ContactData.email}  onChange={handleChange} />
+
+      <label htmlFor="linkedIn">LinkedIn</label>
+      <input id="linkedIn" name="linkedIn" type="text" value={ContactData.linkedin}  onChange={handleChange}/>
+
+      <label htmlFor="twitter">Twitter</label>
+      <input id="twitter" name="twitter" type="text" value={ContactData.twitter} onChange={handleChange} />
 
       <label htmlFor="street">Street:</label>
       <input id="street" name="street" type="text" value={ContactData.street} required onChange={handleChange}/>
