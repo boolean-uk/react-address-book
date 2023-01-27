@@ -13,7 +13,8 @@ function ContactsList(props) {
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
-        {contacts.map((contact, index) => {
+        {contacts != undefined ?
+        contacts.map((contact, index) => {
           const { firstName, lastName, street, city } = contact
           return (
             <li className="contact" key={index}>
@@ -26,7 +27,7 @@ function ContactsList(props) {
               </p>
             </li>
           )
-        })}
+        }): ""}
       </ul>
     </>
   )
