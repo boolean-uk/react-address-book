@@ -1,3 +1,44 @@
+/* My additions start */
+h2,
+li {
+  padding-left: 10px;
+  font-size: 1.3em;
+  font-weight: 600;
+}
+
+li.contact >p {
+  padding-left: 60px;  
+}
+
+main {
+margin-left: 50px;
+}
+
+a {
+  color: darkslategrey
+}
+
+h2,
+main, 
+nav {
+  background-color: #dbda0438;
+  border-radius: 5px;
+}
+
+.bigger {
+  font-size: 1.3em;
+  padding-left: 40px;
+  }
+
+  form {
+    box-sizing: content-box;
+    padding-left: 50px;
+  }
+
+/* my additions end */
+
+/* ---------------------------------------------------------------------- */
+
 /* Modern Reset */
 
 /* Box sizing rules */
@@ -26,9 +67,10 @@ h3,
 h4,
 p,
 ul[class],
-ol[class],
-li {
+ol[class]
+ {
   margin: 0;
+  /* color: #c4d200; */
 }
 
 /* Set core body defaults */
@@ -38,6 +80,11 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   padding:10px;
+  background-image: url("http://getwallpapers.com/wallpaper/full/7/7/8/428229.jpg");
+  
+  /* background-image: url("https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fi.pinimg.com%2Foriginals%2F26%2Ffa%2F88%2F26fa8874548dc90558951991236acba4.jpg&f=1&nofb=1&ipt=9410ad57e847593b04b9aa1294044efecb4427637d78958b5954823d0dbc348e&ipo=images"); */
+
+  background-size: cover;
 }
 
 /* Make images easier to work with */
@@ -63,6 +110,7 @@ select {
 h1,
 h2 {
   margin-bottom: 0.5rem;
+  font-family: 'Source Serif Pro', serif;
 }
 
 .center {

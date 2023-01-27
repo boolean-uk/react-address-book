@@ -35,8 +35,8 @@ fetch(`http://localhost:4000/contacts/${id}`)
 
   return (
     <div>
-      <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
+      <h2 className="bigger">{contact.firstName} {contact.lastName}</h2>
+      <p className="bigger">{contact.street} {contact.city}</p>
     </div>
   )
 }

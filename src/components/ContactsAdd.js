@@ -41,7 +41,7 @@ function ContactsAdd(props) {
         // console.log("posted contacts:", contacts)
         console.log("posted contacts formState:", formState)
       })
-    //reset the form
+    //reset the form. Timer to allow for post request to complete
     setTimeout(() => {
       setFormState(initialState);
     }, 500)

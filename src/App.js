@@ -36,7 +36,7 @@ export default function App() {
           </li>
         </ul>
       </nav>
-      <main>
+      <main >
         <Routes>
           <Route path="/" element={<ContactsList contacts={contacts} />} />
           <Route path="/ContactsAdd" element={<ContactsAdd setContacts={setContacts} contacts={contacts}/>} />

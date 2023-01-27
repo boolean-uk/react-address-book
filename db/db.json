@@ -15,20 +15,6 @@
       "city": "London"
     },
     {
-      "firstName": "Bob",
-      "lastName": "Builder",
-      "street": "Busy",
-      "city": "Bobsville",
-      "id": 5
-    },
-    {
-      "firstName": "She",
-      "lastName": "Sells",
-      "street": "Seashells",
-      "city": "Seashore",
-      "id": 6
-    },
-    {
       "firstName": "Shrek",
       "lastName": "Og",
       "street": "Far",
