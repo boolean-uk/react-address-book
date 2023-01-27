@@ -1,14 +1,12 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
+// import {useForm} from "react-hook-form"
 import { useNavigate } from "react-router-dom";
 
-let initialState = {
-  // id: "", {index + 1}
-  // name: "",
+const initialState = {
   firstName: "",
   lastName: "",
   street: "",
   city: "",
-  //see if I need to add Type, and required = true
 }
 
 
@@ -23,18 +21,15 @@ function ContactsAdd(props) {
   //TODO: Implement controlled form
   //send POST to json server on form submit
   const handleSubmit = (event) => {
-    event.preventDefault()
-    // console.log("formState", formState)
-    //shows in contact list without POST REQUEST so will need to console log 
-    //the POST to make sure it goes through to json
+    event.preventDefault();
+
     setContacts([...contacts, formState])
-    console.log("formState", formState)
+
     //POST request
     const opts = {
       method: 'POST',
       //stackoverflow says it has to be "application/json"
       headers: { 'content-type': 'application/json' },
-      //double check what needs to be stringified
       body: JSON.stringify({
         "firstName": formState.firstName,
         "lastName": formState.lastName,
@@ -48,15 +43,16 @@ function ContactsAdd(props) {
       .then(data => {
         formState
         // console.log("posted contacts:", contacts)
+        console.log("posted contacts formState:", formState)
       })
-
-    //add new data (js taken from the tips page)
     //reset the form
-    // setFormState(initialState)
+    setTimeout(() => {
+      setFormState(initialState);
+    }, 500)
   }
 
-  // console.log("formState", formState)
-  // console.log("updated contacts:", contacts)
+  //add an "event listener" to reset the form after submit
+  // const useEffect()
 
   //change the input from empty string to submitted info
   const handleChange = (event) => {
@@ -87,7 +83,7 @@ function ContactsAdd(props) {
       <input id="firstName"
         name="firstName"
         type="text"
-        value={formState.id}
+        value={formState.firstName}
         required
         onChange={handleChange} />
 
@@ -95,7 +91,7 @@ function ContactsAdd(props) {
       <input id="lastName"
         name="lastName"
         type="text"
-        value={formState.name}
+        value={formState.lastName}
         required
         onChange={handleChange} />
 
@@ -103,7 +99,7 @@ function ContactsAdd(props) {
       <input id="street"
         name="street"
         type="text"
-        value={formState.name}
+        value={formState.street}
 
         required
         onChange={handleChange} />
@@ -112,7 +108,7 @@ function ContactsAdd(props) {
       <input id="city"
         name="city"
         type="text"
-        value={formState.name}
+        value={formState.city}
         required
         onChange={handleChange} />
 
