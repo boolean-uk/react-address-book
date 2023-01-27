@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Link, Route, Routes } from "react-router-dom"
+import { Link, Route, Routes, useLocation } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
@@ -7,7 +7,7 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
-  
+    // const location = useLocation()
   //TODO: Load all contacts on useEffect when component first renders
   useEffect(() => {
     fetch("http://localhost:4000/contacts")
