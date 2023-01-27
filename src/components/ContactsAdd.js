@@ -1,39 +1,102 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-function ContactsAdd(props) {
+const initialFormState = {
+    id: "",
+    firstName: "",
+    lastName: "",
+    street: "",
+    city: ""
+}
 
+function ContactsAdd(props) {
+    const [formState, setFormState] = useState(initialFormState)
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
-  const { setContacts, contacts } = props
+    const { setContacts, contacts } = props
 
   //TODO: Implement controlled form
   //send POST to json server on form submit
 
-  return (
-    <form className="form-stack contact-form">
-      <h2>Create Contact</h2>
+    const handleChange = (event) => {
+        const value = event.target.value;
+        // const type = event.target.type;
+        const name = event.target.name;
+        // const checked = event.target.checked;
 
-      <label htmlFor="firstName">First Name</label>
-      <input id="firstName" name="firstName" type="text" required />
+        // console.log("HandleChange", value, type, name, checked)
 
-      <label htmlFor="lastName">Last Name:</label>
-      <input id="lastName" name="lastName" type="text" required/>
+        const newFormState = {...formState}
+        if(name === "firstName"){
+            newFormState.firstName = value
+        }
+        if(name === "lastName"){
+            newFormState.lastName = value
+        }
+        if(name === "street") {
+            newFormState.street = value
+        }
+        if(name==="city") {
+            newFormState.city = value
+        }
+        setFormState(newFormState)
+    }
 
-      <label htmlFor="street">Street:</label>
-      <input id="street" name="street" type="text" required/>
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        console.log("Form Submitted")
+        const newContact = formState
+        const newContactJson = JSON.stringify(newContact)
 
-      <label htmlFor="city">City:</label>
-      <input id="city" name="city" type="text" required/>
+        const options = {
+            method: "POST",
+            body: newContactJson,
+            headers: {
+                "Content-Type": "application/json",
+            },
+        }
+        fetch("http://localhost:4000/contacts", options)
+        .then((res) => res.json())
+        .then((data) => {
+            console.log("Created New Contact", data)
+            
+            fetch("http://localhost:4000/contacts")
+            .then((res) => res.json())
+            .then((data) => {
+                setContacts(data)
+            })
+        })
+        // setContacts([...contacts, formState])
+        event.target.reset()
 
-      <div className="actions-section">
-        <button className="button blue" type="submit">
-          Create
-        </button>
-      </div>
-    </form>
-  )
+
+    }
+
+
+    return (
+        <form className="form-stack contact-form" onSubmit={handleSubmit}>
+        <h2>Create Contact</h2>
+
+        <label htmlFor="firstName">First Name</label>
+        <input id="firstName" name="firstName" type="text" required  onChange={handleChange}/>
+
+        <label htmlFor="lastName">Last Name:</label>
+        <input id="lastName" name="lastName" type="text" required onChange={handleChange}/>
+
+        <label htmlFor="street">Street:</label>
+        <input id="street" name="street" type="text" required onChange={handleChange}/>
+
+        <label htmlFor="city">City:</label>
+        <input id="city" name="city" type="text" required onChange={handleChange}/>
+
+        <div className="actions-section">
+            <button className="button blue" type="submit">
+            Create
+            </button>
+        </div>
+        </form>
+    )
 }
 
 export default ContactsAdd
