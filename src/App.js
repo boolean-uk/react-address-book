@@ -20,7 +20,6 @@ export default function App() {
     fetch("http://localhost:4000/contacts")
       .then((res) => res.json())
       .then((data) => {
-        console.log(data)
         setContacts(data)
       })
   }, [])
@@ -38,9 +37,9 @@ export default function App() {
       <main>
         <Routes>
           {/* TODO: PUT ALL routes here  */}
-          <Route path="/" element={<ContactsList contacts={contacts}/>}/>
+          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts}/>}/>
           <Route path="/contacts/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
-          <Route path="/ContactView" element={<ContactsView/>}/>
+          <Route path={`/contacts/:id`} element={<ContactsView/>}/>
         </Routes>
       </main>
     </>

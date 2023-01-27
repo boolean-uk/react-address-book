@@ -27,6 +27,10 @@ function ContactsAdd(props) {
       body: JSON.stringify(newContact)
     }).then(() => {
       console.log("New Contact added")
+      setFirstName("")
+      setLastName("")
+      setStreet("")
+      setCity("")
     })  
     // navigate("/*")
   }

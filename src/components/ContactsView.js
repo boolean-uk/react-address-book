@@ -10,14 +10,22 @@ function ContactsView() {
   console.log("this is what is coming into location", location.state)
 
 
+
+
   //TODO: Get the contact to load from the params and fetch.
   //With useEffect, load the contact when params changes
   //and update contact state
   useEffect(() => {
     if (location.state) {
       const { contact } = location.state;
-      console.log("locationstate", location.state);
-      setContact(location.state);
+      // console.log("locationstate", location.state);
+      // setContact(location.state);
+        fetch(`http://localhost:4000/contacts/${location.state.id}`)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data)
+            setContact(data)
+          })
     }
   }, [location]);
 
