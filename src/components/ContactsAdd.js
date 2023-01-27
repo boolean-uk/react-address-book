@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-const initialState = {
+let initialState = {
   // id: "", {index + 1}
   // name: "",
   firstName: "",
@@ -24,28 +24,39 @@ function ContactsAdd(props) {
   //send POST to json server on form submit
   const handleSubmit = (event) => {
     event.preventDefault()
+    // console.log("formState", formState)
+    //shows in contact list without POST REQUEST so will need to console log 
+    //the POST to make sure it goes through to json
+    setContacts([...contacts, formState])
+    console.log("formState", formState)
     //POST request
+    const opts = {
+      method: 'POST',
+      //stackoverflow says it has to be "application/json"
+      headers: { 'content-type': 'application/json' },
+      //double check what needs to be stringified
+      body: JSON.stringify({
+        "firstName": formState.firstName,
+        "lastName": formState.lastName,
+        "street": formState.street,
+        "city": formState.city,
+      })
+    }
+    //Pass the URL we want to pass TO
+    fetch("http://localhost:4000/contacts", opts)
+      .then(res => res.json())
+      .then(data => {
+        formState
+        // console.log("posted contacts:", contacts)
+      })
 
-    // const opts = {
-    //   method: 'POST',
-    //   headers: {'content-type': 'newcontact/json' },
-    // //double check what needs to be stringified
-    //   body: JSON.stringify({ name: event.target[0].value })
-    // }
-
-    // fetch("http://localhost:3003/ContactsAdd", opts)
-    // .then(res => res.json())
-    // .then(data => {
-    //   contacts
-    // })
-  console.log("formState", formState)
     //add new data (js taken from the tips page)
-    // setContacts([...contacts, formState ])
     //reset the form
     // setFormState(initialState)
   }
 
-
+  // console.log("formState", formState)
+  // console.log("updated contacts:", contacts)
 
   //change the input from empty string to submitted info
   const handleChange = (event) => {
@@ -55,7 +66,6 @@ function ContactsAdd(props) {
 
     if (name === "firstName") {
       setFormState({ ...formState, firstName: value })
-      console.log(formState.firstName)
     }
     if (name === "lastName") {
       setFormState({ ...formState, lastName: value })
@@ -68,7 +78,6 @@ function ContactsAdd(props) {
     }
 
   }
-
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
