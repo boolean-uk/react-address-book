@@ -1,55 +1,56 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ContactsAdd(props) {
+function ContactsEdit({ contacts, setContacts }) {
+  const [contact, setContact] = useState(false);
+
   let navigate = useNavigate();
+  let params = useParams();
+  const { id } = params;
 
-  const initialNewContact = {
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-    email: "",
-    linkedin: "",
-    twitter: "",
-  };
-
-  const { setContacts, contacts } = props;
-  const [newContact, setNewContact] = useState(initialNewContact);
+  useEffect(async () => {
+    const data = await fetch(`http://localhost:4000/contacts/${id}`);
+    const contact = await data.json();
+    setContact(contact);
+  }, [id]);
 
   function handleChange(event) {
     const { name, value } = event.target;
-    setNewContact({ ...newContact, [name]: value });
-    // if (name === "firstName" && type === "text") {
-    //   setNewContact({ ...newContact, firstName: value });
-    // }
-    // if (name === "lastName" && type === "text") {
-    //   setNewContact({ ...newContact, lastName: value });
-    // }
-    // if (name === "street" && type === "text") {
-    //   setNewContact({ ...newContact, street: value });
-    // }
-    // if (name === "city" && type === "text") {
-    //   setNewContact({ ...newContact, [name]: value });
-    // }
+    setContact({ ...contact, [name]: value });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    fetch("http://localhost:4000/contacts", {
-      method: "POST",
+    fetch(`http://localhost:4000/contacts/${params.id}`, {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(newContact),
+      body: JSON.stringify(contact),
     })
       .then((res) => res.json())
-      .then((result) => {
-        setContacts([...contacts, result]);
-        setNewContact(initialNewContact);
+      .then((updatedContact) => {
+        handleContactEdit(updatedContact);
         navigate("/");
       });
   }
+
+  const handleContactEdit = (editContact) => {
+    const editUser = contacts.map((contact) => {
+      if (contact.id === editContact.id) {
+        return editContact;
+      }
+      return contact;
+    });
+    setContacts(editUser);
+  };
+
+  if (!contact) {
+    return <p>Loading</p>;
+  }
+
+  /* We get here (return) only if it finds the contact. If it doesn't find the contact
+  then (see above - loading message)*/
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
@@ -62,7 +63,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.firstName}
+        value={contact.firstName}
       />
 
       <label htmlFor="lastName">Last Name:</label>
@@ -72,7 +73,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.lastName}
+        value={contact.lastName}
       />
 
       <label htmlFor="street">Street:</label>
@@ -82,7 +83,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.street}
+        value={contact.street}
       />
 
       <label htmlFor="city">City:</label>
@@ -92,7 +93,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.city}
+        value={contact.city}
       />
 
       <label htmlFor="email">Email:</label>
@@ -102,7 +103,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.email}
+        value={contact.email}
       />
 
       <label htmlFor="linkedin">Linkedin:</label>
@@ -112,7 +113,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.linkedin}
+        value={contact.linkedin}
       />
 
       <label htmlFor="twitter">Twitter:</label>
@@ -122,22 +123,16 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.twitter}
+        value={contact.twitter}
       />
 
       <div className="actions-section">
-        <button
-          className="button blue"
-          type="submit"
-          // onClick={() => {
-          //   navigate("/");
-          // }}
-        >
-          Create
+        <button className="button blue" type="submit">
+          Edit
         </button>
       </div>
     </form>
   );
 }
 
-export default ContactsAdd;
+export default ContactsEdit;
