@@ -7,8 +7,20 @@ function ContactsAdd(props) {
   // to this component so new contacts can be added to the
   // state
   const { setContacts, contacts } = props
+  console.log("This is inside the Contacts Add, and this is the props,", props)
 
   //TODO: Implement controlled form
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log("this is called when create is pressed, here is the new contact data", contacts)
+
+    event.target.reset();
+  }
+
+  const handleChange = (event) => {
+    const value = event.target.value
+  }
   //send POST to json server on form submit
 
   return (
@@ -28,7 +40,7 @@ function ContactsAdd(props) {
       <input id="city" name="city" type="text" required/>
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
+        <button onSubmit={handleSubmit} className="button blue" type="submit">
           Create
         </button>
       </div>
