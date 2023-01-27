@@ -9,11 +9,11 @@ function ContactsAdd(props) {
     street: "",
     city: ""
   }
-const [ContactData, setConstactData] = useState(initialFormState)
+const [ContactData, setContactData] = useState(initialFormState)
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
-  
+  const navigate = useNavigate()
   const { setContacts, contacts } = props
   
   function handleChange(event) {
@@ -23,29 +23,37 @@ const [ContactData, setConstactData] = useState(initialFormState)
 
     if(inputName === "firstName"){
       
-      setConstactData({...ContactData, firstName: inputValue})
+      setContactData({...ContactData, firstName: inputValue})
     }
     if(inputName === "lastName"){
-      setConstactData({...ContactData, lastName: inputValue})
+      setContactData({...ContactData, lastName: inputValue})
     }
     if(inputName === "street"){
-      setConstactData({...ContactData, street: inputValue})
+      setContactData({...ContactData, street: inputValue})
     }
     if(inputName === "city"){
-      setConstactData({...ContactData, city: inputValue})
+      setContactData({...ContactData, city: inputValue})
     }
-    console.log("this is contact Data",ContactData)
-
+    console.log("the constactdata",ContactData)
   }
   function handleSubmit(event){
-    event.preventDefault
+    event.preventDefault()
+    
     fetch("http://localhost:4000/contacts",{
       method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
       body: JSON.stringify(ContactData)
-    });
-    console.log("this is contact Data in submit",ContactData)
-    setContacts([...contacts, {ContactData}])
-    setConstactData(initialFormState)
+      
+    })
+    .then((res) => res.json())
+    .then((res) => {
+      setContacts([...contacts, ContactData]);
+      setContactData(initialFormState);
+      navigate('/')
+    })
+        
   }
   //TODO: Implement controlled form
   //send POST to json server on form submit

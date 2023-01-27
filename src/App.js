@@ -7,13 +7,13 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
-    // const location = useLocation()
+    const location = useLocation()
   //TODO: Load all contacts on useEffect when component first renders
   useEffect(() => {
     fetch("http://localhost:4000/contacts")
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log("data from server",data)
       setContacts(data)
     })
   }, [])
@@ -24,7 +24,7 @@ export default function App() {
         <h2>Menu</h2>
         <ul>
           {/* TODO: Make these links */}
-          {console.log("this is contacts in jsx", contacts)}
+          
           <li><Link to={`/`} >Contacts List</Link></li>
           <li><Link to={`/contacts/add`}>Add New Contact</Link></li>
         </ul>
