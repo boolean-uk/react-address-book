@@ -30,7 +30,12 @@ function ContactsView() {
 
 
   if (!contact) {
-    return <p>Loading...</p>
+    return (
+      <>
+        <p>Loading...</p>
+        <div className="loadingAnimation rotate-center"></div>
+      </>
+    )
   }
 
   //will need to add the new parts to contacts through a patch request
