@@ -5,38 +5,42 @@ function ContactsView() {
   const [contact, setContact] = useState(false)
 
   //TODO: Get the contact to load from the params and fetch.
-  const { id }= useParams();
+  const { id } = useParams();
 
   //With useEffect, load the contact when params changes
   //and update contact state
-useEffect(() => {
-//GET request to fetch contact by id
-fetch(`http://localhost:4000/contacts/${id}`)
-.then((res) => res.json())
-.then((contactData) => {
-  setContact(contactData)
-  // console.log("contactData:", contactData)
-})
+  useEffect(() => {
+    //GET request to fetch contact by id
+    fetch(`http://localhost:4000/contacts/${id}`)
+      .then((res) => res.json())
+      .then((contactData) => {
+        setContact(contactData)
+        // console.log("contactData:", contactData)
+      })
 
-//once data is returned, update state property to display 
-//the contact on the page
+    //once data is returned, update state property to display 
+    //the contact on the page
 
 
-}, 
-//params.id = dependency. can uncomment 
-//line below once rest of code is sorted
-[contact.id]
-)
+  },
+    //params.id = dependency. can uncomment 
+    //line below once rest of code is sorted
+    [contact.id]
+  )
 
 
   if (!contact) {
     return <p>Loading...</p>
   }
 
+  //will need to add the new parts to contacts through a patch request
   return (
     <div>
       <h2 className="bigger">{contact.firstName} {contact.lastName}</h2>
-      <p className="bigger">{contact.street} {contact.city}</p>
+      <div> <p className="bigger">{contact.street} {contact.city}</p></div>
+      <div className="pGrid"><p className="contactLinks">Email:</p> <a>{contact.email}</a> </div>
+      <div className="pGrid"> <p className="contactLinks">linkedIn:</p><a>{contact.linkedIn}</a></div>
+      <div className="pGrid"> <p className="contactLinks">Twitter:</p> <a>{contact.twitter}</a></div>
     </div>
   )
 }

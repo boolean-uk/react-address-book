@@ -15,7 +15,8 @@ margin-left: 50px;
 }
 
 a {
-  color: darkslategrey
+  color: darkslategrey;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 
 h2,
@@ -35,6 +36,15 @@ nav {
     padding-left: 50px;
   }
 
+  .pGrid {
+    display: flex;
+    margin-left: 35px
+    /* flex-flow: row wrap; */
+  }
+
+  .pGrid > a {
+   margin-left: 50px;
+  } 
 /* my additions end */
 
 /* ---------------------------------------------------------------------- */

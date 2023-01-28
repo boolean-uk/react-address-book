@@ -7,6 +7,9 @@ const initialState = {
   lastName: "",
   street: "",
   city: "",
+  email: "",
+  twitter: "",
+  linkedIn: "",
 }
 
 
@@ -31,6 +34,9 @@ function ContactsAdd(props) {
         "lastName": formState.lastName,
         "street": formState.street,
         "city": formState.city,
+        "email": formState.email,
+        "twitter": formState.twitter,
+        "linkedIn": formState.linkedIn,
       })
     }
     //Pass the URL we want to pass TO
@@ -65,7 +71,15 @@ function ContactsAdd(props) {
     if (name === "city") {
       setFormState({ ...formState, city: value })
     }
-
+    if (name === "email") {
+      setFormState({ ...formState, email: value })
+    }
+    if (name === "linkedIn") {
+      setFormState({ ...formState, linkedIn: value })
+    }
+    if (name === "twitter") {
+      setFormState({ ...formState, twitter: value })
+    }
   }
 
   return (
@@ -103,6 +117,34 @@ function ContactsAdd(props) {
         type="text"
         value={formState.city}
         required
+        onChange={handleChange} />
+
+      <label htmlFor="email">Email:</label>
+      <input id="email"
+        name="email"
+        type="text"
+        value={formState.email}
+        //set some required @ . thing if this form gets filled in? 
+        //if no filled in, just show blank value
+        // required
+        onChange={handleChange} />
+
+      <label htmlFor="linkedIn">linkedIn:</label>
+      <input id="linkedIn"
+        name="linkedIn"
+        type="text"
+        value={formState.linkedIn}
+        //if not filled in, dont render... 
+        // required
+        onChange={handleChange} />
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter"
+        name="twitter"
+        type="text"
+        value={formState.twitter}
+        //if not filled in, dont render... 
+        // required
         onChange={handleChange} />
 
       <div className="actions-section">

@@ -1,16 +1,22 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
+// import axios from "axios"
 
 function ContactsList(props) {
-  
+
   //"contacts" must be passed as prop to this component
   const { contacts } = props
 
+  if (!contacts) {
+    return <p>Loading contact list...</p>
+  }
+  
   return (
     <>
       <header>
         <h2>Contacts</h2>
       </header>
+
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
@@ -21,7 +27,7 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
-              <Link to={`contacts/${contact.id}`} >View</Link> 
+                <Link to={`contacts/${contact.id}`} >View</Link>
               </p>
             </li>
           )
