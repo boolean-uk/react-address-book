@@ -17,7 +17,6 @@ function ContactsView() {
     .then((resdata) => {
       setContact(resdata) 
     console.log( "contacts list data", resdata)
-    console.log("hello")
       })
   },[id])
 

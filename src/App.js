@@ -28,7 +28,7 @@ export default function App() {
 
           {/* TODO: Make these links */}
           <li><Link to="/contacts" >Contacts List</Link></li>
-          <li>Add New Contact</li>
+          <li><Link to="/contacts/add" >Add New Contact </Link></li>
         </ul>
       </nav>
       <main>
@@ -36,6 +36,7 @@ export default function App() {
           {/* TODO: Add routes here  */}
           <Route path= "/contacts" element = {<ContactsList contacts= {contacts} />} />
           <Route path = "/contacts/:id" element = {<ContactsView />} />
+          <Route path = "/contacts/add" element = {<ContactsAdd />} contact ={contacts} setContacts ={setContacts} />
         </Routes>
       </main>
     </>
