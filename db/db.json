@@ -18,37 +18,6 @@
       "city": "London"
     },
     {
-      "id": 3,
-      "firstName": "NewMe",
-      "lastName": "NewYou",
-      "street": "123 Street",
-      "city": "BigCity"
-    },
-    {
-      "id": 4,
-      "firstName": "test",
-      "lastName": "test",
-      "street": "test",
-      "city": "test",
-      "email": "test@testemail.com",
-      "linkedin": "linkedin.com/user/testtest",
-      "twitter": "@testytest"
-    },
-    {
-      "id": 5,
-      "firstName": "Testing",
-      "lastName": "UseNavigate",
-      "street": "On My Form",
-      "city": "Lets gooo"
-    },
-    {
-      "id": 6,
-      "firstName": "Tetsting",
-      "lastName": "Navigate",
-      "street": "Another Time",
-      "city": "lets gooo"
-    },
-    {
       "id": 7,
       "firstName": "Bob",
       "lastName": "DoesSports",
