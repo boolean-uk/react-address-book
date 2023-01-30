@@ -1,11 +1,13 @@
 import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useSearchParams, useNavigate } from "react-router-dom"
 
 function ContactsList(props) {
-  
+  const navigate = useNavigate()
   //"contacts" must be passed as prop to this component
   const { contacts } = props
   console.log("this is constacts in list",contacts)
+ 
+
   return (
     <>
       <header>
