@@ -2,12 +2,16 @@ import { Link, useSearchParams } from "react-router-dom"
 
 function ContactsList(props) {
   
-  const { contacts, setContacts } = props
+  const { contacts, setContacts, loading } = props
 
   return (
     <>
         <header>
             <h2>Contacts</h2>
+            {loading && (<div>
+            <img className="loadingSpin" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="loading contacts"/>
+            <p>Loading Contacts...</p>
+            </div>)}
         </header>
         <ul className="contacts-list">
             {contacts.map((contact, index) => {

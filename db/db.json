@@ -47,6 +47,16 @@
       "lastName": "Navigate",
       "street": "Another Time",
       "city": "lets gooo"
+    },
+    {
+      "id": 7,
+      "firstName": "Bob",
+      "lastName": "DoesSports",
+      "street": "1806 America Drive",
+      "city": "Washington",
+      "email": "golf@bobdoessports.com",
+      "linkedin": "linkedin.com/user/bobby",
+      "twitter": "@bobby"
     }
   ]
 }
