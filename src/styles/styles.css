@@ -38,7 +38,58 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   padding:10px;
+  background: #272727;
+  color: white;
 }
+
+nav {
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: fit-content;
+  
+}
+
+nav h2 span {
+  color: #f3e500;
+}
+
+nav li, .meetings-button {
+  border-radius: 10px;
+}
+
+nav li a, nav h2 a, .meetings-button {
+  text-decoration: none;
+  color: white;
+  padding: 10px;
+ 
+}
+
+.meetings-button {
+  background: #171717;
+}
+
+.meetings-button-li {
+  margin-top: 20px;
+  list-style: none;
+}
+
+nav li:hover, .meetings-button:hover {
+  background: #373737;
+}
+
+.contact p a {
+  text-decoration: none;
+  color: white;
+  padding: 8px;
+  border-radius: 20px;
+}
+
+.contact p a:hover {
+  background: #373737;
+}
+
+
 
 /* Make images easier to work with */
 img {
@@ -129,19 +180,19 @@ h2 {
   max-width: 400px;
 }
 
-.contact-form h1 {
+.contact-form h1, .meeting-form h1 {
   margin-bottom: 1rem;
 }
 
-.contact-form label {
+.contact-form label, .meeting-form label {
   font-weight: bold;
 }
 
-.contact-form .checkbox-section {
+.contact-form .checkbox-section, .meeting-form .checkbox-section {
   padding: 0.25rem 0;
 }
 
-.contact-form .actions-section {
+.contact-form .actions-section, .meeting-form .actions-section {
   display: grid;
   grid-auto-flow: column;
   justify-content: right;
@@ -150,4 +201,21 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.meeting-form {
+  max-width: 300px;
+}
+
+.meeting-form-date, .meeting-form-time {
+  width: 150px !important;  
+}
+
+.meetings-subheadings {
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.meetings-hr {
+  margin-top: 30px;
 }

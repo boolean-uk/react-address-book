@@ -1,25 +1,19 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import {useState, useEffect} from 'react'
+import { useParams, useNavigate } from 'react-router-dom'
 
-const initialState = {
-  "firstName": "",
-  "lastName": "",
-  "pronouns": "",
-  "street": "",
-  "city": "",
-  "linkedIn": "",
-  "twitter": "",
-  "type": ""
-}
-
-function ContactsAdd(props) {
-
+function ContactsEdit(props) {
   // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
+  // to this component so contacts within the state can be edited
   const { setContacts, contacts } = props
-  const [contactData, setContactData] = useState(initialState)
+  const [contactData, setContactData] = useState({})
   const nav = useNavigate()
+  const {id} = useParams()
+
+  useEffect(async () => {
+    const res = await fetch(`http://localhost:4000/contacts/${id}`)
+    const data = await res.json()
+    setContactData(data)
+  }, [])
 
   const handleChange = event => {
     // set the name and value (of the input) to be the target 
@@ -34,32 +28,42 @@ function ContactsAdd(props) {
 
   const handleSubmit = async event => {
     event.preventDefault()
-
+    
     // send PUT request to UPDATE an existing contact    
     const fetchOptions = {
       method: 'PUT', 
       headers: {'Content-Type': 'application/json'}, 
       body: JSON.stringify(contactData)
     }
-
     // await for fetch response
-    const res = await fetch('http://localhost:4000/contacts', fetchOptions)
+    const res = await fetch(`http://localhost:4000/contacts/${id}`, fetchOptions)
     // extract response data
     const data = await res.json()
+    // replace LOCAL contact array state with data.contact; keep all other contacts unchanged
+    const updatedContacts = contacts.map(contact => {
+      if(contact.id === Number(id)) { 
+        console.log(contact.id, id, data.contact, contact)
+        // Was returning data.contact, but kept returning as undefined 
+        // TODO: ((IMPORTANT)) figure out why that was
+        return contact
+      }
+      console.log(contact)
+      return contact
+    })
     // update LOCAL State
-    setContacts([...contacts, data])
-    // redirect to the home page
-    nav('/')
+    setContacts(updatedContacts)
+    // redirect to this edited contact's page
+    nav(`/contacts/${id}/view`)
   }
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Update Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input 
         id="firstName" 
-        name="firstName"
+        name="firstName" 
         type="text" 
         placeholder='Hilda' 
         onChange={handleChange} 
@@ -145,17 +149,19 @@ function ContactsAdd(props) {
 
       <label htmlFor="contactType">Contact Type:</label>
       <select name='type' onChange={handleChange} value={contactData.type}>
+        <option>Select type </option>
         <option>Personal</option>
         <option>Work</option>
       </select>
 
       <div className="actions-section">
         <button className="button" type="submit">
-          Create
+          Update
         </button>
       </div>
     </form>
   )
+
 }
 
-export default ContactsAdd
+export default ContactsEdit
