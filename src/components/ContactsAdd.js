@@ -6,6 +6,9 @@ const initalValues = {
   lastName: '',
   street: '',
   city: '',
+  email: '',
+  linkedIn: '',
+  twitter: ''
 }
 let posting = false
 
@@ -69,6 +72,15 @@ function ContactsAdd(props) {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" onChange={handelChange} value={formInfo.city} required/>
+
+      <label htmlFor="email">Email:</label>
+      <input id='email' name="email" type="email" onChange={handelChange} value={formInfo.email} required/>
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input id='linkedIn' name="linkedIn" type='text' onChange={handelChange} value={formInfo.linkedIn} required/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id='twitter' name="twitter" type='text' onChange={handelChange} value={formInfo.twitter} required/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

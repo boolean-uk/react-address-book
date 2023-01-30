@@ -20,6 +20,9 @@ function ContactsView() {
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street} {contact.city}</p>
+      <p>Email: <span>{contact.email}</span></p>
+      <p>LinkedIn: <span>{contact.linkedIn}</span></p>
+      <p>Twitter: <span>{contact.twitter}</span></p>
     </div>
   )
 }

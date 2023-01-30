@@ -4,6 +4,7 @@ import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import "./styles/styles.css"
+import ContactsEdit from "./components/ContactsEdit"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
@@ -31,7 +32,7 @@ export default function App() {
         <Routes>
           <Route 
             path={'/'}
-            element={<ContactsList contacts={contacts} />}
+            element={<ContactsList contacts={contacts} setContacts={setContacts} />}
           />
           <Route
             path={'/contacts/add'}
@@ -40,6 +41,10 @@ export default function App() {
           <Route
             path={'contacts/:id'}
             element={<ContactsView />}
+          />
+          <Route
+            path={'contacts/:id/edit'}
+            element={<ContactsEdit contacts={contacts} setContacts={setContacts} />}
           />
         </Routes>
       </main>
