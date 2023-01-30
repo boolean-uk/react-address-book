@@ -60,8 +60,27 @@ function ContactsEdit(props){
         console.log("the constactdata",formState)
       }
       console.log("this is props ",props)
-      function handleSubmit(){
-    
+      function handleSubmit(event){
+        event.preventDefault()
+        console.log("submitted")
+        const editedContact = formState
+        const editedContactJSON = JSON.stringify(editedContact)
+
+        const options = {
+          method: "PATCH",
+          body: editedContactJSON,
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+
+        fetch(`http://localhost:4000/contacts/${id}`, options)
+        .then((res) => res.json())
+        .then((data) => {
+          console.log("edited contact", data)
+        })
+        setFormState(initialFormState)
+        navigate('/')
     }
 
     return (

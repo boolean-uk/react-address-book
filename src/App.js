@@ -17,7 +17,7 @@ export default function App() {
       console.log("data from server",data)
       setContacts(data)
     })
-  }, [])
+  }, [location])
   console.log("this is contacts",contacts)
   return (
     <>
