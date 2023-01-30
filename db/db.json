@@ -15,6 +15,9 @@
       "lastName": "Charming",
       "street": "10 Happily",
       "city": "EverAfter",
+      "email": "charming@gmail.com",
+      "twitter": "@too5exy",
+      "linkedIn": "@CharmingActor",
       "id": 3
     },
     {
@@ -36,6 +39,36 @@
       "twitter": "@RightfulKing",
       "linkedIn": "linkedin.com/in/LordFarquaad",
       "id": 5
+    },
+    {
+      "firstName": "Dragon",
+      "lastName": "Donkey",
+      "street": "The Tallest Tower",
+      "city": "Castle",
+      "email": "dragon@hotmail.com",
+      "twitter": "@DragonSecurity",
+      "linkedIn": "Dragon",
+      "id": 6
+    },
+    {
+      "firstName": "testing",
+      "lastName": "Testing",
+      "street": "sfasf",
+      "city": "fasdf",
+      "email": "Ssf",
+      "twitter": "asf",
+      "linkedIn": "ASdfa",
+      "id": 7
+    },
+    {
+      "firstName": "another ",
+      "lastName": "Testing",
+      "street": "sfasf",
+      "city": "work?",
+      "email": "asfawef",
+      "twitter": "",
+      "linkedIn": "",
+      "id": 8
     }
   ]
 }

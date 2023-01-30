@@ -17,6 +17,8 @@ function ContactsAdd(props) {
 
   const { setContacts, contacts } = props
   const [formState, setFormState] = useState(initialState)
+  //calling this function will allow us to change the current page
+  const navigate = useNavigate()
 
   //send POST to json server on form submit
   const handleSubmit = (event) => {
@@ -51,6 +53,10 @@ function ContactsAdd(props) {
     setTimeout(() => {
       setFormState(initialState);
     }, 500)
+
+    //bring page back to contactlist: if creation is ok
+    navigate("/")
+
   }
 
   //change the input from empty string to submitted info
@@ -148,9 +154,9 @@ function ContactsAdd(props) {
         onChange={handleChange} />
 
       <div className="actions-section">
-        <button className="button blue" type="submit">
-          Create
-        </button>
+          <button className="button blue" type="submit">
+            Create
+          </button>
       </div>
     </form>
   )
