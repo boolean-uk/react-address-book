@@ -19,7 +19,7 @@ function ContactsAdd(props) {
   //TODO: Implement controlled form
   //send POST to json server on form submit
 
-  const [formState, setFormState] = useState(initialFormState)
+  const [newContactForm, setNewContactForm] = useState(initialFormState)
   const navigate = useNavigate()
 
 
@@ -30,9 +30,9 @@ function ContactsAdd(props) {
 
     
 
-    const newFormState = {...formState }
+    const newFormState = {...newContactForm }
     if (name === "firstName") {
-      formState.firstName = value
+      newFormState.firstName = value
     }
 
     if (name === "lastName") {
@@ -46,7 +46,7 @@ function ContactsAdd(props) {
     if (name === "city") {
       newFormState.city = value
     }
-    setFormState(newFormState)
+    setNewContactForm(newFormState)
   };
 
 
@@ -54,7 +54,7 @@ function ContactsAdd(props) {
   const handleSubmit = (event) => {
    event.preventDefault()
     console.log("Form Submitted")
-    const newContact = formState
+    const newContact = newContactForm
     const newContactJson = JSON.stringify(newContact)
     console.log("json", newContactJson)
 
@@ -73,11 +73,11 @@ function ContactsAdd(props) {
         fetch("http://localhost:4000/contacts")
         .then((res) => res.json())
         .then((data) => {
-            setFormState(data)
+          setNewContactForm(data)
         })
     })
     
-    event.target.reset()
+    //event.target.reset()
     navigate('/')
 
 }
