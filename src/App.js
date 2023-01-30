@@ -23,9 +23,11 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* <ContactsList /> */}
+         
           {/* TODO: Make these links */}
-          
+          {/* <li>
+            <Link to="/"> Home </Link>
+          </li> */}
 
           <li>
             <Link to="/contacts"> Contacts List</Link>
@@ -38,12 +40,10 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route
-            path="/contacts/"
-            element={<ContactsList contacts={contacts} />}
-          />
           <Route path="/contacts/:id" element={<ContactsView />} />
+          <Route path="/contacts" element={<ContactsList contacts={contacts} />}  />
           <Route path="/contacts/add" element={<ContactsAdd />} />
+          
         </Routes>
       </main>
     </>

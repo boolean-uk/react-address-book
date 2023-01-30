@@ -15,8 +15,9 @@ Some of the components have been created for you.
 1. Fork and clone this repository
 2. `npm install`
 3. `npm start`
-4. Start json-server. In a new terminal: `npx json-server -p 4000 db/db.json`
-5. Visit localhost:4000/contacts to make sure your json-server is running
+4. Start json-server. In a new terminal: `npx json-server -p 4000 db/db.json
+5. `
+6. Visit localhost:4000/contacts to make sure your json-server is running
 
 ## Requirements
 - A user can **view a list of contacts** at "/" when the app loads. 
