@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react"
+import { useNavigate, useParams } from "react-router-dom";
 
 const initialFormState = {
     id: "",
@@ -12,15 +12,22 @@ const initialFormState = {
     twitter: "",
 }
 
-function ContactsAdd(props) {
+function ContactsEdit(props) {
     const [formState, setFormState] = useState(initialFormState)
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
+
     const { setContacts, contacts } = props
     const navigate = useNavigate()
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+    const contactID = useParams()
+
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts/${contactID.id}`)
+    .then((res)  => res.json())
+    .then((data) => {
+        console.log("Fetching contact...")
+        setFormState(data)
+    })
+  }, [contactID])
 
     const handleChange = (event) => {
         const value = event.target.value;
@@ -58,22 +65,22 @@ function ContactsAdd(props) {
     const handleSubmit = (event) => {
         event.preventDefault()
         console.log("Form Submitted")
-        const newContact = formState
-        const newContactJson = JSON.stringify(newContact)
+        const editContact = formState
+        const editContactJson = JSON.stringify(editContact)
 
         const options = {
-            method: "POST",
-            body: newContactJson,
+            method: "PATCH",
+            body: editContactJson,
             headers: {
                 "Content-Type": "application/json",
             },
         }
-        fetch("http://localhost:4000/contacts", options)
+        fetch(`http://localhost:4000/contacts/${contactID.id}`, options)
         .then((res) => res.json())
         .then((data) => {
-            console.log("Created New Contact", data)
+            console.log("Edited contact:", data)
             
-            fetch("http://localhost:4000/contacts")
+            fetch("http://localhost:4000/contacts/")
             .then((res) => res.json())
             .then((data) => {
                 setContacts(data)
@@ -88,38 +95,86 @@ function ContactsAdd(props) {
 
     return (
         <form className="form-stack contact-form" onSubmit={handleSubmit}>
-        <h2>Create Contact</h2>
+        <h2>Edit Contact</h2>
 
         <label htmlFor="firstName">First Name</label>
-        <input id="firstName" name="firstName" type="text" required  onChange={handleChange}/>
+        <input 
+            id="firstName" 
+            name="firstName" 
+            type="text" 
+            required  
+            onChange={handleChange}
+            value={formState.firstName}
+        />
 
         <label htmlFor="lastName">Last Name:</label>
-        <input id="lastName" name="lastName" type="text" required onChange={handleChange}/>
+        <input 
+            id="lastName" 
+            name="lastName" 
+            type="text" required 
+            onChange={handleChange}
+            value={formState.lastName}
+        />
 
         <label htmlFor="street">Street:</label>
-        <input id="street" name="street" type="text" required onChange={handleChange}/>
+        <input 
+            id="street" 
+            name="street" 
+            type="text" 
+            required 
+            onChange={handleChange}
+            value={formState.street}
+        />
 
         <label htmlFor="city">City:</label>
-        <input id="city" name="city" type="text" required onChange={handleChange}/>
+        <input 
+            id="city" 
+            name="city" 
+            type="text" 
+            required 
+            onChange={handleChange}
+            value={formState.city}
+        />
 
         <label htmlFor="email">Email:</label>
-        <input id="email" name="email" type="email" required onChange={handleChange}/>
+        <input 
+            id="email" 
+            name="email" 
+            type="email" 
+            required 
+            onChange={handleChange}
+            value={formState.email}
+        />
 
         <label htmlFor="linkedin">LinkedIn:</label>
-        <input id="linkedin" name="linkedin" type="text" required onChange={handleChange}/>
+        <input 
+            id="linkedin" 
+            name="linkedin" 
+            type="text" 
+            required 
+            onChange={handleChange}
+            value={formState.linkedin}
+        />
 
         <label htmlFor="twitter">Twitter:</label>
-        <input id="twitter" name="twitter" type="text" required onChange={handleChange}/>
+        <input 
+            id="twitter" 
+            name="twitter" 
+            type="text" 
+            required 
+            onChange={handleChange}
+            value={formState.twitter}
+        />
 
 
 
         <div className="actions-section">
             <button className="button blue" type="submit">
-            Create
+            Edit
             </button>
         </div>
         </form>
     )
 }
 
-export default ContactsAdd
+export default ContactsEdit
