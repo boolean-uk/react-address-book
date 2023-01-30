@@ -1,10 +1,9 @@
-import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { useState } from "react";
+import { Link, useSearchParams } from "react-router-dom";
 
 function ContactsList(props) {
-  
   //"contacts" must be passed as prop to this component
-  const { contacts } = props
+  const { contacts, setContacts } = props;
 
   return (
     <>
@@ -13,24 +12,46 @@ function ContactsList(props) {
       </header>
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
-          const { firstName, lastName,id } = contact
+          const { firstName, lastName, id } = contact;
           return (
             <li className="contact" key={index}>
               <p>
                 {firstName} {lastName}
               </p>
               <p>
-                <Link to = {`/contacts/${id}`}>
-                { /** TODO: Make a Link here to view contact */}
-                View
+                <Link to={`/contacts/${id}`}>
+                  {/** TODO: Make a Link here to view contact */}
+                  View
                 </Link>
               </p>
+              <p
+                className="deleteContact"
+                onClick={function clickDelete() {
+                  const options = {
+                    method: "DELETE",
+                  };
+                  fetch(
+                    `http://localhost:4000/contacts/${contact.id}`,
+                    options
+                  )
+                    .then((res) => res.json())
+                    .then(() => {
+                      fetch("http://localhost:4000/contacts")
+                        .then((res) => res.json())
+                        .then((data) => {
+                          setContacts(data);
+                        });
+                    });
+                }}
+              >
+                Delete
+              </p>
             </li>
-          )
+          );
         })}
       </ul>
     </>
-  )
+  );
 }
 
-export default ContactsList
+export default ContactsList;
