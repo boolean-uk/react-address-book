@@ -1,60 +1,11 @@
 {
   "contacts": [
     {
-      "firstName": "bharath",
-      "lastName": "bhoosani",
-      "street": "9-26 kakathiya nagar colony, 35 th ward ,3 rd street",
-      "city": "KAMAREDDY",
-      "id": 8
-    },
-    {
       "firstName": "anjali",
       "lastName": "chama",
       "street": "via alessandro prosdocimi,36",
       "city": "padova",
       "id": 11
-    },
-    {
-      "firstName": "Manoj Kumar",
-      "lastName": "bhoosani",
-      "street": "via alessandro prosdocimi,36",
-      "city": "padova",
-      "id": 12
-    },
-    {
-      "firstName": "Bhoosani",
-      "lastName": "Kumar",
-      "street": "9-26 kakathiya nagar colony, 35 th ward ,3 rd street",
-      "city": "KAMAREDDY",
-      "id": 13
-    },
-    {
-      "firstName": "Bhoosani",
-      "lastName": "Kumar",
-      "street": "9-26 kakathiya nagar colony, 35 th ward ,3 rd street",
-      "city": "KAMAREDDY",
-      "id": 14
-    },
-    {
-      "firstName": "Bhoosani",
-      "lastName": "Kumar",
-      "street": "9-26 kakathiya nagar colony, 35 th ward ,3 rd street",
-      "city": "KAMAREDDY",
-      "id": 15
-    },
-    {
-      "firstName": "vihan",
-      "lastName": "bhoosani",
-      "street": "9-26 kakathiya nagar colony, 35 th ward ,3 rd street",
-      "city": "KAMAREDDY",
-      "id": 16
-    },
-    {
-      "firstName": "manoj",
-      "lastName": "bhoosani",
-      "street": "via alessandro prosdocimi,36",
-      "city": "padova",
-      "id": 17
     },
     {
       "firstName": "andrea",
@@ -92,56 +43,11 @@
       "id": 22
     },
     {
-      "firstName": "anjali",
-      "lastName": "chama",
-      "street": "via alessandro prosdocimi,36",
-      "city": "padova",
-      "id": 23
-    },
-    {
       "firstName": "Bhoosani",
       "lastName": "Kumar",
       "street": "9-26 kakathiya nagar colony, 35 th ward ,3 rd street",
       "city": "KAMAREDDY",
       "id": 24
-    },
-    {
-      "firstName": "gsdgs",
-      "lastName": "sgfd",
-      "street": "dgs",
-      "city": "sdgd",
-      "id": 25
-    },
-    {
-      "firstName": "gfhgf",
-      "lastName": "hgfh",
-      "street": "hgfh",
-      "city": "ghgfh",
-      "id": 27
-    },
-    {
-      "firstName": "fgfgf",
-      "lastName": "fgfdg",
-      "street": "fdg",
-      "city": "gfgfd",
-      "id": 28
-    },
-    {
-      "firstName": "ds",
-      "lastName": "fdsf",
-      "street": "dfsd",
-      "city": "dfds",
-      "id": 29
-    },
-    {
-      "firstName": "manoj",
-      "lastName": "bhoosani",
-      "street": "via alessandro prosdocimi,36",
-      "city": "padova",
-      "Email": "anjali.chama@studenti.unipd.it",
-      "LinkedIn": "sdfjkfsd",
-      "Twitter": "fdsdsff",
-      "id": 30
     },
     {
       "firstName": "anjali",
@@ -164,13 +70,13 @@
       "id": 32
     },
     {
-      "firstName": "anjali",
-      "lastName": "chama",
-      "street": "via alessandro prosdocimi,36",
-      "city": "padova",
+      "firstName": "Bhoosani",
+      "lastName": "Kumar",
+      "street": "9-26 kakathiya nagar colony, 35 th ward ,3 rd street",
+      "city": "KAMAREDDY",
       "Email": "anjali.chama@studenti.unipd.it",
-      "LinkedIn": "dsd",
-      "Twitter": "fdgfdg",
+      "LinkedIn": "gfdgfdgfd",
+      "Twitter": "gfdhgff",
       "id": 33
     }
   ]
