@@ -1,31 +1,86 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
 
+const initalValues = {
+  firstName: '',
+  lastName: '',
+  street: '',
+  city: '',
+  email: '',
+  linkedIn: '',
+  twitter: ''
+}
+let posting = false
+
 function ContactsAdd(props) {
 
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
-  const { setContacts, contacts } = props
+  const navigate = useNavigate()
+  const { contacts, setContacts } = props
+  const [formInfo, setformInfo] = useState(initalValues)
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  const handelChange = (event) => {
+
+    const key = event.target.name
+    const value = event.target.value
+    const changedInfo = {...formInfo}
+
+    changedInfo[key] = value
+
+    setformInfo(changedInfo)
+  }
+
+  const handelSubmit = (event) => {
+    event.preventDefault()
+    console.table('newContact', formInfo)
+    postNewContact(formInfo)
+    setformInfo(initalValues)
+  }
+
+  const postNewContact = (contact) => {
+    if(!posting) {
+      posting = true
+      const options = {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(contact)
+      }
+      fetch(`http://localhost:4000/contacts`,options)
+        .then(res=>res.json())
+        .then(data=>setContacts([...contacts, data]))
+        .then(posting = false)
+        .then(navigate('/'))
+    } else {
+      console.log('Please wait for last POST to finish, try again in a few seconds')
+    }
+  }
+
 
   return (
-    <form className="form-stack contact-form">
+    <form className="form-stack contact-form" onSubmit={handelSubmit}>
       <h2>Create Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
-      <input id="firstName" name="firstName" type="text" required />
+      <input id="firstName" name="firstName" type="text" onChange={handelChange} value={formInfo.firstName} required />
 
       <label htmlFor="lastName">Last Name:</label>
-      <input id="lastName" name="lastName" type="text" required/>
+      <input id="lastName" name="lastName" type="text" onChange={handelChange} value={formInfo.lastName} required/>
 
       <label htmlFor="street">Street:</label>
-      <input id="street" name="street" type="text" required/>
+      <input id="street" name="street" type="text" onChange={handelChange} value={formInfo.street} required/>
 
       <label htmlFor="city">City:</label>
-      <input id="city" name="city" type="text" required/>
+      <input id="city" name="city" type="text" onChange={handelChange} value={formInfo.city} required/>
+
+      <label htmlFor="email">Email:</label>
+      <input id='email' name="email" type="email" onChange={handelChange} value={formInfo.email} required/>
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input id='linkedIn' name="linkedIn" type='text' onChange={handelChange} value={formInfo.linkedIn} required/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id='twitter' name="twitter" type='text' onChange={handelChange} value={formInfo.twitter} required/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

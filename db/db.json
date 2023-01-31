@@ -12,7 +12,20 @@
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "email": "test@email.com",
+      "linkedIn": "test",
+      "twitter": "test"
+    },
+    {
+      "firstName": "asd",
+      "lastName": "asd",
+      "street": "asd",
+      "city": "asd",
+      "email": "asd@asd.com",
+      "linkedIn": "asd",
+      "twitter": "asd",
+      "id": 3
     }
   ]
 }
