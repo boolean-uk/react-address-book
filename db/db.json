@@ -47,5 +47,17 @@
       "linkedin": "linkedin.com/user/tiger",
       "twitter": "@TigerWoods"
     }
+  ],
+  "meetings": [
+    {
+      "name": "test",
+      "contactId": "1",
+      "id": 1
+    },
+    {
+      "name": "Is this working now",
+      "contactId": "1",
+      "id": 2
+    }
   ]
 }

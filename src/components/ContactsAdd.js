@@ -87,36 +87,36 @@ function ContactsAdd(props) {
 
     return (
         <form className="form-stack contact-form" onSubmit={handleSubmit}>
-        <h2>Create Contact</h2>
+            <h2>Create Contact</h2>
 
-        <label htmlFor="firstName">First Name</label>
-        <input id="firstName" name="firstName" type="text" required  onChange={handleChange}/>
+            <label htmlFor="firstName">First Name</label>
+            <input id="firstName" name="firstName" type="text" required  onChange={handleChange}/>
 
-        <label htmlFor="lastName">Last Name:</label>
-        <input id="lastName" name="lastName" type="text" required onChange={handleChange}/>
+            <label htmlFor="lastName">Last Name:</label>
+            <input id="lastName" name="lastName" type="text" required onChange={handleChange}/>
 
-        <label htmlFor="street">Street:</label>
-        <input id="street" name="street" type="text" required onChange={handleChange}/>
+            <label htmlFor="street">Street:</label>
+            <input id="street" name="street" type="text" required onChange={handleChange}/>
 
-        <label htmlFor="city">City:</label>
-        <input id="city" name="city" type="text" required onChange={handleChange}/>
+            <label htmlFor="city">City:</label>
+            <input id="city" name="city" type="text" required onChange={handleChange}/>
 
-        <label htmlFor="email">Email:</label>
-        <input id="email" name="email" type="email" required onChange={handleChange}/>
+            <label htmlFor="email">Email:</label>
+            <input id="email" name="email" type="email" required onChange={handleChange}/>
 
-        <label htmlFor="linkedin">LinkedIn:</label>
-        <input id="linkedin" name="linkedin" type="text" required onChange={handleChange}/>
+            <label htmlFor="linkedin">LinkedIn:</label>
+            <input id="linkedin" name="linkedin" type="text" required onChange={handleChange}/>
 
-        <label htmlFor="twitter">Twitter:</label>
-        <input id="twitter" name="twitter" type="text" required onChange={handleChange}/>
+            <label htmlFor="twitter">Twitter:</label>
+            <input id="twitter" name="twitter" type="text" required onChange={handleChange}/>
 
 
 
-        <div className="actions-section">
-            <button className="button blue" type="submit">
-            Create
-            </button>
-        </div>
+            <div className="actions-section">
+                <button className="button blue" type="submit">
+                Create
+                </button>
+            </div>
         </form>
     )
 }
