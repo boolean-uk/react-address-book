@@ -7,6 +7,9 @@ const initialFormState = {
   lastName: "",
   street: "",
   city: "",
+  email: "",
+  linkedIn: "",
+  twitter: ""
 }
 
 function ContactsAdd(props) {
@@ -46,6 +49,18 @@ function ContactsAdd(props) {
     if (name === "city") {
       newFormState.city = value
     }
+
+    if (name === "email") {
+      newFormState.email = value
+    }
+
+    if (name === "linkedIn") {
+      newFormState.linkedIn = value
+    }
+
+    if (name === "twitter") {
+      newFormState.twitter = value
+    }
     setNewContactForm(newFormState)
   };
 
@@ -77,7 +92,7 @@ function ContactsAdd(props) {
         })
     })
     
-    //event.target.reset()
+    event.target.reset()
     navigate('/')
 
 }
@@ -102,6 +117,15 @@ return (
 
   <label htmlFor="city">City:</label>
   <input id="city" name="city" type="text" required onChange={handleChange}/>
+
+  <label htmlFor="email">Email:</label>
+  <input id="email" name="email" type="email" required onChange={handleChange}/>
+
+  <label htmlFor="linkedIn">LinkedIn:</label>
+  <input id="linkedIn" name="linkedIn" type="text" required onChange={handleChange}/>
+
+  <label htmlFor="twitter">Twitter:</label>
+  <input id="twitter" name="twitter" type="text" required onChange={handleChange}/>
 
     <div className="actions-section">
       <button className="button blue" type="submit">
