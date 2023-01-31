@@ -30,7 +30,7 @@ export default function App() {
           <Link to="/">
             <li>Contacts List</li>
           </Link>
-          <Link to="/">
+          <Link to="/contacts/add">
           <li>Add New Contact</li>
           </Link>
         </ul>
@@ -41,6 +41,10 @@ export default function App() {
           <Route 
           path ="/"
           element = {<ContactsList contacts= {contacts} />}
+          />
+          <Route 
+          path ="/contacts/add"
+          element = {<ContactsAdd contacts = {contacts} setContacts = {setContacts}/>}
           />
         </Routes>
       </main>
