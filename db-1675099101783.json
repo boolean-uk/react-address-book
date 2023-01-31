@@ -21,6 +21,16 @@
       "id": 3
     },
     {
+      "firstName": "Donkey",
+      "lastName": "Sidekick",
+      "street": "Hut",
+      "city": "Swamp",
+      "email": "donkey@gmail.com",
+      "twitter": "@ShreksBestie",
+      "linkedIn": "",
+      "id": 4
+    },
+    {
       "firstName": "Lord",
       "lastName": "Farquaad",
       "street": "24 Towers",
@@ -41,44 +51,24 @@
       "id": 6
     },
     {
-      "firstName": "Ginger",
-      "lastName": "Breadman",
-      "street": "Drury Lane",
-      "city": "f",
-      "email": "",
+      "firstName": "testing",
+      "lastName": "Testing",
+      "street": "sfasf",
+      "city": "fasdf",
+      "email": "Ssf",
+      "twitter": "asf",
+      "linkedIn": "ASdfa",
+      "id": 7
+    },
+    {
+      "firstName": "another ",
+      "lastName": "Testing",
+      "street": "sfasf",
+      "city": "work?",
+      "email": "asfawef",
       "twitter": "",
       "linkedIn": "",
       "id": 8
-    },
-    {
-      "firstName": "Bob",
-      "lastName": "Builder",
-      "street": "Busy",
-      "city": "Constructor",
-      "email": "",
-      "twitter": "",
-      "linkedIn": "",
-      "id": 12
-    },
-    {
-      "firstName": "Princess",
-      "lastName": "Fiona",
-      "street": "12 Castle Far",
-      "city": "Far Away",
-      "email": "princessfiona@outlook.com",
-      "twitter": "@ogress",
-      "linkedIn": "",
-      "id": 13
-    },
-    {
-      "firstName": "testing",
-      "lastName": "testing",
-      "street": "testing",
-      "city": "testing",
-      "email": "testing",
-      "twitter": "testing",
-      "linkedIn": "testing",
-      "id": 14
     }
   ]
 }
