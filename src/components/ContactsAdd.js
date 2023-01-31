@@ -54,6 +54,13 @@ function ContactsAdd(props) {
       setFormState(initialState);
     }, 500)
 
+    //GET request to get teh data back with an ID
+    fetch("http://localhost:4000/contacts")
+      .then(res => res.json())
+      .then(data => {
+        setContacts(data)
+      })
+
     //bring page back to contactlist: if creation is ok
     navigate("/")
 
@@ -154,9 +161,9 @@ function ContactsAdd(props) {
         onChange={handleChange} />
 
       <div className="actions-section">
-          <button className="button blue" type="submit">
-            Create
-          </button>
+        <button className="button blue" type="submit">
+          Create
+        </button>
       </div>
     </form>
   )

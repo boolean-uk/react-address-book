@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 function ContactsView() {
-  const [contact, setContact] = useState(false)
+  const [contact, setContact] = useState([])
 
   //TODO: Get the contact to load from the params and fetch.
   const { id } = useParams();
@@ -15,16 +15,10 @@ function ContactsView() {
       .then((res) => res.json())
       .then((contactData) => {
         setContact(contactData)
-        // console.log("contactData:", contactData)
       })
 
-    //once data is returned, update state property to display 
-    //the contact on the page
-
-
   },
-    //params.id = dependency. can uncomment 
-    //line below once rest of code is sorted
+    //params.id = dependency.
     [contact.id]
   )
 

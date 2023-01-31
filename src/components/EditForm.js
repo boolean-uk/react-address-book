@@ -92,6 +92,7 @@ function EditForm(props) {
                 name="firstName"
                 type="text"
                 value={contacts.firstName}
+                required
                 placeholder="Type to update details..."
                 onChange={handleChange} />
 
@@ -100,6 +101,7 @@ function EditForm(props) {
                 name="lastName"
                 type="text"
                 value={contacts.lastName}
+                required
                 placeholder="Type to update details..."
                 onChange={handleChange} />
 
@@ -108,6 +110,7 @@ function EditForm(props) {
                 name="street"
                 type="text"
                 value={contacts.street}
+                required
                 placeholder="Type to update details..."
                 onChange={handleChange} />
 
@@ -116,6 +119,7 @@ function EditForm(props) {
                 name="city"
                 type="text"
                 value={contacts.city}
+                required
                 placeholder="Type to update details..."
                 onChange={handleChange} />
 
