@@ -6,6 +6,26 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Benjamin",
+      "lastName": "Pictor",
+      "street": "Newtown",
+      "city": "Westbury",
+      "email": "benjipictor@gmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 3
+    },
+    {
+      "firstName": "thom",
+      "lastName": "Gerrad",
+      "street": "westbyr",
+      "city": "vagara",
+      "email": "tg@hotmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 4
     }
   ]
 }

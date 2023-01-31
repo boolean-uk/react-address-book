@@ -4,7 +4,7 @@ import { Link, useSearchParams, useNavigate } from "react-router-dom"
 function ContactsList(props) {
   const navigate = useNavigate()
   //"contacts" must be passed as prop to this component
-  const { contacts } = props
+  const { contacts, loading } = props
   console.log("this is constacts in list",contacts)
  
 
@@ -12,6 +12,9 @@ function ContactsList(props) {
     <>
       <header>
         <h2>Contacts</h2>
+        {loading && (
+          <img src="https://media.tenor.com/tEBoZu1ISJ8AAAAC/spinning-loading.gif" alt="loading spinner" />
+        )}
       </header>
       <ul className="contacts-list">
         {contacts != undefined
@@ -30,7 +33,7 @@ function ContactsList(props) {
               </p>
             </li>
           )
-        }): "You Have No Friends"}
+        }): "You Have No Contacts"}
       </ul>
     </>
   )

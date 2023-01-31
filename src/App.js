@@ -8,17 +8,23 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [loading , setLoading] = useState(false)
     const location = useLocation()
   //TODO: Load all contacts on useEffect when component first renders
   useEffect(() => {
+    setLoading(true)
     fetch("http://localhost:4000/contacts")
     .then((response) => response.json())
+    
     .then((data) => {
       console.log("data from server",data)
       setContacts(data)
+      setLoading(false)
     })
   }, [location])
   console.log("this is contacts",contacts)
+ 
+
   return (
     <>
     
@@ -36,7 +42,7 @@ export default function App() {
           {/* TODO: Add routes here  */}
           <Route path="/contacts/edit/:id" element={<ContactsEdit contacts={contacts} setContacts={setContacts} />}></Route>
           <Route path="/contacts/:id" element={<ContactsView  />}></Route>
-          <Route path="/" element={<ContactsList contacts={contacts} />}></Route>
+          <Route path="/" element={<ContactsList contacts={contacts} loading={loading} />}></Route>
           <Route path="/contacts/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts} />}></Route>
         </Routes>
       </main>
