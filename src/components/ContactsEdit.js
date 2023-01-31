@@ -1,7 +1,9 @@
 import { useState } from "react";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function ContactsAdd(props) {
+function ContactsEdit(props) {
+  const { id } = useParams();
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
@@ -9,17 +11,17 @@ function ContactsAdd(props) {
 
   // When add new contact link is submitted
   // the state should store this data
-  const contactInfo = {
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-    email: "",
-    linkedIn: "",
-    twitter: "",
-  };
 
-  const [contactData, setContactData] = useState(contactInfo);
+  function updateContactDetails(contact) {
+    const newContacts = [...contacts];
+    const updatedContact = newContacts.find(
+      (details) => details.id === contact.id
+    );
+    newContacts[updatedContact] = { ...contact };
+    setContacts([...newContacts]);
+  }
+
+  const [contactData, setContactData] = useState([]);
   const navigate = useNavigate();
 
   function handleChange(event) {
@@ -39,15 +41,19 @@ function ContactsAdd(props) {
     // on submit add the data to json server by POST
     // Post the contactData to the json server
     // Then do a POST Fetch to get it rendered by adding it to the contacts
+    event.preventDefault();
     const opts = {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(contactData),
     };
-    fetch(`http://localhost:4000/contacts`, opts)
+    fetch(`http://localhost:4000/contacts/${id}`, opts)
       .then((res) => res.json())
-      .then((data) => setContacts([...contacts, data]));
-    navigate("/");
+      .then((data) => {
+        updateContactDetails(data);
+        navigate("/");
+      });
+    // --- //
   }
 
   return (
@@ -129,4 +135,4 @@ function ContactsAdd(props) {
   );
 }
 
-export default ContactsAdd;
+export default ContactsEdit;
