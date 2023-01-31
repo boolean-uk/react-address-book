@@ -63,7 +63,7 @@ const ContactsEdit = (props) => {
     }
 
     if (!contact) {
-        return <p>Loading</p>
+        return <p>Loading...</p>
     }
 
     return (

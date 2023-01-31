@@ -7,13 +7,20 @@ import "./styles/styles.css"
 import ContactsEdit from "./components/ContactsEdit"
 
 export default function App() {
+
+  const [loading, setLoading] = useState(true)
   const [contacts, setContacts] = useState([])
   
   useEffect(() => {
     fetch(`http://localhost:4000/contacts`)
       .then(res=>res.json())
       .then(data=>setContacts(data))
+      .then(()=>setLoading(false))
   },[])
+
+  if(loading) {
+    return <div>Loading Contacts...</div>
+  }
 
   return (
     <>
