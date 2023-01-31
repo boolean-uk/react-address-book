@@ -21,7 +21,9 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
-                View
+                <Link to={`/contact/${contact.id}`}>
+                  View
+                </Link>
               </p>
             </li>
           )
