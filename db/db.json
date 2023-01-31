@@ -25,7 +25,27 @@
       "city": "Washington",
       "email": "golf@bobdoessports.com",
       "linkedin": "linkedin.com/user/bobby",
-      "twitter": "@bobby"
+      "twitter": "@bobbydoessports"
+    },
+    {
+      "id": 8,
+      "firstName": "Scotty",
+      "lastName": "Cameron",
+      "street": "123 Long Drive",
+      "city": "Iron City",
+      "email": "scotty@cameron.com",
+      "linkedin": "linkedin.com/user/scottyC",
+      "twitter": "@ScottyC"
+    },
+    {
+      "id": 9,
+      "firstName": "Tiger ",
+      "lastName": "Woods",
+      "street": "987 Street Name",
+      "city": "Big City",
+      "email": "tiger@woods.com",
+      "linkedin": "linkedin.com/user/tiger",
+      "twitter": "@TigerWoods"
     }
   ]
 }

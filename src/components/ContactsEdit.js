@@ -38,27 +38,30 @@ function ContactsEdit(props) {
         // console.log("HandleChange", value, type, name, checked)
 
         const newFormState = {...formState}
-        if(name === "firstName"){
-            newFormState.firstName = value
-        }
-        if(name === "lastName"){
-            newFormState.lastName = value
-        }
-        if(name === "street") {
-            newFormState.street = value
-        }
-        if(name === "city") {
-            newFormState.city = value
-        }
-        if(name === "email") {
-            newFormState.email = value
-        }
-        if(name === "linkedin") {
-            newFormState.linkedin = value
-        }
-        if(name === "twitter") {
-            newFormState.twitter = value
-        }
+        newFormState[name] = value
+
+        // Long Form of newFormState[name] = value
+        // if(name === "firstName"){
+        //     newFormState.firstName = value
+        // }
+        // if(name === "lastName"){
+        //     newFormState.lastName = value
+        // }
+        // if(name === "street") {
+        //     newFormState.street = value
+        // }
+        // if(name === "city") {
+        //     newFormState.city = value
+        // }
+        // if(name === "email") {
+        //     newFormState.email = value
+        // }
+        // if(name === "linkedin") {
+        //     newFormState.linkedin = value
+        // }
+        // if(name === "twitter") {
+        //     newFormState.twitter = value
+        // }
         setFormState(newFormState)
     }
 
@@ -86,7 +89,6 @@ function ContactsEdit(props) {
                 setContacts(data)
             })
         })
-        // setContacts([...contacts, formState])
         event.target.reset()
         navigate('/')
 

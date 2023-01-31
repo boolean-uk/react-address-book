@@ -8,16 +8,19 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  // Loading state for my loading/spinner extension.
   const [loading, setLoading] = useState(false)
   
   
-  //TODO: Load all contacts on useEffect when component first renders
+  //Load all contacts on useEffect when component first renders
   useEffect(() => {
+    // Set loading to true... so spinner starts spinning!!!
     setLoading(true)
     fetch("http://localhost:4000/contacts")
     .then((res) => res.json())
     .then((data) => {
         setContacts(data)
+        // Fetch request done... spinner can stop spinning. Did we receive any contacts?
         setLoading(false)
     })
   }, [])
@@ -27,7 +30,7 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
+          {/* Links to Contacts List and Add Contact */}
           <li><Link to={`/`}>Contacts List</Link></li>
           <li><Link to={`/contacts/add`}>Add New Contact</Link></li>
         </ul>
@@ -35,7 +38,7 @@ export default function App() {
       <main>
         
         <Routes>
-          {/* TODO: Add routes here  */}
+          {/* Routes for some the components.  */}
           <Route path='/' element={<ContactsList contacts={contacts} setContacts={setContacts} loading={loading}/>}/>
           <Route path='/contacts/add' element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
           <Route path='/contacts/view/:id' element={<ContactsView contacts={contacts} setContacts={setContacts}/>}/>

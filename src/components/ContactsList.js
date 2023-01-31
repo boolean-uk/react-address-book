@@ -2,12 +2,14 @@ import { Link, useSearchParams } from "react-router-dom"
 
 function ContactsList(props) {
   
-  const { contacts, setContacts, loading } = props
+    // Destructuring props object
+    const { contacts, setContacts, loading } = props
 
-  return (
-    <>
+    return (
+        <>
         <header>
             <h2>Contacts</h2>
+            {/* Loading spinner conditional */}
             {loading && (
                 <img className="loadingSpin" src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif?20151024034921" alt="loading contacts"/>  
             )}
@@ -21,12 +23,14 @@ function ContactsList(props) {
                     {firstName} {lastName}
                 </p>
                 <p>
-                    { /** TODO: Make a Link here to view contact */}
+                    { /** Link to view contact */}
                     <Link to={`/contacts/view/${contact.id}`}>View</Link> 
                 </p>
                 <p>
-                <Link to={`/contacts/edit/${contact.id}`}>Edit</Link>
+                    { /** Link to edit contact */}  
+                    <Link to={`/contacts/edit/${contact.id}`}>Edit</Link>
                 </p>
+                    { /** On Click to Delete contact */}
                 <p className="deleteContact" onClick={function clickDelete() {
                     const options = {
                         method: "DELETE"
@@ -47,8 +51,8 @@ function ContactsList(props) {
             )
             })}
         </ul>
-    </>
-  )
+        </>
+    )
 }
 
 export default ContactsList

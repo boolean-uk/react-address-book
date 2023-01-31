@@ -14,44 +14,44 @@ const initialFormState = {
 
 function ContactsAdd(props) {
     const [formState, setFormState] = useState(initialFormState)
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
+    // destructuring props object
     const { setContacts, contacts } = props
+    // navigate for returning to homepage on submit.
     const navigate = useNavigate()
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  
 
     const handleChange = (event) => {
-        const value = event.target.value;
-        // const type = event.target.type;
-        const name = event.target.name;
-        // const checked = event.target.checked;
 
+        const value = event.target.value;
+        const name = event.target.name;
+        
         // console.log("HandleChange", value, type, name, checked)
 
         const newFormState = {...formState}
-        if(name === "firstName"){
-            newFormState.firstName = value
-        }
-        if(name === "lastName"){
-            newFormState.lastName = value
-        }
-        if(name === "street") {
-            newFormState.street = value
-        }
-        if(name === "city") {
-            newFormState.city = value
-        }
-        if(name === "email") {
-            newFormState.email = value
-        }
-        if(name === "linkedin") {
-            newFormState.linkedin = value
-        }
-        if(name === "twitter") {
-            newFormState.twitter = value
-        }
+        newFormState[name] = value
+
+        // Long Form:
+        // if(name === "firstName"){
+        //     newFormState.firstName = value
+        // }
+        // if(name === "lastName"){
+        //     newFormState.lastName = value
+        // }
+        // if(name === "street") {
+        //     newFormState.street = value
+        // }
+        // if(name === "city") {
+        //     newFormState.city = value
+        // }
+        // if(name === "email") {
+        //     newFormState.email = value
+        // }
+        // if(name === "linkedin") {
+        //     newFormState.linkedin = value
+        // }
+        // if(name === "twitter") {
+        //     newFormState.twitter = value
+        // }
         setFormState(newFormState)
     }
 
@@ -79,7 +79,6 @@ function ContactsAdd(props) {
                 setContacts(data)
             })
         })
-        // setContacts([...contacts, formState])
         event.target.reset()
         navigate('/')
 
