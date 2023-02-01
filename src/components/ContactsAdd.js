@@ -114,7 +114,7 @@ function ContactsAdd(props) {
       <input
         id="Email"
         name="email"
-        type="text"
+        type="email"
         value={contact.email}
         onChange={handleChange}
         required
