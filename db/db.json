@@ -4,8 +4,11 @@
       "id": 1,
       "firstName": "John",
       "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "street": "123 Street",
+      "city": "Big City",
+      "email": "johncarmack@carmackindustries.com",
+      "linkedin": "linkedin.com/user/johncarmackind",
+      "twitter": "@carmacky"
     },
     {
       "id": 2,
@@ -13,6 +16,48 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "id": 7,
+      "firstName": "Bob",
+      "lastName": "DoesSports",
+      "street": "1806 America Drive",
+      "city": "Washington",
+      "email": "golf@bobdoessports.com",
+      "linkedin": "linkedin.com/user/bobby",
+      "twitter": "@bobbydoessports"
+    },
+    {
+      "id": 8,
+      "firstName": "Scotty",
+      "lastName": "Cameron",
+      "street": "123 Long Drive",
+      "city": "Iron City",
+      "email": "scotty@cameron.com",
+      "linkedin": "linkedin.com/user/scottyC",
+      "twitter": "@ScottyC"
+    },
+    {
+      "id": 9,
+      "firstName": "Tiger ",
+      "lastName": "Woods",
+      "street": "987 Street Name",
+      "city": "Big City",
+      "email": "tiger@woods.com",
+      "linkedin": "linkedin.com/user/tiger",
+      "twitter": "@TigerWoods"
+    }
+  ],
+  "meetings": [
+    {
+      "name": "test",
+      "contactId": "1",
+      "id": 1
+    },
+    {
+      "name": "Is this working now",
+      "contactId": "1",
+      "id": 2
     }
   ]
 }
