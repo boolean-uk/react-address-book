@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 function ContactsList(props) {
   //"contacts" must be passed as prop to this component
-  const { contacts } = props;
+  const { contacts, setContacts, loading } = props;
 
   return (
     <>
