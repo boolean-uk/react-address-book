@@ -2,17 +2,61 @@
   "contacts": [
     {
       "id": 1,
-      "firstName": "John",
+      "firstName": "John Changed!",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "London",
+      "email": "email@example.com",
+      "type": "work"
     },
     {
       "id": 2,
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "email": "email@example.com",
+      "type": "personal"
+    },
+    {
+      "firstName": "Joe",
+      "lastName": "Doe",
+      "street": "Street",
+      "city": "City",
+      "id": 3
+    },
+    {
+      "firstName": "Joe",
+      "lastName": "Doe ",
+      "street": "2 Main Street",
+      "city": "London",
+      "email": "email@example.com",
+      "linkedIn": "",
+      "twitter": "",
+      "id": 4
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "contactId": 1,
+      "date": "24/4/2023",
+      "location": "London",
+      "time": "10:30"
+    },
+    {
+      "date": "2023-05-01",
+      "time": "16:52",
+      "location": "London",
+      "contactId": "1",
+      "id": 2
+    },
+    {
+      "date": "2023-05-01",
+      "time": "09:00",
+      "location": "Thessaloniki",
+      "contactId": "2",
+      "id": 3
     }
   ]
 }
