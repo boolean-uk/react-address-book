@@ -21,10 +21,19 @@ function ContactsView() {
     return <p>Loading</p>
   }
 
+  function emptyField (field) {
+    if (field) {
+      return <p>{field}</p>
+    }
+  }
+
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>{contact.street} {contact.city}</p>
+      {emptyField(contact.email)}
+      {emptyField(contact.linkedin)}
+      {emptyField(contact.twitter)}
     </div>
   )
 }

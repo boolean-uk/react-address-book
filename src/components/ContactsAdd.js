@@ -8,7 +8,10 @@ function ContactsAdd({contacts, setContacts}) {
     firstName: '',
     lastName: '',
     street: '',
-    city:''
+    city:'',
+    email:'',
+    linkedin:'',
+    twitter:''
   })
 
   const handleChange = (e) => {
@@ -44,6 +47,15 @@ function ContactsAdd({contacts, setContacts}) {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" required onChange={handleChange} value={formData.city}/>
+
+      <label htmlFor="email">Email:</label>
+      <input id="email" name="email" type="email" onChange={handleChange} value={formData.email}/>
+
+      <label htmlFor="linkedin">Linkedin:</label>
+      <input id="linkedin" name="linkedin" type="text" onChange={handleChange} value={formData.linkedin}/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" name="twitter" type="text" onChange={handleChange} value={formData.twitter}/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">

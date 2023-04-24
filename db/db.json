@@ -55,6 +55,16 @@
       "street": "Strada Horo",
       "city": "Suceava",
       "id": 12
+    },
+    {
+      "firstName": "Seb",
+      "lastName": "Social",
+      "street": "Kapou 412",
+      "city": "Lamia",
+      "email": "evmas@yahoo.com",
+      "linkedin": "",
+      "twitter": "twseb",
+      "id": 13
     }
   ]
 }
