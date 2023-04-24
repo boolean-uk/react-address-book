@@ -1,38 +1,41 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useNavigate, useParams, Link } from "react-router-dom";
 
 const initialState = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  email: "",
-  linkedin: "",
-  twitter: ""
-};
+    firstName: "",
+    lastName: "",
+    street: "",
+    city: "",
+    email: "",
+    linkedin: "",
+    twitter: ""
+  };
 
-function ContactsAdd(props) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
-  const { setContacts, contacts } = props
-  const navigate = useNavigate()
+function ContactsEdit(props) {
+  const { setContacts } = props
   const [formData, setFormData] = useState(initialState)
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  const navigate = useNavigate()
+  const params = useParams()
+
+  useEffect(function() {
+    fetch(`http://localhost:3030/contacts/${params.id}`)
+      .then(res => res.json())
+      .then(data => setFormData(data))
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch("http://localhost:3030/contacts", {
-      method: "POST",
+    await fetch(`http://localhost:3030/contacts/${params.id}`, {
+      method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(formData)
     });
-    const data = await res.json()
-    setContacts([...contacts, data])
+    await fetch("http://localhost:3030/contacts")
+    .then(res => res.json())
+    .then(data => setContacts(data))
     navigate('/')
   };
 
@@ -42,7 +45,7 @@ function ContactsAdd(props) {
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input id="firstName" name="firstName" type="text" onChange={handleChange} value={formData.firstName}  />
@@ -67,11 +70,14 @@ function ContactsAdd(props) {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Save edits
+        </button>
+        <button className="button blue">
+        <Link to={'/'}>Cancel</Link>
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default ContactsEdit
