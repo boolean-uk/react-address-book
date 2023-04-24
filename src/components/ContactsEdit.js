@@ -61,7 +61,7 @@ const ContactsEdit = (props) => {
 
     <div className="actions-section">
       <button className="button blue" type="submit">
-        Create
+        Update
       </button>
     </div>
   </form>

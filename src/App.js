@@ -16,7 +16,6 @@ export default function App() {
       .then(data => setContacts(data))
   }, [])
 
-
   return (
     <>
       <nav>
@@ -30,7 +29,7 @@ export default function App() {
       <main>
       <Routes>
           {/* TODO: Add routes here  */}
-          <Route path='/' element={<ContactsList contacts={contacts}/>} />
+          <Route path='/' element={<ContactsList setContacts={setContacts} contacts={contacts}/>} />
           <Route path='/contacts/:id' element={<ContactsView />} />
           <Route path='/contacts/add' element={<ContactsAdd setContacts={setContacts} contacts={contacts}/>} />
           <Route path='/contacts/edit/:id' element={<ContactsEdit setContacts={setContacts} contacts={contacts}/>} />

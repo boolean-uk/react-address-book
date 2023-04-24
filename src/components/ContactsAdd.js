@@ -65,10 +65,10 @@ function ContactsAdd(props) {
       <input id="email" name="email" type="email" required onChange={handleChange} value={contacts.email}/>
 
       <label htmlFor="twitter">Twitter:</label>
-      <input id="twitter" name="twitter" type="text" required onChange={handleChange} value={contacts.twitter}/>
+      <input id="twitter" name="twitter" type="text" onChange={handleChange} value={contacts.twitter}/>
 
       <label htmlFor="linkedin">LinkedIn:</label>
-      <input id="linkedin" name="linkedin" type="text" required onChange={handleChange} value={contacts.linkedin}/>
+      <input id="linkedin" name="linkedin" type="text" onChange={handleChange} value={contacts.linkedin}/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
