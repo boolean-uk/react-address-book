@@ -17,11 +17,11 @@
     {
       "firstName": "Rose",
       "lastName": "van der Giessen",
-      "street": "Schieweg",
+      "street": "Schieweg 101",
       "city": "Rotterdam",
       "email": "rose@rose.nl",
-      "twitter": "twitter",
-      "linkedin": "linkedin",
+      "twitter": "",
+      "linkedin": "",
       "id": 3
     }
   ]
