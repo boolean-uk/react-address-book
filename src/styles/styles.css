@@ -164,3 +164,10 @@ h2 {
   color: gray;
   cursor: pointer;
 }
+
+.nav-element {
+  text-decoration: none;
+  color: #195e3e;
+  font-weight: bold;
+  padding: 6px;
+}

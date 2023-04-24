@@ -20,9 +20,9 @@ export default function App() {
         <h2>Menu</h2>
         <ul>
 
-          <li><Link to={'/'}>Contacts List</Link></li>
+          <li><Link className="nav-element" to={'/'}>Contacts List</Link></li>
 
-          <li><Link to={'/contacts/add'}>Add New Contact</Link></li>
+          <li><Link className="nav-element" to={'/contacts/add'}>Add New Contact</Link></li>
 
         </ul>
       </nav>

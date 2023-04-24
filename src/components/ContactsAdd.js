@@ -103,7 +103,7 @@ function ContactsAdd(props) {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          {contact ? 'Update' : 'Create'}
         </button>
       </div>
     </form>

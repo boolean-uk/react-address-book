@@ -32,13 +32,16 @@ function ContactsList(props) {
               <p>
                 {firstName} {lastName}
               </p>
-              <p className="contact-actions">
-                <Link to={`/contacts/${contact.id}`}>View</Link>
-                <Link to='/contacts/add' state={contact}>
-                  <PencilIcon className="icon" />
-                </Link>
-                <TrashIcon className="icon" onClick={() => handleContactDelete(index)} />
-              </p>
+              <span className="contact-actions">
+                <div> <Link className="nav-element" to={`/contacts/${contact.id}`}>View</Link></div>
+                <div>
+                  <Link to='/contacts/add' state={contact}>
+                    <PencilIcon className="icon" />
+                  </Link>
+                </div>
+                <div><TrashIcon className="icon" onClick={() => handleContactDelete(index)} /></div>
+
+              </span>
 
             </li>
           )
