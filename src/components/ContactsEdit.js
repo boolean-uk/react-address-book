@@ -1,41 +1,38 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-const initialContact = {
-  firstName: '',
-  lastName: '',
-  street: '',
-  city: '',
-  email: '',
-  linkedin: '',
-  tweeter: ''
-}
+function ContactsEdit(props) {
 
-function ContactsAdd(props) {
+  const { setContacts, contacts, editContact } = props
+
   const navigate = useNavigate()
-  const [contact, setContact] = useState(initialContact)
+  const [contact, setContact] = useState(editContact)
 
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
-  const { setContacts, contacts } = props
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (contact.firstName !== '') {
-      const res = await fetch("http://localhost:3030/contacts", {
-        method: 'POST',
+    const res = await fetch(`http://localhost:3030/contacts/${contact.id}`, {
+        method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(contact)
-      })
+    })
 
-      const data = await res.json()
+    const data = await res.json()
 
-      setContacts([...contacts, data])
-      navigate('/')
-    }
+    const editedContacts = contacts.map(item => {
+        if (item.id === data.id) {
+            item = data
+        }
+        return item
+    })
+    setContacts(editedContacts)
+    navigate('/')
   }
 
   const handleChange = (e) => {
@@ -61,7 +58,7 @@ function ContactsAdd(props) {
       <input id="city" name="city" type="text" onChange={handleChange} value={contact.city} required/>
 
       <label htmlFor="email">Email:</label>
-      <input id="email" name="email" type="email" onChange={handleChange} value={contact.email} required/>
+      <input id="email" name="email" type="email" onChange={handleChange} value={contact.email} />
 
       <label htmlFor="linkedin">LinkedIn:</label>
       <input id="linkedin" name="linkedin" type="text" onChange={handleChange} value={contact.linkedin} />
@@ -71,11 +68,11 @@ function ContactsAdd(props) {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Save changes
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default ContactsEdit

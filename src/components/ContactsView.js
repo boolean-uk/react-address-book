@@ -20,10 +20,10 @@ function ContactsView() {
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
-      <p>Email: {contact.email}</p>
-      <p>LinkedIn: {contact.linkedin}</p>
-      <p>Tweeter: {contact.tweeter}</p>
+      <p>Street: {contact.street}, City: {contact.city}</p>
+      {contact.email && <p>Email: {contact.email}</p> }
+      {contact.linkedin && <p>LinkedIn: {contact.linkedin}</p> }
+      {contact.tweeter && <p>Tweeter: {contact.tweeter}</p> }
     </div>
   )
 }

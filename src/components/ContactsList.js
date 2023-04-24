@@ -1,10 +1,14 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
-function ContactsList({contacts, deleteContact}) {
+function ContactsList({contacts, deleteContact, setEditContact}) {
   
   const handleDelete = (contactId) => {
     deleteContact(contactId)
+  }
+
+  const handleEdit = (contact) => {
+    setEditContact(contact)
   }
 
   return (
@@ -24,6 +28,11 @@ function ContactsList({contacts, deleteContact}) {
                 <span className="link">
                   <Link to={`/contacts/${contact.id}`}>
                     View
+                  </Link>
+                </span>
+                <span className="link">
+                  <Link onClick={() => handleEdit(contact)} to={'/contacts/edit'}>
+                    Edit
                   </Link>
                 </span>
                 <span className="link">

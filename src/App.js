@@ -3,10 +3,12 @@ import { Link, Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
+import ContactsEdit from "./components/ContactsEdit"
 import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [editContact, setEditContact] = useState()
   
   useEffect(function() {
     fetch("http://localhost:3030/contacts")
@@ -38,9 +40,10 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route path="/" element={<ContactsList contacts={contacts} deleteContact={deleteContact}/>} />
+          <Route path="/" element={<ContactsList contacts={contacts} deleteContact={deleteContact} setEditContact={setEditContact}/>} />
           <Route path="/contacts/:id" element={<ContactsView />} />
           <Route path="/contacts/add" element={<ContactsAdd setContacts={setContacts} contacts={contacts} />}/>
+          <Route path="/contacts/edit" element={<ContactsEdit setContacts={setContacts} contacts={contacts} editContact={editContact} />} />
         </Routes>
       </main>
     </>
