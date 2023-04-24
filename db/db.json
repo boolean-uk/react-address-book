@@ -15,25 +15,14 @@
       "city": "London"
     },
     {
-      "firstName": "Best name",
-      "lastName": "of the Bestest",
+      "firstName": "Best",
+      "lastName": "of the Best",
       "street": "Best Street",
-      "city": "Best City",
+      "city": "Of the Best City",
+      "email": "Best email",
+      "linkedIn": "Best linkedIn",
+      "twitter": "Best twitter",
       "id": 3
-    },
-    {
-      "firstName": "Almost",
-      "lastName": "Best Name",
-      "street": "Almost Best Street",
-      "city": "Almost Best City",
-      "id": 4
-    },
-    {
-      "firstName": "Almost",
-      "lastName": "Best Name",
-      "street": "Almost Best Street",
-      "city": "Almost Best City",
-      "id": 5
     }
   ]
 }

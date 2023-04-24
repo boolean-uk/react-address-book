@@ -7,7 +7,10 @@ function ContactsAdd(props) {
     firstName: '',
     lastName: '',
     street: '',
-    city: ''
+    city: '',
+    email: '',
+    linkedIn: '',
+    twitter: ''
   }
 
   const { setContacts, contacts } = props
@@ -55,6 +58,18 @@ function ContactsAdd(props) {
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" required
        onChange={handleChange} value={formData.city}/>
+
+      <label htmlFor="email">Email:</label>
+      <input id="email" name="email" type="text" required
+       onChange={handleChange} value={formData.email}/>
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input id="linkedIn" name="linkedIn" type="text" required
+       onChange={handleChange} value={formData.linkedIn}/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" name="twitter" type="text" required
+       onChange={handleChange} value={formData.twitter}/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
