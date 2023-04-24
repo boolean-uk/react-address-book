@@ -28,5 +28,42 @@
       "linkedin": "dwadada",
       "twitter": "ddwd"
     }
+  ],
+  "meetings": [
+    {
+      "date": "2023-04-11",
+      "time": "18:34",
+      "location": "Holargos",
+      "contactId": "2",
+      "id": 1
+    },
+    {
+      "date": "2023-04-08",
+      "time": "11:14",
+      "location": "Larnaka",
+      "contactId": "2",
+      "id": 2
+    },
+    {
+      "date": "2022-12-22",
+      "time": "03:18",
+      "location": "Korinthos",
+      "contactId": "2",
+      "id": 3
+    },
+    {
+      "date": "2023-04-13",
+      "time": "16:42",
+      "location": "Holargos",
+      "contactId": "1",
+      "id": 4
+    },
+    {
+      "date": "2023-04-04",
+      "time": "08:54",
+      "location": "Kallithea",
+      "contactId": "1",
+      "id": 5
+    }
   ]
 }

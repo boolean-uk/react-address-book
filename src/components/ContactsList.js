@@ -8,7 +8,7 @@ function ContactsList(props) {
 
   const navigate = useNavigate()
 
-
+  //TODO also remove meetings
   const handleContactDelete = (index) => {
     const contact = contacts[index]
     const id = contact.id
@@ -36,10 +36,14 @@ function ContactsList(props) {
                 <div> <Link className="nav-element" to={`/contacts/${contact.id}`}>View</Link></div>
                 <div>
                   <Link to='/contacts/add' state={contact}>
-                    <PencilIcon className="icon" />
+                    <div style={{ display: 'flex', padding: '6px', backgroundColor: '#4D4745', alignItems: 'center', borderRadius: '10px' }}>
+                      <PencilIcon className="icon" />
+                    </div>
                   </Link>
                 </div>
-                <div><TrashIcon className="icon" onClick={() => handleContactDelete(index)} /></div>
+                <div style={{ display: 'flex', padding: '6px', backgroundColor: '#F0521B', alignItems: 'center', borderRadius: '10px' }}>
+                  <TrashIcon className="icon" onClick={() => handleContactDelete(index)} />
+                </div>
 
               </span>
 

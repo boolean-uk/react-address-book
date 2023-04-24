@@ -1,5 +1,6 @@
+import { CameraIcon, UserGroupIcon } from "@heroicons/react/20/solid"
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
@@ -19,7 +20,15 @@ function ContactsView() {
 
   return (
     <div>
-      <h2>{contact.firstName} {contact.lastName}</h2>
+      <span className="contact-actions">
+        <h2>{contact.firstName} {contact.lastName}</h2>
+        <Link className="nav-element" to={`/contact/${contact.id}/meetings`}>
+          <div className="meet-link">
+            <h4>Meetings</h4>
+          </div>
+        </Link>
+      </span>
+
       {contact.email && <>
         <h4>Email</h4>
         <p>{contact.email}</p>
