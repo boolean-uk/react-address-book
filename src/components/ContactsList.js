@@ -11,7 +11,6 @@ function ContactsList(props) {
   let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    console.log('m')
     searchParams.set('type', 'personal')
     searchParams.append('type', 'work')
     setSearchParams(searchParams)
