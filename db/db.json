@@ -1,13 +1,6 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
-    },
-    {
       "firstName": "Sebastian",
       "lastName": "Andrisan",
       "street": "Kykladon 450",
@@ -50,13 +43,6 @@
       "id": 11
     },
     {
-      "firstName": "Remus",
-      "lastName": "Jan",
-      "street": "Strada Horo",
-      "city": "Suceava",
-      "id": 12
-    },
-    {
       "firstName": "Seb",
       "lastName": "Social",
       "street": "Kapou 412",
@@ -65,6 +51,16 @@
       "linkedin": "",
       "twitter": "twseb",
       "id": 13
+    },
+    {
+      "firstName": "Bill",
+      "lastName": "Kill",
+      "street": "tara 34546",
+      "city": "Arizona",
+      "email": "",
+      "linkedin": "tarantinaBilly",
+      "twitter": "",
+      "id": 14
     }
   ]
 }

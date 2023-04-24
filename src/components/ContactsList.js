@@ -1,11 +1,19 @@
 import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useSearchParams} from "react-router-dom"
 
-function ContactsList({contacts}) {
+function ContactsList({contacts, setContacts}) {
+
+  // const handleDelete = (index) => {
+  //   const contact = contacts[index]
+  //   const id = contact.id
+
+  //   fetch(`http://localhost:4000/contacts/${id}`, {
+  //     method: 'DELETE'
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => console.log(data))
+  // }
   
-  // //"contacts" must be passed as prop to this component
-  // const { contacts } = props     OKKK
-
   return (
     <>
       <header>
@@ -23,6 +31,12 @@ function ContactsList({contacts}) {
                 <Link to={`/contacts/${contact.id}`} >
                 View
                 </Link>
+                &emsp;
+                <Link to={`/contacts/edit/${contact.id}`} >
+                Edit
+                </Link>
+                &emsp;
+                <button>Delete</button>
               </p>
             </li>
           )

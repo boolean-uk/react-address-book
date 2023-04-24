@@ -3,12 +3,12 @@ import { Link, Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
+import ContactsEdit from "./components/ContactsEdit"
 import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
-  
-  //TODO: Load all contacts on useEffect when component first renders
+
   useEffect(function() {
     fetch("http://localhost:4000/contacts")
       .then(res => res.json())
@@ -26,9 +26,10 @@ export default function App() {
       </nav>
       <main>
         <Routes>
-          <Route path='/' element={<ContactsList contacts={contacts} />} />
+          <Route path='/' element={<ContactsList contacts={contacts} setContacts={setContacts}/>} />
           <Route path='/contacts/:id' element={<ContactsView />} />
           <Route path='/contacts/add/' element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>} />
+          <Route path='/contacts/edit/:id' element={<ContactsEdit contacts={contacts} setContacts={setContacts}/>} />
         </Routes>
       </main>
     </>
