@@ -8,7 +8,7 @@
       "city": "London",
       "email": "qwe",
       "linkedIn": "123",
-      "twitter": "zxc"
+      "twitter": "zxc123"
     },
     {
       "id": 2,
@@ -19,26 +19,6 @@
       "email": "",
       "linkedIn": "",
       "twitter": ""
-    },
-    {
-      "firstName": "Best",
-      "lastName": "of the Best",
-      "street": "Best Street",
-      "city": "Of the Best City",
-      "email": "Best email",
-      "linkedIn": "Best linkedIn",
-      "twitter": "Best twitter",
-      "id": 3
-    },
-    {
-      "firstName": "1",
-      "lastName": "2",
-      "street": "3",
-      "city": "4",
-      "email": "5",
-      "linkedIn": "6",
-      "twitter": "7",
-      "id": 4
     }
   ]
 }

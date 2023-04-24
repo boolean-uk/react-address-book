@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
-function ContactsList({contacts}) {
+function ContactsList({contacts, removeContact}) {
 
   return (
     <>
@@ -32,6 +32,9 @@ function ContactsList({contacts}) {
                 <Link to={`contacts/edit/${contact.id}`}>
                   Edit
                 </Link>
+                <button onClick={() => removeContact(contact.id)}>
+                  Delete
+                </button>
               </p>
             </li>
           )

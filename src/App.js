@@ -8,13 +8,25 @@ import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
-  
-  //TODO: Load all contacts on useEffect when component first renders
-  useEffect(function() {
+
+  const loadContacts = async () => {
     fetch("http://localhost:3030/contacts")
       .then(res => res.json())
       .then(data => setContacts(data))
-  }, [])
+  }
+
+  const removeContact = async (id) => {
+    await fetch(`http://localhost:3030/contacts/${id}`, {
+      method: 'DELETE'
+    })
+
+    loadContacts()
+  }
+
+    //TODO: Load all contacts on useEffect when component first renders
+    useEffect(function() {
+      loadContacts()
+    }, [])
 
   return (
     <>
@@ -46,7 +58,10 @@ export default function App() {
           <Route 
             path='/'
             element={
-              <ContactsList contacts={contacts}/>
+              <ContactsList 
+                contacts={contacts} 
+                removeContact={removeContact}
+              />
             }
           />
 
@@ -62,15 +77,9 @@ export default function App() {
             } 
           />
 
-<Route 
+          <Route 
             path='/contacts/edit/:id' 
-            element={
-              <ContactsEdit
-                contacts={contacts} 
-                setContacts={setContacts}
-
-              />
-            } 
+            element={<ContactsEdit />} 
           />
         </Routes>
       </main>

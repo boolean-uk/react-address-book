@@ -23,7 +23,6 @@ function ContactsEdit() {
   }, [])
 
   const handleChange = (e) => {
-    console.log(formData)
     setFormData({...formData, [e.target.name]: e.target.value})
   }
  
