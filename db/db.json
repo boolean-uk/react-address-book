@@ -20,6 +20,31 @@
       "street": "Richmond",
       "city": "London",
       "id": 3
+    },
+    {
+      "firstName": "Harry",
+      "lastName": "Potter",
+      "street": "Privet Drive",
+      "city": "London",
+      "id": 4
+    },
+    {
+      "firstName": "John",
+      "lastName": "Doe",
+      "street": "Down",
+      "city": "Haarlem",
+      "email": "ver@ver.nl",
+      "id": 5
+    },
+    {
+      "firstName": "Tata",
+      "lastName": "Ratta",
+      "street": "Same",
+      "city": "Mumbai",
+      "email": "tata@ratta.in",
+      "LinkedIn": "tatrat",
+      "Twitter": "tatrat",
+      "id": 6
     }
   ]
 }

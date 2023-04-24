@@ -11,12 +11,15 @@ function ContactsAdd({ setContacts, contacts }) {
     lastName: "",
     street: "",
     city: "",
+    email: "",
+    LinkedIn: "",
+    Twitter: "",
   });
   // Implement controlled form
   //send POST to json server on form submit
 
   const handleChange = (e) => {
-    setFormData({...formData,  [e.target.name]: e.target.value });
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,6 +78,36 @@ function ContactsAdd({ setContacts, contacts }) {
         required
         onChange={handleChange}
         value={formData.city}
+      />
+
+      <label htmlFor="email">Email:</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        required
+        onChange={handleChange}
+        value={formData.email}
+      />
+
+      <label htmlFor="LinkedIn">LinkedIn:</label>
+      <input
+        id="LinkedIn"
+        name="LinkedIn"
+        type="text"
+        required
+        onChange={handleChange}
+        value={formData.LinkedIn}
+      />
+
+      <label htmlFor="Twitter">Twitter:</label>
+      <input
+        id="Twitter"
+        name="Twitter"
+        type="text"
+        required
+        onChange={handleChange}
+        value={formData.Twitter}
       />
 
       <div className="actions-section">

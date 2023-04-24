@@ -12,7 +12,7 @@ function ContactsView() {
   useEffect(function () {
     fetch(`http://localhost:4000/contacts/${params.id}`)
       .then((res) => res.json())
-      .then((data) => setContacts(data));
+      .then((data) => setContact(data));
   }, []);
 
   if (!contact) {
@@ -26,6 +26,9 @@ function ContactsView() {
       </h2>
       <p>
         {contact.street} {contact.city}
+      </p>
+      <p>
+        {contact.email} {contact.LinkedIn} {contact.Twitter}
       </p>
     </div>
   );
