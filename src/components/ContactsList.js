@@ -1,4 +1,4 @@
-import { Link, useParams, useSearchParams } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 import { useEffect, useState } from "react"
 function ContactsList(props) {
@@ -11,10 +11,11 @@ function ContactsList(props) {
   let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
+    console.log('m')
     searchParams.set('type', 'personal')
     searchParams.append('type', 'work')
     setSearchParams(searchParams)
-  }, [])
+  }, [searchParams])
 
   const handleContactDelete = (index) => {
     const contact = contacts[index]
