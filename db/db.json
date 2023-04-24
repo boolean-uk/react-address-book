@@ -13,6 +13,16 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Rose",
+      "lastName": "van der Giessen",
+      "street": "Schieweg",
+      "city": "Rotterdam",
+      "email": "rose@rose.nl",
+      "twitter": "twitter",
+      "linkedin": "linkedin",
+      "id": 3
     }
   ]
 }

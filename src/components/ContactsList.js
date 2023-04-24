@@ -2,7 +2,7 @@ import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
 function ContactsList(props) {
-  
+
   //"contacts" must be passed as prop to this component
   const { contacts } = props
 
@@ -21,7 +21,8 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
-                View
+                <Link to={`/contacts/${contact.id}`}>View</Link>
+
               </p>
             </li>
           )
