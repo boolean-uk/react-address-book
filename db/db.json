@@ -1,69 +1,43 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London",
-      "linkedin": "dwadd"
-    },
-    {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London",
-      "linkedin": "dwadada",
-      "email": "wda@mail.con",
-      "twitter": "awdwa"
-    },
-    {
       "firstName": "Konstantinos",
       "lastName": "Vroustouris",
       "street": "Ioannou 22",
       "city": "Kallithea",
-      "id": 3,
-      "email": "konstantinos.vroustouris@gmail.com",
-      "linkedin": "dwadada",
-      "twitter": "ddwd"
+      "email": "ntinos@app.com",
+      "linkedin": "dadada",
+      "twitter": "dwadad",
+      "id": 1
+    },
+    {
+      "firstName": "Xaralambos",
+      "lastName": "Kiritsis",
+      "street": "16 Glitch St",
+      "city": "Ntrafi",
+      "email": "kiritsis@mailk.com",
+      "linkedin": "ggolad",
+      "twitter": "dwadad",
+      "id": 2
+    },
+    {
+      "firstName": "Teve",
+      "lastName": "Cinque",
+      "street": "32 Debug",
+      "city": "Laurent",
+      "email": "tv@mail.com",
+      "linkedin": "tv_qq",
+      "twitter": "dfgrggtr",
+      "id": 3
     }
   ],
   "meetings": [
     {
-      "date": "2023-04-11",
-      "time": "18:34",
-      "location": "Holargos",
-      "contactId": "2",
-      "id": 1
-    },
-    {
       "date": "2023-04-08",
-      "time": "11:14",
-      "location": "Larnaka",
-      "contactId": "2",
-      "id": 2
-    },
-    {
-      "date": "2022-12-22",
-      "time": "03:18",
-      "location": "Korinthos",
-      "contactId": "2",
-      "id": 3
-    },
-    {
-      "date": "2023-04-13",
-      "time": "16:42",
+      "time": "23:07",
       "location": "Holargos",
       "contactId": "1",
-      "id": 4
-    },
-    {
-      "date": "2023-04-04",
-      "time": "08:54",
-      "location": "Kallithea",
-      "contactId": "1",
-      "id": 5
+      "id": 3
     }
   ]
 }

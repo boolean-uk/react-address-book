@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom";
 
 const initialData = {
@@ -16,7 +16,6 @@ function ContactsAdd(props) {
   const { setContacts, contacts } = props
   const navigate = useNavigate()
   const location = useLocation()
-  console.log(location.state)
   const contact = location.state || null
 
 

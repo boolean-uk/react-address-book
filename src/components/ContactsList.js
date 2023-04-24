@@ -15,7 +15,15 @@ function ContactsList(props) {
     fetch(`http://localhost:4000/contacts/${id}`, {
       method: 'DELETE'
     }).then(res => {
-      if (res.status === 200) setContacts(contacts.filter(contact => contact.id !== id))
+      if (res.status === 200) {
+        //Remove meetings specific to that contact
+        // fetch(`http://localhost:4000/meetings?contactId=${id}`, {
+        //   method: 'DELETE'
+        // })
+
+        setContacts(contacts.filter(contact => contact.id !== id))
+
+      }
     })
   }
 
