@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
+import "../styles/links.css";
 
-function ContactsList(props) {
+function ContactsList({ contacts }) {
   //"contacts" must be passed as prop to this component
-  const { contacts } = props;
+  // const { contacts } = props;
 
   return (
     <>
@@ -20,7 +21,13 @@ function ContactsList(props) {
               </p>
               <p>
                 {/** TODO: Make a Link here to view contact */}
-                <Link to={`/contacts/${contact.id}`}>View</Link>
+                <Link to={`/contacts/${contact.id}`} className="link">
+                  View
+                </Link>
+                {/* {console.log(contact)} */}
+                <Link to={`/contacts/edit/${contact.id}`} className="link">
+                  Edit
+                </Link>
               </p>
             </li>
           );
