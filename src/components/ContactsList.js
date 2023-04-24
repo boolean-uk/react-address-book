@@ -1,10 +1,7 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
-function ContactsList(props) {
-  
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props
+function ContactsList({contacts}) {
 
   return (
     <>
@@ -21,7 +18,17 @@ function ContactsList(props) {
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}
-                View
+                {
+                  /*
+                    The Link component defines a redirection url
+                    that will be requested when clicked.
+                    That url will be checked against the path 
+                    defined in the Route components
+                  */
+                }
+                <Link to={`contacts/${contact.id}`}>
+                  View
+                </Link>
               </p>
             </li>
           )

@@ -1,31 +1,60 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
 function ContactsAdd(props) {
 
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
-  const { setContacts, contacts } = props
+  const emptyForm = {
+    firstName: '',
+    lastName: '',
+    street: '',
+    city: ''
+  }
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  const { setContacts, contacts } = props
+  const [formData, setFormData] = useState(emptyForm)
+  const navigate = useNavigate()
+
+  const handleChange = (e) => {
+    setFormData({...formData, [e.target.name]: e.target.value})
+  }
+ 
+  const create = async (e) => {
+    e.preventDefault()
+
+    const res = await fetch('http://localhost:3030/contacts', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    
+    const contact = await res.json()
+
+    setContacts([...contacts, contact])
+    
+    navigate('/')
+  }
 
   return (
-    <form className="form-stack contact-form">
+    <form className="form-stack contact-form" onSubmit={e => create(e)}>
       <h2>Create Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
-      <input id="firstName" name="firstName" type="text" required />
+      <input id="firstName" name="firstName" type="text" required
+        onChange={handleChange} value={formData.firstName} />
 
       <label htmlFor="lastName">Last Name:</label>
-      <input id="lastName" name="lastName" type="text" required/>
+      <input id="lastName" name="lastName" type="text" required 
+        onChange={handleChange} value={formData.lastName} />
 
       <label htmlFor="street">Street:</label>
-      <input id="street" name="street" type="text" required/>
+      <input id="street" name="street" type="text" required
+       onChange={handleChange} value={formData.street} />
 
       <label htmlFor="city">City:</label>
-      <input id="city" name="city" type="text" required/>
+      <input id="city" name="city" type="text" required
+       onChange={handleChange} value={formData.city}/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
