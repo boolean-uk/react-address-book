@@ -1,76 +1,87 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
-const initialData = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  email: "",
-  truthSocial: "",
-  linkedIn: "",
-};
+const initialData = null;
 
-function ContactsAdd(props) {
+function ContactsEdit(props) {
   const contacts = props.contacts;
   const setContacts = props.setContacts;
-  const [inputData, setInputData] = useState(initialData);
+  const [contactData, setContactData] = useState(initialData);
   const navigate = useNavigate();
+  const params = useParams();
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts/${params.id}`)
+      .then((res) => res.json())
+      .then((data) => setContactData(data));
+  }, [params.id]);
+
+  if (!contactData) {
+    return <p>Loading</p>;
+  }
 
   const handleChange = (ev) => {
     const { name, value, type } = ev.target;
 
     if (name === "firstName" && type === "text") {
-      setInputData({ ...inputData, firstName: value });
+      setContactData({ ...contactData, firstName: value });
     }
     if (name === "lastName" && type === "text") {
-      setInputData({ ...inputData, lastName: value });
+      setContactData({ ...contactData, lastName: value });
     }
     if (name === "street" && type === "text") {
-      setInputData({ ...inputData, street: value });
+      setContactData({ ...contactData, street: value });
     }
     if (name === "city" && type === "text") {
-      setInputData({ ...inputData, city: value });
+      setContactData({ ...contactData, city: value });
     }
     if (name === "email" && type === "email") {
-      setInputData({ ...inputData, email: value });
+      setContactData({ ...contactData, email: value });
     }
     if (name === "linkedIn" && type === "text") {
-      setInputData({ ...inputData, linkedIn: value });
+      setContactData({ ...contactData, linkedIn: value });
     }
     if (name === "truthSocial" && type === "text") {
-      setInputData({ ...inputData, truthSocial: value });
+      setContactData({ ...contactData, truthSocial: value });
     }
   };
 
   const handleSubmit = (ev) => {
     ev.preventDefault();
 
-    fetch(`http://localhost:4000/contacts`, {
-      method: "POST",
+    fetch(`http://localhost:4000/contacts/${params.id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(inputData),
+      body: JSON.stringify(contactData),
     })
       .then((res) => res.json())
-      .then((data) => {
-        setContacts([...contacts, data]);
-        setInputData(initialData);
+      .then((updatedUser) => {
+        updateContactArray(updatedUser);
         navigate("/contacts");
       });
   };
 
-  console.log(inputData);
+  const updateContactArray = (updatedUser) => {
+    const updatedContacts = contacts.map((contact) => {
+      if (contact.id === updatedUser.id) {
+        return updatedUser;
+      }
+      return contact;
+    });
+    setContacts(updatedContacts);
+  };
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
         name="firstName"
         type="text"
-        value={inputData.firstName}
+        placeholder={`${contactData.firstName}`}
+        value={contactData.firstName}
         onChange={handleChange}
         required
       />
@@ -80,7 +91,8 @@ function ContactsAdd(props) {
         id="lastName"
         name="lastName"
         type="text"
-        value={inputData.lastName}
+        placeholder={`${contactData.lastName}`}
+        value={contactData.lastName}
         onChange={handleChange}
         required
       />
@@ -90,7 +102,8 @@ function ContactsAdd(props) {
         id="street"
         name="street"
         type="text"
-        value={inputData.street}
+        placeholder={`${contactData.street}`}
+        value={contactData.street}
         onChange={handleChange}
         required
       />
@@ -100,7 +113,8 @@ function ContactsAdd(props) {
         id="city"
         name="city"
         type="text"
-        value={inputData.city}
+        placeholder={`${contactData.city}`}
+        value={contactData.city}
         onChange={handleChange}
         required
       />
@@ -110,7 +124,8 @@ function ContactsAdd(props) {
         id="email"
         name="email"
         type="email"
-        value={inputData.email}
+        placeholder={`${contactData.email}`}
+        value={contactData.email}
         onChange={handleChange}
       />
 
@@ -119,7 +134,8 @@ function ContactsAdd(props) {
         id="linkedIn"
         name="linkedIn"
         type="text"
-        value={inputData.linkedIn}
+        placeholder={`${contactData.linkedIn}`}
+        value={contactData.linkedIn}
         onChange={handleChange}
       />
 
@@ -128,17 +144,18 @@ function ContactsAdd(props) {
         id="truthSocial"
         name="truthSocial"
         type="text"
-        value={inputData.truthSocial}
+        placeholder={`${contactData.truthSocial}`}
+        value={contactData.truthSocial}
         onChange={handleChange}
       />
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Edit
         </button>
       </div>
     </form>
   );
 }
 
-export default ContactsAdd;
+export default ContactsEdit;
