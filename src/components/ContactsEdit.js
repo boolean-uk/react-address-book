@@ -1,7 +1,7 @@
-import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react"
+import { useNavigate, useParams } from "react-router-dom";
 
-function ContactsAdd(props) {
+function ContactsEdit() {
   const emptyForm = {
     firstName: '',
     lastName: '',
@@ -12,28 +12,31 @@ function ContactsAdd(props) {
     twitter: ''
   }
 
-  const { setContacts, contacts } = props
   const [formData, setFormData] = useState(emptyForm)
+  const { id } = useParams()
   const navigate = useNavigate()
 
+  useEffect(() => {
+    fetch(`http://localhost:3030/contacts/${id}`)
+      .then(res => res.json())
+      .then(data => setFormData(data))
+  }, [])
+
   const handleChange = (e) => {
+    console.log(formData)
     setFormData({...formData, [e.target.name]: e.target.value})
   }
  
   const create = async (e) => {
     e.preventDefault()
 
-    const res = await fetch('http://localhost:3030/contacts', {
-      method: 'POST',
+    await fetch(`http://localhost:3030/contacts/${id}`, {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(formData)
     })
-    
-    const contact = await res.json()
-
-    setContacts([...contacts, contact])
     
     navigate('/')
   }
@@ -79,4 +82,4 @@ function ContactsAdd(props) {
   )
 }
 
-export default ContactsAdd
+export default ContactsEdit
