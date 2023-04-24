@@ -67,7 +67,7 @@ function ContactsList(props) {
 
       </section>
       <ul className="contacts-list">
-        {contacts.filter((contact, index) => searchParams.getAll('type').includes(contact.contactType)).map((contact, index) => {
+        {contacts.filter(contact => searchParams.getAll('type').includes(contact.contactType)).map((contact, index) => {
           const { firstName, lastName } = contact
           return (
             <li className="contact" key={index}>
