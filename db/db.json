@@ -13,6 +13,13 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Max",
+      "lastName": "de Ruiter",
+      "street": "Sloutersverlaat 46",
+      "city": "Amsterdam",
+      "id": 3
     }
   ]
 }
