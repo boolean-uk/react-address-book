@@ -1,7 +1,12 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
+import Spinner from "./Spinner"
 
 function ContactsList({contacts, removeContact}) {
+  
+  if (!contacts) {
+    return <Spinner />
+  }
 
   return (
     <>

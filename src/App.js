@@ -7,7 +7,7 @@ import ContactsEdit from "./components/ContactsEdit"
 import "./styles/styles.css"
 
 export default function App() {
-  const [contacts, setContacts] = useState([])
+  const [contacts, setContacts] = useState(false)
 
   const loadContacts = async () => {
     fetch("http://localhost:3030/contacts")
