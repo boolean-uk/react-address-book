@@ -1,18 +1,24 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "firstName": "David",
+      "lastName": "Czuczor",
+      "street": "27 Ruscoe Road",
+      "city": "London",
+      "email": "czdavid93@gmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 1
     },
     {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
+      "firstName": "Duck",
+      "lastName": "Duckingster",
+      "street": "Lake Street",
+      "city": "Pond City",
+      "email": "quack@quack.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 2
     }
   ]
 }

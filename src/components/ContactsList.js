@@ -1,34 +1,49 @@
-import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom";
+import LoadingSpinner from "./LoadingSpinner";
 
-function ContactsList(props) {
-  
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props
+function ContactsList({ contacts, setContacts, isLoading }) {
+  const deleteContact = (id) => {
+    fetch("http://localhost:4000/contacts/" + id, {
+      method: "DELETE",
+    });
+    const updatedArray = contacts.filter((contact) => contact.id !== id);
+    setContacts(updatedArray);
+  };
 
   return (
     <>
       <header>
         <h2>Contacts</h2>
       </header>
-      <ul className="contacts-list">
-        {contacts.map((contact, index) => {
-          const { firstName, lastName } = contact
-          return (
-            <li className="contact" key={index}>
-              <p>
-                {firstName} {lastName}
-              </p>
-              <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
-              </p>
-            </li>
-          )
-        })}
-      </ul>
+      {isLoading ? (
+        <LoadingSpinner />
+      ) : (
+        <ul className="contacts-list">
+          {contacts.map((contact) => {
+            const { firstName, lastName } = contact;
+            return (
+              <li className="contact" key={contact.id}>
+                <p>
+                  {firstName} {lastName}
+                </p>
+                <div>
+                  <button>
+                    <Link to={`/contacts/${contact.id}`}>View</Link>
+                  </button>{" "}
+                  <button>
+                    <Link to={`/edit/${contact.id}`}>Edit</Link>
+                  </button>{" "}
+                  <button onClick={() => deleteContact(contact.id)}>
+                    Delete
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </>
-  )
+  );
 }
 
-export default ContactsList
+export default ContactsList;
