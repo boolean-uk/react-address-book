@@ -1,29 +1,34 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router";
 import { HTTPCONTACTS } from "../http";
+import { useEffect, useState } from "react";
 
-const INITIAL_VALUES = {
-  firstName: "",
-  lastName: "",
-  street: "",
-  city: "",
-  email: "",
-  linkedIn: "",
-  twitter: "",
-  type: "",
-};
-
-function ContactsAdd({ setContacts, contacts }) {
+const ContactsEdit = ({ contacts, setContacts }) => {
+  const { id } = useParams();
   const navigate = useNavigate();
-  const [formState, setFormState] = useState(INITIAL_VALUES);
-  const postData = (data) => {
-    fetch(HTTPCONTACTS, {
-      method: "POST",
+  const [formState, setFormState] = useState(false);
+
+  useEffect(() => {
+    fetch(HTTPCONTACTS + `/${id}`)
+      .then((res) => res.json())
+      .then((data) => setFormState(data));
+  }, []);
+
+  const updateData = (data) => {
+    fetch(HTTPCONTACTS + `/${id}`, {
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     })
       .then((res) => res.json())
-      .then((respose) => setContacts([...contacts, respose]));
+      //   .then((res) => console.dir(res))
+      .then((res) => {
+        const newContacts = contacts.map((con) => {
+          if (con.id === parseInt(id)) return res;
+          return con;
+        });
+        setContacts(newContacts);
+      })
+      .then(() => navigate("/"));
   };
 
   const handleChange = (e) => {
@@ -31,14 +36,17 @@ function ContactsAdd({ setContacts, contacts }) {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    postData(formState);
-    setFormState(INITIAL_VALUES);
-    navigate("/");
+    updateData(formState);
   };
+
+  if (!formState) {
+    return <span className="loader"></span>;
+  }
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
+
       <label htmlFor="firstName">First Name</label>
       <input
         id="firstName"
@@ -49,6 +57,7 @@ function ContactsAdd({ setContacts, contacts }) {
         placeholder="Joe"
         required
       />
+
       <label htmlFor="lastName">Last Name:</label>
       <input
         id="lastName"
@@ -59,6 +68,7 @@ function ContactsAdd({ setContacts, contacts }) {
         placeholder="Doe"
         required
       />
+
       <label htmlFor="street">Street:</label>
       <input
         id="street"
@@ -69,6 +79,7 @@ function ContactsAdd({ setContacts, contacts }) {
         placeholder="1 Main street"
         required
       />
+
       <label htmlFor="city">City:</label>
       <input
         id="city"
@@ -79,6 +90,7 @@ function ContactsAdd({ setContacts, contacts }) {
         placeholder="London"
         required
       />
+
       <label htmlFor="email">Email:</label>
       <input
         id="email"
@@ -94,39 +106,28 @@ function ContactsAdd({ setContacts, contacts }) {
         id="linkedIn"
         name="linkedIn"
         type="url"
-        pattern="http://www.linkedin.com/.*"
+        pattern="hTTPContactss://www.linkedin.com/.*"
         value={formState.linkedIn}
         onChange={handleChange}
-        placeholder="http://www.linkedin.com/..."
+        placeholder="hTTPContactss://www.linkedin.com/..."
       />
       <label htmlFor="twitter">Twitter:</label>
       <input
         id="twitter"
         name="twitter"
         type="url"
-        pattern="http://twitter.com/.*"
+        pattern="hTTPContactss://twitter.com/.*"
         value={formState.twitter}
         onChange={handleChange}
-        placeholder="http://twitter.com/..."
+        placeholder="hTTPContactss://twitter.com/..."
       />
-      <div className="buttons">
-        <input type="radio" value="work" name="type" onChange={handleChange} />
-        Work
-        <input
-          type="radio"
-          value="personal"
-          name="type"
-          onChange={handleChange}
-        />
-        Personal
-      </div>
+
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Edit
         </button>
       </div>
     </form>
   );
-}
-
-export default ContactsAdd;
+};
+export default ContactsEdit;

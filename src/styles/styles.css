@@ -37,7 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
 }
 
 /* Make images easier to work with */
@@ -103,7 +103,7 @@ h2 {
 .contacts-list > li {
   padding: 1rem 0;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr auto auto;
   gap: 1rem;
 }
 
@@ -150,4 +150,38 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+/** MyStyles */
+.links {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #333;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.form-meeting {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr auto;
+  gap: 0.25rem;
+}
+.form-meeting label {
+  max-width: 100px;
 }
