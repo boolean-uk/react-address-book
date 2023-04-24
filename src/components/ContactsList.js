@@ -1,4 +1,4 @@
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useParams, useSearchParams } from "react-router-dom"
 import { EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 import { useEffect, useState } from "react"
 function ContactsList(props) {
@@ -67,7 +67,7 @@ function ContactsList(props) {
 
       </section>
       <ul className="contacts-list">
-        {contacts.map((contact, index) => {
+        {contacts.filter((contact, index) => searchParams.getAll('type').includes(contact.contactType)).map((contact, index) => {
           const { firstName, lastName } = contact
           return (
             <li className="contact" key={index}>

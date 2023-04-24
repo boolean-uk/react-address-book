@@ -1,33 +1,27 @@
 {
   "contacts": [
     {
+      "contactType": "personal",
       "firstName": "Konstantinos",
       "lastName": "Vroustouris",
       "street": "Ioannou 22",
       "city": "Kallithea",
-      "email": "ntinos@app.com",
-      "linkedin": "dadada",
-      "twitter": "dwadad",
+      "email": "konstantinos.vroustouris@gmail.com",
+      "linkedin": "dwadada",
+      "twitter": "",
       "id": 1
     },
     {
-      "firstName": "Teve",
-      "lastName": "Cinque",
-      "street": "32 Debug",
-      "city": "Laurent",
-      "email": "tv@mail.com",
-      "linkedin": "tv_qq",
-      "twitter": "dfgrggtr",
-      "id": 3
+      "contactType": "work",
+      "firstName": "Xaralambos",
+      "lastName": "Kiritsis",
+      "street": "16 Glitch St",
+      "city": "Ntrafi",
+      "email": "kiritsis@mailk.com",
+      "linkedin": "kyrkyr",
+      "twitter": "@kyrkyr",
+      "id": 2
     }
   ],
-  "meetings": [
-    {
-      "date": "2023-04-08",
-      "time": "23:07",
-      "location": "Holargos",
-      "contactId": "1",
-      "id": 3
-    }
-  ]
+  "meetings": []
 }

@@ -2,6 +2,7 @@ import { useState } from "react"
 import { useNavigate, useLocation } from "react-router-dom";
 
 const initialData = {
+  contactType: 'personal',
   firstName: '',
   lastName: '',
   street: '',
@@ -32,6 +33,7 @@ function ContactsAdd(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+
     //update entry
     if (contact) {
       fetch(`http://localhost:4000/contacts/${contact.id}`, {
@@ -77,6 +79,16 @@ function ContactsAdd(props) {
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
       <h2>Create Contact</h2>
+
+      <label>Contact Type</label>
+      <span className="filter-span">
+        <input id="personal" name="contactType" type="radio" value="personal" checked={formData.contactType === 'personal'} onChange={handleChange}></input>
+        <label htmlFor="personal">Personal</label>
+        <input id="work" name="contactType" type="radio" value="work" checked={formData.contactType === 'work'} onChange={handleChange}></input>
+        <label htmlFor="work">Work</label>
+
+      </span>
+
 
       <label htmlFor="firstName">First Name</label>
       <input id="firstName" name="firstName" type="text" required onChange={handleChange} value={formData.firstName} />
