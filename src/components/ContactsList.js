@@ -1,14 +1,10 @@
-import { useState } from "react"
-import { Link, useNavigate, useSearchParams } from "react-router-dom"
-import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
+import { Link } from "react-router-dom"
+import { EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 function ContactsList(props) {
 
-  //"contacts" must be passed as prop to this component
   const { contacts, setContacts } = props
 
-  const navigate = useNavigate()
 
-  //TODO also remove meetings
   const handleContactDelete = (index) => {
     const contact = contacts[index]
     const id = contact.id
@@ -16,11 +12,6 @@ function ContactsList(props) {
       method: 'DELETE'
     }).then(res => {
       if (res.status === 200) {
-        //Remove meetings specific to that contact
-        // fetch(`http://localhost:4000/meetings?contactId=${id}`, {
-        //   method: 'DELETE'
-        // })
-
         setContacts(contacts.filter(contact => contact.id !== id))
 
       }
@@ -41,7 +32,11 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <span className="contact-actions">
-                <div> <Link className="nav-element" to={`/contacts/${contact.id}`}>View</Link></div>
+
+                <Link style={{ display: 'flex', padding: '6px', backgroundColor: '#ec7e24', alignItems: 'center', borderRadius: '10px' }} to={`/contacts/${contact.id}`}>
+                  <EyeIcon className="icon" />
+                </Link>
+
                 <div>
                   <Link to='/contacts/add' state={contact}>
                     <div style={{ display: 'flex', padding: '6px', backgroundColor: '#4D4745', alignItems: 'center', borderRadius: '10px' }}>
