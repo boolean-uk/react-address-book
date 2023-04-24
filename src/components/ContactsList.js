@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
 
-function ContactsList(props) {
+function ContactsList({contacts, deleteContact}) {
   
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props
+  const handleDelete = (contactId) => {
+    deleteContact(contactId)
+  }
 
   return (
     <>
@@ -20,8 +21,16 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
+                <span className="link">
+                  <Link to={`/contacts/${contact.id}`}>
+                    View
+                  </Link>
+                </span>
+                <span className="link">
+                  <Link onClick={() => handleDelete(contact.id)} to={'/'}>
+                    Delete
+                  </Link>
+                </span>
               </p>
             </li>
           )

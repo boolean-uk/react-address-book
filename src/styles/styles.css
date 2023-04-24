@@ -151,3 +151,8 @@ h2 {
 .address-card h2 {
   font-size: 1.15rem;
 }
+
+/* Links */
+.link {
+  margin-right: 1rem;
+}
