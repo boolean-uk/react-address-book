@@ -13,6 +13,30 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Konstantinos",
+      "lastName": "Vroustouris",
+      "street": "Ioannou 22",
+      "city": "Ntrafi",
+      "id": 3
+    },
+    {
+      "firstName": "Teve",
+      "lastName": "Cinque",
+      "street": "16 Glitch St",
+      "city": "Laurent",
+      "id": 4
+    },
+    {
+      "firstName": "Xaralambos",
+      "lastName": "Kiritsis",
+      "street": "Ioannou 22",
+      "city": "Holargos",
+      "email": "nogolden@app.com",
+      "linkedin": "ggolad",
+      "twitter": "ttgo",
+      "id": 5
     }
   ]
 }
