@@ -167,7 +167,7 @@ h2 {
 
 .nav-element {
   text-decoration: none;
-  color: #e4a531;
+  color: #ec7e24;
   font-weight: bold;
   padding: 6px;
 }
@@ -212,4 +212,40 @@ h2 {
   border-radius: 6px;
   max-width: 400px;
   background-color: bisque;
+}
+
+.contact-filter {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.filter-span {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-span>input[type="radio"] {
+  display: none;
+}
+
+.filter-span>input[type="radio"]+label {
+  display: inline;
+  padding: 10px;
+  cursor: pointer;
+  min-width: 100px;
+  color: #1b1b1b;
+  font-weight: bold;
+
+}
+
+.filter-span>input[type="radio"]:checked+label {
+  border-bottom: 2px solid #ec7e24;
+}
+
+.filter-span>input[type="radio"]:not(:checked)+label {
+  background-color: white;
 }

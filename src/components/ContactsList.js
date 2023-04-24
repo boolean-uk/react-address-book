@@ -1,9 +1,20 @@
-import { Link } from "react-router-dom"
+import { Link, useSearchParams } from "react-router-dom"
 import { EyeIcon, PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
+import { useEffect, useState } from "react"
 function ContactsList(props) {
 
   const { contacts, setContacts } = props
 
+
+  const [filter, setFilter] = useState(3)
+
+  let [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    searchParams.set('type', 'personal')
+    searchParams.append('type', 'work')
+    setSearchParams(searchParams)
+  }, [])
 
   const handleContactDelete = (index) => {
     const contact = contacts[index]
@@ -18,11 +29,43 @@ function ContactsList(props) {
     })
   }
 
+  const handleFilterChange = (e) => {
+    setFilter(e.target.value)
+
+    switch (e.target.value) {
+      case '1':
+        searchParams.set('type', 'personal')
+        break
+      case '2':
+        searchParams.set('type', 'work')
+        break
+      case '3':
+        searchParams.set('type', 'personal')
+        searchParams.append('type', 'work')
+      default:
+        break;
+    }
+
+    setSearchParams(searchParams)
+  }
+
   return (
     <>
       <header>
         <h2>Contacts</h2>
       </header>
+      <section className="contact-filter">
+
+        <span className="filter-span">
+          <input type='radio' id='personal' name="contactType" value={1} checked={filter == 1} onChange={handleFilterChange}></input>
+          <label htmlFor="personal">Personal</label>
+          <input type='radio' id='work' name="contactType" value={2} checked={filter == 2} onChange={handleFilterChange}></input>
+          <label htmlFor="work">Work</label>
+          <input type='radio' id='all' name="contactType" value={3} checked={filter == 3} onChange={handleFilterChange}></input>
+          <label htmlFor="all">All</label>
+        </span>
+
+      </section>
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
