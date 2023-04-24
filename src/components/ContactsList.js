@@ -1,10 +1,11 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
+import { Oval } from "react-loader-spinner"
 
 function ContactsList(props) {
 
   //"contacts" must be passed as prop to this component
-  const { contacts, setContacts } = props
+  const { contacts, setContacts, isLoading } = props
 
 
   const deleteContact = (id) => {
@@ -20,8 +21,18 @@ function ContactsList(props) {
       <header>
         <h2>Contacts</h2>
       </header>
-      {contacts.length === 0 && <p>You have no contacts yet! Add your <Link to='/contacts/add'>first contact</Link></p>}
+      { isLoading ?
+      <Oval
+      height = "80"
+      width = "80"
+      radius = "9"
+      color = 'green'
+      ariaLabel = 'three-dots-loading'
+      wrapperStyle
+      wrapperClass
+      /> : (
       <ul className="contacts-list">
+        {(contacts.length === 0)&& <p>You have no contacts yet! Add your <Link to='/contacts/add'>first contact</Link></p>}
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           return (
@@ -35,11 +46,12 @@ function ContactsList(props) {
                 <Link to={`/contacts/edit/${contact.id}`}>Edit</Link>
               </p>
               <p onClick={() => deleteContact(contact.id)}>Delete</p>
-
             </li>
           )
         })}
       </ul>
+      )
+      }
     </>
   )
 }
