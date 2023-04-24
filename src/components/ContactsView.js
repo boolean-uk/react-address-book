@@ -33,6 +33,7 @@ function ContactsView() {
         <p>{contact.twitter}</p>
       </>}
 
+      <h4>Address</h4>
       <p>{contact.street} {contact.city}</p>
     </div>
   )
