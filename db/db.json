@@ -21,7 +21,26 @@
       "linkedin": "kyrkyr",
       "twitter": "@kyrkyr",
       "id": 2
+    },
+    {
+      "contactType": "personal",
+      "firstName": "Teve",
+      "lastName": "Cinque",
+      "street": "32 Debug",
+      "city": "Laurent",
+      "email": "tv@mail.com",
+      "linkedin": "tv_qq",
+      "twitter": "@tv555",
+      "id": 3
     }
   ],
-  "meetings": []
+  "meetings": [
+    {
+      "date": "2023-04-05",
+      "time": "10:36",
+      "location": "Holargos",
+      "contactId": "1",
+      "id": 1
+    }
+  ]
 }

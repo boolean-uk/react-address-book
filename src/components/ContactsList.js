@@ -68,12 +68,17 @@ function ContactsList(props) {
       </section>
       <ul className="contacts-list">
         {contacts.filter(contact => searchParams.getAll('type').includes(contact.contactType)).map((contact, index) => {
-          const { firstName, lastName } = contact
+          const { firstName, lastName, contactType } = contact
           return (
             <li className="contact" key={index}>
-              <p>
-                {firstName} {lastName}
-              </p>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <p>
+                  {firstName} {lastName}
+                </p>
+                <p style={{ color: '#ec7e24', fontWeight: 'bold', fontSize: '15px' }}>{contactType.toUpperCase()}</p>
+              </div>
+
+
               <span className="contact-actions">
 
                 <Link style={{ display: 'flex', padding: '6px', backgroundColor: '#ec7e24', alignItems: 'center', borderRadius: '10px' }} to={`/contacts/${contact.id}`}>

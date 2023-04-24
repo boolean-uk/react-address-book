@@ -21,7 +21,11 @@ function ContactsView() {
   return (
     <div>
       <span className="contact-actions">
-        <h2>{contact.firstName} {contact.lastName}</h2>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <h2>{contact.firstName} {contact.lastName}</h2>
+          <h4 style={{ color: '#ec7e24', fontWeight: 'bold' }}>{contact.contactType.toUpperCase()}</h4>
+        </div>
+
         <Link className="nav-element" to={`/contact/${contact.id}/meetings`}>
           <div className="meet-link">
             <h4>Meetings</h4>
