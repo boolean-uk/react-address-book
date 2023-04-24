@@ -11,9 +11,12 @@ function ContactsList(props) {
   let [searchParams, setSearchParams] = useSearchParams();
 
   useEffect(() => {
-    searchParams.set('type', 'personal')
-    searchParams.append('type', 'work')
-    setSearchParams(searchParams)
+    if (searchParams.getAll('type').length === 0) {
+      searchParams.set('type', 'personal')
+      searchParams.append('type', 'work')
+      setSearchParams(searchParams)
+    }
+
   }, [searchParams])
 
   const handleContactDelete = (index) => {
