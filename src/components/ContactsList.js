@@ -1,5 +1,4 @@
-import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 function ContactsList({contacts, deleteContact, setEditContact}) {
   
@@ -40,6 +39,11 @@ function ContactsList({contacts, deleteContact, setEditContact}) {
                     Delete
                   </Link>
                 </span>
+              </p>
+              <p>
+                <Link to={`/contacts/${contact.id}/meetings`}>
+                  Meetings
+                </Link>
               </p>
             </li>
           )

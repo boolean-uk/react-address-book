@@ -14,5 +14,21 @@
       "street": "32 Deebug Road",
       "city": "London"
     }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "date": "2024-4-11",
+      "contactId": 1,
+      "location": "Center",
+      "time": "23:11"
+    },
+    {
+      "id": 2,
+      "date": "2024-4-12",
+      "contactId": 1,
+      "location": "Coffe shop",
+      "time": "20:00"
+    }
   ]
 }

@@ -61,7 +61,7 @@ function ContactsAdd(props) {
       <input id="city" name="city" type="text" onChange={handleChange} value={contact.city} required/>
 
       <label htmlFor="email">Email:</label>
-      <input id="email" name="email" type="email" onChange={handleChange} value={contact.email} required/>
+      <input id="email" name="email" type="email" onChange={handleChange} value={contact.email} />
 
       <label htmlFor="linkedin">LinkedIn:</label>
       <input id="linkedin" name="linkedin" type="text" onChange={handleChange} value={contact.linkedin} />

@@ -156,3 +156,40 @@ h2 {
 .link {
   margin-right: 10px;
 }
+
+/* Loader */
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3f3f3f;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin-left: 20%;
+  margin-right: 80%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Meetings */
+.date-form {
+  max-width: 400px;
+  margin-bottom: 3rem;
+}
+
+.date {
+  padding: 10px;
+  padding-left: 0;
+}
+
+.mg-l {
+  margin-left: 1rem;
+}
+
+.submit-date {
+  display:flex;
+  float: right;
+}

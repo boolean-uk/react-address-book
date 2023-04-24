@@ -3,19 +3,29 @@ import { useParams } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState()
+  const [notFound, setNotFound] = useState(true)
 
   const params = useParams()
   
   useEffect(function() {
     fetch(`http://localhost:3030/contacts/${params.id}`)
-    .then(res => res.json())
+    .then(res => {
+      if (res.status !== 404) {
+        setNotFound(false)
+      }
+      return res.json()
+    })
     .then(data => setContact(data))
   }, [])
-
 
   if (!contact) {
     return <p>Loading</p>
   }
+
+  if (notFound) {
+    return <h2>Contact not found!</h2>
+  }
+
 
   return (
     <div>
