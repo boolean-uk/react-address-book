@@ -1,23 +1,23 @@
-
 import { useState, useEffect } from "react";
 import { Link, useSearchParams } from "react-router-dom";
-
+import '../styles/mine.css'
 function ContactsList(props) {
   const { contacts, setContacts } = props;
+
   const deleteContact = async (e) => {
+
+    const newContacts = contacts.filter((item) => item.id !== e.target.id);
+    setContacts(newContacts);
     const res = fetch("http://localhost:3030/contacts/" + [e.target.id], {
       method: "DELETE",
     });
-    // useEffect(function () {
-    //   fetch("http://localhost:3030/contacts")
-    //     .then((res) => res.json())
-    //     .then((data) => setContacts(data));
-    // }, []);
-    const newContacts = contacts.filter (item => item.id !== e.target.id)
-    setContacts(newContacts)
-  }
+
+    //referesh the data
+    await fetch("http://localhost:3030/contacts/")
+      .then((res) => res.json())
+      .then((data) => setContacts(data));
+  };
   //"contacts" must be passed as prop to this component
-  
 
   return (
     <>
@@ -33,7 +33,8 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-                <Link to={`/contacts/${contact.id}`}>View</Link>
+                <Link to={`/contacts/${contact.id}`} className="Link" >View</Link>
+                <Link to = {`/contacts/edit/${contact.id}`}className="Link" >Edit</Link>
                 <button onClick={deleteContact} id={contact.id}>
                   Delete
                 </button>

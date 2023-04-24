@@ -5,81 +5,34 @@
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
-    },
-    {
-      "firstName": [
-        "dennis"
-      ],
-      "lastName": [
-        "voutos"
-      ],
-      "street": [
-        "beep beep 2"
-      ],
-      "city": [
-        "Lol"
-      ],
-      "email": "",
-      "linkedin": "",
-      "twitter": "",
-      "id": 6
-    },
-    {
-      "firstName": [
-        "deasd"
-      ],
-      "lastName": [
-        "dedasd"
-      ],
-      "street": [
-        "asdasd"
-      ],
-      "city": [
-        "asdasd"
-      ],
-      "email": "",
-      "linkedin": "",
-      "twitter": "",
-      "id": 8
-    },
-    {
-      "firstName": [
-        "dennis"
-      ],
-      "lastName": [
-        "voutos"
-      ],
-      "street": [
-        "beep beep 2"
-      ],
-      "city": [
-        "Lol"
-      ],
-      "email": "",
-      "linkedin": "",
-      "twitter": "",
-      "id": 9
+      "city": "London",
+      "email": [
+        "deni@gg.c"
+      ]
     },
     {
       "firstName": [
         "Dennis"
       ],
       "lastName": [
-        "Voutos"
+        "Sarakinis"
       ],
       "street": [
-        "Xristopoulo 13"
+        "Varvara 12"
       ],
       "city": [
-        "Athens"
+        "Zante"
       ],
       "email": [
-        "dennisvoutos@gmail.com"
+        "sarakinis@gmail.com"
       ],
-      "linkedin": "",
-      "twitter": "",
-      "id": 10
+      "linkedin": [
+        "N/A"
+      ],
+      "twitter": [
+        "N/A"
+      ],
+      "id": 4
     }
   ]
 }

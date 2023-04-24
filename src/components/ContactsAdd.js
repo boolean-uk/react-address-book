@@ -16,7 +16,7 @@ function ContactsAdd(props) {
   const navigate = useNavigate();
   const update = (e) => {
     //here i will need setContacts
-    setContacts([...contacts, form]); // will not do this, because i will POST in the server
+    // setContacts([...contacts, form]); // will not do this, because i will POST in the server
   };
   const ClearForm = (e) => {
     setForm({
@@ -38,6 +38,9 @@ function ContactsAdd(props) {
       },
       body: JSON.stringify(form),
     });
+    await fetch("http://localhost:3030/contacts/")
+    .then((res) => res.json())
+    .then((data) => setContacts(data));
     //i am already doing the update in the update function
     // navigate('/') can do this, gonna troubleshoot
     navigate("/");
@@ -45,7 +48,7 @@ function ContactsAdd(props) {
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
-   // i get these from the parent
+  // i get these from the parent
   
   //TODO: Implement controlled form
   //send POST to json server on form submit
