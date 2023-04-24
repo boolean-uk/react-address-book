@@ -1,19 +1,18 @@
+
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 function ContactsView() {
   const [contact, setContact] = useState(false)
-
-  //TODO: Get the contact to load from the params and fetch.
-  //With useEffect, load the contact when params changes
-  //and update contact state
   const params = useParams()
-  log(params)
   useEffect(function () {
     fetch(`http://localhost:3030/contacts/${params.id}`)
       .then((res) => res.json())
       .then((data) => setContact(data));
   }, []);
+  //TODO: Get the contact to load from the params and fetch.
+  //With useEffect, load the contact when params changes
+  //and update contact state
 
   if (!contact) {
     return <p>Loading</p>
