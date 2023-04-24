@@ -1,10 +1,13 @@
 import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { Link, useNavigate, useSearchParams } from "react-router-dom"
 import { PencilIcon, TrashIcon } from '@heroicons/react/20/solid'
 function ContactsList(props) {
 
   //"contacts" must be passed as prop to this component
   const { contacts, setContacts } = props
+
+  const navigate = useNavigate()
+
 
   const handleContactDelete = (index) => {
     const contact = contacts[index]
@@ -31,7 +34,9 @@ function ContactsList(props) {
               </p>
               <p className="contact-actions">
                 <Link to={`/contacts/${contact.id}`}>View</Link>
-                <PencilIcon className="icon" />
+                <Link to='/contacts/add' state={contact}>
+                  <PencilIcon className="icon" />
+                </Link>
                 <TrashIcon className="icon" onClick={() => handleContactDelete(index)} />
               </p>
 

@@ -9,17 +9,23 @@
     },
     {
       "id": 2,
-      "firstName": "Grace",
+      "firstName": "Grape",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "linkedin": "dwadada",
+      "email": "wda@mail.con",
+      "twitter": "awdwa"
     },
     {
       "firstName": "Konstantinos",
       "lastName": "Vroustouris",
       "street": "Ioannou 22",
-      "city": "Ntrafi",
-      "id": 3
+      "city": "Kallithea",
+      "id": 3,
+      "email": "konstantinos.vroustouris@gmail.com",
+      "linkedin": "dwadada",
+      "twitter": "ddwd"
     }
   ]
 }
