@@ -1,0 +1,42 @@
+{
+  "contacts": [
+    {
+      "firstName": "Friend",
+      "lastName": "One",
+      "street": "Main Street",
+      "city": "Rotterdam ",
+      "email": "friend@friendone.com",
+      "twitter": "",
+      "linkedin": "",
+      "type": "personal",
+      "id": 1
+    },
+    {
+      "firstName": "Colleague",
+      "lastName": "One",
+      "street": "Office Street",
+      "city": "Work City",
+      "email": "colleague@work.com",
+      "twitter": "",
+      "linkedin": "",
+      "type": "work",
+      "id": 2
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2023-04-27",
+      "time": "12:00",
+      "location": "Zoom meeting",
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "date": "2023-04-28",
+      "time": "20:00",
+      "location": "Party location",
+      "userId": 1,
+      "id": 2
+    }
+  ]
+}
