@@ -1,10 +1,30 @@
-import { useState } from "react"
-import { Link, useSearchParams } from "react-router-dom"
+import { useState,  } from "react"
+import { Link, useSearchParams, useParams } from "react-router-dom"
+import Spinner from "./Spinner"
 
-function ContactsList(props) {
-  
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props
+function ContactsList({contacts, setContacts}) {
+
+  const params = useParams()
+  const onDelete =  (contactId)=>{
+    const requestOptions = {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' }
+    }
+    const res = fetch(`http://localhost:4000/contacts/${contactId}`, requestOptions)
+    .then(response =>{ 
+      if(response.status === 200){
+        const newList = contacts.filter((item) => item.id !== contactId);
+        setContacts(newList)
+      }
+    })
+    // const data = await res.json()
+    // console.log(data)
+
+  } 
+
+  if (!contacts) {
+    return <Spinner/>
+  }
 
   return (
     <>
@@ -20,8 +40,13 @@ function ContactsList(props) {
                 {firstName} {lastName}
               </p>
               <p>
-                { /** TODO: Make a Link here to view contact */}
-                View
+                <Link to={`/contacts/${contact.id}`}>
+                  View
+                </Link>&nbsp;
+                <Link to={`/contacts/${contact.id}/edit`} >
+                  Edit
+                </Link>&nbsp;
+                <button onClick={() => onDelete(contact.id)}>Delete</button>
               </p>
             </li>
           )
