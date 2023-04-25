@@ -15,32 +15,38 @@ function ContactsEdit(props) {
   // state
   const { setContacts, contacts } = props
   const params = useParams()
+  const navigate = useNavigate();
 
   //TODO: Implement controlled form
   //send POST to json server on form submit
 
   const handleSubmit = async (e) => {
-    e.preventDefault
-    const res =fetch(`http://localhost:4000/contacts/${params.id}`,{
+    e.preventDefault()
+    const options = {
+      // ensure HTTP method is set to POST
       method: 'PUT',
+      // set headers for content type
       headers: {
-        'Content-Type' : 'application/json'
+        'Content-Type': 'application/json'
       },
+      // add data to the request body in JSON
       body: JSON.stringify(formData)
-    })
+    }
+    const res = await fetch(`http://localhost:4000/contacts/${params.id}`, options)
     const data = await res.json()
     const updateContacts = contacts.map (item => {
-        if (item.id === params.id){
+        if (Number(item.id) === Number(params.id)){
             item = data
             console.log("ok")
         }
         return item
     })
-    setContacts([updateContacts])
-    Navigate('/')
-    const form = document.querySelector(".form-stack contact-form")
-    // form.reset()
-    // console.log(contacts)
+    console.log(updateContacts)
+    setContacts([...updateContacts])
+    navigate('/')
+    // const form = document.querySelector(".form-stack contact-form")
+    // // form.reset()
+    // // console.log(contacts)
   }
 
   const handleChange = (e) => {
@@ -62,6 +68,16 @@ function ContactsEdit(props) {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" onChange={handleChange}  value = {formData.city} required/>
+
+      <label htmlFor="email">Email:</label>
+      <input id="email" name="email" type="text" onChange={handleChange}  value = {formData.email} required/>
+
+      <label htmlFor="linkedIn">LinkedIn:</label>
+      <input id="linkedIn" name="linkedIn" type="text" onChange={handleChange}  value = {formData.linkedIn} required/>
+
+      <label htmlFor="twitter">Twitter:</label>
+      <input id="twitter" name="twitter" type="text" onChange={handleChange}  value = {formData.twitter} required/>
+
 
       <div className="actions-section">
         <button className="button blue" type="submit" >

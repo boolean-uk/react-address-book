@@ -6,15 +6,24 @@ import ContactsView from "./components/ContactsView"
 import "./styles/styles.css"
 import ContactsEdit from "./components/ContactsEdit"
 import ContactsDelete from "./components/ContactsDelete"
+import ContactsMeetings from "./components/ContactsMeetings"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [meetings, setMeetings] = useState([])
+  
   
   //TODO: Load all contacts on useEffect when component first renders
   useEffect (function() {
     fetch("http://localhost:4000/contacts")
     .then(res => res.json())
     .then(data => setContacts(data))
+  }, [])
+
+  useEffect (function() {
+    fetch("http://localhost:4000/meetings")
+    .then(res => res.json())
+    .then(data => setMeetings(data))
   }, [])
 
   return (
@@ -43,6 +52,7 @@ export default function App() {
           <Route path = '/contacts/add' element = {<ContactsAdd setContacts={setContacts} contacts={contacts} />} />
           <Route path = '/contacts/edit/:id' element = {<ContactsEdit setContacts={setContacts} contacts={contacts}/>} />
           <Route path = '/contacts/delete/:id' element = {<ContactsDelete setContacts={setContacts} contacts={contacts}/>} />
+          <Route path = '/contacts/meetings/:id' element = {<ContactsMeetings setMeetings={setMeetings} meetings={meetings}/>} />
         </Routes>
       </main>
     </>
