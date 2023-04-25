@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { Link, useSearchParams} from "react-router-dom"
 
-function ContactsList({contacts, setContacts}) {
+export default function ContactsList({contacts, setContacts}) {
 
   return (
     <>
@@ -36,5 +36,3 @@ function ContactsList({contacts, setContacts}) {
     </>
   )
 }
-
-export default ContactsList

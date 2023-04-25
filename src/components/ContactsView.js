@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import { Link, useSearchParams} from "react-router-dom"
 
-function ContactsView() {
+export default function ContactsView() {
   const [contact, setContact] = useState({})
 
   const params = useParams()  //looks at the url, extracts the last part of the url
@@ -25,12 +26,13 @@ function ContactsView() {
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
+      <p>{contact.street} {contact.city}
       {emptyField(contact.email)}
       {emptyField(contact.linkedin)}
-      {emptyField(contact.twitter)}
+      {emptyField(contact.twitter)} </p>
+        <Link to={`/contacts/${contact.id}/meetings`} >
+          Meetings
+        </Link>
     </div>
   )
 }
-
-export default ContactsView
