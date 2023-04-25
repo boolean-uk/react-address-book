@@ -6,19 +6,18 @@ import ContactsView from "./components/ContactsView";
 import ContactsEdit from "./components/ContactsEdit";
 import ContactsMeetings from "./components/ContactsMeetings";
 import "./styles/styles.css";
-import './styles/mine.css'
+import "./styles/mine.css";
 
 export default function App() {
   const [contacts, setContacts] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const spinnerRef = useRef(null);
-  
-  useEffect(()=>{
-    
+
+  useEffect(() => {
     fetch("http://localhost:3030/contacts")
       .then((res) => res.json())
-      .then(data => {
+      .then((data) => {
         setLoading(false);
         setContacts(data);
       });
@@ -66,17 +65,12 @@ export default function App() {
               <ContactsEdit contacts={contacts} setContacts={setContacts} />
             }
           />
-            <Route
+          <Route
             path="/contacts/:id/meetings"
             element={
               <ContactsMeetings contacts={contacts} setContacts={setContacts} />
             }
-          /><Route
-          path="/contacts/:id/meetings/add"
-          element={
-            <ContactsMeetings contacts={contacts} setContacts={setContacts} />
-          }
-        />
+          />
         </Routes>
       </main>
     </>

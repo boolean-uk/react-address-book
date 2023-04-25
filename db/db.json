@@ -20,6 +20,20 @@
       "location": "Makris Yialos",
       "person": "3",
       "id": 3
+    },
+    {
+      "date": "26/4",
+      "time": "12:00",
+      "location": "Remote",
+      "person": "2",
+      "id": 4
+    },
+    {
+      "date": "1/5",
+      "time": "11:00",
+      "location": "Athens",
+      "person": "4",
+      "id": 5
     }
   ],
   "contacts": [
@@ -56,6 +70,26 @@
         "N/A"
       ],
       "id": 3
+    },
+    {
+      "firstName": [
+        "Dennis"
+      ],
+      "lastName": [
+        "Sarakinis"
+      ],
+      "street": [
+        "Booba street 3"
+      ],
+      "city": [
+        "Albania"
+      ],
+      "email": [
+        "sarakinis@gmail.com"
+      ],
+      "linkedin": "",
+      "twitter": "",
+      "id": 4
     }
   ]
 }
