@@ -28,6 +28,9 @@ function ContactsList({ contacts }) {
                 <Link to={`/contacts/edit/${contact.id}`} className="link">
                   Edit
                 </Link>
+                <Link to={`/contacts/delete/${contact.id}`} className="link">
+                  Delete
+                </Link>
               </p>
             </li>
           );

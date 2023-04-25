@@ -8,37 +8,19 @@
       "city": "London",
       "linkedIn": "https://www.linkedin.com/in/john-carmack/",
       "email": "test@email.nl",
-      "number": "0612345678"
+      "number": "0612345678",
+      "twitter": "-"
     },
     {
       "id": 2,
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
-    },
-    {
-      "firstName": "test",
-      "lastName": "ing",
-      "street": "main",
-      "city": "Appletown",
-      "id": 3
-    },
-    {
-      "firstName": "hello",
-      "lastName": "test",
-      "street": "main",
-      "city": "test",
-      "id": 4
-    },
-    {
-      "firstName": "test",
-      "lastName": "ing",
-      "email": "hello@test.nl",
-      "street": "main",
-      "city": "london",
-      "id": 5,
-      "number": "0252444455"
+      "city": "London",
+      "email": "g.hopper@test.nl",
+      "number": "987562581",
+      "linkedIn": "https://google.nl",
+      "twitter": "-"
     },
     {
       "firstName": "Donald",
@@ -63,17 +45,6 @@
       "id": 7
     },
     {
-      "firstName": "Hello",
-      "lastName": "You",
-      "email": "df@fgf",
-      "number": "1234567809",
-      "linkedIn": "",
-      "twitter": "",
-      "street": "tes",
-      "city": "ting",
-      "id": 8
-    },
-    {
       "firstName": "Katrien",
       "lastName": "Duck",
       "email": "Duck@hello.nl",
@@ -83,17 +54,6 @@
       "street": "Gansstraat",
       "city": "Duckstad",
       "id": 9
-    },
-    {
-      "firstName": "test",
-      "lastName": "hello",
-      "email": "hello@test",
-      "number": "1235487536",
-      "linkedIn": "",
-      "twitter": "",
-      "street": "please",
-      "city": "work",
-      "id": 10
     }
   ]
 }
