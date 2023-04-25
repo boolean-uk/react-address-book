@@ -5,14 +5,55 @@
       "firstName": "John",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "London",
+      "linkedIn": "https://www.linkedin.com/in/john-carmack/",
+      "email": "test@email.nl",
+      "number": "0612345678",
+      "twitter": "-"
     },
     {
       "id": 2,
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "email": "g.hopper@test.nl",
+      "number": "987562581",
+      "linkedIn": "https://google.nl",
+      "twitter": "-"
+    },
+    {
+      "firstName": "Donald",
+      "lastName": "Duck",
+      "email": "test@hello.nl",
+      "linkedIn": "https://www.linkedin.com/in/nikita-pieters/",
+      "twitter": "-",
+      "street": "Work",
+      "city": "Please",
+      "id": 6,
+      "number": "0011223344"
+    },
+    {
+      "firstName": "Nikita",
+      "lastName": "Pieters2",
+      "email": "test@hello.nl",
+      "number": "0123456789",
+      "linkedIn": "https://www.linkedin.com/in/nikita-pieters/",
+      "twitter": "-",
+      "street": "Lombok",
+      "city": "Eerbeek",
+      "id": 7
+    },
+    {
+      "firstName": "Katrien",
+      "lastName": "Duck",
+      "email": "Duck@hello.nl",
+      "number": "1234567890",
+      "linkedIn": "",
+      "twitter": "",
+      "street": "Gansstraat",
+      "city": "Duckstad",
+      "id": 9
     }
   ]
 }

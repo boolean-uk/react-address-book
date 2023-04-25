@@ -1,43 +1,49 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ContactsAdd(props) {
-  // setContacts and contacts must be passed as props
-  // to this component so new contacts can be added to the
-  // state
-  const { setContacts, contacts } = props;
-  const [newContact, setNewContact] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    number: "",
-    linkedIn: "",
-    twitter: "",
-    street: "",
-    city: "",
-  });
+const initialState = {
+  firstName: "",
+  lastName: "",
+  email: "",
+  number: "",
+  linkedIn: "",
+  twitter: "",
+  street: "",
+  city: "",
+};
+
+function ContactsEdit(props) {
+  const { setContacts } = props;
+  const [editContact, setEditContact] = useState(initialState);
   const navigate = useNavigate();
+  const params = useParams();
 
-  //TODO: Implement controlled form
-  //send POST to json server on form submit
+  useEffect(function () {
+    fetch(`http://localhost:4000/contacts/${params.id}`)
+      .then((res) => res.json())
+      .then((data) => setEditContact(data));
+  }, []);
+
   const handleChange = (event) => {
-    setNewContact({ ...newContact, [event.target.name]: event.target.value });
+    setEditContact({ ...editContact, [event.target.name]: event.target.value });
   };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const res = await fetch("http://localhost:4000/contacts", {
-      method: "POST",
+    await fetch(`http://localhost:4000/contacts/${params.id}`, {
+      method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(newContact),
+      body: JSON.stringify(editContact),
     });
-    const data = await res.json();
-    setContacts([...contacts, data]);
-    navigate("/");
+    await fetch(`http://localhost:4000/contacts/`)
+      .then((res) => res.json())
+      .then((data) => setContacts(data));
+    navigate(`/contacts/${params.id}`);
   };
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input
@@ -46,7 +52,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.firstName}
+        value={editContact.firstName}
       />
 
       <label htmlFor="lastName">Last Name:</label>
@@ -56,7 +62,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.lastName}
+        value={editContact.lastName}
       />
       <label htmlFor="email">Email</label>
       <input
@@ -65,7 +71,7 @@ function ContactsAdd(props) {
         type="email"
         required
         onChange={handleChange}
-        value={newContact.email}
+        value={editContact.email}
       />
       <label htmlFor="number">Phone</label>
       <input
@@ -74,7 +80,7 @@ function ContactsAdd(props) {
         type="tel"
         required
         onChange={handleChange}
-        value={newContact.number}
+        value={editContact.number}
       />
       <label htmlFor="">LinkedIn</label>
       <input
@@ -82,7 +88,7 @@ function ContactsAdd(props) {
         name="linkedIn"
         type="url"
         onChange={handleChange}
-        value={newContact.linkedIn}
+        value={editContact.linkedIn}
       />
       <label htmlFor="">Twitter</label>
       <input
@@ -90,7 +96,7 @@ function ContactsAdd(props) {
         name="twitter"
         type="text"
         onChange={handleChange}
-        value={newContact.twitter}
+        value={editContact.twitter}
       />
       <label htmlFor="street">Street:</label>
       <input
@@ -99,7 +105,7 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.street}
+        value={editContact.street}
       />
 
       <label htmlFor="city">City:</label>
@@ -109,16 +115,16 @@ function ContactsAdd(props) {
         type="text"
         required
         onChange={handleChange}
-        value={newContact.city}
+        value={editContact.city}
       />
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Edit
         </button>
       </div>
     </form>
   );
 }
 
-export default ContactsAdd;
+export default ContactsEdit;
