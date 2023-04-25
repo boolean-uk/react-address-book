@@ -3,17 +3,6 @@ import { Link, useSearchParams} from "react-router-dom"
 
 function ContactsList({contacts, setContacts}) {
 
-  // const handleDelete = (index) => {
-  //   const contact = contacts[index]
-  //   const id = contact.id
-
-  //   fetch(`http://localhost:4000/contacts/${id}`, {
-  //     method: 'DELETE'
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => console.log(data))
-  // }
-  
   return (
     <>
       <header>
@@ -36,7 +25,9 @@ function ContactsList({contacts, setContacts}) {
                 Edit
                 </Link>
                 &emsp;
-                <button>Delete</button>
+                <Link to={`/contacts/delete/${contact.id}`} >
+                Delete
+                </Link>
               </p>
             </li>
           )

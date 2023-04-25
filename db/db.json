@@ -8,59 +8,11 @@
       "id": 6
     },
     {
-      "firstName": "New",
-      "lastName": "Person",
-      "street": "Oklahoma 123",
-      "city": "Arizona",
-      "id": 7
-    },
-    {
-      "firstName": "Alex",
-      "lastName": "G",
-      "street": "Syrou 3",
-      "city": "Larisa",
-      "id": 8
-    },
-    {
-      "firstName": "Mario",
-      "lastName": "Luigis",
-      "street": "Somewhere",
-      "city": "awayyy",
-      "id": 9
-    },
-    {
-      "firstName": "Elv",
-      "lastName": "Gkorou",
-      "street": "Himare",
-      "city": "Vlore",
-      "id": 10
-    },
-    {
       "firstName": "Alexander",
       "lastName": "Great",
       "street": "Metaxurgio",
       "city": "Macedonia",
       "id": 11
-    },
-    {
-      "firstName": "Seb",
-      "lastName": "Social",
-      "street": "Kapou 412",
-      "city": "Lamia",
-      "email": "evmas@yahoo.com",
-      "linkedin": "",
-      "twitter": "twseb",
-      "id": 13
-    },
-    {
-      "firstName": "Bill",
-      "lastName": "Kill",
-      "street": "tara 34546",
-      "city": "Arizona",
-      "email": "",
-      "linkedin": "tarantinaBilly",
-      "twitter": "",
-      "id": 14
     }
   ]
 }
