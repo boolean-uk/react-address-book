@@ -10,5 +10,14 @@
       "linkedin": "",
       "id": 1
     }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "date": "",
+      "time": "",
+      "location": "",
+      "userId": 1
+    }
   ]
 }
