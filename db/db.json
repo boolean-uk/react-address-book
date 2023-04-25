@@ -2,17 +2,65 @@
   "contacts": [
     {
       "id": 1,
-      "firstName": "John",
+      "firstName": "Johnf",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "London",
+      "contactType": "personal",
+      "email": "43242@asdsad",
+      "linkedIn": "dasda",
+      "twitter": "dsada"
     },
     {
       "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
+      "firstName": "joeri",
+      "lastName": "luteyn",
+      "street": "Ivoordreef",
+      "city": "Utrecht",
+      "email": "joeriluteyn@gmail.com",
+      "linkedIn": "dsad",
+      "twitter": "dasda",
+      "contactType": "work"
+    },
+    {
+      "firstName": "Jhon",
+      "lastName": "Doe",
+      "street": "Doestreet",
+      "city": "Doetown",
+      "email": "doeman@gmail.com",
+      "linkedIn": "linkedin/doemanman",
+      "twitter": "twitterw/manmandoe",
+      "id": 4,
+      "contactType": "personal"
+    },
+    {
+      "firstName": "test",
+      "lastName": "test",
+      "street": "test",
+      "city": "tset",
+      "email": "tsets@test",
+      "linkedIn": "linkedin.com/in/test",
+      "twitter": "twitter.com/test",
+      "contactType": "personal",
+      "id": 5
+    }
+  ],
+  "meetings": [
+    {
+      "activity": "zoom meeting",
+      "id": 1,
+      "contactId": 2,
+      "date": "2023-04-26",
+      "time": "14:00",
+      "location": "London"
+    },
+    {
+      "activity": "taking a walk",
+      "id": 2,
+      "contactId": 1,
+      "date": "2023-04-26",
+      "time": "14:00",
+      "location": "Paris"
     }
   ]
 }

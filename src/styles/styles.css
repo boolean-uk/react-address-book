@@ -37,7 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
 }
 
 /* Make images easier to work with */
@@ -102,7 +102,6 @@ h2 {
 
 .contacts-list > li {
   padding: 1rem 0;
-  display: grid;
   grid-template-columns: 1fr auto;
   gap: 1rem;
 }
@@ -150,4 +149,47 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.delete {
+  color: rgb(255, 162, 162);
+}
+
+.delete:hover {
+  text-decoration: underline;
+  color: red;
+}
+
+.edit {
+  color: rgb(102, 243, 102);
+}
+
+.edit:hover {
+  text-decoration: underline;
+  color: green;
+}
+
+span {
+  margin-right: 10px;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+}
+
+.meetings-form label {
+  margin-right: 5px;
+}
+
+.meetings-form input {
+  margin-right: 10px;
+}
+
+.logo {
+  width: 25px;
 }
