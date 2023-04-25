@@ -1,18 +1,95 @@
 {
-  "contacts": [
+  "meetings": [
     {
       "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "date": "11/3",
+      "time": "11:00",
+      "location": "Zante",
+      "person": "2"
     },
+    {
+      "date": "1/5",
+      "time": "11:00",
+      "location": "Athens",
+      "person": "3",
+      "id": 2
+    },
+    {
+      "date": "1/8",
+      "time": "12:00",
+      "location": "Makris Yialos",
+      "person": "3",
+      "id": 3
+    },
+    {
+      "date": "26/4",
+      "time": "12:00",
+      "location": "Remote",
+      "person": "2",
+      "id": 4
+    },
+    {
+      "date": "1/5",
+      "time": "11:00",
+      "location": "Athens",
+      "person": "4",
+      "id": 5
+    }
+  ],
+  "contacts": [
     {
       "id": 2,
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "email": [
+        ""
+      ]
+    },
+    {
+      "firstName": [
+        "Dennis"
+      ],
+      "lastName": [
+        "Voutos"
+      ],
+      "street": [
+        "123 Main st."
+      ],
+      "city": [
+        "Zante"
+      ],
+      "email": [
+        "dennis@expiris.uk"
+      ],
+      "linkedin": [
+        "dennisvoutos"
+      ],
+      "twitter": [
+        "N/A"
+      ],
+      "id": 3
+    },
+    {
+      "firstName": [
+        "Dennis"
+      ],
+      "lastName": [
+        "Sarakinis"
+      ],
+      "street": [
+        "Booba street 3"
+      ],
+      "city": [
+        "Albania"
+      ],
+      "email": [
+        "sarakinis@gmail.com"
+      ],
+      "linkedin": "",
+      "twitter": "",
+      "id": 4
     }
   ]
 }
