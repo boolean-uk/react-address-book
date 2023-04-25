@@ -13,6 +13,16 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Σταύρος",
+      "lastName": "Σπηλιόπουλος",
+      "street": "Μίλωνος",
+      "city": "ΑΘΗΝΑ",
+      "email": "stavros_1996@windowslive.com",
+      "linkedIn": "linkedin_stavros",
+      "twitter": "stavros",
+      "id": 3
     }
   ]
 }
