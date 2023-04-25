@@ -23,32 +23,40 @@
   ],
   "meetings": [
     {
-      "name": "A test meeting about life",
+      "title": "A test meeting about life",
       "time": "11am",
       "location": "Amsterdam",
       "contactId": 1,
       "id": 2
     },
     {
-      "name": "Another test meeting for wondering about existence",
+      "title": "Another test meeting for wondering about existence",
       "time": "12am",
       "location": "The Hague",
       "contactId": 1,
       "id": 3
     },
     {
-      "name": "A new meeting for the hopeful",
+      "title": "A new meeting for the hopeful",
       "time": "1pm",
       "location": "Rotterdam",
       "contactId": 4,
       "id": 4
     },
     {
-      "name": "I am a new meeting!",
+      "title": "I am a new meeting!",
       "time": "2pm",
       "location": "Groningen",
       "contactId": 4,
       "id": 5
+    },
+    {
+      "name": "",
+      "time": "11pm",
+      "location": "Amsterdam",
+      "title": "John Carmack",
+      "contactId": "1",
+      "id": 6
     }
   ]
 }
