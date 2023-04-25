@@ -14,8 +14,6 @@ function ContactsView({contacts, setContacts}) {
   })
 
   const params = useParams()
-  console.log(contact)
-  //console.log(params)
 
   useEffect(() => {
     fetch(`http://localhost:4000/contacts/${params.id}`)
@@ -51,6 +49,11 @@ function ContactsView({contacts, setContacts}) {
       <Link to={'/'}>
         <button>
           Go Back
+        </button>
+      </Link>
+      <Link to={`/contacts/${params.id}/meetings`}>
+        <button>
+          View Meettings
         </button>
       </Link>
     </div>

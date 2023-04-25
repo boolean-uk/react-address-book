@@ -1,10 +1,8 @@
 import { useState } from "react"
 import { Link, useSearchParams } from "react-router-dom"
+import LoadingSpinner from "./LoadingSpinner"
 
-function ContactsList(props) {
-  
-  //"contacts" must be passed as prop to this component
-  const { contacts } = props
+function ContactsList({contacts, isLoading}) {
 
   return (
     <>
@@ -12,6 +10,7 @@ function ContactsList(props) {
         <h2>Contacts</h2>
       </header>
       <ul className="contacts-list">
+        {isLoading ? <LoadingSpinner /> : <></>}
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
           return (
