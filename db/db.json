@@ -2,23 +2,43 @@
   "contacts": [
     {
       "firstName": "thanasis",
-      "lastName": "andritsios",
-      "street": "Φλαανη",
-      "city": "Λάρισα",
-      "email": "thanasis1997abc@gmail.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 1
-    },
-    {
-      "firstName": "thanasis",
       "lastName": "test",
       "street": "test",
       "city": "Λάρισα",
       "email": "thanasis1997abc@gmail.com",
       "linkedin": "",
       "twitter": "",
-      "id": 2
+      "id": 26
+    },
+    {
+      "firstName": "thanasis",
+      "lastName": "eee",
+      "street": "test",
+      "city": "Λάρισα",
+      "email": "thanasis1997abc@gmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 27
+    },
+    {
+      "firstName": "thanasis",
+      "lastName": "ae",
+      "street": "test",
+      "city": "Λάρισα",
+      "email": "thanasis1997abc@gmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 28
+    },
+    {
+      "firstName": "test",
+      "lastName": "ae",
+      "street": "test",
+      "city": "Λάρισα",
+      "email": "thanasis1997abc@gmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 29
     }
   ]
 }

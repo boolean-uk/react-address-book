@@ -9,12 +9,22 @@ import ContactsUpdate from "./components/ContactsUpdate"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
+  const [isLoading, setisLoading] = useState(false)
 
   useEffect(function () {
-    fetch("http://localhost:4000/contacts")
+    setisLoading(true)
+    // setting timeout to watch the loader
+    setTimeout(() => {
+      // get req to get the data from our local api
+      fetch("http://localhost:4000/contacts")
     .then(res => res.json())
-    .then(data => setContacts(data))
+    .then(data => {setContacts(data)
+          setisLoading(false)
+    })
 
+      
+    }, 1000);
+    
   }, [])
   // console.log(contacts);
   //TODO: Load all contacts on useEffect when component first renders
@@ -27,7 +37,7 @@ export default function App() {
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
+          
           <li><Link to={'/'}>
             Contacts List
           </Link>
@@ -41,8 +51,9 @@ export default function App() {
         </ul>
       </nav>
       <main>
+        {/* routing to different urls and specify which component will render  */}
         <Routes>
-          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts}/>} />
+          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts} isLoading={isLoading}/>} />
           <Route path="/contacts/:id" element={<ContactsView />} />
           <Route path="contacts/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
           <Route path="contacts/update/:id" element={<ContactsUpdate contacts={contacts} setContacts={setContacts}/>}/>

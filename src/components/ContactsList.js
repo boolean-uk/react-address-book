@@ -1,8 +1,15 @@
 import { useState } from "react"
 import { Link, useNavigate, useParams, useSearchParams } from "react-router-dom"
+import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader"
 
+// const override = {
+//   margin: "auto";
+//   width: "60%"
+//   padding: 10px";
+//   text-align: center
+// };
 
-function ContactsList({contacts ,setContacts}) {
+function ContactsList({contacts ,setContacts, isLoading}) {
 const params = useParams()
 const navigate = useNavigate()
   //"contacts" must be passed as prop to this component
@@ -13,10 +20,26 @@ const navigate = useNavigate()
 
   
   return (
+
+
     <>
+    
+     
+      
+
+
+    
+    
       <header>
         <h2>Contacts</h2>
       </header>
+      
+    { 
+         isLoading ?
+         <ClimbingBoxLoader
+         color="#36d7b7"
+       />
+         :
       <ul className="contacts-list">
         {contacts.map((contact, index) => {
           const { firstName, lastName } = contact
@@ -50,6 +73,7 @@ const navigate = useNavigate()
           )
         })}
       </ul>
+}
     </>
   )
 }
