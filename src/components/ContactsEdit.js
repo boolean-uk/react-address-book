@@ -1,21 +1,20 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom"
 
-function ContactsAdd(props) {
+function ContactsEdit(props) {
 
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
     street: '',
-    city: '',
-    email: '',
-    linkedIn: '',
-    twitter: ''
+    city: ''
   })
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
   const { setContacts, contacts } = props
+  const params = useParams()
   const navigate = useNavigate();
 
   //TODO: Implement controlled form
@@ -25,7 +24,7 @@ function ContactsAdd(props) {
     e.preventDefault()
     const options = {
       // ensure HTTP method is set to POST
-      method: 'POST',
+      method: 'PUT',
       // set headers for content type
       headers: {
         'Content-Type': 'application/json'
@@ -33,12 +32,21 @@ function ContactsAdd(props) {
       // add data to the request body in JSON
       body: JSON.stringify(formData)
     }
-    const res = await fetch('http://localhost:4000/contacts', options)
+    const res = await fetch(`http://localhost:4000/contacts/${params.id}`, options)
     const data = await res.json()
-    setContacts([...contacts,data])
+    const updateContacts = contacts.map (item => {
+        if (Number(item.id) === Number(params.id)){
+            item = data
+            console.log("ok")
+        }
+        return item
+    })
+    console.log(updateContacts)
+    setContacts([...updateContacts])
     navigate('/')
-    const form = document.querySelector(".form-stack contact-form")
-    form.reset()
+    // const form = document.querySelector(".form-stack contact-form")
+    // // form.reset()
+    // // console.log(contacts)
   }
 
   const handleChange = (e) => {
@@ -47,7 +55,7 @@ function ContactsAdd(props) {
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2>Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input id="firstName" name="firstName" type="text" onChange={handleChange} value = {formData.firstName} required />
@@ -70,13 +78,14 @@ function ContactsAdd(props) {
       <label htmlFor="twitter">Twitter:</label>
       <input id="twitter" name="twitter" type="text" onChange={handleChange}  value = {formData.twitter} required/>
 
+
       <div className="actions-section">
         <button className="button blue" type="submit" >
-          Create
+          Apply
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default ContactsEdit

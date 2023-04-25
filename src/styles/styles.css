@@ -151,3 +151,22 @@ h2 {
 .address-card h2 {
   font-size: 1.15rem;
 }
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner-inner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #ccc;
+  border-top-color: #333;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {transform: rotate(360deg);}
+}

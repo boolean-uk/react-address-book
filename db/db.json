@@ -5,14 +5,77 @@
       "firstName": "John",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "London",
+      "email": "john@gmail.com",
+      "linkedIn": "John#123",
+      "twitter": "John Twit"
     },
     {
-      "id": 2,
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "id": 2,
+      "email": "Grace@gmail.com",
+      "linkedIn": "Grace#123",
+      "twitter": "Grace Twit"
+    },
+    {
+      "firstName": "iasonas",
+      "lastName": "kotsarapoglou",
+      "street": "one",
+      "city": "corinth",
+      "email": "kotsarapoglouiasonas@gmail.com",
+      "linkedIn": "Iasonas#123",
+      "twitter": "Iasonas Twit",
+      "id": 3
+    },
+    {
+      "firstName": "Test",
+      "lastName": "Testing",
+      "street": "one",
+      "city": "test city",
+      "email": "test@gmail.com",
+      "linkedIn": "test#123",
+      "twitter": "test!!",
+      "id": 4
+    }
+  ],
+  "meetings": [
+    {
+      "id": 1,
+      "key": "1",
+      "date": "25/04/2023",
+      "time": "09:30 CET",
+      "location": "Zoom"
+    },
+    {
+      "id": 2,
+      "key": "2",
+      "date": "25/04/2025",
+      "time": "09:30 CET",
+      "location": "Zoom"
+    },
+    {
+      "id": 3,
+      "key": "3",
+      "date": "25/04/2023",
+      "time": "09:00 CET",
+      "location": "London"
+    },
+    {
+      "id": 4,
+      "key": "1",
+      "date": "10/5/2023",
+      "time": "07:00 CET",
+      "location": "London"
+    },
+    {
+      "id": 5,
+      "key": "4",
+      "date": "todays test",
+      "time": "14:30 CET",
+      "location": "VS CODE"
     }
   ]
 }
