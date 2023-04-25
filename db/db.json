@@ -7,7 +7,7 @@
       "street": "32 Deebug Road",
       "city": "London",
       "email": [
-        "deni@gg.c"
+        ""
       ]
     },
     {
@@ -15,24 +15,24 @@
         "Dennis"
       ],
       "lastName": [
-        "Sarakinis"
+        "Voutos"
       ],
       "street": [
-        "Varvara 12"
+        "123 Main st."
       ],
       "city": [
         "Zante"
       ],
       "email": [
-        "sarakinis@gmail.com"
+        "dennis@expiris.uk"
       ],
       "linkedin": [
-        "N/A"
+        "dennisvoutos"
       ],
       "twitter": [
         "N/A"
       ],
-      "id": 4
+      "id": 3
     }
   ]
 }

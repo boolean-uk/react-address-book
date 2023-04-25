@@ -3,7 +3,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import '../styles/mine.css'
 function ContactsList(props) {
   const { contacts, setContacts } = props;
-
+  
   const deleteContact = async (e) => {
 
     const newContacts = contacts.filter((item) => item.id !== e.target.id);
@@ -13,7 +13,7 @@ function ContactsList(props) {
     });
 
     //referesh the data
-    await fetch("http://localhost:3030/contacts/")
+    await fetch("http://localhost:3030/contacts")
       .then((res) => res.json())
       .then((data) => setContacts(data));
   };
@@ -34,7 +34,7 @@ function ContactsList(props) {
               </p>
               <p>
                 <Link to={`/contacts/${contact.id}`} className="Link" >View</Link>
-                <Link to = {`/contacts/edit/${contact.id}`}className="Link" >Edit</Link>
+                <Link to = {`/contacts/${contact.id}/edit`}className="Link" >Edit</Link>
                 <button onClick={deleteContact} id={contact.id}>
                   Delete
                 </button>
