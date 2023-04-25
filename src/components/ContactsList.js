@@ -15,21 +15,11 @@ const navigate = useNavigate()
   //"contacts" must be passed as prop to this component
   // const { contacts } = 
  
-  console.log(contacts);
+  // console.log(contacts);
   // console.log(conctactId);
-
   
   return (
-
-
     <>
-    
-     
-      
-
-
-    
-    
       <header>
         <h2>Contacts</h2>
       </header>
@@ -63,11 +53,7 @@ const navigate = useNavigate()
                 <Link to={`/contacts/update/${contact.id}`}>
                   Edit
                 </Link>
-                  
-
                 <button className="delete" onClick={deleteContact}>Delete</button>
-                
-
               </p>
             </li>
           )

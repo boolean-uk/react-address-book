@@ -2,43 +2,45 @@
   "contacts": [
     {
       "firstName": "thanasis",
+      "lastName": "la",
+      "street": "test",
+      "city": "Λάρισα",
+      "email": "thanasis1997abc@gmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "id": 1,
+      "meetings": [
+        {
+          "id": 1,
+          "date": "10-01-2024",
+          "time": "21:00"
+        },
+        {
+          "id": 2,
+          "date": "10-01-2024",
+          "time": "21:00"
+        }
+      ]
+    },
+    {
+      "firstName": "Θανάσης",
       "lastName": "test",
       "street": "test",
-      "city": "Λάρισα",
-      "email": "thanasis1997abc@gmail.com",
+      "city": "test",
+      "email": "thana7abc@gmail.com",
       "linkedin": "",
       "twitter": "",
-      "id": 26
+      "id": 2
     },
     {
       "firstName": "thanasis",
-      "lastName": "eee",
-      "street": "test",
+      "lastName": "andritsios32",
+      "street": "Φλαανη",
       "city": "Λάρισα",
       "email": "thanasis1997abc@gmail.com",
       "linkedin": "",
       "twitter": "",
-      "id": 27
-    },
-    {
-      "firstName": "thanasis",
-      "lastName": "ae",
-      "street": "test",
-      "city": "Λάρισα",
-      "email": "thanasis1997abc@gmail.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 28
-    },
-    {
-      "firstName": "test",
-      "lastName": "ae",
-      "street": "test",
-      "city": "Λάρισα",
-      "email": "thanasis1997abc@gmail.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 29
+      "id": 3
     }
   ]
 }

@@ -169,3 +169,7 @@ h2 {
   justify-content: center;
   text-align: center;
 }
+
+li>span{
+  color: rgb(211, 106, 37);
+}

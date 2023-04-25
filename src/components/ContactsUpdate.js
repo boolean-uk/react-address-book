@@ -18,7 +18,7 @@ function ContactsUpdate({ setContacts, contacts }) {
     linkedin: contacts[params.id-1].linkedin,
     twitter: contacts[params.id-1].twitter
   })
-console.log(params.id);
+// console.log(params.id);
 
 //   console.log(contacts);
   //TODO: Implement controlled form
@@ -43,15 +43,16 @@ console.log(params.id);
     })
 
     const updateContact = await update.json()
+    // console.log(updateContact);
     const updatedContacts = contacts.map(contact => {
-        if (contact.id === params.id) {
+        if (contact.id == params.id) {
           return updateContact
         }
+        
         return contact
       })
       setContacts(updatedContacts)
-    
-    // setContacts([...contacts, data])
+
     navigate("/")
 
 

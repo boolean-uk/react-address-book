@@ -3,6 +3,7 @@ import { Link, Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
+import ContactsMeeting from "./components/ContactsMeeting"
 import "./styles/styles.css"
 import ContactsUpdate from "./components/ContactsUpdate"
 
@@ -13,8 +14,6 @@ export default function App() {
 
   useEffect(function () {
     setisLoading(true)
-    // setting timeout to watch the loader
-    setTimeout(() => {
       // get req to get the data from our local api
       fetch("http://localhost:4000/contacts")
     .then(res => res.json())
@@ -22,8 +21,6 @@ export default function App() {
           setisLoading(false)
     })
 
-      
-    }, 1000);
     
   }, [])
   // console.log(contacts);
@@ -57,6 +54,7 @@ export default function App() {
           <Route path="/contacts/:id" element={<ContactsView />} />
           <Route path="contacts/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
           <Route path="contacts/update/:id" element={<ContactsUpdate contacts={contacts} setContacts={setContacts}/>}/>
+          <Route path="contacts/:id/meetings" element={<ContactsMeeting/>} />
         </Routes>
       </main>
     </>
