@@ -5,12 +5,13 @@ import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import ContactsEdit from "./components/ContactsEdit"
 import MeetingsList from "./components/MeetingsList"
+import MeetingsAdd from "./components/MeetingsAdd"
 import "./styles/styles.css"
 
 export default function App() {
   const [contacts, setContacts] = useState([])
   const [isLoading, setIsLoading] = useState(true)
-  // const [meetings, setMeetings] = useState([])
+  const [meetings, setMeetings] = useState([])
 
   //TODO: Load all contacts on useEffect when component first renders
   useEffect(() => {
@@ -21,13 +22,13 @@ export default function App() {
       setIsLoading(false)
   }, [])
 
-  // useEffect(() => {
-  //   setIsLoading(true)
-  //   fetch('http://localhost:4000/meetings')
-  //     .then(res => res.json())
-  //     .then(data => setMeetings(data))
-  //     setIsLoading(false)
-  // }, [])
+  useEffect(() => {
+    setIsLoading(true)
+    fetch('http://localhost:4000/meetings')
+      .then(res => res.json())
+      .then(data => setMeetings(data))
+      setIsLoading(false)
+  }, [])
 
   return (
     <>
@@ -46,7 +47,8 @@ export default function App() {
           <Route path='/contacts/:id' element={<ContactsView />} />
           <Route path='/contacts/add' element={<ContactsAdd setContacts={setContacts} contacts={contacts}/>} />
           <Route path='/contacts/edit/:id' element={<ContactsEdit setContacts={setContacts} contacts={contacts}/>} />
-          <Route path='/contacts/:id/meetings' element={<MeetingsList contacts={contacts} />} />
+          <Route path='/contacts/:id/meetings' element={<MeetingsList meetings={meetings} setMeetings={setMeetings}/>} />
+          <Route path='/contacts/:id/meetings/add' element={<MeetingsAdd />} />
         </Routes>
       </main>
     </>

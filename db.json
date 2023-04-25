@@ -9,6 +9,16 @@
       "twitter": "",
       "linkedin": "",
       "id": 1
+    },
+    {
+      "firstName": "Rose 2 ",
+      "lastName": "vdG",
+      "street": "Street",
+      "city": "Rotterdam",
+      "email": "rose@rose.nl",
+      "twitter": "",
+      "linkedin": "",
+      "id": 2
     }
   ],
   "meetings": [
