@@ -1,0 +1,17 @@
+.name {
+  color: #0fe174;
+}
+
+.email:hover,
+.number:hover,
+.address:hover {
+  color: #0fe174;
+}
+
+.linkedIn:hover {
+  color: #0a66c2;
+}
+
+.twitter:hover {
+  color: #1d9bf0;
+}

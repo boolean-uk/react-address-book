@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
+import "../styles/ContactsEdit.css";
 const initialState = {
   firstName: "",
   lastName: "",
@@ -43,7 +43,7 @@ function ContactsEdit(props) {
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Edit Contact</h2>
+      <h2 className="text">Edit Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input
@@ -53,6 +53,7 @@ function ContactsEdit(props) {
         required
         onChange={handleChange}
         value={editContact.firstName}
+        className="text"
       />
 
       <label htmlFor="lastName">Last Name:</label>
@@ -63,6 +64,7 @@ function ContactsEdit(props) {
         required
         onChange={handleChange}
         value={editContact.lastName}
+        className="text"
       />
       <label htmlFor="email">Email</label>
       <input
@@ -72,6 +74,7 @@ function ContactsEdit(props) {
         required
         onChange={handleChange}
         value={editContact.email}
+        className="text"
       />
       <label htmlFor="number">Phone</label>
       <input
@@ -81,6 +84,7 @@ function ContactsEdit(props) {
         required
         onChange={handleChange}
         value={editContact.number}
+        className="text"
       />
       <label htmlFor="">LinkedIn</label>
       <input
@@ -89,6 +93,7 @@ function ContactsEdit(props) {
         type="url"
         onChange={handleChange}
         value={editContact.linkedIn}
+        className="text"
       />
       <label htmlFor="">Twitter</label>
       <input
@@ -97,6 +102,7 @@ function ContactsEdit(props) {
         type="text"
         onChange={handleChange}
         value={editContact.twitter}
+        className="text"
       />
       <label htmlFor="street">Street:</label>
       <input
@@ -106,6 +112,7 @@ function ContactsEdit(props) {
         required
         onChange={handleChange}
         value={editContact.street}
+        className="text"
       />
 
       <label htmlFor="city">City:</label>
@@ -116,6 +123,7 @@ function ContactsEdit(props) {
         required
         onChange={handleChange}
         value={editContact.city}
+        className="text"
       />
 
       <div className="actions-section">

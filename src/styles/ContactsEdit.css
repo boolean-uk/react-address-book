@@ -1,0 +1,19 @@
+.text {
+  color: #09773e;
+}
+label {
+  color: #0fe174;
+}
+
+button {
+  border: #0fe174 solid 2px;
+  border-radius: 5px;
+  color: #0fe174;
+  padding: 8px 15px;
+}
+
+button:hover {
+  background-color: #0fe174;
+  cursor: pointer;
+  color: white;
+}

@@ -1,4 +1,15 @@
 .noDelete {
   text-decoration: none;
-  color: black;
+  color: #0fe174;
+}
+.noDelete:hover {
+  color: white;
+}
+
+.delete {
+  margin-top: 20px;
+}
+
+.delete h3 {
+  color: #09773e;
 }

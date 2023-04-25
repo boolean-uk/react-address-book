@@ -1,0 +1,25 @@
+.contactName:hover {
+  color: #09773e;
+  cursor: default;
+}
+.link {
+  margin: 10px;
+  text-decoration: none;
+  color: #09773e;
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.delete:hover {
+  color: rgb(234, 131, 131);
+}
+
+.edit:hover {
+  color: rgb(58, 137, 246);
+}
+
+.view:hover {
+  color: rgb(46, 191, 46);
+}

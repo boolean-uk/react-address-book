@@ -37,7 +37,7 @@ function ContactsAdd(props) {
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
-      <h2>Create Contact</h2>
+      <h2 className="text">Create Contact</h2>
 
       <label htmlFor="firstName">First Name</label>
       <input

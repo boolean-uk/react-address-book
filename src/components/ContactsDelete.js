@@ -37,18 +37,28 @@ function ContactsDelete(props) {
   return (
     <div>
       <div>
-        <h2>
+        <h2 className="name">
           {contact.firstName} {contact.lastName}
         </h2>
-        <p>{contact.email && <span>{contact.email}</span>} </p>
-        <p>{contact.number && <span>{contact.number}</span>}</p>
-        <p>{contact.linkedIn && <span>{contact.linkedIn}</span>}</p>
-        <p>{contact.twitter && <span>{contact.twitter}</span>}</p>
-        <p>
-          {contact.street} {contact.city}
-        </p>
+        <div className="contactInfo">
+          <p className="email">
+            {contact.email && <span>{contact.email}</span>}{" "}
+          </p>
+          <p className="number">
+            {contact.number && <span>{contact.number}</span>}
+          </p>
+          <p className="linkedIn">
+            {contact.linkedIn && <span>{contact.linkedIn}</span>}
+          </p>
+          <p className="twitter">
+            {contact.twitter && <span>{contact.twitter}</span>}
+          </p>
+          <p className="address">
+            {contact.street} {contact.city}
+          </p>
+        </div>
       </div>
-      <div>
+      <div className="delete">
         <h3>You want to delete this contact?</h3>
         <button onClick={deleteContact}>Yes</button>
         <button>

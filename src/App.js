@@ -20,15 +20,21 @@ export default function App() {
 
   return (
     <>
-      <nav>
+      <nav className="menu">
         <h2>Menu</h2>
         <ul>
           {/* TODO: Make these links */}
           <li>
-            <Link to={"/"}> Contacts List</Link>
+            <Link to={"/"} className="menuLink">
+              {" "}
+              Contacts List
+            </Link>
           </li>
           <li>
-            <Link to={"/contacts/add"}> Add New Contact</Link>
+            <Link to={"/contacts/add"} className="menuLink">
+              {" "}
+              Add New Contact
+            </Link>
           </li>
         </ul>
       </nav>

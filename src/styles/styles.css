@@ -37,7 +37,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  padding:10px;
+  padding: 10px;
 }
 
 /* Make images easier to work with */
@@ -150,4 +150,17 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.menu h2 {
+  color: #0fe174;
+}
+.menuLink {
+  text-decoration: none;
+  color: #09773e;
+}
+
+.menuLink:hover {
+  color: #0fe174;
+  text-decoration: underline;
 }
