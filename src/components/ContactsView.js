@@ -31,6 +31,7 @@ function ContactsView() {
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
       <p>Street: {contact.street}, City: {contact.city}</p>
+      {contact.type && <p>Contact type: {contact.type}</p>}
       {contact.email && <p>Email: {contact.email}</p> }
       {contact.linkedin && <p>LinkedIn: {contact.linkedin}</p> }
       {contact.tweeter && <p>Tweeter: {contact.tweeter}</p> }

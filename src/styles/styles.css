@@ -92,6 +92,14 @@ h2 {
   border-bottom: 1px solid #1b1b1b;
 }
 
+/* Contact list */
+
+.filters {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 180px 200px ;
+}
+
 .contacts-list > li + li {
   border-top: 1px solid #cbcbcb;
 }
@@ -108,6 +116,16 @@ h2 {
 }
 
 /* VIEW SECTION */
+
+.imgType {
+  max-width: 30px;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+}
 
 .view-section {
   padding: 2rem 0;
@@ -192,4 +210,15 @@ h2 {
 .submit-date {
   display:flex;
   float: right;
+}
+
+
+/* Radio buttons in add component */
+.radiobuttons {
+  display: grid;
+  grid-template-columns: 100px 100px;
+}
+
+.radiobuttons label {
+  font-weight: 400;
 }

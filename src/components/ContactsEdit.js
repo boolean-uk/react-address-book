@@ -66,6 +66,18 @@ function ContactsEdit(props) {
       <label htmlFor="tweeter">Tweeter:</label>
       <input id="tweeter" name="tweeter" type="text" onChange={handleChange} value={contact.tweeter} />
 
+      <p><b>Choose what type of contact this should be: </b></p>
+      <div className="radiobuttons">
+        <div>
+          <label htmlFor="work">Work: </label>
+          <input type="radio" id="work" name="contact-type" value={contact.type}></input>
+        </div>
+        <div>
+          <label htmlFor="personal">Personal: </label>
+          <input type="radio" id="personal" name="contact-type" value={contact.type}></input>
+        </div>
+      </div>
+
       <div className="actions-section">
         <button className="button blue" type="submit">
           Save changes
