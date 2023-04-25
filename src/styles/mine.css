@@ -17,4 +17,13 @@
     0% { transform: rotate(0deg); }
     100% { transform: rotate(360deg); }
   }
-  
+.meeting-data{
+    margin-right: 10px;
+    margin-bottom: 5px;
+}
+.meeting-data-input{
+    margin-left: 10px;
+}  
+.meeting-data-input-small{
+    margin-left: 35px;
+}  

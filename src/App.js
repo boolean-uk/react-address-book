@@ -4,6 +4,7 @@ import ContactsList from "./components/ContactsList";
 import ContactsAdd from "./components/ContactsAdd";
 import ContactsView from "./components/ContactsView";
 import ContactsEdit from "./components/ContactsEdit";
+import ContactsMeetings from "./components/ContactsMeetings";
 import "./styles/styles.css";
 import './styles/mine.css'
 
@@ -20,7 +21,6 @@ export default function App() {
       .then(data => {
         setLoading(false);
         setContacts(data);
-        spinnerRef.current.style.display = 'none';
       });
   }, []);
   //TODO: Load all contacts on useEffect when component first renders
@@ -66,6 +66,17 @@ export default function App() {
               <ContactsEdit contacts={contacts} setContacts={setContacts} />
             }
           />
+            <Route
+            path="/contacts/:id/meetings"
+            element={
+              <ContactsMeetings contacts={contacts} setContacts={setContacts} />
+            }
+          /><Route
+          path="/contacts/:id/meetings/add"
+          element={
+            <ContactsMeetings contacts={contacts} setContacts={setContacts} />
+          }
+        />
         </Routes>
       </main>
     </>

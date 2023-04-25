@@ -1,10 +1,11 @@
 
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
-
+import { Link, Route, Routes } from "react-router-dom";
 function ContactsView() {
   const [contact, setContact] = useState(false)
   const params = useParams()
+  console.log(params);
   useEffect(function () {
     fetch(`http://localhost:3030/contacts/${params.id}`)
       .then((res) => res.json())
@@ -28,6 +29,7 @@ function ContactsView() {
         <p>LinkedIn: {contact.linkedin}</p>
         <p>Twitter: {contact.twitter}</p>
       </div>
+      <Link to ={`/contacts/${params.id}/meetings`} id = {contact.id}>Meetings</Link>
     </div>
     
   )
