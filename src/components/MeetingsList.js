@@ -25,7 +25,7 @@ const MeetingsList = (props) => {
 
   return(
     <>
-    <h2>Meetings for {userName}</h2>
+    <h2>Meetings with {userName}</h2>
     <Meetings userId={userId} meetings={meetings} setMeetings={setMeetings}/>
     <Link to={`/contacts/${userId}/meetings/add`} state={userId}>Add a meeting</Link>
     {/* <Meetings userId = {contact.id}/> */}

@@ -1,61 +1,42 @@
 {
   "contacts": [
     {
-      "firstName": "Rose",
-      "lastName": "van der Giessen",
-      "street": "Schieweg",
-      "city": "Rotterdam",
-      "email": "rose@rose.nl",
+      "firstName": "Friend",
+      "lastName": "One",
+      "street": "Main Street",
+      "city": "Rotterdam ",
+      "email": "friend@friendone.com",
       "twitter": "",
       "linkedin": "",
+      "type": "personal",
       "id": 1
     },
     {
-      "firstName": "Rose 2 ",
-      "lastName": "vdG",
-      "street": "Street",
-      "city": "Rotterdam",
-      "email": "rose@rose.nl",
+      "firstName": "Colleague",
+      "lastName": "One",
+      "street": "Office Street",
+      "city": "Work City",
+      "email": "colleague@work.com",
       "twitter": "",
       "linkedin": "",
+      "type": "work",
       "id": 2
     }
   ],
   "meetings": [
     {
-      "id": 1,
-      "date": "",
-      "time": "",
-      "location": "",
-      "userId": 1
-    },
-    {
-      "date": "2023-04-05",
-      "time": "15:59",
-      "location": "Office",
+      "date": "2023-04-27",
+      "time": "12:00",
+      "location": "Zoom meeting",
       "userId": 2,
-      "id": 3
+      "id": 1
     },
     {
-      "date": "2023-04-14",
-      "time": "14:02",
-      "location": "Boolean",
-      "userId": 0,
-      "id": 5
-    },
-    {
-      "date": "2023-04-07",
-      "time": "15:02",
-      "location": "Boolean",
-      "userId": 2,
-      "id": 6
-    },
-    {
-      "date": "2023-04-04",
-      "time": "13:23",
-      "location": "Park",
+      "date": "2023-04-28",
+      "time": "20:00",
+      "location": "Party location",
       "userId": 1,
-      "id": 8
+      "id": 2
     }
   ]
 }

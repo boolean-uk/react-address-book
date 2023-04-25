@@ -34,11 +34,11 @@ function ContactsList(props) {
       <ul className="contacts-list">
         {(contacts.length === 0)&& <p>You have no contacts yet! Add your <Link to='/contacts/add'>first contact</Link></p>}
         {contacts.map((contact, index) => {
-          const { firstName, lastName } = contact
+          const { firstName, lastName, type } = contact
           return (
             <li className="contact" key={index}>
               <p>
-                {firstName} {lastName}
+                {firstName} {lastName} {type === "personal" ? ('🧑‍🤝‍🧑') : ('💼')}
               </p>
               <p>
                 { /** TODO: Make a Link here to view contact */}

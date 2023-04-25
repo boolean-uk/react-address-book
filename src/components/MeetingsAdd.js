@@ -51,7 +51,7 @@ const MeetingsAdd = (props) => {
       <input id="date" name="date" type="date" required onChange={handleChange} value={meetings.date}/>
 
       <label htmlFor="time">Time</label>
-      <input id="time" name="time" type="time" min="09:00" max="18:00" required onChange={handleChange} value={meetings.time} />
+      <input id="time" name="time" type="time" required onChange={handleChange} value={meetings.time} />
 
       <label htmlFor="location">Location</label>
       <input id="location" name="location" type="text" required onChange={handleChange} value={meetings.location}/>

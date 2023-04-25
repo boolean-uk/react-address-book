@@ -15,7 +15,8 @@ function ContactsAdd(props) {
     city: '',
     email: '',
     twitter: '',
-    linkedin: ''
+    linkedin: '',
+    type: ''
     }
   )
 
@@ -69,6 +70,15 @@ function ContactsAdd(props) {
 
       <label htmlFor="linkedin">LinkedIn:</label>
       <input id="linkedin" name="linkedin" type="text" onChange={handleChange} value={contacts.linkedin}/>
+
+      <label htmlFor="type">Type of contact</label>
+
+      <div>
+        <input id="personal" name="type" type="radio" onChange={handleChange} value="personal"/>
+        Personal 🫂
+        <input id="work" name="type" type="radio" onChange={handleChange} value="work"/>
+        Work 💼
+      </div>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
