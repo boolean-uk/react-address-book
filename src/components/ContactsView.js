@@ -28,7 +28,7 @@ function ContactsView() {
       <p>{contact.email}</p>
       <p><a href={contact.linkedin} target="_blank">LinkedIn</a></p>
       <p><a href={contact.twitter} target="_blank">Twitter</a></p>
-      <Link to={`/contacts/meetings/${contact.id}`}>Meetings</Link>
+      <Link to={`/contacts/${contact.id}/meetings`}>Meetings</Link>
     </div>
   )
 }

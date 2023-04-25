@@ -1,25 +1,51 @@
 import { useEffect, useState } from "react"
 import { useNavigate, useParams, Link } from "react-router-dom";
 
-function ContactsMeeting(props) {
-    const { setContacts } = props
-    const [meetings, setMeetings] = useState()
+const initialState = {
+      name: "",
+      time: "",
+      location: ""
+};
+
+function ContactsMeeting() {
+    const [contact, setContact] = useState(false)
+    const [meetings, setMeetings] = useState(initialState)
 
     const params = useParams()
 
     useEffect(function() {
-        fetch(`http://localhost:3030/contacts/${params.id}/meeting`)
+        fetch(`http://localhost:3030/contacts/${params.id}`)
+          .then(res => res.json())
+          .then(data => setContact(data))
+      }, [])
+
+    useEffect(function() {
+        fetch(`http://localhost:3030/contacts/${params.id}/meetings`)
           .then(res => res.json())
           .then(data => setMeetings(data))
     }, [])
 
-    console.log(meetings[1]);
-
+    if (!contact) {
+        return <p>Loading</p>
+      }
+    
     return (
         <div>
-            <div>
-                {/* <h2>List of meetings from {contact.firstName} {contact.lastName}</h2> */}
-            </div>
+            {console.log(contact)}
+            <h2>List of meetings for {contact.firstName} {contact.lastName}</h2>
+            <ul className="contacts-list">
+                {console.log(meetings)}
+                {meetings.map((meeting, index) => {
+                const { name, time, location } = meeting
+                return (
+                    <li className="contact" key={index}>
+                    <p>
+                        {name} {time} {location}
+                    </p>
+                    </li>
+                )
+                })}
+            </ul>
         </div>
     )
 }
