@@ -92,6 +92,14 @@ h2 {
   border-bottom: 1px solid #1b1b1b;
 }
 
+/* Contact list */
+
+.filters {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 180px 200px ;
+}
+
 .contacts-list > li + li {
   border-top: 1px solid #cbcbcb;
 }
@@ -108,6 +116,16 @@ h2 {
 }
 
 /* VIEW SECTION */
+
+.imgType {
+  max-width: 30px;
+}
+
+.grid-two {
+  display: grid;
+  grid-template-columns: 30px auto;
+  align-items: center;
+}
 
 .view-section {
   padding: 2rem 0;
@@ -150,4 +168,57 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+/* Links */
+.link {
+  margin-right: 10px;
+}
+
+/* Loader */
+.loader {
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3f3f3f;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+  margin-left: 20%;
+  margin-right: 80%;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Meetings */
+.date-form {
+  max-width: 400px;
+  margin-bottom: 3rem;
+}
+
+.date {
+  padding: 10px;
+  padding-left: 0;
+}
+
+.mg-l {
+  margin-left: 1rem;
+}
+
+.submit-date {
+  display:flex;
+  float: right;
+}
+
+
+/* Radio buttons in add component */
+.radiobuttons {
+  display: grid;
+  grid-template-columns: 100px 100px;
+}
+
+.radiobuttons label {
+  font-weight: 400;
 }

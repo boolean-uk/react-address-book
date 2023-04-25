@@ -1,42 +1,38 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom";
 
-const initialContact = {
-  firstName: '',
-  lastName: '',
-  street: '',
-  city: '',
-  email: '',
-  linkedin: '',
-  tweeter: '',
-  type: ''
-}
+function ContactsEdit(props) {
 
-function ContactsAdd(props) {
+  const { setContacts, contacts, editContact } = props
+
   const navigate = useNavigate()
-  const [contact, setContact] = useState(initialContact)
+  const [contact, setContact] = useState(editContact)
 
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
-  const { setContacts, contacts } = props
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (contact.firstName !== '') {
-      const res = await fetch("http://localhost:3030/contacts", {
-        method: 'POST',
+    const res = await fetch(`http://localhost:3030/contacts/${contact.id}`, {
+        method: 'PATCH',
         headers: {
-          'Content-Type': 'application/json'
+            'Content-Type': 'application/json'
         },
         body: JSON.stringify(contact)
-      })
+    })
 
-      const data = await res.json()
+    const data = await res.json()
 
-      setContacts([...contacts, data])
-      navigate('/')
-    }
+    const editedContacts = contacts.map(item => {
+        if (item.id === data.id) {
+            item = data
+        }
+        return item
+    })
+    setContacts(editedContacts)
+    navigate('/')
   }
 
   const handleChange = (e) => {
@@ -70,26 +66,25 @@ function ContactsAdd(props) {
       <label htmlFor="tweeter">Tweeter:</label>
       <input id="tweeter" name="tweeter" type="text" onChange={handleChange} value={contact.tweeter} />
 
-
       <p><b>Choose what type of contact this should be: </b></p>
       <div className="radiobuttons">
         <div>
           <label htmlFor="work">Work: </label>
-          <input type="radio" id="work" name="type" onChange={handleChange} value='Work'></input>
+          <input type="radio" id="work" name="contact-type" value={contact.type}></input>
         </div>
         <div>
           <label htmlFor="personal">Personal: </label>
-          <input type="radio" id="personal" name="type" onChange={handleChange} value='Personal'></input>
+          <input type="radio" id="personal" name="contact-type" value={contact.type}></input>
         </div>
       </div>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Save changes
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default ContactsEdit
