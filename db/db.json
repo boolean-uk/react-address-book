@@ -1,18 +1,24 @@
 {
   "contacts": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Carmack",
-      "street": "10 Keen Street",
-      "city": "London"
+      "firstName": "K",
+      "lastName": "Bruggeman",
+      "street": "Rozenweg",
+      "city": "Lochem",
+      "email": "kevin-brug@outlook.com",
+      "linkedIn": "",
+      "twitter": "",
+      "id": 2
     },
     {
-      "id": 2,
-      "firstName": "Grace",
-      "lastName": "Hopper",
-      "street": "32 Deebug Road",
-      "city": "London"
+      "firstName": "Anthea",
+      "lastName": "Bronwasser",
+      "street": "Brouwersgracht 15-3",
+      "city": "Amsterdam",
+      "email": "atgaudy@gmail.com",
+      "linkedIn": "rmb",
+      "twitter": "123",
+      "id": 3
     }
   ]
 }
