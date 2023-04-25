@@ -61,12 +61,9 @@ function ContactsDelete(props) {
       <div className="delete">
         <h3>You want to delete this contact?</h3>
         <button onClick={deleteContact}>Yes</button>
-        <button>
-          {" "}
-          <Link to={"/"} className="noDelete">
-            No
-          </Link>
-        </button>
+        <a href="/" className="noDelete">
+          <button>No</button>
+        </a>
       </div>
     </div>
   );
