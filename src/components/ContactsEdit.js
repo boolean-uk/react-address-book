@@ -2,18 +2,12 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-function ContactsEdit ({contacts, setContacts}) {
-
+export default function ContactsEdit ({contacts, setContacts}) {
     const navigate = useNavigate()
     const params = useParams()
-    const [contact, setContact] = useState({})
 
-    //GET contact based on the id taken from the url
-    useEffect(function() {
-        fetch(`http://localhost:4000/contacts/${params.id}`)
-          .then(res => res.json())
-          .then(data => setContact(data))
-      }, [])
+    const filteredContact = contacts.find(item => params.id == item.id)
+    const [contact, setContact] = useState(filteredContact)
 
     const handleChange = (e) => {
         setContact({...contact, [e.target.name]: e.target.value})
@@ -21,8 +15,8 @@ function ContactsEdit ({contacts, setContacts}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-            const res = await fetch(`http://localhost:4000/contacts/edit/${params.id}`, {
-                method: 'PUT',
+            const res = await fetch(`http://localhost:4000/contacts/${params.id}`, {
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -32,6 +26,7 @@ function ContactsEdit ({contacts, setContacts}) {
         setContact(data)
         setContacts(...contacts, contact)
         navigate('/')
+        window.location.reload()
     }
 
 
@@ -68,5 +63,3 @@ function ContactsEdit ({contacts, setContacts}) {
     </form>
     )
 }
-
-export default ContactsEdit

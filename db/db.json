@@ -1,11 +1,12 @@
 {
   "contacts": [
     {
-      "firstName": "Sebastian",
+      "firstName": "Seb",
       "lastName": "Andrisan",
       "street": "Kykladon 450",
-      "city": "Attiki",
-      "id": 6
+      "city": "Crete",
+      "id": 6,
+      "linkedin": "andrisanseb23"
     },
     {
       "firstName": "Alexander",
