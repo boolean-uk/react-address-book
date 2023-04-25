@@ -1,0 +1,17 @@
+  
+//   const handleSubmit = async (e) => {
+//     e.preventDefault()
+
+//     const options = {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify(formData)
+//     }
+    
+//     const res = await fetch('http://localhost:4000/contacts', options)
+//     const data = await res.json()
+//     setContacts([...contacts, data])
+//     navigate('/')
+//   }
