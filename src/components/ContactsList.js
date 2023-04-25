@@ -1,5 +1,6 @@
 import { useState,  } from "react"
 import { Link, useSearchParams, useParams } from "react-router-dom"
+import Spinner from "./Spinner"
 
 function ContactsList({contacts, setContacts}) {
 
@@ -20,6 +21,11 @@ function ContactsList({contacts, setContacts}) {
     // console.log(data)
 
   } 
+
+  if (!contacts) {
+    return <Spinner/>
+  }
+
   return (
     <>
       <header>
@@ -39,7 +45,7 @@ function ContactsList({contacts, setContacts}) {
                 </Link>&nbsp;
                 <Link to={`/contacts/${contact.id}/edit`} >
                   Edit
-                </Link>
+                </Link>&nbsp;
                 <button onClick={() => onDelete(contact.id)}>Delete</button>
               </p>
             </li>
