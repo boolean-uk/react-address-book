@@ -1,12 +1,37 @@
 import { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, useNavigate, Link } from "react-router-dom"
 
-function ContactsView() {
-  const [contact, setContact] = useState(false)
+function ContactsView({contacts, setContacts}) {
+  const navigate = useNavigate()
+  const [contact, setContact] = useState({
+    firstName: '',
+    lastName: '',
+    street: '',
+    city:'',
+    email: '',
+    linkedIn: '',
+    twitter: ''
+  })
 
-  //TODO: Get the contact to load from the params and fetch.
-  //With useEffect, load the contact when params changes
-  //and update contact state
+  const params = useParams()
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/contacts/${params.id}`)
+    .then(res => res.json())
+    .then(data => setContact(data))
+  }, [])
+
+  const handleDelete = async () => {
+    await fetch(`http://localhost:4000/contacts/${params.id}`, {
+      method: 'DELETE'
+    })
+    
+    await fetch('http://localhost:4000/contacts')
+      .then(res => res.json())
+      .then(data => setContacts(data))
+    
+    navigate('/')
+  }
 
   if (!contact) {
     return <p>Loading</p>
@@ -15,7 +40,22 @@ function ContactsView() {
   return (
     <div>
       <h2>{contact.firstName} {contact.lastName}</h2>
-      <p>{contact.street} {contact.city}</p>
+      <p>Street: {contact.street}</p>
+      <p>City: {contact.city}</p>
+      <p>Email: {contact.email}</p>
+      <p>LinkedIn: {contact.linkedIn}</p>
+      <p>Twitter: {contact.twitter}</p>
+      <button onClick={handleDelete}>Delete</button>
+      <Link to={'/'}>
+        <button>
+          Go Back
+        </button>
+      </Link>
+      <Link to={`/contacts/${params.id}/meetings`}>
+        <button>
+          View Meettings
+        </button>
+      </Link>
     </div>
   )
 }

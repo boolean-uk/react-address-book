@@ -13,6 +13,60 @@
       "lastName": "Hopper",
       "street": "32 Deebug Road",
       "city": "London"
+    },
+    {
+      "firstName": "Σταύρος",
+      "lastName": "Σπηλιόπουλος",
+      "street": "Μίλωνος",
+      "city": "ΑΘΗΝΑ",
+      "email": "stavros_1996@windowslive.com",
+      "linkedIn": "linkedin_stavros",
+      "twitter": "stavros",
+      "id": 3
+    }
+  ],
+  "meetings": [
+    {
+      "date": "26-april-2023",
+      "time": "20:00",
+      "location": "Athens",
+      "contactId": "3",
+      "id": 2
+    },
+    {
+      "date": "1-May-2023",
+      "time": "10:00",
+      "location": "Ermou",
+      "contactId": "3",
+      "id": 3
+    },
+    {
+      "date": "27-April-2023",
+      "time": "19:00",
+      "location": "Turkey",
+      "contactId": "2",
+      "id": 4
+    },
+    {
+      "date": "28-April-2023",
+      "time": "20:22",
+      "location": "Dubai",
+      "contactId": "2",
+      "id": 5
+    },
+    {
+      "date": "29-April-2023",
+      "time": "9:00",
+      "location": "Australia",
+      "contactId": "2",
+      "id": 6
+    },
+    {
+      "date": "26-april-2023",
+      "time": "20:00",
+      "location": "Athens",
+      "contactId": "1",
+      "id": 7
     }
   ]
 }
