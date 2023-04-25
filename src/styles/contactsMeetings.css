@@ -1,0 +1,14 @@
+#meetingForm {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    align-items:  center;
+    grid-gap: 10px 40px;
+}
+
+#meetingForm button {
+    justify-self: right;
+}
+
+#meetingForm input {
+    justify-self: left;
+}

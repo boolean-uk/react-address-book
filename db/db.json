@@ -20,5 +20,28 @@
       "linkedIn": "",
       "twitter": ""
     }
+  ],
+  "meetings": [
+    {
+      "contactId": "2",
+      "date": "0011-11-11",
+      "time": "11:11",
+      "location": "11",
+      "id": 1
+    },
+    {
+      "contactId": "1",
+      "date": "1111-11-11",
+      "time": "11:11",
+      "location": "11111",
+      "id": 2
+    },
+    {
+      "contactId": "2",
+      "date": "2222-02-22",
+      "time": "22:22",
+      "location": "2222",
+      "id": 7
+    }
   ]
 }

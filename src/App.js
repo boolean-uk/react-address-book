@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react"
 import { Link, Route, Routes } from "react-router-dom"
+
+import "./styles/styles.css"
+
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
 import ContactsEdit from "./components/ContactsEdit"
-import "./styles/styles.css"
+import ContactsMeetings from "./components/ContactsMeetings"
+
 
 export default function App() {
   const [contacts, setContacts] = useState(false)
@@ -80,6 +84,11 @@ export default function App() {
           <Route 
             path='/contacts/edit/:id' 
             element={<ContactsEdit />} 
+          />
+
+          <Route
+            path='/contacts/:id/meetings'
+            element={<ContactsMeetings />}
           />
         </Routes>
       </main>

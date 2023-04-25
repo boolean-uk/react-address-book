@@ -40,6 +40,9 @@ function ContactsList({contacts, removeContact}) {
                 <button onClick={() => removeContact(contact.id)}>
                   Delete
                 </button>
+                <Link to={`contacts/${contact.id}/meetings`}>
+                  Meetings
+                </Link>
               </p>
             </li>
           )
