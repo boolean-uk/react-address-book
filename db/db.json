@@ -8,7 +8,8 @@
       "city": "London",
       "email": "email@hotmail.com",
       "linkedin": "linkedin.in",
-      "twitter": "twitter"
+      "twitter": "twitter",
+      "type": "Work"
     },
     {
       "firstName": "Max",
@@ -18,6 +19,7 @@
       "email": "asdf",
       "linkedin": "https://www.linkedin.com/in/max-de-ruiter-2a8871181/",
       "twitter": "adsf",
+      "type": "Personal",
       "id": 4
     }
   ],

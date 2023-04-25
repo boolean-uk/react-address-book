@@ -9,21 +9,21 @@ const initialState = {
 
 function ContactsMeeting() {
   const [contact, setContact] = useState(false);
-  const [meetings, setMeetings] = useState({});
+  const [meetings, setMeetings] = useState([]);
   const [formData, setFormData] = useState(initialState);
 
   const params = useParams();
 
   useEffect(function () {
-    fetch(`http://localhost:3030/contacts/${params.id}/meetings`)
-      .then((res) => res.json())
-      .then((data) => setMeetings(data));
-  }, []);
-
-  useEffect(function () {
     fetch(`http://localhost:3030/contacts/${params.id}`)
       .then((res) => res.json())
       .then((data) => setContact(data));
+  }, []);
+
+  useEffect(function () {
+    fetch(`http://localhost:3030/contacts/${params.id}/meetings`)
+      .then((res) => res.json())
+      .then((data) => setMeetings(data));
   }, []);
 
   const handleSubmit = async (e) => {
