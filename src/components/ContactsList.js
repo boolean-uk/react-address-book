@@ -15,7 +15,6 @@ function ContactsList(props) {
     setContacts(contacts.filter(entry => entry.id !== id))
   }
 
-
   return (
     <>
       <header>
@@ -28,10 +27,10 @@ function ContactsList(props) {
       radius = "9"
       color = 'green'
       ariaLabel = 'three-dots-loading'
-      wrapperStyle
-      wrapperClass
       /> : (
       <ul className="contacts-list">
+        <input type="checkbox"></input>
+        <input type="checkbox"></input>
         {(contacts.length === 0)&& <p>You have no contacts yet! Add your <Link to='/contacts/add'>first contact</Link></p>}
         {contacts.map((contact, index) => {
           const { firstName, lastName, type } = contact

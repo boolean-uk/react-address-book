@@ -20,7 +20,7 @@ export default function App() {
       .then(res => res.json())
       .then(data => setContacts(data))
       setIsLoading(false)
-  }, [contacts])
+  }, [])
 
   useEffect(() => {
     setIsLoading(true)
@@ -28,7 +28,7 @@ export default function App() {
       .then(res => res.json())
       .then(data => setMeetings(data))
       setIsLoading(false)
-  }, [meetings])
+  }, [])
 
   return (
     <>
