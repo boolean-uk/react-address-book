@@ -28,6 +28,34 @@
       "time": "",
       "location": "",
       "userId": 1
+    },
+    {
+      "date": "2023-04-05",
+      "time": "15:59",
+      "location": "Office",
+      "userId": 2,
+      "id": 3
+    },
+    {
+      "date": "2023-04-14",
+      "time": "14:02",
+      "location": "Boolean",
+      "userId": 0,
+      "id": 5
+    },
+    {
+      "date": "2023-04-07",
+      "time": "15:02",
+      "location": "Boolean",
+      "userId": 2,
+      "id": 6
+    },
+    {
+      "date": "2023-04-04",
+      "time": "13:23",
+      "location": "Park",
+      "userId": 1,
+      "id": 8
     }
   ]
 }

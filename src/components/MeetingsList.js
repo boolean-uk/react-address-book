@@ -16,16 +16,17 @@ const MeetingsList = (props) => {
       const { contact } = location.state;
       setContact(contact);
     }
-  }, [location]);
+  }, []);
 
 
   const userId = contact.id
+  const userName = contact.firstName
   // Set userId of meeting to contact.id and pass to Meeting component
 
   return(
     <>
-    <h2>Meetings</h2>
-    <Meetings userId={userId}/>
+    <h2>Meetings for {userName}</h2>
+    <Meetings userId={userId} meetings={meetings} setMeetings={setMeetings}/>
     <Link to={`/contacts/${userId}/meetings/add`} state={userId}>Add a meeting</Link>
     {/* <Meetings userId = {contact.id}/> */}
     {/* http://localhost:4000/meetings?userId={contact.id} */}

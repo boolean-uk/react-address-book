@@ -20,7 +20,7 @@ export default function App() {
       .then(res => res.json())
       .then(data => setContacts(data))
       setIsLoading(false)
-  }, [])
+  }, [contacts])
 
   useEffect(() => {
     setIsLoading(true)
@@ -28,7 +28,7 @@ export default function App() {
       .then(res => res.json())
       .then(data => setMeetings(data))
       setIsLoading(false)
-  }, [])
+  }, [meetings])
 
   return (
     <>
@@ -48,7 +48,7 @@ export default function App() {
           <Route path='/contacts/add' element={<ContactsAdd setContacts={setContacts} contacts={contacts}/>} />
           <Route path='/contacts/edit/:id' element={<ContactsEdit setContacts={setContacts} contacts={contacts}/>} />
           <Route path='/contacts/:id/meetings' element={<MeetingsList meetings={meetings} setMeetings={setMeetings}/>} />
-          <Route path='/contacts/:id/meetings/add' element={<MeetingsAdd />} />
+          <Route path='/contacts/:id/meetings/add' element={<MeetingsAdd meetings={meetings} setMeetings={setMeetings}/>} />
         </Routes>
       </main>
     </>
