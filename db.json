@@ -1,0 +1,46 @@
+{
+  "contacts": [
+    {
+      "id": 1,
+      "firstName": "Kitti",
+      "lastName": "Horvath",
+      "street": "Londonstreet 8",
+      "city": "New York",
+      "contactType": "work",
+      "email": "kitti@email.com",
+      "linkedin": "parapa",
+      "twitter": ""
+    },
+    {
+      "id": 2,
+      "firstName": "Steve",
+      "lastName": "Gambell",
+      "street": "2nd street",
+      "city": "Chicago",
+      "contactType": "work",
+      "email": "steve@mail.com",
+      "linkedin": "steve",
+      "twitter": "@steve"
+    },
+    {
+      "contactType": "personal",
+      "firstName": "Stacy",
+      "lastName": "Drew",
+      "street": "Dreamlane 14",
+      "city": "Milano",
+      "email": "stacy@mail.com",
+      "linkedin": "stacy",
+      "twitter": "@stacy",
+      "id": 3
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2023-04-05",
+      "time": "10:36",
+      "location": "Holargos",
+      "contactId": "1",
+      "id": 1
+    }
+  ]
+}
