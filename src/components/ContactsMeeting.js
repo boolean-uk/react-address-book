@@ -19,16 +19,19 @@ function ContactsMeeting () {
 
     }, [])
 
-
+   
+    
+    
+  
 return(
     <>
     {
+             
               <ul className="contacts-list">
-              {contactMeetings.map((meeting, index) => {
-               
-
+              {
+              
+              contactMeetings.map((meeting, index) => {
                 
-
             
                 return (
                   <li className="contact" key={index}>

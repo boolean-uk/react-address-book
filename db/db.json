@@ -2,7 +2,7 @@
   "contacts": [
     {
       "firstName": "thanasis",
-      "lastName": "la",
+      "lastName": "trelos",
       "street": "test",
       "city": "Λάρισα",
       "email": "thanasis1997abc@gmail.com",
@@ -12,34 +12,57 @@
       "meetings": [
         {
           "id": 1,
-          "date": "10-01-2024",
-          "time": "21:00"
+          "date": "10-02-2024",
+          "time": "21:00",
+          "location": "lala"
         },
         {
           "id": 2,
           "date": "10-01-2024",
-          "time": "21:00"
+          "time": "21:00",
+          "location": "zoom"
         }
       ]
     },
     {
       "firstName": "Θανάσης",
-      "lastName": "test",
-      "street": "test",
+      "lastName": "e",
+      "street": "re",
       "city": "test",
-      "email": "thana7abc@gmail.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 2
-    },
-    {
-      "firstName": "thanasis",
-      "lastName": "andritsios32",
-      "street": "Φλαανη",
-      "city": "Λάρισα",
       "email": "thanasis1997abc@gmail.com",
       "linkedin": "",
       "twitter": "",
+      "meetings": [
+        {
+          "id": 1,
+          "date": "10-01-2024",
+          "time": "21:00",
+          "location": "larisa"
+        },
+        {
+          "id": 2,
+          "date": "10-01-2024",
+          "time": "21:00",
+          "location": "test"
+        }
+      ],
+      "id": 2
+    },
+    {
+      "firstName": "Θανάσης",
+      "lastName": "reererere",
+      "street": "rerere",
+      "city": "rererere",
+      "email": "thana7abc@gmail.com",
+      "linkedin": "",
+      "twitter": "",
+      "meetings": [
+        {
+          "date": "",
+          "time": "",
+          "location": ""
+        }
+      ],
       "id": 3
     }
   ]

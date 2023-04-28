@@ -14,7 +14,15 @@ function ContactsAdd({ setContacts, contacts }) {
     city: "",
     email: "",
     linkedin: "",
-    twitter: ""
+    twitter: "",
+    meetings: [
+      {
+      
+        date: "",
+        time: "",
+        location: ""
+      }
+    ]
   })
   //TODO: Implement controlled form
   //send POST to json server on form submit
