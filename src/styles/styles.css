@@ -6,6 +6,18 @@
 *::after {
   box-sizing: border-box;
 }
+a{
+  text-decoration: none;
+  color: red;
+}
+a:hover{
+  color: orange;
+  transition: .2s ease-in-out;
+}
+
+.edit-view > a{
+  margin: 10px;
+}
 
 /* Remove default padding */
 ul[class],
@@ -150,4 +162,14 @@ h2 {
 
 .address-card h2 {
   font-size: 1.15rem;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+li>span{
+  color: rgb(211, 106, 37);
 }

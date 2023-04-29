@@ -1,29 +1,26 @@
 import { useState } from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-function ContactsAdd({ setContacts, contacts }) {
+
+function ContactsUpdate({ setContacts, contacts }) {
   const navigate = useNavigate()
+  const params = useParams()
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
 
   const [contact , setContact] = useState({
-    firstName: "",
-    lastName: "",
-    street: "",
-    city: "",
-    email: "",
-    linkedin: "",
-    twitter: "",
-    meetings: [
-      {
-      
-        date: "",
-        time: "",
-        location: ""
-      }
-    ]
+    firstName: contacts[params.id -1 ].firstName,
+    lastName: contacts[params.id-1].lastName,
+    street: contacts[params.id-1].street,
+    city: contacts[params.id-1].city,
+    email: contacts[params.id-1].email,
+    linkedin: contacts[params.id-1].linkedin,
+    twitter: contacts[params.id-1].twitter
   })
+// console.log(params.id);
+
+//   console.log(contacts);
   //TODO: Implement controlled form
   //send POST to json server on form submit
   // updates and handles the new conctact set when we type
@@ -35,19 +32,27 @@ function ContactsAdd({ setContacts, contacts }) {
 
   // creating the addContact func that executes onSybmit
   // it makes a post req nad creates new contact with the contact that is typed
-  const addContact = async(e) =>{
+  const updateContact = async(e) =>{
     e.preventDefault()
-    const add = await fetch("http://localhost:4000/contacts", {
-      method: 'POST',
+    const update = await fetch(`http://localhost:4000/contacts/${params.id}`, {
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(contact)
     })
 
-    const data = await add.json()
+    const updateContact = await update.json()
+    // console.log(updateContact);
+    const updatedContacts = contacts.map(contact => {
+        if (contact.id == params.id) {
+          return updateContact
+        }
+        
+        return contact
+      })
+      setContacts(updatedContacts)
 
-    setContacts([...contacts, data])
     navigate("/")
 
 
@@ -55,7 +60,7 @@ function ContactsAdd({ setContacts, contacts }) {
   }
 
   return (
-    <form className="form-stack contact-form" onSubmit={addContact}>
+    <form className="form-stack contact-form" onSubmit={updateContact}>
       {/* {console.log(contact)} */}
       <h2>Create Contact</h2>
 
@@ -84,11 +89,11 @@ function ContactsAdd({ setContacts, contacts }) {
 
       <div className="actions-section">
         <button className="button blue" type="submit">
-          Create
+          Update
         </button>
       </div>
     </form>
   )
 }
 
-export default ContactsAdd
+export default ContactsUpdate

@@ -3,26 +3,58 @@ import { Link, Route, Routes } from "react-router-dom"
 import ContactsList from "./components/ContactsList"
 import ContactsAdd from "./components/ContactsAdd"
 import ContactsView from "./components/ContactsView"
+import ContactsMeeting from "./components/ContactsMeeting"
 import "./styles/styles.css"
+import ContactsUpdate from "./components/ContactsUpdate"
+
 
 export default function App() {
   const [contacts, setContacts] = useState([])
-  
+  const [isLoading, setisLoading] = useState(false)
+
+  useEffect(function () {
+    setisLoading(true)
+      // get req to get the data from our local api
+      fetch("http://localhost:4000/contacts")
+    .then(res => res.json())
+    .then(data => {setContacts(data)
+          setisLoading(false)
+    })
+
+    
+  }, [])
+  // console.log(contacts);
   //TODO: Load all contacts on useEffect when component first renders
 
+
+
+      
   return (
     <>
       <nav>
         <h2>Menu</h2>
         <ul>
-          {/* TODO: Make these links */}
-          <li>Contacts List</li>
-          <li>Add New Contact</li>
+          
+          <li><Link to={'/'}>
+            Contacts List
+          </Link>
+          </li>
+          <li>
+            <Link to={"contacts/add"}>
+            Add New Contact
+
+            </Link>
+            </li>
         </ul>
       </nav>
       <main>
+        {/* routing to different urls and specify which component will render  */}
         <Routes>
-          {/* TODO: Add routes here  */}
+          <Route path="/" element={<ContactsList contacts={contacts} setContacts={setContacts} isLoading={isLoading}/>} />
+          <Route path="/contacts/:id" element={<ContactsView />} />
+          <Route path="contacts/add" element={<ContactsAdd contacts={contacts} setContacts={setContacts}/>}/>
+          <Route path="contacts/update/:id" element={<ContactsUpdate contacts={contacts} setContacts={setContacts}/>}/>
+          <Route path="contacts/:id/meetings" element={<ContactsMeeting/>} />
         </Routes>
       </main>
     </>
