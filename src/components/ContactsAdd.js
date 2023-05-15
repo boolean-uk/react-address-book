@@ -26,7 +26,7 @@ const handleSubmit = (e) => {
     twitter
   }
   console.log(newContact)
-// clean up state
+// clean up states
   setCity('')
   setEmail('')
   setFirstName('')
