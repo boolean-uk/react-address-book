@@ -151,3 +151,16 @@ h2 {
 .address-card h2 {
   font-size: 1.15rem;
 }
+
+
+.img-link {
+  height: 15px;
+  display: inline;
+}
+
+button {
+  width: 50px;
+  font-size: 12px;
+  background-color: rgba(241, 185, 251, 0.3);
+  border-radius: 5px;
+}

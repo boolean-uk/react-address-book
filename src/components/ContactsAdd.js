@@ -6,13 +6,8 @@ function ContactsAdd(props) {
   // setContacts and contacts must be passed as props
   // to this component so new contacts can be added to the
   // state
-  const { setContacts, contacts } = props
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [street, setStreet] = useState('')
-  const [city, setCity] = useState('')
-  
-  
+  const { setContacts, contacts, firstName, setFirstName, lastName, setLastName, street, setStreet, city, setCity, email, setEmail, linkedin, setLinkedin, twitter, setTwitter } = props
+
   const navigate = useNavigate()
   
   //TODO: Implement controlled form
@@ -20,16 +15,25 @@ function ContactsAdd(props) {
 
 const handleSubmit = (e) => {
   e.preventDefault()
-  console.log( {firstName, lastName, street, city})
+  console.log( {firstName, lastName, street, city, email, linkedin, twitter})
   const newContact = {
     firstName, 
     lastName, 
     street, 
     city,
-    id: Math.random()
+    email,
+    linkedin,
+    twitter
   }
   console.log(newContact)
-
+// clean up state
+  setCity('')
+  setEmail('')
+  setFirstName('')
+  setLastName('')
+  setStreet('')
+  setLinkedin('')
+  setTwitter('')
   
   const opts = {
     method: "POST",
@@ -74,7 +78,23 @@ const changeCity = (e) => {
   setCity(city)
 }
 
+const changeEmail = (e) => {
+ console.log(e.target.value);
+  let email = e.target.value
+  setEmail(email)
+}
 
+const changeLinkedin = (e) => {
+  console.log(e.target.value);
+  let linkedin = e.target.value
+  setLinkedin(linkedin)
+}
+
+const changeTwitter = (e) => {
+  console.log(e.target.value);
+  let twitter = e.target.value
+  setTwitter(twitter)
+}
 
   return (
     <form className="form-stack contact-form" onSubmit={handleSubmit}>
@@ -91,6 +111,15 @@ const changeCity = (e) => {
 
       <label htmlFor="city">City:</label>
       <input id="city" name="city" type="text" required value={city} onChange={changeCity}/>
+
+      <label htmlFor="city">Email:</label>
+      <input id="email" name="email" type="email" required value={email} onChange={changeEmail}/>
+
+      <label htmlFor="linkedin">Linkedin url:</label>
+      <input id="linkedin" name="linkedin" type="url" value={linkedin} onChange={changeLinkedin}/>
+
+      <label htmlFor="twitter">Twitter url:</label>
+      <input id="twitter" name="twitter" type="url" value={twitter} onChange={changeTwitter}/>
 
       <div className="actions-section">
         <button className="button blue" type="submit">
