@@ -21,6 +21,7 @@ function ContactsEdit({ setContacts, contacts }) {
     fetch(`http://localhost:4000/contacts/${params.id}`)
       .then((response) => response.json())
       .then((data) => {
+
         setFirstName(data.firstName);
         setLastName(data.lastName);
         setStreet(data.street);
@@ -60,7 +61,9 @@ function ContactsEdit({ setContacts, contacts }) {
       .then(() => {
         fetch("http://localhost:4000/contacts")
           .then((response) => response.json())
-          .then((data) => setContacts(data));
+          .then((data) => {
+            navigate(`/`);
+            setContacts(data)});
         navigate("/contacts");
       });
   };

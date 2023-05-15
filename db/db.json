@@ -1,66 +1,6 @@
 {
   "contacts": [
     {
-      "firstName": "Carolina",
-      "lastName": "Arruda",
-      "street": "Long street",
-      "city": "London",
-      "email": "my@you.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 1
-    },
-    {
-      "firstName": "Edward",
-      "lastName": "Mint",
-      "street": "Long street",
-      "city": "Goteborg",
-      "email": "my@you.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 2
-    },
-    {
-      "firstName": "Edward",
-      "lastName": "Mint",
-      "street": "Long street",
-      "city": "Goteborg",
-      "email": "my@you.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 3
-    },
-    {
-      "firstName": "Edward",
-      "lastName": "Mint",
-      "street": "Long street",
-      "city": "Goteborg",
-      "email": "my@you.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 4
-    },
-    {
-      "firstName": "assa",
-      "lastName": "Rocha",
-      "street": "Rua das",
-      "city": "Goteborg",
-      "email": "my@you.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 5
-    },
-    {
-      "firstName": "Carolina",
-      "lastName": "Arruda",
-      "street": "Rua das",
-      "city": "London",
-      "email": "carol@myemail.com",
-      "linkedin": "",
-      "twitter": "",
-      "id": 6
-    },
-    {
       "firstName": "Edward",
       "lastName": "Mint",
       "street": "Rua das",
@@ -79,6 +19,16 @@
       "linkedin": "",
       "twitter": "",
       "id": 8
+    },
+    {
+      "firstName": "Tiago",
+      "lastName": "Rocha",
+      "street": "Smaragatan",
+      "city": "Goteborg",
+      "email": "toiago2@hotmail.com",
+      "linkedin": "https://www.linkedin.com/in/carolinacalouroarruda/",
+      "twitter": "",
+      "id": 9
     }
   ]
 }
