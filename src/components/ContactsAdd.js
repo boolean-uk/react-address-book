@@ -27,13 +27,8 @@ const handleSubmit = (e) => {
   }
   console.log(newContact)
 // clean up states
-  setCity('')
-  setEmail('')
-  setFirstName('')
-  setLastName('')
-  setStreet('')
-  setLinkedin('')
-  setTwitter('')
+
+
   
   const opts = {
     method: "POST",
@@ -42,17 +37,26 @@ const handleSubmit = (e) => {
     },
     body: JSON.stringify(newContact)
   }
-
+ 
 
   fetch('http://localhost:4000/contacts', opts)
   .then(response => response.json())
   .then(() => {
     setContacts(contacts);
     navigate(`/`);
+    setCity('')
+    setEmail('')
+    setFirstName('')
+    setLastName('')
+    setStreet('')
+    setLinkedin('')
+    setTwitter('')
     fetch('http://localhost:4000/contacts')
     .then((response) => response.json())
     .then((data) => setContacts(data))
   });
+
+
 
 }
 

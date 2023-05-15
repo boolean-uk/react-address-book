@@ -5,13 +5,18 @@ function ContactsList(props) {
   //"contacts" must be passed as prop to this component
   const { contacts, setContacts } = props;
 
-  if (!contacts || contacts.length === 0) {
+  if (!contacts) {
     return (
       <>
         <div className="loader"></div>
       </>
     );
+  }  
+  
+  if(contacts.length === 0 ) {
+    return (<p>There are no contacts to display</p>)
   }
+
 
   useEffect(() => {
     fetch("http://localhost:4000/contacts")

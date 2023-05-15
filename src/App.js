@@ -7,7 +7,7 @@ import "./styles/styles.css";
 import ContactsEdit from "./components/ContactsEdit";
 
 export default function App() {
-  const [contacts, setContacts] = useState([]);
+  const [contacts, setContacts] = useState(null);
   const [firstName, setFirstName] = useState('')
   const [lastName, setLastName] = useState('')
   const [street, setStreet] = useState('')
