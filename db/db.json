@@ -2,17 +2,92 @@
   "contacts": [
     {
       "id": 1,
+      "contactType": "personal",
       "firstName": "John",
       "lastName": "Carmack",
       "street": "10 Keen Street",
-      "city": "London"
+      "city": "London",
+      "email": "qwe",
+      "linkedIn": "123",
+      "twitter": "zxc123"
     },
     {
       "id": 2,
+      "contactType": "work",
       "firstName": "Grace",
       "lastName": "Hopper",
       "street": "32 Deebug Road",
-      "city": "London"
+      "city": "London",
+      "email": "",
+      "linkedIn": "",
+      "twitter": ""
+    },
+    {
+      "contactType": "personal",
+      "firstName": "asd",
+      "lastName": "qwe",
+      "street": "asd",
+      "city": "a",
+      "email": "a",
+      "linkedIn": "a",
+      "twitter": "a",
+      "id": 3
+    },
+    {
+      "contactType": "work",
+      "firstName": "1",
+      "lastName": "2",
+      "street": "3",
+      "city": "1",
+      "email": "1",
+      "linkedIn": "1",
+      "twitter": "1",
+      "id": 4
+    },
+    {
+      "contactType": "personal",
+      "firstName": "1",
+      "lastName": "2",
+      "street": "3",
+      "city": "4",
+      "email": "5",
+      "linkedIn": "612",
+      "twitter": "712",
+      "id": 5
+    },
+    {
+      "contactType": "",
+      "firstName": "1",
+      "lastName": "1",
+      "street": "1",
+      "city": "1",
+      "email": "1",
+      "linkedIn": "1",
+      "twitter": "1",
+      "id": 6
+    }
+  ],
+  "meetings": [
+    {
+      "contactId": "2",
+      "date": "0011-11-11",
+      "time": "11:11",
+      "location": "11",
+      "id": 1
+    },
+    {
+      "contactId": "1",
+      "date": "1111-11-11",
+      "time": "11:11",
+      "location": "11111",
+      "id": 2
+    },
+    {
+      "contactId": "2",
+      "date": "2222-02-22",
+      "time": "22:22",
+      "location": "2222",
+      "id": 7
     }
   ]
 }
