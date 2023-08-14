@@ -12,7 +12,7 @@
     "react-scripts": "5.0.1"
   },
   "devDependencies": {
-    "@babel/runtime": "7.20.13"
+    "@babel/runtime": "7.22.10"
   },
   "scripts": {
     "start": "react-scripts start",
